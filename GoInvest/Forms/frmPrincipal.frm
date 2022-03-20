@@ -1,6 +1,7 @@
 VERSION 5.00
 Object = "{FD2FB1F1-D4FC-11CE-A335-A8D5ECAE5B02}#2.0#0"; "btn32a20.ocx"
 Begin VB.Form frmPrincipal 
+   BorderStyle     =   3  'Fixed Dialog
    Caption         =   "GoInvest"
    ClientHeight    =   8205
    ClientLeft      =   2760
@@ -8,9 +9,13 @@ Begin VB.Form frmPrincipal
    ClientWidth     =   11865
    Icon            =   "frmPrincipal.frx":0000
    LinkTopic       =   "Form1"
+   MaxButton       =   0   'False
+   MinButton       =   0   'False
    Picture         =   "frmPrincipal.frx":680A
    ScaleHeight     =   8205
    ScaleWidth      =   11865
+   ShowInTaskbar   =   0   'False
+   StartUpPosition =   2  'CenterScreen
    Begin VB.Frame Frame 
       BackColor       =   &H00404040&
       Height          =   1215

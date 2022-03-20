@@ -1,6 +1,6 @@
-frmPrincipal = 111, 113, 558, 676, , 0, 0, 0, 0, C
-frmCorretoras = 3565, -10, 4012, 553, Z, 0, 0, 0, 0, C
+frmPrincipal = 3565, 278, 4012, 841, C, 0, 0, 0, 0, C
+frmCorretoras = 889, 448, 1336, 1011, CZ, 0, 0, 0, 0, C
 clsCorretoras = 919, -2, 1366, 561, CZ
 ModBanco = 3520, 138, 4012, 701, I
-ModTipo = 3565, 278, 4012, 841, C
-ModGrid = 2836, 278, 3283, 841, CZ
+ModTipo = 3565, 278, 4012, 841, CZ
+ModGrid = 3565, 278, 4012, 841, C

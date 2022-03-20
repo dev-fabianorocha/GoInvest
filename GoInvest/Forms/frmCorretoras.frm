@@ -2,12 +2,13 @@ VERSION 5.00
 Object = "{F856EC8B-F03C-4515-BDC6-64CBD617566A}#7.0#0"; "FPSPR70.ocx"
 Object = "{FD2FB1F1-D4FC-11CE-A335-A8D5ECAE5B02}#2.0#0"; "btn32a20.ocx"
 Begin VB.Form frmCorretoras 
-   BackColor       =   &H00E0E0E0&
-   BorderStyle     =   1  'Fixed Single
+   Appearance      =   0  'Flat
+   BackColor       =   &H80000005&
+   BorderStyle     =   3  'Fixed Dialog
    Caption         =   "Corretoras"
    ClientHeight    =   8205
-   ClientLeft      =   2745
-   ClientTop       =   2520
+   ClientLeft      =   3315
+   ClientTop       =   1950
    ClientWidth     =   11865
    Icon            =   "frmCorretoras.frx":0000
    LinkTopic       =   "Form1"
@@ -15,6 +16,8 @@ Begin VB.Form frmCorretoras
    MinButton       =   0   'False
    ScaleHeight     =   8205
    ScaleWidth      =   11865
+   ShowInTaskbar   =   0   'False
+   StartUpPosition =   2  'CenterScreen
    Begin VB.Frame quadRodape 
       BackColor       =   &H00FFFFFF&
       BorderStyle     =   0  'None
@@ -22,9 +25,9 @@ Begin VB.Form frmCorretoras
       Height          =   375
       Index           =   1
       Left            =   0
-      TabIndex        =   25
+      TabIndex        =   24
       Top             =   7800
-      Width           =   12015
+      Width           =   11895
       Begin VB.Label lblRodape 
          BackColor       =   &H00FFFFFF&
          BeginProperty Font 
@@ -36,11 +39,11 @@ Begin VB.Form frmCorretoras
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         Height          =   375
+         Height          =   420
          Left            =   0
-         TabIndex        =   26
+         TabIndex        =   25
          Top             =   80
-         Width           =   11775
+         Width           =   11895
       End
    End
    Begin VB.Frame quadBotoes 
@@ -91,80 +94,6 @@ Begin VB.Form frmCorretoras
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdB 
          Height          =   735
-         Index           =   4
-         Left            =   120
-         TabIndex        =   14
-         Top             =   2520
-         Width           =   675
-         _Version        =   131072
-         _ExtentX        =   1191
-         _ExtentY        =   1296
-         Enabled         =   -1  'True
-         MousePointer    =   0
-         Object.TabStop         =   -1  'True
-         GrayAreaColor   =   -2147483627
-         BorderShowDefault=   -1  'True
-         ButtonType      =   0
-         NoPointerFocus  =   0   'False
-         Value           =   0   'False
-         GroupID         =   0
-         GroupSelect     =   0
-         DrawFocusRect   =   2
-         DrawFocusRectCell=   -1
-         GrayAreaPictureStyle=   0
-         Static          =   0   'False
-         BackStyle       =   1
-         AutoSize        =   0
-         AutoSizeOffsetTop=   0
-         AutoSizeOffsetBottom=   0
-         AutoSizeOffsetLeft=   0
-         AutoSizeOffsetRight=   0
-         DropShadowOffsetX=   3
-         DropShadowOffsetY=   3
-         DropShadowType  =   0
-         DropShadowColor =   -2147483627
-         Redraw          =   -1  'True
-         ButtonDesigner  =   "frmCorretoras.frx":7B12
-      End
-      Begin fpBtnAtlLibCtl.fpBtn cmdB 
-         Height          =   735
-         Index           =   5
-         Left            =   120
-         TabIndex        =   15
-         Top             =   3360
-         Width           =   675
-         _Version        =   131072
-         _ExtentX        =   1191
-         _ExtentY        =   1296
-         Enabled         =   -1  'True
-         MousePointer    =   0
-         Object.TabStop         =   -1  'True
-         GrayAreaColor   =   -2147483627
-         BorderShowDefault=   -1  'True
-         ButtonType      =   0
-         NoPointerFocus  =   0   'False
-         Value           =   0   'False
-         GroupID         =   0
-         GroupSelect     =   0
-         DrawFocusRect   =   2
-         DrawFocusRectCell=   -1
-         GrayAreaPictureStyle=   0
-         Static          =   0   'False
-         BackStyle       =   1
-         AutoSize        =   0
-         AutoSizeOffsetTop=   0
-         AutoSizeOffsetBottom=   0
-         AutoSizeOffsetLeft=   0
-         AutoSizeOffsetRight=   0
-         DropShadowOffsetX=   3
-         DropShadowOffsetY=   3
-         DropShadowType  =   0
-         DropShadowColor =   -2147483627
-         Redraw          =   -1  'True
-         ButtonDesigner  =   "frmCorretoras.frx":8E19
-      End
-      Begin fpBtnAtlLibCtl.fpBtn cmdB 
-         Height          =   735
          Index           =   6
          Left            =   120
          TabIndex        =   16
@@ -198,7 +127,7 @@ Begin VB.Form frmCorretoras
          DropShadowType  =   0
          DropShadowColor =   -2147483627
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmCorretoras.frx":A120
+         ButtonDesigner  =   "frmCorretoras.frx":7B12
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdB 
          Height          =   735
@@ -235,7 +164,7 @@ Begin VB.Form frmCorretoras
          DropShadowType  =   0
          DropShadowColor =   -2147483627
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmCorretoras.frx":B427
+         ButtonDesigner  =   "frmCorretoras.frx":8E19
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdB 
          Height          =   735
@@ -272,7 +201,7 @@ Begin VB.Form frmCorretoras
          DropShadowType  =   0
          DropShadowColor =   -2147483627
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmCorretoras.frx":C731
+         ButtonDesigner  =   "frmCorretoras.frx":A123
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdB 
          Height          =   735
@@ -309,25 +238,108 @@ Begin VB.Form frmCorretoras
          DropShadowType  =   0
          DropShadowColor =   0
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmCorretoras.frx":DA39
+         ButtonDesigner  =   "frmCorretoras.frx":B42B
+      End
+      Begin fpBtnAtlLibCtl.fpBtn cmdB 
+         Height          =   735
+         Index           =   4
+         Left            =   120
+         TabIndex        =   14
+         Top             =   2520
+         Width           =   675
+         _Version        =   131072
+         _ExtentX        =   1191
+         _ExtentY        =   1296
+         Enabled         =   -1  'True
+         MousePointer    =   0
+         Object.TabStop         =   -1  'True
+         GrayAreaColor   =   -2147483627
+         BorderShowDefault=   -1  'True
+         ButtonType      =   0
+         NoPointerFocus  =   0   'False
+         Value           =   0   'False
+         GroupID         =   0
+         GroupSelect     =   0
+         DrawFocusRect   =   2
+         DrawFocusRectCell=   -1
+         GrayAreaPictureStyle=   0
+         Static          =   0   'False
+         BackStyle       =   1
+         AutoSize        =   0
+         AutoSizeOffsetTop=   0
+         AutoSizeOffsetBottom=   0
+         AutoSizeOffsetLeft=   0
+         AutoSizeOffsetRight=   0
+         DropShadowOffsetX=   3
+         DropShadowOffsetY=   3
+         DropShadowType  =   0
+         DropShadowColor =   -2147483627
+         Redraw          =   -1  'True
+         ButtonDesigner  =   "frmCorretoras.frx":C733
+      End
+      Begin fpBtnAtlLibCtl.fpBtn cmdB 
+         Height          =   735
+         Index           =   5
+         Left            =   120
+         TabIndex        =   15
+         Top             =   3360
+         Width           =   675
+         _Version        =   131072
+         _ExtentX        =   1191
+         _ExtentY        =   1296
+         Enabled         =   -1  'True
+         MousePointer    =   0
+         Object.TabStop         =   -1  'True
+         GrayAreaColor   =   -2147483627
+         BorderShowDefault=   -1  'True
+         ButtonType      =   0
+         NoPointerFocus  =   0   'False
+         Value           =   0   'False
+         GroupID         =   0
+         GroupSelect     =   0
+         DrawFocusRect   =   2
+         DrawFocusRectCell=   -1
+         GrayAreaPictureStyle=   0
+         Static          =   0   'False
+         BackStyle       =   1
+         AutoSize        =   0
+         AutoSizeOffsetTop=   0
+         AutoSizeOffsetBottom=   0
+         AutoSizeOffsetLeft=   0
+         AutoSizeOffsetRight=   0
+         DropShadowOffsetX=   3
+         DropShadowOffsetY=   3
+         DropShadowType  =   0
+         DropShadowColor =   -2147483627
+         Redraw          =   -1  'True
+         ButtonDesigner  =   "frmCorretoras.frx":DA3A
       End
    End
    Begin VB.Frame quadPesquisa 
       BackColor       =   &H00E0E0E0&
       BorderStyle     =   0  'None
-      Height          =   7560
+      Height          =   7800
       Left            =   0
       TabIndex        =   0
       Top             =   0
-      Width           =   11055
-      Begin VB.Frame quadRodape 
-         BackColor       =   &H80000012&
-         Height          =   50000
-         Index           =   0
-         Left            =   0
-         TabIndex        =   24
-         Top             =   7560
-         Width           =   90000
+      Width           =   10935
+      Begin VB.CheckBox chkInativoPesquisa 
+         BackColor       =   &H00E0E0E0&
+         Caption         =   "&Inativos"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   255
+         Left            =   9720
+         TabIndex        =   26
+         Top             =   720
+         Width           =   1095
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdPesquisa 
          Height          =   495
@@ -413,7 +425,7 @@ Begin VB.Form frmCorretoras
       End
       Begin VB.Label Label 
          BackColor       =   &H00E0E0E0&
-         Caption         =   "Descrição:"
+         Caption         =   "Nome:"
          BeginProperty Font 
             Name            =   "Arial"
             Size            =   9.75
@@ -425,7 +437,7 @@ Begin VB.Form frmCorretoras
          EndProperty
          Height          =   375
          Index           =   4
-         Left            =   280
+         Left            =   260
          TabIndex        =   23
          Top             =   200
          Width           =   1335
@@ -435,7 +447,7 @@ Begin VB.Form frmCorretoras
       BackColor       =   &H00E0E0E0&
       BorderStyle     =   0  'None
       ForeColor       =   &H80000010&
-      Height          =   7695
+      Height          =   7815
       Left            =   0
       TabIndex        =   1
       Top             =   0
@@ -503,12 +515,12 @@ Begin VB.Form frmCorretoras
       End
       Begin VB.CheckBox chkInativo 
          BackColor       =   &H00E0E0E0&
-         Caption         =   "Inativo"
+         Caption         =   "I&nativo"
          BeginProperty Font 
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   0
-            Weight          =   400
+            Weight          =   700
             Underline       =   0   'False
             Italic          =   0   'False
             Strikethrough   =   0   'False
@@ -517,7 +529,7 @@ Begin VB.Form frmCorretoras
          Left            =   6360
          TabIndex        =   6
          Top             =   760
-         Width           =   855
+         Width           =   1095
       End
       Begin VB.TextBox txtNome 
          BeginProperty Font 
@@ -616,6 +628,17 @@ Dim sSql As String
 sSql = "SELECT COR_CODIGO AS CODIGO, COR_NOME AS NOME, COR_CADASTRO AS CADASTRO, COR_ATUALIZACAO AS ATUALIZACAO, CASE WHEN COR_INATIVO = 0 THEN 'ATIVO'" _
     & "WHEN COR_INATIVO = 1 THEN 'INATIVO' END AS STATUS FROM CORRETORAS WHERE 1 = 1"
 
+If chkInativoPesquisa Then
+    sSql = sSql & " AND COR_INATIVO = 1"
+Else
+    sSql = sSql & " AND COR_INATIVO = 0"
+End If
+
+If txtPesquisa.Text <> "" Then
+    sSql = sSql & " AND COR_NOME LIKE '" & Trim(txtPesquisa.Text) & "%'"
+End If
+
+LimparGrid gridPrincipal
 PopularGrid gridPrincipal, sSql
 
 Exit Sub
@@ -633,13 +656,15 @@ On Error GoTo Trata
         fAcao = Index
         TrocarTela True
         If Not ReceberDados Then GoTo Trata
+        If fAcao = enumAcao.eExcluir Then cmdB_Click (enumAcao.eConfirmar)
     ElseIf Index = enumAcao.eConfirmar Then
         If fAcao = enumAcao.eIncluir Or fAcao = enumAcao.eAlterar Then
             PassarDados
             TrocarTela False
             LimparTela
-        ElseIf Index = enumAcao.eExcluir Then
-            'Excluir
+        ElseIf fAcao = enumAcao.eExcluir Then
+            If Not fClsCorretoras.Excluir(fCodigo) Then GoTo Trata
+            EncherGrid
             TrocarTela False
             LimparTela
         Else
@@ -725,7 +750,6 @@ If fClsCorretoras.Consultar(fCodigo) Then
     End With
 End If
 
-LimparGrid gridPrincipal
 EncherGrid
 
 PassarDados = True

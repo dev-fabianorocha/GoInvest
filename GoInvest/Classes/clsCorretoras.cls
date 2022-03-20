@@ -90,6 +90,18 @@ Trata:
 MsgBox DescError(Err.Number, Err.Description, sSql), vbCritical, "clsCorretoras.Atualizar"
 End Function
 
-Public Function Excluir() As Boolean
+Public Function Excluir(ParCodigo As Integer) As Boolean
+On Error GoTo Trata
+Dim sSql As String
 
+sSql = "UPDATE CORRETORAS SET COR_INATIVO = '1' WHERE COR_CODIGO = '" & ParCodigo & "'"
+If MsgBox("Deseja excluir?", vbYesNo, "Corretoras") = 6 Then
+    If Not ExecutarSql(sSql) Then GoTo Trata
+End If
+
+Excluir = True
+Exit Function
+Resume
+Trata:
+MsgBox DescError(Err.Number, Err.Description, sSql), vbCritical, "clsCorretoras.Excluir"
 End Function

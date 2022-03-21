@@ -57,7 +57,7 @@ sSql = "SELECT COR_CODIGO, COR_NOME, COR_CADASTRO, COR_ATUALIZACAO, COR_INATIVO 
 If Not Consulta(sSql).EOF Then
     Set sConsulta = Consulta(sSql)
     With sConsulta
-        fNome = !COR_NOME
+        fNome = IIf(Null, "", !COR_NOME)
         fCadastro = !COR_CADASTRO
         fAtualizacao = !COR_ATUALIZACAO
         fInativo = IIf(!COR_INATIVO, 1, 0)
@@ -95,7 +95,7 @@ On Error GoTo Trata
 Dim sSql As String
 
 sSql = "UPDATE CORRETORAS SET COR_INATIVO = '1' WHERE COR_CODIGO = '" & ParCodigo & "'"
-If MsgBox("Deseja excluir?", vbYesNo, "Corretoras") = 6 Then
+If MsgBox("Deseja excluir essa corretora?", vbYesNo, "Corretoras") = 6 Then
     If Not ExecutarSql(sSql) Then GoTo Trata
 End If
 

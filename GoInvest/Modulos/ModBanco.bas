@@ -45,29 +45,29 @@ Trata:
 MsgBox DescError(Err.Number, Err.Description), vbCritical, "ModBanco.Conexao"
 End Function
 
-Public Function ExecutarInsert(ParSql As String) As Boolean
-On Error GoTo Trata
+'Public Function ExecutarInsert(ParSql As String) As Boolean
+'On Error GoTo Trata
 
-Dim ExecutaSql As New ADODB.Command
+'Dim ExecutaSql As New ADODB.Command
 
-Dim sConexao As ADODB.Connection
-Set sConexao = New ADODB.Connection
+'Dim sConexao As ADODB.Connection
+'Set sConexao = New ADODB.Connection
 
-sConexao = Conexao
-sConexao.Open
+'sConexao = Conexao
+'sConexao.Open
 
-With ExecutaSql
-   .ActiveConnection = sConexao
-   .CommandType = adCmdText
-   .CommandText = ParSql
-End With
+'With ExecutaSql
+'   .ActiveConnection = sConexao
+'   .CommandType = adCmdText
+'   .CommandText = ParSql
+'End With
 
-ExecutarInsert = True
-Exit Function
-Resume
-Trata:
-MsgBox DescError(Err.Number, Err.Description, ParSql), vbCritical, "ModBanco.ExecutarInsert"
-End Function
+'ExecutarInsert = True
+'Exit Function
+'Resume
+'Trata:
+'MsgBox DescError(Err.Number, Err.Description, ParSql), vbCritical, "ModBanco.ExecutarInsert"
+'End Function
 
 Public Function ExecutarSql(ParSql As String) As Boolean
 On Error GoTo Trata

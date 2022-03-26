@@ -20,6 +20,7 @@ Form=Forms\frmCorretoras.frm
 Form=Forms\frmUsuarios.frm
 Class=clsCorretoras; Classes\clsCorretoras.cls
 Class=clsUsuarios; Classes\clsUsuarios.cls
+Form=Forms\frmConfig.frm
 Startup="frmLogin"
 HelpFile=""
 ExeName32="GoInvest.exe"

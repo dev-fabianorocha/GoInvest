@@ -6,8 +6,8 @@ Begin VB.Form frmLogin
    BorderStyle     =   3  'Fixed Dialog
    Caption         =   "Login"
    ClientHeight    =   7755
-   ClientLeft      =   6300
-   ClientTop       =   2310
+   ClientLeft      =   2880
+   ClientTop       =   2955
    ClientWidth     =   6570
    Icon            =   "frmLogin.frx":0000
    LinkTopic       =   "Form1"
@@ -17,6 +17,7 @@ Begin VB.Form frmLogin
    ScaleHeight     =   7755
    ScaleWidth      =   6570
    ShowInTaskbar   =   0   'False
+   StartUpPosition =   2  'CenterScreen
    Begin VB.PictureBox Picture 
       BackColor       =   &H80000005&
       BorderStyle     =   0  'None
@@ -309,7 +310,6 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
-
 Private Sub cmdLogin_Click()
     If txtUsuario = "" Or Not VerificarUsuario(, True) Then
         MsgBox "Senha incorreta!!"
@@ -321,6 +321,14 @@ Private Sub cmdLogin_Click()
         Unload Me
     End If
 End Sub
+
+Private Sub Form_Load()
+If Not LerConfig Then
+    MsgBox "O banco de dados não esta configurado!", vbExclamation
+    Unload Me
+End If
+End Sub
+
 Private Sub txtSenha_GotFocus()
     txtUsuario_KeyPress (13)
 End Sub

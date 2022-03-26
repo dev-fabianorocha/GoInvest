@@ -9,13 +9,13 @@ Begin VB.Form frmUsuarios
    ClientHeight    =   8175
    ClientLeft      =   3315
    ClientTop       =   1950
-   ClientWidth     =   11865
+   ClientWidth     =   12360
    Icon            =   "frmUsuarios.frx":0000
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
    ScaleHeight     =   8175
-   ScaleWidth      =   11865
+   ScaleWidth      =   12360
    ShowInTaskbar   =   0   'False
    StartUpPosition =   2  'CenterScreen
    Begin VB.Frame quadBotoes 
@@ -23,7 +23,7 @@ Begin VB.Form frmUsuarios
       BorderStyle     =   0  'None
       ForeColor       =   &H8000000E&
       Height          =   8280
-      Left            =   10920
+      Left            =   11400
       TabIndex        =   15
       Top             =   0
       Width           =   975
@@ -320,7 +320,7 @@ Begin VB.Form frmUsuarios
       Left            =   0
       TabIndex        =   11
       Top             =   0
-      Width           =   10935
+      Width           =   11415
       Begin VB.CheckBox chkInativoPesquisa 
          BackColor       =   &H00E0E0E0&
          Caption         =   "I&nativos"
@@ -449,7 +449,7 @@ Begin VB.Form frmUsuarios
       Left            =   0
       TabIndex        =   12
       Top             =   0
-      Width           =   11055
+      Width           =   11415
       Begin VB.TextBox txtSenha 
          BeginProperty Font 
             Name            =   "Arial"

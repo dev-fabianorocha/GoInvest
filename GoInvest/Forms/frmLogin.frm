@@ -6,8 +6,8 @@ Begin VB.Form frmLogin
    BorderStyle     =   3  'Fixed Dialog
    Caption         =   "Login"
    ClientHeight    =   7755
-   ClientLeft      =   2880
-   ClientTop       =   2955
+   ClientLeft      =   6075
+   ClientTop       =   1815
    ClientWidth     =   6570
    Icon            =   "frmLogin.frx":0000
    LinkTopic       =   "Form1"
@@ -17,14 +17,13 @@ Begin VB.Form frmLogin
    ScaleHeight     =   7755
    ScaleWidth      =   6570
    ShowInTaskbar   =   0   'False
-   StartUpPosition =   2  'CenterScreen
    Begin VB.PictureBox Picture 
       BackColor       =   &H80000005&
       BorderStyle     =   0  'None
       Height          =   495
       Index           =   1
       Left            =   1990
-      Picture         =   "frmLogin.frx":CC77
+      Picture         =   "frmLogin.frx":E465
       ScaleHeight     =   495
       ScaleWidth      =   495
       TabIndex        =   6
@@ -37,7 +36,7 @@ Begin VB.Form frmLogin
       Height          =   495
       Index           =   0
       Left            =   2000
-      Picture         =   "frmLogin.frx":26ECF
+      Picture         =   "frmLogin.frx":286BD
       ScaleHeight     =   495
       ScaleWidth      =   495
       TabIndex        =   5
@@ -54,7 +53,7 @@ Begin VB.Form frmLogin
       _ExtentX        =   3201
       _ExtentY        =   1085
       Enabled         =   -1  'True
-      MouseIcon       =   "frmLogin.frx":2F7A1
+      MouseIcon       =   "frmLogin.frx":30F8F
       MousePointer    =   0
       Object.TabStop         =   -1  'True
       GrayAreaColor   =   12632256
@@ -79,7 +78,7 @@ Begin VB.Form frmLogin
       DropShadowType  =   0
       DropShadowColor =   0
       Redraw          =   -1  'True
-      ButtonDesigner  =   "frmLogin.frx":38083
+      ButtonDesigner  =   "frmLogin.frx":39871
    End
    Begin EditLib.fpText txtUsuario 
       Height          =   615
@@ -266,7 +265,7 @@ Begin VB.Form frmLogin
       OLEDragMode     =   0
    End
    Begin VB.Label Label 
-      BackColor       =   &H8000000E&
+      BackColor       =   &H00E0E0E0&
       Caption         =   "Senha:"
       BeginProperty Font 
          Name            =   "Arial"
@@ -285,7 +284,7 @@ Begin VB.Form frmLogin
       Width           =   975
    End
    Begin VB.Label Label 
-      BackColor       =   &H8000000E&
+      BackColor       =   &H00E0E0E0&
       Caption         =   "Usuário:"
       BeginProperty Font 
          Name            =   "Arial"

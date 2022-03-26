@@ -1,7 +1,8 @@
 Attribute VB_Name = "ModBanco"
 Option Explicit
-Dim pServidor As String
-Dim pBanco As String
+Public pServidor As String
+Public pVersao As String
+Public pBanco As String
 Dim fUsuario As String
 Dim fSenha As String
 
@@ -114,7 +115,7 @@ End Function
 Public Function AlimentarRodape() As String
 Dim sRetorno As String
 
-sRetorno = "| Servidor: " & pServidor & " | Banco de Dados: " & pBanco & " | Usuário: " & pUsuario & " | "
+sRetorno = "| Servidor: " & pServidor & " | Banco de Dados: " & pBanco & " | Usuário: " & pUsuario & " | V." & pVersao & " | "
 
 AlimentarRodape = sRetorno
 End Function

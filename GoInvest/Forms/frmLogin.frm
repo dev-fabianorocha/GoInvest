@@ -323,6 +323,7 @@ Private Sub cmdLogin_Click()
 End Sub
 
 Private Sub Form_Load()
+pVersao = "26/03/2022"
 If Not LerConfig Then
     MsgBox "O banco de dados não esta configurado!", vbExclamation
     Unload Me

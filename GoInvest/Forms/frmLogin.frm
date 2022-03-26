@@ -6,8 +6,8 @@ Begin VB.Form frmLogin
    BorderStyle     =   3  'Fixed Dialog
    Caption         =   "Login"
    ClientHeight    =   7755
-   ClientLeft      =   6360
-   ClientTop       =   2130
+   ClientLeft      =   6300
+   ClientTop       =   2310
    ClientWidth     =   6570
    Icon            =   "frmLogin.frx":0000
    LinkTopic       =   "Form1"
@@ -17,9 +17,35 @@ Begin VB.Form frmLogin
    ScaleHeight     =   7755
    ScaleWidth      =   6570
    ShowInTaskbar   =   0   'False
+   Begin VB.PictureBox Picture 
+      BackColor       =   &H80000005&
+      BorderStyle     =   0  'None
+      Height          =   495
+      Index           =   1
+      Left            =   1990
+      Picture         =   "frmLogin.frx":CC77
+      ScaleHeight     =   495
+      ScaleWidth      =   495
+      TabIndex        =   6
+      Top             =   5460
+      Width           =   495
+   End
+   Begin VB.PictureBox Picture 
+      BackColor       =   &H80000005&
+      BorderStyle     =   0  'None
+      Height          =   495
+      Index           =   0
+      Left            =   2000
+      Picture         =   "frmLogin.frx":26ECF
+      ScaleHeight     =   495
+      ScaleWidth      =   495
+      TabIndex        =   5
+      Top             =   4280
+      Width           =   495
+   End
    Begin fpBtnAtlLibCtl.fpBtn cmdLogin 
       Height          =   615
-      Left            =   2520
+      Left            =   2440
       TabIndex        =   3
       Top             =   6240
       Width           =   1815
@@ -27,7 +53,7 @@ Begin VB.Form frmLogin
       _ExtentX        =   3201
       _ExtentY        =   1085
       Enabled         =   -1  'True
-      MouseIcon       =   "frmLogin.frx":CC77
+      MouseIcon       =   "frmLogin.frx":2F7A1
       MousePointer    =   0
       Object.TabStop         =   -1  'True
       GrayAreaColor   =   12632256
@@ -52,23 +78,23 @@ Begin VB.Form frmLogin
       DropShadowType  =   0
       DropShadowColor =   0
       Redraw          =   -1  'True
-      ButtonDesigner  =   "frmLogin.frx":15559
+      ButtonDesigner  =   "frmLogin.frx":38083
    End
    Begin EditLib.fpText txtUsuario 
-      Height          =   495
+      Height          =   615
       Left            =   1920
       TabIndex        =   0
       Top             =   4200
       Width           =   2895
       _Version        =   196608
       _ExtentX        =   5106
-      _ExtentY        =   873
+      _ExtentY        =   1085
       Enabled         =   -1  'True
       MousePointer    =   0
       Object.TabStop         =   -1  'True
       BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
          Name            =   "Arial"
-         Size            =   15.75
+         Size            =   12
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -147,20 +173,20 @@ Begin VB.Form frmLogin
       OLEDragMode     =   0
    End
    Begin EditLib.fpText txtSenha 
-      Height          =   495
+      Height          =   615
       Left            =   1920
       TabIndex        =   1
       Top             =   5400
       Width           =   2895
       _Version        =   196608
       _ExtentX        =   5106
-      _ExtentY        =   873
+      _ExtentY        =   1085
       Enabled         =   -1  'True
       MousePointer    =   0
       Object.TabStop         =   -1  'True
       BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
          Name            =   "Arial"
-         Size            =   15.75
+         Size            =   12
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -290,6 +316,7 @@ Private Sub cmdLogin_Click()
         txtSenha.SetFocus
         txtSenha.Text = ""
     Else
+        pUsuario = txtUsuario
         frmPrincipal.Show
         Unload Me
     End If
@@ -327,6 +354,7 @@ Private Sub txtSenha_KeyPress(KeyAscii As Integer)
 End Sub
 
 Private Sub txtUsuario_KeyPress(KeyAscii As Integer)
+KeyAscii = Asc(UCase(Chr(KeyAscii)))
  If KeyAscii = 13 Then
     If txtUsuario = "" Or Not VerificarUsuario(True) Then
         MsgBox "Usuário não localizado!!"

@@ -106,7 +106,7 @@ End Function
 Public Function AlimentarRodape() As String
 Dim sRetorno As String
 
-sRetorno = "| Servidor: " & pServidor & " | DataBase: " & pBanco & " | "
+sRetorno = "| Servidor: " & pServidor & " | Banco de Dados: " & pBanco & " | Usuário: " & pUsuario & " | "
 
 AlimentarRodape = sRetorno
 End Function

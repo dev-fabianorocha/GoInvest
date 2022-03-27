@@ -23,6 +23,78 @@ Begin VB.Form frmPrincipal
       TabIndex        =   4
       Top             =   -120
       Width           =   12495
+      Begin fpBtnAtlLibCtl.fpBtn fpBtn 
+         Height          =   1095
+         Left            =   7320
+         TabIndex        =   6
+         Top             =   240
+         Width           =   1215
+         _Version        =   131072
+         _ExtentX        =   2143
+         _ExtentY        =   1931
+         Enabled         =   -1  'True
+         MousePointer    =   0
+         Object.TabStop         =   -1  'True
+         GrayAreaColor   =   12632256
+         BorderShowDefault=   -1  'True
+         ButtonType      =   0
+         NoPointerFocus  =   0   'False
+         Value           =   0   'False
+         GroupID         =   0
+         GroupSelect     =   0
+         DrawFocusRect   =   2
+         DrawFocusRectCell=   -1
+         GrayAreaPictureStyle=   0
+         Static          =   0   'False
+         BackStyle       =   1
+         AutoSize        =   0
+         AutoSizeOffsetTop=   0
+         AutoSizeOffsetBottom=   0
+         AutoSizeOffsetLeft=   0
+         AutoSizeOffsetRight=   0
+         DropShadowOffsetX=   3
+         DropShadowOffsetY=   3
+         DropShadowType  =   0
+         DropShadowColor =   0
+         Redraw          =   -1  'True
+         ButtonDesigner  =   "frmPrincipal.frx":11AFA
+      End
+      Begin fpBtnAtlLibCtl.fpBtn cmdAplicacoes 
+         Height          =   855
+         Left            =   6120
+         TabIndex        =   5
+         Top             =   240
+         Width           =   1215
+         _Version        =   131072
+         _ExtentX        =   2143
+         _ExtentY        =   1508
+         Enabled         =   -1  'True
+         MousePointer    =   0
+         Object.TabStop         =   -1  'True
+         GrayAreaColor   =   12632256
+         BorderShowDefault=   -1  'True
+         ButtonType      =   0
+         NoPointerFocus  =   0   'False
+         Value           =   0   'False
+         GroupID         =   0
+         GroupSelect     =   0
+         DrawFocusRect   =   2
+         DrawFocusRectCell=   -1
+         GrayAreaPictureStyle=   0
+         Static          =   0   'False
+         BackStyle       =   1
+         AutoSize        =   0
+         AutoSizeOffsetTop=   0
+         AutoSizeOffsetBottom=   0
+         AutoSizeOffsetLeft=   0
+         AutoSizeOffsetRight=   0
+         DropShadowOffsetX=   3
+         DropShadowOffsetY=   3
+         DropShadowType  =   0
+         DropShadowColor =   0
+         Redraw          =   -1  'True
+         ButtonDesigner  =   "frmPrincipal.frx":12E10
+      End
       Begin fpBtnAtlLibCtl.fpBtn cmdFechar 
          Height          =   1095
          Left            =   11280
@@ -57,7 +129,7 @@ Begin VB.Form frmPrincipal
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmPrincipal.frx":11AFA
+         ButtonDesigner  =   "frmPrincipal.frx":1411B
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdTrocarUsuario 
          Height          =   1095
@@ -93,13 +165,13 @@ Begin VB.Form frmPrincipal
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmPrincipal.frx":12E09
+         ButtonDesigner  =   "frmPrincipal.frx":1542A
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdUsuario 
          Height          =   855
-         Left            =   1920
+         Left            =   3960
          TabIndex        =   0
-         Top             =   360
+         Top             =   240
          Width           =   975
          _Version        =   131072
          _ExtentX        =   1720
@@ -129,13 +201,13 @@ Begin VB.Form frmPrincipal
          DropShadowType  =   0
          DropShadowColor =   0
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmPrincipal.frx":14118
+         ButtonDesigner  =   "frmPrincipal.frx":16739
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdCorretoras 
          Height          =   855
-         Left            =   2880
+         Left            =   4920
          TabIndex        =   1
-         Top             =   360
+         Top             =   240
          Width           =   1215
          _Version        =   131072
          _ExtentX        =   2143
@@ -165,7 +237,7 @@ Begin VB.Form frmPrincipal
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmPrincipal.frx":15421
+         ButtonDesigner  =   "frmPrincipal.frx":17A42
       End
    End
 End
@@ -192,3 +264,4 @@ End Sub
 Private Sub cmdUsuario_Click()
 frmUsuarios.Show 1
 End Sub
+

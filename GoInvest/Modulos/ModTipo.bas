@@ -50,3 +50,18 @@ End If
 
 TratarVariavel = sRetorno
 End Function
+
+Public Function AlimentarCombo(ByRef ParCombo As ComboBox, ByVal ParSql As String)
+Dim sConsulta As New ADODB.Recordset, sLinhas As Long
+
+Set sConsulta = Consulta(ParSql, sLinhas)
+ParCombo.AddItem " ", 0
+
+With sConsulta
+    While Not .EOF
+        ParCombo.AddItem TratarVariavel(!DESCRICAO, "T"), (TratarVariavel(!COR_CODIGO, "N"))
+        .MoveNext
+    Wend
+End With
+
+End Function

@@ -25,7 +25,7 @@ Begin VB.Form frmPrincipal
       Width           =   12495
       Begin fpBtnAtlLibCtl.fpBtn fpBtn 
          Height          =   1095
-         Left            =   7320
+         Left            =   7560
          TabIndex        =   6
          Top             =   240
          Width           =   1215
@@ -61,7 +61,7 @@ Begin VB.Form frmPrincipal
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdAplicacoes 
          Height          =   855
-         Left            =   6120
+         Left            =   6360
          TabIndex        =   5
          Top             =   240
          Width           =   1215
@@ -169,7 +169,7 @@ Begin VB.Form frmPrincipal
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdUsuario 
          Height          =   855
-         Left            =   3960
+         Left            =   4200
          TabIndex        =   0
          Top             =   240
          Width           =   975
@@ -205,7 +205,7 @@ Begin VB.Form frmPrincipal
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdCorretoras 
          Height          =   855
-         Left            =   4920
+         Left            =   5160
          TabIndex        =   1
          Top             =   240
          Width           =   1215
@@ -247,6 +247,10 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
+
+Private Sub cmdAplicacoes_Click()
+frmAplicacoes.Show 1
+End Sub
 
 Private Sub cmdCorretoras_Click()
 frmCorretoras.Show 1

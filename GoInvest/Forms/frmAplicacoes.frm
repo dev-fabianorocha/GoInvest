@@ -17,6 +17,7 @@ Begin VB.Form frmAplicacoes
    ScaleHeight     =   8175
    ScaleWidth      =   12360
    ShowInTaskbar   =   0   'False
+   StartUpPosition =   2  'CenterScreen
    Begin VB.Frame quadBotoes 
       BackColor       =   &H00404040&
       BorderStyle     =   0  'None

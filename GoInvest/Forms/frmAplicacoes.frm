@@ -322,6 +322,22 @@ Begin VB.Form frmAplicacoes
       TabIndex        =   1
       Top             =   0
       Width           =   11415
+      Begin VB.ComboBox cmbAno 
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   11.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   6360
+         TabIndex        =   46
+         Top             =   840
+         Width           =   1335
+      End
       Begin VB.ComboBox cmbCorretora 
          BeginProperty Font 
             Name            =   "Arial"
@@ -334,7 +350,7 @@ Begin VB.Form frmAplicacoes
          EndProperty
          Height          =   375
          Left            =   4680
-         TabIndex        =   31
+         TabIndex        =   30
          Top             =   840
          Width           =   1575
       End
@@ -352,25 +368,9 @@ Begin VB.Form frmAplicacoes
          EndProperty
          Height          =   255
          Left            =   8160
-         TabIndex        =   30
+         TabIndex        =   29
          Top             =   880
          Width           =   1215
-      End
-      Begin VB.TextBox txtAno 
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   375
-         Left            =   6360
-         TabIndex        =   28
-         Top             =   840
-         Width           =   1335
       End
       Begin VB.Frame quadInvestimento 
          BackColor       =   &H00E0E0E0&
@@ -401,7 +401,7 @@ Begin VB.Form frmAplicacoes
             EndProperty
             Height          =   375
             Left            =   5355
-            TabIndex        =   39
+            TabIndex        =   38
             Top             =   4080
             Width           =   735
          End
@@ -417,7 +417,7 @@ Begin VB.Form frmAplicacoes
             EndProperty
             Height          =   375
             Left            =   915
-            TabIndex        =   38
+            TabIndex        =   37
             Top             =   4080
             Width           =   1935
          End
@@ -433,7 +433,7 @@ Begin VB.Form frmAplicacoes
             EndProperty
             Height          =   375
             Left            =   6915
-            TabIndex        =   37
+            TabIndex        =   36
             Top             =   4080
             Width           =   1335
          End
@@ -449,14 +449,14 @@ Begin VB.Form frmAplicacoes
             EndProperty
             Height          =   375
             Left            =   3195
-            TabIndex        =   35
+            TabIndex        =   34
             Top             =   4080
             Width           =   1815
          End
          Begin FPSpreadADO.fpSpread gridAplicacoes 
             Height          =   3165
             Left            =   240
-            TabIndex        =   33
+            TabIndex        =   32
             Top             =   360
             Width           =   10635
             _Version        =   458752
@@ -486,7 +486,7 @@ Begin VB.Form frmAplicacoes
          Begin fpBtnAtlLibCtl.fpBtn cmdLimparAplicacoes 
             Height          =   1095
             Left            =   9555
-            TabIndex        =   34
+            TabIndex        =   33
             Top             =   3720
             Width           =   975
             _Version        =   131072
@@ -522,7 +522,7 @@ Begin VB.Form frmAplicacoes
          Begin fpBtnAtlLibCtl.fpBtn cmdAplicar 
             Height          =   945
             Left            =   8475
-            TabIndex        =   36
+            TabIndex        =   35
             Top             =   3720
             Width           =   975
             _Version        =   131072
@@ -570,7 +570,7 @@ Begin VB.Form frmAplicacoes
             Height          =   255
             Index           =   5
             Left            =   915
-            TabIndex        =   46
+            TabIndex        =   45
             Top             =   3840
             Width           =   1335
          End
@@ -589,7 +589,7 @@ Begin VB.Form frmAplicacoes
             Height          =   255
             Index           =   6
             Left            =   3195
-            TabIndex        =   45
+            TabIndex        =   44
             Top             =   3840
             Width           =   1215
          End
@@ -608,7 +608,7 @@ Begin VB.Form frmAplicacoes
             Height          =   255
             Index           =   7
             Left            =   5355
-            TabIndex        =   44
+            TabIndex        =   43
             Top             =   3840
             Width           =   735
          End
@@ -627,7 +627,7 @@ Begin VB.Form frmAplicacoes
             Height          =   255
             Index           =   8
             Left            =   6915
-            TabIndex        =   43
+            TabIndex        =   42
             Top             =   3840
             Width           =   855
          End
@@ -646,7 +646,7 @@ Begin VB.Form frmAplicacoes
             Height          =   255
             Index           =   9
             Left            =   600
-            TabIndex        =   42
+            TabIndex        =   41
             Top             =   4125
             Width           =   255
          End
@@ -665,7 +665,7 @@ Begin VB.Form frmAplicacoes
             Height          =   255
             Index           =   10
             Left            =   6615
-            TabIndex        =   41
+            TabIndex        =   40
             Top             =   4125
             Width           =   255
          End
@@ -684,7 +684,7 @@ Begin VB.Form frmAplicacoes
             Height          =   255
             Index           =   11
             Left            =   6150
-            TabIndex        =   40
+            TabIndex        =   39
             Top             =   4125
             Width           =   255
          End
@@ -814,7 +814,7 @@ Begin VB.Form frmAplicacoes
          Height          =   240
          Index           =   13
          Left            =   4680
-         TabIndex        =   32
+         TabIndex        =   31
          Top             =   600
          Width           =   795
       End
@@ -833,7 +833,7 @@ Begin VB.Form frmAplicacoes
          Height          =   255
          Index           =   12
          Left            =   6360
-         TabIndex        =   29
+         TabIndex        =   28
          Top             =   600
          Width           =   855
       End
@@ -1104,6 +1104,7 @@ quadInvestimento.Visible = False
 quadPesquisa.Visible = True
 lblRodape = AlimentarRodape
 AlimentarCombo cmbCorretora, "SELECT COR_CODIGO, (COR_NOME + '(' + CONVERT(VARCHAR,COR_CODIGO) + ')') AS DESCRICAO FROM CORRETORAS WHERE COR_INATIVO = '0'"
+cmbAno.AddItem Year(Date), 0
 EncherGrid
 End Sub
 

@@ -25,7 +25,7 @@ Begin VB.Form frmPrincipal
       Width           =   12495
       Begin fpBtnAtlLibCtl.fpBtn fpBtn 
          Height          =   1095
-         Left            =   7560
+         Left            =   3720
          TabIndex        =   6
          Top             =   240
          Width           =   1215
@@ -61,7 +61,7 @@ Begin VB.Form frmPrincipal
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdAplicacoes 
          Height          =   855
-         Left            =   6360
+         Left            =   2520
          TabIndex        =   5
          Top             =   240
          Width           =   1215
@@ -169,7 +169,7 @@ Begin VB.Form frmPrincipal
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdUsuario 
          Height          =   855
-         Left            =   4200
+         Left            =   360
          TabIndex        =   0
          Top             =   240
          Width           =   975
@@ -205,7 +205,7 @@ Begin VB.Form frmPrincipal
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdCorretoras 
          Height          =   855
-         Left            =   5160
+         Left            =   1320
          TabIndex        =   1
          Top             =   240
          Width           =   1215

@@ -99,7 +99,7 @@ Begin VB.Form frmAplicacoes
          DropShadowType  =   0
          DropShadowColor =   -2147483627
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":7B12
+         ButtonDesigner  =   "frmAplicacoes.frx":7ADA
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdB 
          Height          =   735
@@ -136,7 +136,7 @@ Begin VB.Form frmAplicacoes
          DropShadowType  =   0
          DropShadowColor =   -2147483627
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":8E19
+         ButtonDesigner  =   "frmAplicacoes.frx":8DA9
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdB 
          Height          =   735
@@ -173,7 +173,7 @@ Begin VB.Form frmAplicacoes
          DropShadowType  =   0
          DropShadowColor =   -2147483627
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":A123
+         ButtonDesigner  =   "frmAplicacoes.frx":A07B
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdB 
          Height          =   735
@@ -210,7 +210,7 @@ Begin VB.Form frmAplicacoes
          DropShadowType  =   0
          DropShadowColor =   0
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":B42B
+         ButtonDesigner  =   "frmAplicacoes.frx":B34B
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdB 
          Height          =   735
@@ -247,7 +247,7 @@ Begin VB.Form frmAplicacoes
          DropShadowType  =   0
          DropShadowColor =   -2147483627
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":C733
+         ButtonDesigner  =   "frmAplicacoes.frx":C61B
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdB 
          Height          =   735
@@ -284,7 +284,7 @@ Begin VB.Form frmAplicacoes
          DropShadowType  =   0
          DropShadowColor =   -2147483627
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":DA3A
+         ButtonDesigner  =   "frmAplicacoes.frx":D8EA
       End
    End
    Begin VB.Frame quadRodape 
@@ -405,7 +405,7 @@ Begin VB.Form frmAplicacoes
             Top             =   4080
             Width           =   735
          End
-         Begin VB.TextBox txtAplicacao 
+         Begin VB.TextBox txtValor 
             BeginProperty Font 
                Name            =   "Arial"
                Size            =   9.75
@@ -475,12 +475,12 @@ Begin VB.Form frmAplicacoes
             EndProperty
             GrayAreaBackColor=   14737632
             GridColor       =   8421504
-            MaxCols         =   8
+            MaxCols         =   7
             MaxRows         =   1
             ShadowColor     =   12632256
             ShadowDark      =   8421504
             ShadowText      =   0
-            SpreadDesigner  =   "frmAplicacoes.frx":ED41
+            SpreadDesigner  =   "frmAplicacoes.frx":EBB9
             UserResize      =   0
          End
          Begin fpBtnAtlLibCtl.fpBtn cmdLimparAplicacoes 
@@ -517,7 +517,7 @@ Begin VB.Form frmAplicacoes
             DropShadowType  =   0
             DropShadowColor =   0
             Redraw          =   -1  'True
-            ButtonDesigner  =   "frmAplicacoes.frx":F282
+            ButtonDesigner  =   "frmAplicacoes.frx":F0E4
          End
          Begin fpBtnAtlLibCtl.fpBtn cmdAplicar 
             Height          =   945
@@ -553,11 +553,11 @@ Begin VB.Form frmAplicacoes
             DropShadowType  =   0
             DropShadowColor =   0
             Redraw          =   -1  'True
-            ButtonDesigner  =   "frmAplicacoes.frx":10593
+            ButtonDesigner  =   "frmAplicacoes.frx":103BD
          End
          Begin VB.Label Label 
             BackColor       =   &H00E0E0E0&
-            Caption         =   "Valor Aplicado"
+            Caption         =   "Valor"
             BeginProperty Font 
                Name            =   "Arial"
                Size            =   9.75
@@ -572,7 +572,7 @@ Begin VB.Form frmAplicacoes
             Left            =   915
             TabIndex        =   45
             Top             =   3840
-            Width           =   1335
+            Width           =   495
          End
          Begin VB.Label Label 
             BackColor       =   &H00E0E0E0&
@@ -936,7 +936,7 @@ Begin VB.Form frmAplicacoes
          DropShadowType  =   0
          DropShadowColor =   0
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":1189B
+         ButtonDesigner  =   "frmAplicacoes.frx":1168D
       End
       Begin VB.TextBox txtPesquisa 
          BeginProperty Font 
@@ -981,7 +981,7 @@ Begin VB.Form frmAplicacoes
          ShadowColor     =   12632256
          ShadowDark      =   8421504
          ShadowText      =   0
-         SpreadDesigner  =   "frmAplicacoes.frx":12BAA
+         SpreadDesigner  =   "frmAplicacoes.frx":12964
          UserResize      =   0
       End
       Begin VB.Label Label 
@@ -1013,7 +1013,7 @@ Attribute VB_Exposed = False
 Option Explicit
 
 Dim fAcao As Integer
-Dim fClsCorretoras As New clsCorretoras
+Dim fClsAplicacoes As New ClsAplicacoes
 Dim fCodigo As Integer
 Dim fCondicao As String
 Private Enum EnumGrid
@@ -1049,6 +1049,14 @@ PopularGrid gridPrincipal, sSql
 Exit Sub
 End Sub
 
+Private Sub chkInvestir_Click()
+    If chkInvestir.Value Then
+        quadInvestimento.Visible = True
+        chkInvestir.Enabled = False
+        LimparGrid gridAplicacoes
+    End If
+End Sub
+
 Private Sub cmdB_Click(Index As Integer)
 On Error GoTo Trata
 
@@ -1070,7 +1078,7 @@ On Error GoTo Trata
             TrocarTela False
             LimparTela
         ElseIf fAcao = enumAcao.eExcluir Then
-            If Not fClsCorretoras.Excluir(fCodigo) Then GoTo Trata
+            If Not fClsAplicacoes.Excluir(fCodigo) Then GoTo Trata
             EncherGrid
             TrocarTela False
             LimparTela
@@ -1105,6 +1113,21 @@ quadPesquisa.Visible = True
 lblRodape = AlimentarRodape
 AlimentarCombo cmbCorretora, "SELECT COR_CODIGO, (COR_NOME + '(' + CONVERT(VARCHAR,COR_CODIGO) + ')') AS DESCRICAO FROM CORRETORAS WHERE COR_INATIVO = '0'"
 cmbAno.AddItem Year(Date), 0
+With cmbMes
+    .AddItem " ", 0
+    .AddItem MonthName(1), 1
+    .AddItem MonthName(2), 2
+    .AddItem MonthName(3), 3
+    .AddItem MonthName(4), 4
+    .AddItem MonthName(5), 5
+    .AddItem MonthName(6), 6
+    .AddItem MonthName(7), 7
+    .AddItem MonthName(8), 8
+    .AddItem MonthName(9), 9
+    .AddItem MonthName(10), 10
+    .AddItem MonthName(11), 11
+    .AddItem MonthName(12), 12
+End With
 EncherGrid
 End Sub
 
@@ -1134,9 +1157,12 @@ End If
 End Sub
 
 Private Function ReceberDados() As Boolean
-If fClsCorretoras.Consultar(fCodigo) Then
-    With fClsCorretoras
+If fClsAplicacoes.Consultar(fCodigo) Then
+    With fClsAplicacoes
         txtNome = .Nome
+        cmbCorretora.ListIndex = .Corretora
+        cmbAno.Text = .Ano
+        chkInvestir = .Investir
         txtData = .Cadastro
         txtAtualizacao = .Atualizacao
         chkInativo = .Inativo
@@ -1151,14 +1177,16 @@ On Error GoTo Trata
 
 Dim sSql As String, sCont As Long
 
-If fCodigo <> 0 Then fClsCorretoras.Consultar (fCodigo)
-With fClsCorretoras
+If fCodigo <> 0 Then fClsAplicacoes.Consultar (fCodigo)
+With fClsAplicacoes
     .Codigo = fCodigo
     .Nome = txtNome
+    .Corretora = cmbCorretora.ListIndex
+    .Ano = cmbAno.Text
+    .Investir = IIf(chkInvestir.Value, 1, 0)
     .Inativo = IIf(chkInativo.Value, 1, 0)
     If Not .Atualizar(fAcao) Then GoTo Trata
 End With
-
 
 EncherGrid
 
@@ -1178,7 +1206,16 @@ txtData = ""
 txtAtualizacao = ""
 chkInativo.Visible = True
 quadDatas.Visible = True
-Set fClsCorretoras = Nothing
+chkInvestir.Enabled = True
+chkInvestir.Value = False
+quadInvestimento.Visible = False
+cmbCorretora.Text = ""
+cmbAno.Text = ""
+txtValor.Text = ""
+cmbMes.Text = ""
+txtTaxa.Text = ""
+txtSaque.Text = ""
+Set fClsAplicacoes = Nothing
 
 End Sub
 

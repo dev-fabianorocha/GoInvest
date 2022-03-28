@@ -1,6 +1,6 @@
-frmPrincipal = 3566, 162, 4012, 725, , 0, 0, 0, 0, C
+frmPrincipal = 3566, 162, 4012, 725, C, 0, 0, 0, 0, C
 ModBanco = 3520, -5, 4012, 558, CZ
-ModTipo = 3565, 163, 4012, 726, Z
+ModTipo = 3565, 163, 4012, 726, C
 ModGrid = 3565, 278, 4012, 841, C
 frmLogin = 3565, 369, 4012, 932, C, 0, 0, 0, 0, C
 frmCorretoras = 919, 113, 1366, 676, CZ, 0, 0, 0, 0, C
@@ -8,5 +8,7 @@ frmUsuarios = 115, 113, 562, 676, CZ, 0, 0, 0, 0, C
 clsCorretoras = 115, 113, 562, 676, CZ
 clsUsuarios = 3565, 278, 4012, 841, CZ
 frmConfig = 3565, -4, 4012, 559, C, 0, 0, 0, 0, C
-frmAplicacoes = 3467, 347, 3914, 910, Z, 0, 0, 0, 0, C
+frmAplicacoes = 3565, 347, 4012, 910, C, 0, 0, 0, 0, C
 clsAplicacoes = 3565, 278, 4012, 841, CZ
+clsInvestimento = 115, 113, 562, 676, C
+clsExtrato = 2836, 278, 3283, 841, Z

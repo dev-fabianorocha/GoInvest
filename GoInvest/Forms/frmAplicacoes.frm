@@ -99,7 +99,7 @@ Begin VB.Form frmAplicacoes
          DropShadowType  =   0
          DropShadowColor =   -2147483627
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":7B12
+         ButtonDesigner  =   "frmAplicacoes.frx":7ADA
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdB 
          Height          =   735
@@ -137,6 +137,7 @@ Begin VB.Form frmAplicacoes
          DropShadowColor =   -2147483627
          Redraw          =   -1  'True
          ButtonDesigner  =   "frmAplicacoes.frx":8E19
+         ButtonDesigner  =   "frmAplicacoes.frx":8DA9
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdB 
          Height          =   735
@@ -173,7 +174,7 @@ Begin VB.Form frmAplicacoes
          DropShadowType  =   0
          DropShadowColor =   -2147483627
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":A123
+         ButtonDesigner  =   "frmAplicacoes.frx":A07B
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdB 
          Height          =   735
@@ -210,7 +211,7 @@ Begin VB.Form frmAplicacoes
          DropShadowType  =   0
          DropShadowColor =   0
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":B42B
+         ButtonDesigner  =   "frmAplicacoes.frx":B34B
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdB 
          Height          =   735
@@ -247,7 +248,7 @@ Begin VB.Form frmAplicacoes
          DropShadowType  =   0
          DropShadowColor =   -2147483627
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":C733
+         ButtonDesigner  =   "frmAplicacoes.frx":C61B
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdB 
          Height          =   735
@@ -284,7 +285,7 @@ Begin VB.Form frmAplicacoes
          DropShadowType  =   0
          DropShadowColor =   -2147483627
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":DA3A
+         ButtonDesigner  =   "frmAplicacoes.frx":D8EA
       End
    End
    Begin VB.Frame quadRodape 
@@ -480,7 +481,7 @@ Begin VB.Form frmAplicacoes
             ShadowColor     =   12632256
             ShadowDark      =   8421504
             ShadowText      =   0
-            SpreadDesigner  =   "frmAplicacoes.frx":ED41
+            SpreadDesigner  =   "frmAplicacoes.frx":EBB9
             UserResize      =   0
          End
          Begin fpBtnAtlLibCtl.fpBtn cmdLimparAplicacoes 
@@ -517,7 +518,7 @@ Begin VB.Form frmAplicacoes
             DropShadowType  =   0
             DropShadowColor =   0
             Redraw          =   -1  'True
-            ButtonDesigner  =   "frmAplicacoes.frx":123D6
+            ButtonDesigner  =   "frmAplicacoes.frx":1224E
          End
          Begin fpBtnAtlLibCtl.fpBtn cmdAplicar 
             Height          =   945
@@ -553,7 +554,7 @@ Begin VB.Form frmAplicacoes
             DropShadowType  =   0
             DropShadowColor =   0
             Redraw          =   -1  'True
-            ButtonDesigner  =   "frmAplicacoes.frx":136E7
+            ButtonDesigner  =   "frmAplicacoes.frx":13527
          End
          Begin VB.Label Label 
             BackColor       =   &H00E0E0E0&
@@ -936,7 +937,7 @@ Begin VB.Form frmAplicacoes
          DropShadowType  =   0
          DropShadowColor =   0
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":149EF
+         ButtonDesigner  =   "frmAplicacoes.frx":147F7
       End
       Begin VB.TextBox txtPesquisa 
          BeginProperty Font 
@@ -981,7 +982,7 @@ Begin VB.Form frmAplicacoes
          ShadowColor     =   12632256
          ShadowDark      =   8421504
          ShadowText      =   0
-         SpreadDesigner  =   "frmAplicacoes.frx":15CFE
+         SpreadDesigner  =   "frmAplicacoes.frx":15ACE
          UserResize      =   0
       End
       Begin VB.Label Label 
@@ -1075,7 +1076,7 @@ If cmbMes.ListIndex <= CInt(Month(Date)) Then
             sClsExtrato.ProcessamentoMensal
             .Row = sMes
             .RowHidden = False
-            .SetText 1, sMes, sMes & Year(Date) & Day(Date)
+            .SetText 1, sMes, sMes & Second(Time) & Day(Date) & Minute(Time)
             .SetText 2, sMes, sValorAnterior
             .SetText 3, sMes, MonthName(sMes)
             .SetText 4, sMes, CDbl(txtTaxa) / 100

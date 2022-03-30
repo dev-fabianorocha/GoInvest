@@ -136,7 +136,6 @@ Begin VB.Form frmAplicacoes
          DropShadowType  =   0
          DropShadowColor =   -2147483627
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":8E19
          ButtonDesigner  =   "frmAplicacoes.frx":8DA9
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdB 

@@ -476,7 +476,7 @@ Begin VB.Form frmAplicacoes
             GrayAreaBackColor=   14737632
             GridColor       =   8421504
             MaxCols         =   7
-            MaxRows         =   1
+            MaxRows         =   100
             ShadowColor     =   12632256
             ShadowDark      =   8421504
             ShadowText      =   0
@@ -517,7 +517,7 @@ Begin VB.Form frmAplicacoes
             DropShadowType  =   0
             DropShadowColor =   0
             Redraw          =   -1  'True
-            ButtonDesigner  =   "frmAplicacoes.frx":F3E8
+            ButtonDesigner  =   "frmAplicacoes.frx":123D6
          End
          Begin fpBtnAtlLibCtl.fpBtn cmdAplicar 
             Height          =   945
@@ -553,7 +553,7 @@ Begin VB.Form frmAplicacoes
             DropShadowType  =   0
             DropShadowColor =   0
             Redraw          =   -1  'True
-            ButtonDesigner  =   "frmAplicacoes.frx":106F9
+            ButtonDesigner  =   "frmAplicacoes.frx":136E7
          End
          Begin VB.Label Label 
             BackColor       =   &H00E0E0E0&
@@ -936,7 +936,7 @@ Begin VB.Form frmAplicacoes
          DropShadowType  =   0
          DropShadowColor =   0
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":11A01
+         ButtonDesigner  =   "frmAplicacoes.frx":149EF
       End
       Begin VB.TextBox txtPesquisa 
          BeginProperty Font 
@@ -977,11 +977,11 @@ Begin VB.Form frmAplicacoes
          GrayAreaBackColor=   14737632
          GridColor       =   8421504
          MaxCols         =   7
-         MaxRows         =   1
+         MaxRows         =   100
          ShadowColor     =   12632256
          ShadowDark      =   8421504
          ShadowText      =   0
-         SpreadDesigner  =   "frmAplicacoes.frx":12D10
+         SpreadDesigner  =   "frmAplicacoes.frx":15CFE
          UserResize      =   0
       End
       Begin VB.Label Label 
@@ -1057,6 +1057,43 @@ Private Sub chkInvestir_Click()
     End If
 End Sub
 
+Private Sub cmdAplicar_Click()
+On Error GoTo vbErrorHandler
+Dim sClsExtrato As New clsExtrato
+Dim sMes As Long, sLinhas As Long, sCont As Long, sValorAnterior As Double
+
+sClsExtrato.Taxa = CDbl(txtTaxa.Text)
+sClsExtrato.Depositar CDbl(txtValor.Text)
+
+LimparGrid gridAplicacoes
+If cmbMes.ListIndex <= CInt(Month(Date)) Then
+    For sMes = (cmbMes.ListIndex) To CInt(Month(Date))
+        sLinhas = sMes - CInt(Month(Date)) + 1
+        With gridAplicacoes
+            sValorAnterior = sClsExtrato.Saldo
+            sClsExtrato.Sacar CDbl(txtSaque.Text)
+            sClsExtrato.ProcessamentoMensal
+            .Row = sMes
+            .RowHidden = False
+            .SetText 1, sMes, sMes & Year(Date) & Day(Date)
+            .SetText 2, sMes, sValorAnterior
+            .SetText 3, sMes, MonthName(sMes)
+            .SetText 4, sMes, CDbl(txtTaxa) / 100
+            .SetText 5, sMes, Val(txtSaque)
+            .SetText 6, sMes, Round(sClsExtrato.Saldo - sValorAnterior, 2)
+            .SetText 7, sMes, Round(sClsExtrato.Saldo, 2)
+        End With
+    Next
+Else
+    MsgBox "Não é possível realizar uma aplicação futura, escolha um mês menor ou igual ao atual"
+End If
+
+Exit Sub
+Resume
+vbErrorHandler:
+MsgBox Err.Number & " - " & Err.Description, vbOKOnly, Err.Source
+End Sub
+
 Private Sub cmdB_Click(Index As Integer)
 On Error GoTo Trata
 
@@ -1100,6 +1137,10 @@ Trata:
 MsgBox DescError(Err.Number, Err.Description), vbCritical, "clsCorretoras.Atualizar"
 End Sub
 
+Private Sub cmdLimparAplicacoes_Click()
+LimparGrid gridAplicacoes
+End Sub
+
 Private Sub cmdPesquisa_Click()
 EncherGrid
 End Sub
@@ -1114,19 +1155,11 @@ lblRodape = AlimentarRodape
 AlimentarCombo cmbCorretora, "SELECT COR_CODIGO, (COR_NOME + '(' + CONVERT(VARCHAR,COR_CODIGO) + ')') AS DESCRICAO FROM CORRETORAS WHERE COR_INATIVO = '0'"
 cmbAno.AddItem Year(Date), 0
 With cmbMes
+    Dim sCont As Long
     .AddItem " ", 0
-    .AddItem MonthName(1), 1
-    .AddItem MonthName(2), 2
-    .AddItem MonthName(3), 3
-    .AddItem MonthName(4), 4
-    .AddItem MonthName(5), 5
-    .AddItem MonthName(6), 6
-    .AddItem MonthName(7), 7
-    .AddItem MonthName(8), 8
-    .AddItem MonthName(9), 9
-    .AddItem MonthName(10), 10
-    .AddItem MonthName(11), 11
-    .AddItem MonthName(12), 12
+    For sCont = 1 To 12
+        .AddItem MonthName(sCont) & "(" & sCont & ")", sCont
+    Next
 End With
 EncherGrid
 End Sub

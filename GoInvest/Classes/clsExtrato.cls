@@ -14,6 +14,7 @@ Attribute VB_Exposed = False
 Option Explicit
 
 Dim fRegistro As Integer
+Dim fCodigoAplicacao As Integer
 Dim fValor As Double
 Dim fMes As String
 Dim fTaxa As Double
@@ -25,6 +26,12 @@ Registro = fRegistro
 End Property
 Property Let Registro(ByVal ParRegistro As Integer)
 fRegistro = ParRegistro
+End Property
+Property Get CodigoAplicacao() As Integer
+Registro = fRegistro
+End Property
+Property Let CodigoAplicacao(ByVal ParCodigoAplicacao As Integer)
+fCodigoAplicacao = ParCodigoAplicacao
 End Property
 Property Get Valor() As Double
 Valor = fValor
@@ -42,6 +49,11 @@ Property Get Taxa() As Double
 Taxa = fTaxa
 End Property
 Property Let Taxa(ByVal ParTaxa As Double)
+
+If ParTaxa < 0 Then
+    Err.Raise vbObjectError + 2001, "Conta Bancaria::TaxaInvestimento", "Definição de taxa inválida : " & ParTaxa
+End If
+
 fTaxa = ParTaxa
 End Property
 Property Get Saque() As Double
@@ -62,62 +74,99 @@ End Property
 Property Let Saldo(ByVal ParSaldo As Double)
 fSaldo = ParSaldo
 End Property
-Public Function Consultar(ParCodigo) As Boolean
+Public Function ConsultarExtrato(ParCodigo) As Boolean
 Dim sSql As String
 Dim sConsulta As ADODB.Recordset
 
-sSql = "SELECT EXT_VALOR, EXT_MES, EXT_TAXA, EXT_SAQUE, EXT_RENDIMENTO, EXT_SALDO FROM EXTRATO WHERE EXT_REGISTRO = '" & ParCodigo & "'"
+sSql = "SELECT EXT_VALOR, EXT_MES, EXT_TAXA, EXT_SAQUE, EXT_RENDIMENTO, EXT_SALDO FROM EXTRATO WHERE EXT_APLICACAO = '" & fCodigoAplicacao & "'"
 
 If Not Consulta(sSql).EOF Then
     Set sConsulta = Consulta(sSql)
     With sConsulta
-        fValor = TratarVariavel(EXT_VALOR, "N")
-        fMes = TratarVariavel(EXT_VALOR, "T")
-        fTaxa = TratarVariavel(EXT_VALOR, "N")
-        fSaque = TratarVariavel(EXT_VALOR, "N")
-        fRendimento = TratarVariavel(EXT_VALOR, "N")
-        fSaldo = TratarVariavel(EXT_VALOR, "N")
+        fRegistro = TratarVariavel(!EXT_REGISTRO, "N")
+        fValor = TratarVariavel(!EXT_VALOR, "N")
+        fMes = TratarVariavel(!EXT_MES, "T")
+        fTaxa = TratarVariavel(!EXT_TAXA, "N")
+        fSaque = TratarVariavel(!EXT_SAQUE, "N")
+        fRendimento = TratarVariavel(!EXT_RENDIMENTO, "N")
+        fSaldo = TratarVariavel(!EXT_SALDO, "N")
     End With
 Else
     MsgBox "Código não localizado"
     Exit Function
 End If
 
-Consultar = True
+ConsultarExtrato = True
 End Function
 
-Public Function Atualizar(ParAcao) As Boolean
+Public Function AtualizarExtrato(ParAcao) As Boolean
 On Error GoTo Trata
 Dim sSql As String
 
 If ParAcao = enumAcao.eIncluir Then
-    sSql = "INSERT INTO CORRETORAS (COR_NOME, COR_CADASTRO, COR_ATUALIZACAO, COR_INATIVO) VALUES ('" & fNome & "', GETDATE(), GETDATE(), '" & fInativo & "')"
+    sSql = "INSERT INTO EXTRATO (EXT_VALOR, EXT_MES, EXT_TAXA, EXT_SAQUE, EXT_RENDIMENTO, EXT_SALDO) VALUES ('" & fValor & "', '" & fValor _
+        & "', '" & fMes & "', '" & fTaxa & "', '" & fSaque & "', '" & fRendimento & "', '" & fSaldo & "')"
     If Not ExecutarSql(sSql) Then GoTo Trata
 Else
-    sSql = "UPDATE CORRETORAS SET COR_NOME = '" & fNome & "', COR_ATUALIZACAO = GETDATE(), COR_INATIVO = '" & fInativo _
-        & "' WHERE COR_CODIGO = '" & fCodigo & "'"
+    sSql = "UPDATE EXTRATO SET EXT_VALOR = '" & fValor & "', EXT_TAXA = '" & fTaxa & "', EXT_SAQUE = '" & fSaque _
+        & "', EXT_RENDIMENTO = '" & fRendimento & "', EXT_SALDO = '" & fSaque & "' WHERE EXT_REGISTRO = '" & fRegistro & "'"
     If Not ExecutarSql(sSql) Then GoTo Trata
 End If
 
-Atualizar = True
+AtualizarExtrato = True
 Exit Function
 Resume
 Trata:
-MsgBox DescError(Err.Number, Err.Description, sSql), vbCritical, "clsCorretoras.Atualizar"
+MsgBox DescError(Err.Number, Err.Description, sSql), vbCritical, "clsExtrato.AtualizarExtrato"
 End Function
 
-Public Function Excluir(ParCodigo As Integer) As Boolean
+Public Function LimparExtrato(ParCodigoAplicacao As Integer) As Boolean
 On Error GoTo Trata
 Dim sSql As String
 
-sSql = "UPDATE CORRETORAS SET COR_INATIVO = '1' WHERE COR_CODIGO = '" & ParCodigo & "'"
-If MsgBox("Deseja excluir essa corretora?", vbYesNo, "Corretoras") = 6 Then
+sSql = "DELETE FROM EXTRATO WHERE EXT_APLICACAO = '" & fCodigoAplicacao & "'"
+If MsgBox("Deseja realmente limpar essa aplicação?", vbYesNo, "Aplicacções") = 6 Then
     If Not ExecutarSql(sSql) Then GoTo Trata
 End If
 
-Excluir = True
+LimparExtrato = True
 Exit Function
 Resume
 Trata:
-MsgBox DescError(Err.Number, Err.Description, sSql), vbCritical, "clsCorretoras.Excluir"
+MsgBox DescError(Err.Number, Err.Description, sSql), vbCritical, "clsExtrato.LimparExtrato"
 End Function
+
+Public Sub Sacar(ByVal ParValorSaque As Double)
+
+If ParValorSaque < 0 Then
+    Err.Raise vbObjectError + 2002, "Conta Bancaria::Saque", "Valor de saque inválido : " & ParValorSaque
+End If
+
+If (fSaldo - ParValorSaque) < 0 Then
+    Err.Raise vbObjectError + 2003, "Conta Bancaria::Saque", "Insuficiência de fundos"
+End If
+
+  fSaldo = fSaldo - ParValorSaque
+End Sub
+
+Public Sub Depositar(ByVal ParValorDeposito As Double)
+
+If ParValorDeposito <= 0 Then
+   Err.Raise vbObjectError + 2002, "Conta Bancária::Depósito", "Valor de depósito inválido : " & ParValorDeposito
+End If
+
+fSaldo = fSaldo + ParValorDeposito
+
+End Sub
+
+Private Sub CalculoInvestimento()
+
+fSaldo = fSaldo + (fSaldo * (fTaxa / 100))
+
+End Sub
+
+Public Sub ProcessamentoMensal()
+
+CalculoInvestimento
+
+End Sub

@@ -83,7 +83,7 @@ On Error GoTo Trata
 Dim sSql As String
 
 If ParAcao = enumAcao.eIncluir Then
-    sSql = "INSERT INTO USUARIOS (USU_NOME, USU_CADASTRO, USU_SENHA, USU_ATUALIZACAO, USU_INATIVO) VALUES ('" & fNome & "', '" & fSenha & "', GETDATE(), GETDATE(), '" & fInativo & "')"
+    sSql = "INSERT INTO USUARIOS (USU_NOME, USU_SENHA, USU_CADASTRO, USU_ATUALIZACAO, USU_INATIVO) VALUES ('" & fNome & "', '" & fSenha & "', GETDATE(), GETDATE(), '" & fInativo & "')"
     If Not ExecutarSql(sSql) Then GoTo Trata
 Else
     sSql = "UPDATE USUARIOS SET USU_NOME = '" & fNome & "', USU_SENHA = '" & fSenha & "', USU_ATUALIZACAO = GETDATE(), USU_INATIVO = '" & fInativo _

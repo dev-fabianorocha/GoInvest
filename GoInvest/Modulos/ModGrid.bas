@@ -25,12 +25,16 @@ Dim sContCol As Long, sContRow As Long
 End Sub
 
 Public Sub LimparGrid(ByRef ParGrid As fpSpread)
-Dim sCont As Long
+Dim sContCol As Long, sContRow As Long
 
 With ParGrid
-    For sCont = 1 To .MaxRows
-        .Row = sCont
-        .RowHidden = True
+    For sContRow = 1 To .MaxRows
+        For sContCol = 1 To .MaxCols
+            .Row = sContRow
+            .col = sContCol
+            .Text = 0
+            .RowHidden = True
+        Next
     Next
 End With
 
@@ -50,3 +54,15 @@ With ParGrid
 End With
 
 End Sub
+
+Public Function PegarTextoGrid(ByRef ParGrid As fpSpread, ByVal ParCol As Long, ByVal ParRow As Long) As String
+Dim sRetorno As String
+
+    With ParGrid
+        .col = ParCol
+        .Row = ParRow
+        sRetorno = .Text
+    End With
+    
+PegarTextoGrid = sRetorno
+End Function

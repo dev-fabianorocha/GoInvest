@@ -99,19 +99,13 @@ End If
 ConsultarExtrato = True
 End Function
 
-Public Function AtualizarExtrato(ParAcao) As Boolean
+Public Function AtualizarExtrato() As Boolean
 On Error GoTo Trata
 Dim sSql As String
 
-If ParAcao = enumAcao.eIncluir Then
-    sSql = "INSERT INTO EXTRATO (EXT_VALOR, EXT_MES, EXT_TAXA, EXT_SAQUE, EXT_RENDIMENTO, EXT_SALDO) VALUES ('" & fValor & "', '" & fValor _
-        & "', '" & fMes & "', '" & fTaxa & "', '" & fSaque & "', '" & fRendimento & "', '" & fSaldo & "')"
-    If Not ExecutarSql(sSql) Then GoTo Trata
-Else
-    sSql = "UPDATE EXTRATO SET EXT_VALOR = '" & fValor & "', EXT_TAXA = '" & fTaxa & "', EXT_SAQUE = '" & fSaque _
-        & "', EXT_RENDIMENTO = '" & fRendimento & "', EXT_SALDO = '" & fSaque & "' WHERE EXT_REGISTRO = '" & fRegistro & "'"
-    If Not ExecutarSql(sSql) Then GoTo Trata
-End If
+sSql = "INSERT INTO EXTRATO (EXT_REGISTRO, EXT_VALOR, EXT_MES, EXT_TAXA, EXT_SAQUE, EXT_RENDIMENTO, EXT_SALDO, EXT_APLICACAO) VALUES ('" & fRegistro _
+    & "', '" & fValor & "', '" & fMes & "', '" & fTaxa & "', '" & fSaque & "', '" & fRendimento & "', '" & fSaldo & "', '" & fCodigoAplicacao & "')"
+If Not ExecutarSql(sSql) Then GoTo Trata
 
 AtualizarExtrato = True
 Exit Function

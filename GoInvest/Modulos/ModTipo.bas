@@ -14,7 +14,7 @@ Public Enum enumAcao
 End Enum
 
 Public Function TratarVariavel(ByVal ParVariavel As Variant, ByVal ParTipo) As Variant
-Dim sRetorno As Variant
+Dim sRetorno As Variant, sCont As Long, sAchou As Boolean, sTexto As String
 
 If ParTipo = "T" Then
     If Not ParVariavel = Empty Then
@@ -43,6 +43,18 @@ End If
 If ParTipo = "B" Then
     If Not ParVariavel = Empty Then
         sRetorno = CByte(IIf(ParVariavel, 1, 0))
+    Else
+        sRetorno = 0
+    End If
+End If
+
+If ParTipo = "NB" Then
+    If Not ParVariavel = Empty Then
+        For sCont = 1 To Len(ParVariavel)
+            sTexto = Mid(ParVariavel, sCont, 1)
+            If sTexto = "," Then sTexto = "."
+            sRetorno = sRetorno & sTexto
+        Next
     Else
         sRetorno = 0
     End If

@@ -74,26 +74,28 @@ End Property
 Property Let Saldo(ByVal ParSaldo As Double)
 fSaldo = ParSaldo
 End Property
-Public Function ConsultarExtrato(ParCodigo) As Boolean
-Dim sSql As String
-Dim sConsulta As ADODB.Recordset
+Public Function ConsultarExtrato(ByRef ParGrid As fpSpread, ByRef ParTextValor As TextBox, ByRef ParComboMes As ComboBox, ByRef ParTextTaxa As TextBox, ByRef ParTextSaque As TextBox, ByRef ParCmdAplicar As fpBtn) As Boolean
+Dim sSql As String, sCont As Long, sLinha As Long
+Dim sConsulta As ADODB.Recordset, sLinhas As Long
 
-sSql = "SELECT EXT_VALOR, EXT_MES, EXT_TAXA, EXT_SAQUE, EXT_RENDIMENTO, EXT_SALDO FROM EXTRATO WHERE EXT_APLICACAO = '" & fCodigoAplicacao & "'"
+sSql = "SELECT EXT_REGISTRO, EXT_VALOR, EXT_MES, EXT_TAXA, EXT_SAQUE FROM EXTRATO WHERE EXT_APLICACAO = '" & fCodigoAplicacao & "'"
+sCont = 1
 
 If Not Consulta(sSql).EOF Then
-    Set sConsulta = Consulta(sSql)
+    Set sConsulta = Consulta(sSql, sLinhas)
     With sConsulta
-        fRegistro = TratarVariavel(!EXT_REGISTRO, "N")
-        fValor = TratarVariavel(!EXT_VALOR, "N")
-        fMes = TratarVariavel(!EXT_MES, "T")
-        fTaxa = TratarVariavel(!EXT_TAXA, "N")
-        fSaque = TratarVariavel(!EXT_SAQUE, "N")
-        fRendimento = TratarVariavel(!EXT_RENDIMENTO, "N")
-        fSaldo = TratarVariavel(!EXT_SALDO, "N")
+        For sLinha = 1 To sLinhas
+            ParTextValor.Text = TratarVariavel(!EXT_VALOR, "N")
+            ParComboMes.ListIndex = TratarVariavel(!EXT_MES, "T")
+            ParTextTaxa.Text = TratarVariavel(!EXT_TAXA, "N")
+            ParTextSaque.Text = TratarVariavel(!EXT_SAQUE, "N")
+            ParCmdAplicar.DoClick
+            ParGrid.SetText 1, sCont, TratarVariavel(!EXT_REGISTRO, "N")
+            ParGrid.SetText 2, sCont, MonthName(TratarVariavel(!EXT_MES, "N"))
+            sCont = sCont + 1
+            .MoveNext
+        Next
     End With
-Else
-    MsgBox "Código não localizado"
-    Exit Function
 End If
 
 ConsultarExtrato = True
@@ -103,8 +105,9 @@ Public Function AtualizarExtrato() As Boolean
 On Error GoTo Trata
 Dim sSql As String
 
-sSql = "INSERT INTO EXTRATO (EXT_REGISTRO, EXT_VALOR, EXT_MES, EXT_TAXA, EXT_SAQUE, EXT_RENDIMENTO, EXT_SALDO, EXT_APLICACAO) VALUES ('" & fRegistro _
-    & "', '" & fValor & "', '" & fMes & "', '" & fTaxa & "', '" & fSaque & "', '" & fRendimento & "', '" & fSaldo & "', '" & fCodigoAplicacao & "')"
+sSql = "INSERT INTO EXTRATO (EXT_REGISTRO, EXT_VALOR, EXT_MES, EXT_TAXA, EXT_SAQUE, EXT_APLICACAO) VALUES ('" & fRegistro _
+    & "', '" & TratarVariavel(fValor, "NB") & "', '" & fMes & "', '" & TratarVariavel(fTaxa, "NB") & "', '" & TratarVariavel(fSaque, "NB") & "', '" _
+    & fCodigoAplicacao & "')"
 If Not ExecutarSql(sSql) Then GoTo Trata
 
 AtualizarExtrato = True

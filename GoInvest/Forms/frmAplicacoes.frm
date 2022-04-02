@@ -391,12 +391,12 @@ Begin VB.Form frmAplicacoes
          Width           =   11175
          Begin FPSpreadADO.fpSpread gridSimulacao 
             Height          =   3165
-            Left            =   6000
+            Left            =   6600
             TabIndex        =   47
             Top             =   360
-            Width           =   4875
+            Width           =   4395
             _Version        =   458752
-            _ExtentX        =   8599
+            _ExtentX        =   7752
             _ExtentY        =   5583
             _StockProps     =   64
             DisplayRowHeaders=   0   'False
@@ -488,9 +488,9 @@ Begin VB.Form frmAplicacoes
             Left            =   240
             TabIndex        =   32
             Top             =   360
-            Width           =   5355
+            Width           =   6075
             _Version        =   458752
-            _ExtentX        =   9446
+            _ExtentX        =   10716
             _ExtentY        =   5583
             _StockProps     =   64
             DisplayRowHeaders=   0   'False
@@ -505,7 +505,7 @@ Begin VB.Form frmAplicacoes
             EndProperty
             GrayAreaBackColor=   14737632
             GridColor       =   8421504
-            MaxCols         =   4
+            MaxCols         =   5
             MaxRows         =   100
             ShadowColor     =   12632256
             ShadowDark      =   8421504
@@ -547,7 +547,7 @@ Begin VB.Form frmAplicacoes
             DropShadowType  =   0
             DropShadowColor =   0
             Redraw          =   -1  'True
-            ButtonDesigner  =   "frmAplicacoes.frx":126A5
+            ButtonDesigner  =   "frmAplicacoes.frx":130DF
          End
          Begin fpBtnAtlLibCtl.fpBtn cmdAplicar 
             Height          =   945
@@ -583,7 +583,7 @@ Begin VB.Form frmAplicacoes
             DropShadowType  =   0
             DropShadowColor =   0
             Redraw          =   -1  'True
-            ButtonDesigner  =   "frmAplicacoes.frx":139B6
+            ButtonDesigner  =   "frmAplicacoes.frx":143F0
          End
          Begin VB.Label Label 
             BackColor       =   &H00E0E0E0&
@@ -966,7 +966,7 @@ Begin VB.Form frmAplicacoes
          DropShadowType  =   0
          DropShadowColor =   0
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":14CBE
+         ButtonDesigner  =   "frmAplicacoes.frx":156F8
       End
       Begin VB.TextBox txtPesquisa 
          BeginProperty Font 
@@ -1011,7 +1011,7 @@ Begin VB.Form frmAplicacoes
          ShadowColor     =   12632256
          ShadowDark      =   8421504
          ShadowText      =   0
-         SpreadDesigner  =   "frmAplicacoes.frx":15FCD
+         SpreadDesigner  =   "frmAplicacoes.frx":16A07
          UserResize      =   0
       End
       Begin VB.Label Label 
@@ -1102,9 +1102,10 @@ With gridAplicacoes
             .Row = sCont
             .RowHidden = False
             .SetText 1, sCont, cmbMes.ListIndex & Second(Time) & Day(Date)
-            .SetText 2, sCont, CDbl(txtValor)
-            .SetText 3, sCont, CDbl(txtTaxa) / 100
-            .SetText 4, sCont, CDbl(txtSaque)
+            .SetText 2, sCont, MonthName(cmbMes.ListIndex)
+            .SetText 3, sCont, CDbl(txtValor)
+            .SetText 4, sCont, CDbl(txtTaxa)
+            .SetText 5, sCont, CDbl(txtSaque)
             Exit For
         End If
     Next
@@ -1237,6 +1238,7 @@ End Sub
 Private Function ReceberDados() As Boolean
 If fClsAplicacoes.Consultar(fCodigo) Then
     With fClsAplicacoes
+        txtCodigo.Text = .Codigo
         txtNome = .Nome
         cmbCorretora.ListIndex = .Corretora
         cmbAno.Text = .Ano
@@ -1246,6 +1248,15 @@ If fClsAplicacoes.Consultar(fCodigo) Then
         chkInativo = .Inativo
     End With
 End If
+
+fClsExtrato.CodigoAplicacao = CInt(txtCodigo)
+fClsExtrato.ConsultarExtrato gridAplicacoes, txtValor, cmbMes, txtTaxa, txtSaque, cmdAplicar
+txtValor.Text = ""
+cmbMes.Text = ""
+txtValor.Text = ""
+txtTaxa.Text = ""
+txtSaque.Text = ""
+
 txtCodigo = fCodigo
 ReceberDados = True
 End Function
@@ -1253,7 +1264,7 @@ End Function
 Private Function PassarDados() As Boolean
 On Error GoTo Trata
 
-Dim sSql As String, sCont As Long
+Dim sSql As String, sCont As Long, sLinhas As Long
 
 If fCodigo <> 0 Then fClsAplicacoes.Consultar (fCodigo)
 With fClsAplicacoes
@@ -1268,16 +1279,18 @@ End With
 
 With fClsExtrato
     For sCont = 1 To gridAplicacoes.MaxRows
+        sSql = "SELECT EXT_REGISTRO FROM EXTRATO WHERE EXT_REGISTRO = '" & CInt(PegarTextoGrid(gridAplicacoes, 1, sCont)) & "'"
+        Consulta sSql, sLinhas
+        If sLinhas <> 0 Then GoTo Fim
         .Registro = CInt(PegarTextoGrid(gridAplicacoes, 1, sCont))
         If .Registro = 0 Then Exit For
-        .Valor = CDbl(PegarTextoGrid(gridAplicacoes, 2, sCont))
+        .Valor = CDbl(PegarTextoGrid(gridAplicacoes, 3, sCont))
         .Taxa = txtTaxa
-        .Saque = CDbl(PegarTextoGrid(gridAplicacoes, 4, sCont))
+        .Saque = CDbl(PegarTextoGrid(gridAplicacoes, 5, sCont))
         .Mes = CStr(cmbMes.ListIndex)
-        .Rendimento = CDbl(PegarTextoGrid(gridSimulacao, 2, sCont))
-        .Saldo = CDbl(PegarTextoGrid(gridSimulacao, 2, sCont))
         fClsExtrato.CodigoAplicacao = TratarVariavel(txtCodigo.Text, "N")
         If Not .AtualizarExtrato() Then GoTo Trata
+Fim:
     Next
 End With
 
@@ -1308,6 +1321,7 @@ txtValor.Text = ""
 cmbMes.Text = ""
 txtTaxa.Text = ""
 txtSaque.Text = ""
+Set fClsExtrato = Nothing
 Set fClsAplicacoes = Nothing
 
 End Sub

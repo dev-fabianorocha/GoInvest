@@ -79,6 +79,7 @@ sSql = "SELECT APL_CODIGO, APL_NOME, APL_CORRETORA, APL_ANO, APL_INVESTIR, APL_C
 If Not Consulta(sSql).EOF Then
     Set sConsulta = Consulta(sSql)
     With sConsulta
+        fCodigo = TratarVariavel(!APL_CODIGO, "N")
         fCorretora = TratarVariavel(!APL_CORRETORA, "N")
         fNome = TratarVariavel(!APL_NOME, "T")
         fAno = TratarVariavel(!APL_ANO, "N")

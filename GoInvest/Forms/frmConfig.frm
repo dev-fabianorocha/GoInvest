@@ -69,6 +69,24 @@ Begin VB.Form frmConfig
       TabIndex        =   2
       Top             =   0
       Width           =   5295
+      Begin VB.CheckBox chkLoginWindows 
+         BackColor       =   &H00E0E0E0&
+         Caption         =   "Login Windows"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   255
+         Left            =   3360
+         TabIndex        =   11
+         Top             =   1720
+         Width           =   1695
+      End
       Begin VB.TextBox txtSenha 
          BeginProperty Font 
             Name            =   "Arial"
@@ -218,9 +236,25 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
 
+Private Sub chkLoginWindows_Click()
+    If chkLoginWindows.Value Then
+        txtUsuario.Enabled = False
+        txtUsuario.BackColor = &HE0E0E0
+        txtSenha.Enabled = False
+        txtSenha.BackColor = &HE0E0E0
+        pConexaoWindows = True
+    Else
+        txtUsuario.Enabled = True
+        txtUsuario.BackColor = &HFFFFFF
+        txtSenha.Enabled = True
+        txtSenha.BackColor = &HFFFFFF
+        pConexaoWindows = False
+    End If
+End Sub
+
 Private Sub cmdConectar_Click()
 
-If GravarConfig(txtServidor, txtBanco, txtUsuario, txtSenha) Then
+If GravarConfig(txtServidor, txtBanco, txtUsuario, txtSenha, chkLoginWindows.Value) Then
     If LerConfig Then
         MsgBox "O banco de dados foi configurado, com sucesso!", vbInformation
         Unload Me

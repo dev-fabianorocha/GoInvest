@@ -2,6 +2,7 @@ Attribute VB_Name = "ModBanco"
 Option Explicit
 Public pServidor As String
 Public pVersao As String
+Public pConexaoWindows As Boolean
 Public pBanco As String
 Dim fUsuario As String
 Dim fSenha As String
@@ -27,22 +28,23 @@ Trata:
 MsgBox DescError(Err.Number, Err.Description, ParSql), vbCritical, "ModBanco.Consulta"
 End Function
 
-Public Function Conexao(Optional ParConexaoWindows As Boolean) As ADODB.Connection
+Public Function Conexao() As ADODB.Connection
 On Error GoTo Trata
 
 Dim sConexao As New ADODB.Connection
-   
-'sConexao.Open "Provider=SQLOLEDB; " & _
-'"Initial Catalog=" & pBanco & ";" & _
-'"Data Source=" & pServidor & ";" & _
-'"integrated security=SSPI; persist security info=True;", fUsuario, fSenha
 
 With sConexao
+    If pConexaoWindows Then
+    .Open "Provider=SQLOLEDB; " & _
+        "Initial Catalog=" & pBanco & ";" & _
+        "Data Source=" & pServidor & ";" & _
+        "integrated security=SSPI; persist security info=True;"
+    Else
     .Open "Provider=SQLOLEDB; " _
         & " Initial Catalog=" & pBanco & ";" _
         & " Data Source=" & pServidor & ";" _
-        & IIf(ParConexaoWindows, "integrated security=SSPI;", "") _
         & " persist security info=True;", fUsuario, fSenha
+    End If
 End With
 
 Set Conexao = sConexao
@@ -122,7 +124,7 @@ End Function
 
 Public Function LerConfig() As Boolean
 On Error GoTo Trata
-Dim sServidor As String, sBanco As String, sUsuario As String, sSenha As String, sTexto As String, sRetorno As Boolean
+Dim sServidor As String, sBanco As String, sUsuario As String, sSenha As String, sTexto As String, sRetorno As Boolean, sConexaoWindows As Boolean
 
 If Dir("C:\GoInvest\Config.ini") <> Empty Then
     Open "C:\GoInvest\Config.ini" For Input As #1
@@ -132,14 +134,22 @@ If Dir("C:\GoInvest\Config.ini") <> Empty Then
             If Mid(sTexto, 1, 2) = "02" Then sBanco = Mid(sTexto, 4)
             If Mid(sTexto, 1, 2) = "03" Then sUsuario = Mid(sTexto, 4)
             If Mid(sTexto, 1, 2) = "04" Then sSenha = Mid(sTexto, 4)
+            If Mid(sTexto, 1, 2) = "05" Then
+                If Mid(sTexto, 4) = "Verdadeiro" Then
+                    sConexaoWindows = True
+                Else
+                    sConexaoWindows = False
+                End If
+            End If
         Loop
     Close #1
     
-    If sServidor <> Empty And sBanco <> Empty And sUsuario <> Empty And sSenha <> Empty Then
+    If sServidor <> Empty And sBanco <> Empty Then
         pServidor = sServidor
         pBanco = sBanco
         fUsuario = sUsuario
         fSenha = sSenha
+        pConexaoWindows = sConexaoWindows
     End If
     sRetorno = True
 Else
@@ -154,16 +164,17 @@ Trata:
 MsgBox DescError(Err.Number, Err.Description, ""), vbCritical, "ModBanco.ExecutarSql"
 End Function
 
-Public Function GravarConfig(ParServidor As String, ParBanco As String, ParUsuario As String, ParSenha As String) As Boolean
+Public Function GravarConfig(ParServidor As String, ParBanco As String, ParUsuario As String, ParSenha As String, ParConexaoWindows As Boolean) As Boolean
 On Error GoTo Trata
 Dim sLinha As Long
 
 Open "C:\GoInvest\Config.ini" For Output As #1
-For sLinha = 1 To 4
+For sLinha = 1 To 5
     If sLinha = 1 Then Print #1, "0" & sLinha & "=" & ParServidor
     If sLinha = 2 Then Print #1, "0" & sLinha & "=" & ParBanco
     If sLinha = 3 Then Print #1, "0" & sLinha & "=" & ParUsuario
     If sLinha = 4 Then Print #1, "0" & sLinha & "=" & ParSenha
+    If sLinha = 5 Then Print #1, "0" & sLinha & "=" & ParConexaoWindows
 Next
 Close #1
 

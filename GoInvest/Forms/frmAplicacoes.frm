@@ -24,14 +24,14 @@ Begin VB.Form frmAplicacoes
       ForeColor       =   &H8000000E&
       Height          =   8280
       Left            =   11400
-      TabIndex        =   9
+      TabIndex        =   15
       Top             =   0
       Width           =   975
       Begin fpBtnAtlLibCtl.fpBtn cmdB 
          Height          =   735
          Index           =   0
          Left            =   120
-         TabIndex        =   10
+         TabIndex        =   16
          Top             =   1320
          Width           =   675
          _Version        =   131072
@@ -68,7 +68,7 @@ Begin VB.Form frmAplicacoes
          Height          =   735
          Index           =   6
          Left            =   120
-         TabIndex        =   16
+         TabIndex        =   22
          Top             =   4680
          Width           =   675
          _Version        =   131072
@@ -105,7 +105,7 @@ Begin VB.Form frmAplicacoes
          Height          =   735
          Index           =   1
          Left            =   0
-         TabIndex        =   11
+         TabIndex        =   17
          Top             =   2160
          Width           =   915
          _Version        =   131072
@@ -142,7 +142,7 @@ Begin VB.Form frmAplicacoes
          Height          =   735
          Index           =   2
          Left            =   120
-         TabIndex        =   12
+         TabIndex        =   18
          Top             =   3000
          Width           =   675
          _Version        =   131072
@@ -179,7 +179,7 @@ Begin VB.Form frmAplicacoes
          Height          =   735
          Index           =   3
          Left            =   120
-         TabIndex        =   13
+         TabIndex        =   19
          Top             =   3840
          Width           =   675
          _Version        =   131072
@@ -216,7 +216,7 @@ Begin VB.Form frmAplicacoes
          Height          =   735
          Index           =   4
          Left            =   120
-         TabIndex        =   14
+         TabIndex        =   20
          Top             =   2520
          Width           =   675
          _Version        =   131072
@@ -253,7 +253,7 @@ Begin VB.Form frmAplicacoes
          Height          =   735
          Index           =   5
          Left            =   120
-         TabIndex        =   15
+         TabIndex        =   21
          Top             =   3360
          Width           =   675
          _Version        =   131072
@@ -293,7 +293,7 @@ Begin VB.Form frmAplicacoes
       Height          =   375
       Index           =   1
       Left            =   0
-      TabIndex        =   24
+      TabIndex        =   30
       Top             =   7800
       Width           =   11895
       Begin VB.Label lblRodape 
@@ -308,7 +308,7 @@ Begin VB.Form frmAplicacoes
          EndProperty
          Height          =   420
          Left            =   0
-         TabIndex        =   25
+         TabIndex        =   31
          Top             =   80
          Width           =   11895
       End
@@ -350,7 +350,7 @@ Begin VB.Form frmAplicacoes
          EndProperty
          Height          =   375
          Left            =   4680
-         TabIndex        =   30
+         TabIndex        =   36
          Top             =   840
          Width           =   1575
       End
@@ -368,7 +368,7 @@ Begin VB.Form frmAplicacoes
          EndProperty
          Height          =   255
          Left            =   8160
-         TabIndex        =   29
+         TabIndex        =   35
          Top             =   880
          Width           =   1215
       End
@@ -386,7 +386,7 @@ Begin VB.Form frmAplicacoes
          EndProperty
          Height          =   5055
          Left            =   120
-         TabIndex        =   27
+         TabIndex        =   33
          Top             =   1440
          Width           =   11175
          Begin FPSpreadADO.fpSpread gridSimulacao 
@@ -431,7 +431,7 @@ Begin VB.Form frmAplicacoes
             EndProperty
             Height          =   375
             Left            =   5355
-            TabIndex        =   38
+            TabIndex        =   9
             Top             =   4080
             Width           =   735
          End
@@ -447,7 +447,7 @@ Begin VB.Form frmAplicacoes
             EndProperty
             Height          =   375
             Left            =   915
-            TabIndex        =   37
+            TabIndex        =   7
             Top             =   4080
             Width           =   1935
          End
@@ -463,7 +463,7 @@ Begin VB.Form frmAplicacoes
             EndProperty
             Height          =   375
             Left            =   6915
-            TabIndex        =   36
+            TabIndex        =   10
             Top             =   4080
             Width           =   1335
          End
@@ -479,14 +479,14 @@ Begin VB.Form frmAplicacoes
             EndProperty
             Height          =   375
             Left            =   3195
-            TabIndex        =   34
+            TabIndex        =   8
             Top             =   4080
             Width           =   1815
          End
          Begin FPSpreadADO.fpSpread gridAplicacoes 
             Height          =   3165
             Left            =   240
-            TabIndex        =   32
+            TabIndex        =   38
             Top             =   360
             Width           =   6075
             _Version        =   458752
@@ -516,7 +516,7 @@ Begin VB.Form frmAplicacoes
          Begin fpBtnAtlLibCtl.fpBtn cmdLimparAplicacoes 
             Height          =   1095
             Left            =   9555
-            TabIndex        =   33
+            TabIndex        =   12
             Top             =   3720
             Width           =   975
             _Version        =   131072
@@ -552,7 +552,7 @@ Begin VB.Form frmAplicacoes
          Begin fpBtnAtlLibCtl.fpBtn cmdAplicar 
             Height          =   945
             Left            =   8475
-            TabIndex        =   35
+            TabIndex        =   11
             Top             =   3720
             Width           =   975
             _Version        =   131072
@@ -721,22 +721,23 @@ Begin VB.Form frmAplicacoes
       End
       Begin VB.Frame quadDatas 
          BackColor       =   &H00E0E0E0&
+         Enabled         =   0   'False
          Height          =   975
          Left            =   7560
-         TabIndex        =   17
+         TabIndex        =   23
          Top             =   6600
          Width           =   3255
          Begin VB.TextBox txtData 
             Height          =   375
             Left            =   120
-            TabIndex        =   19
+            TabIndex        =   25
             Top             =   480
             Width           =   1455
          End
          Begin VB.TextBox txtAtualizacao 
             Height          =   375
             Left            =   1680
-            TabIndex        =   18
+            TabIndex        =   24
             Top             =   480
             Width           =   1455
          End
@@ -755,7 +756,7 @@ Begin VB.Form frmAplicacoes
             Height          =   255
             Index           =   2
             Left            =   120
-            TabIndex        =   21
+            TabIndex        =   27
             Top             =   240
             Width           =   1095
          End
@@ -774,7 +775,7 @@ Begin VB.Form frmAplicacoes
             Height          =   255
             Index           =   3
             Left            =   1680
-            TabIndex        =   20
+            TabIndex        =   26
             Top             =   240
             Width           =   1095
          End
@@ -844,7 +845,7 @@ Begin VB.Form frmAplicacoes
          Height          =   240
          Index           =   13
          Left            =   4680
-         TabIndex        =   31
+         TabIndex        =   37
          Top             =   600
          Width           =   795
       End
@@ -863,7 +864,7 @@ Begin VB.Form frmAplicacoes
          Height          =   255
          Index           =   12
          Left            =   6360
-         TabIndex        =   28
+         TabIndex        =   34
          Top             =   600
          Width           =   855
       End
@@ -882,7 +883,7 @@ Begin VB.Form frmAplicacoes
          Height          =   255
          Index           =   1
          Left            =   1320
-         TabIndex        =   8
+         TabIndex        =   14
          Top             =   600
          Width           =   855
       End
@@ -901,7 +902,7 @@ Begin VB.Form frmAplicacoes
          Height          =   255
          Index           =   0
          Left            =   360
-         TabIndex        =   7
+         TabIndex        =   13
          Top             =   600
          Width           =   735
       End
@@ -928,14 +929,14 @@ Begin VB.Form frmAplicacoes
          EndProperty
          Height          =   255
          Left            =   9720
-         TabIndex        =   26
+         TabIndex        =   32
          Top             =   720
          Width           =   1095
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdPesquisa 
          Height          =   495
          Left            =   4320
-         TabIndex        =   22
+         TabIndex        =   28
          Top             =   360
          Width           =   1875
          _Version        =   131072
@@ -1029,7 +1030,7 @@ Begin VB.Form frmAplicacoes
          Height          =   375
          Index           =   4
          Left            =   260
-         TabIndex        =   23
+         TabIndex        =   29
          Top             =   200
          Width           =   1335
       End
@@ -1093,29 +1094,42 @@ Private Sub cmdAplicar_Click()
 On Error GoTo vbErrorHandler
 Dim sMes As Long, sLinhas As Long, sCont As Long, sValor As Double
 
-
 With gridAplicacoes
     For sCont = 1 To .MaxRows
         .Row = sCont
-        .col = 1
-        If .Text = 0 Then
-            .Row = sCont
-            .RowHidden = False
-            .SetText 1, sCont, cmbMes.ListIndex & Second(Time) & Day(Date)
-            .SetText 2, sCont, MonthName(cmbMes.ListIndex)
-            .SetText 3, sCont, CDbl(txtValor)
-            .SetText 4, sCont, CDbl(txtTaxa)
-            .SetText 5, sCont, CDbl(txtSaque)
+        .col = 2
+        If .Text <> "0" Then
+            sMes = RetornaNumeroMes(.Text)
+            If sMes > cmbMes.ListIndex Then
+                MsgBox "Não é possível inserir uma aplicação retroativa!", vbInformation, "GoInvest"
+                Exit Sub
+            End If
+        Else
             Exit For
         End If
     Next
 End With
 
-fClsExtrato.Valor = CDbl(txtValor.Text) - CDbl(txtSaque.Text)
-fClsExtrato.Taxa = CDbl(txtTaxa.Text)
-fClsExtrato.Depositar CDbl(txtValor.Text) - CDbl(txtSaque.Text)
-
 If cmbMes.ListIndex <= CInt(Month(Date)) Then
+    fClsExtrato.Saldo = 0
+    With gridAplicacoes
+        For sCont = 1 To .MaxRows
+            .Row = sCont
+            .col = 1
+            If .Text = 0 Then
+                .Row = sCont
+                .RowHidden = False
+                .SetText 1, sCont, cmbMes.ListIndex & Second(Time) & Day(Date)
+                .SetText 2, sCont, MonthName(cmbMes.ListIndex)
+                .SetText 3, sCont, CDbl(txtValor)
+                .SetText 4, sCont, CDbl(txtTaxa)
+                .SetText 5, sCont, CDbl(txtSaque)
+                Exit For
+            End If
+        Next
+    End With
+    fClsExtrato.Taxa = CDbl(txtTaxa.Text)
+    SomarValorMensal
     For sMes = (cmbMes.ListIndex) To 12
         With gridSimulacao
             sValor = fClsExtrato.Saldo
@@ -1137,6 +1151,78 @@ Resume
 vbErrorHandler:
 MsgBox Err.Number & " - " & Err.Description, vbOKOnly, Err.Source
 End Sub
+
+Private Function SomarValorMensal()
+Dim sCont As Long, sValor As Double, sSaque As Double, sCont2 As Long
+With gridAplicacoes
+    For sCont = 1 To .MaxRows
+        .Row = sCont
+        .col = 1
+        If .Text <> 0 Then
+            .col = 2
+            If .Text = MonthName(cmbMes.ListIndex) Then
+                .col = 3
+                sValor = CDbl(.Text)
+                .col = 5
+                sSaque = CDbl(.Text)
+                fClsExtrato.Depositar sValor - sSaque
+            ElseIf cmbMes.ListIndex > RetornaNumeroMes(.Text) Then
+                For sCont2 = 1 To gridSimulacao.MaxRows
+                    gridSimulacao.Row = sCont
+                    gridSimulacao.col = 1
+                    If gridSimulacao.Text <> "" Then
+                        If gridSimulacao.Text = MonthName(cmbMes.ListIndex - 1) Then
+                            gridSimulacao.col = 3
+                            sValor = CDbl(gridSimulacao.Text)
+                            fClsExtrato.Depositar sValor
+                            Exit For
+                        End If
+                    Else
+                        Exit For
+                    End If
+                Next
+            End If
+        Else
+            Exit For
+        End If
+    Next
+End With
+End Function
+
+Private Function RetornaNumeroMes(ParMes As String) As Byte
+Dim sRetorno As Byte
+
+
+If ParMes = "janeiro" Then
+    sRetorno = 1
+ElseIf ParMes = "fevereiro" Then
+    sRetorno = 2
+ElseIf ParMes = "março" Then
+    sRetorno = 3
+ElseIf ParMes = "abril" Then
+    sRetorno = 4
+ElseIf ParMes = "maio" Then
+    sRetorno = 5
+ElseIf ParMes = "junho" Then
+    sRetorno = 6
+ElseIf ParMes = "julho" Then
+    sRetorno = 7
+ElseIf ParMes = "agosto" Then
+    sRetorno = 8
+ElseIf ParMes = "setembro" Then
+    sRetorno = 9
+ElseIf ParMes = "outubro" Then
+    sRetorno = 10
+ElseIf ParMes = "novembro" Then
+    sRetorno = 11
+ElseIf ParMes = "dezembro" Then
+    sRetorno = 12
+Else
+    sRetorno = 0
+End If
+
+RetornaNumeroMes = sRetorno
+End Function
 
 Private Sub cmdB_Click(Index As Integer)
 On Error GoTo Trata
@@ -1182,9 +1268,12 @@ MsgBox DescError(Err.Number, Err.Description), vbCritical, "clsCorretoras.Atuali
 End Sub
 
 Private Sub cmdLimparAplicacoes_Click()
-LimparGrid gridAplicacoes
-LimparGrid gridSimulacao
-fClsExtrato.Saldo = 0
+If MsgBox("Deseja realmente limpar essa aplicação?", vbYesNo, "Aplicacções") = 6 Then
+    LimparGrid gridAplicacoes
+    LimparGrid gridSimulacao
+    fClsExtrato.LimparExtrato CInt(txtCodigo.Text)
+    Set fClsExtrato = Nothing
+End If
 End Sub
 
 Private Sub cmdPesquisa_Click()
@@ -1264,7 +1353,7 @@ End Function
 Private Function PassarDados() As Boolean
 On Error GoTo Trata
 
-Dim sSql As String, sCont As Long, sLinhas As Long
+Dim sSql As String, sCont As Long, sLinhas As Long, sMes As Byte, sRendimento As Double, sSaldo As Double
 
 If fCodigo <> 0 Then fClsAplicacoes.Consultar (fCodigo)
 With fClsAplicacoes
@@ -1292,6 +1381,23 @@ With fClsExtrato
         If Not .AtualizarExtrato() Then GoTo Trata
 Fim:
     Next
+    If Not .LimparSaldos Then GoTo Trata
+    For sCont = 1 To gridSimulacao.MaxRows
+        gridSimulacao.Row = sCont
+        gridSimulacao.col = 1
+        If gridSimulacao.Text <> "0" Then
+            gridSimulacao.col = 1
+            sMes = RetornaNumeroMes(gridSimulacao.Text)
+            gridSimulacao.col = 2
+            sRendimento = CDbl(gridSimulacao.Text)
+            gridSimulacao.col = 3
+            sSaldo = CDbl(gridSimulacao.Text)
+            If Not .InserirSaldos(sMes, sRendimento, sSaldo) Then GoTo Trata
+        Else
+            Exit For
+        End If
+    Next
+    
 End With
 
 EncherGrid

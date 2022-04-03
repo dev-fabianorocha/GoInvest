@@ -122,15 +122,42 @@ On Error GoTo Trata
 Dim sSql As String
 
 sSql = "DELETE FROM EXTRATO WHERE EXT_APLICACAO = '" & fCodigoAplicacao & "'"
-If MsgBox("Deseja realmente limpar essa aplicação?", vbYesNo, "Aplicacções") = 6 Then
     If Not ExecutarSql(sSql) Then GoTo Trata
-End If
 
 LimparExtrato = True
 Exit Function
 Resume
 Trata:
 MsgBox DescError(Err.Number, Err.Description, sSql), vbCritical, "clsExtrato.LimparExtrato"
+End Function
+Public Function LimparSaldos() As Boolean
+On Error GoTo Trata
+Dim sSql As String
+
+sSql = "DELETE FROM SALDOS WHERE SAL_APLICACAO = '" & fCodigoAplicacao & "'"
+If Not ExecutarSql(sSql) Then GoTo Trata
+
+LimparSaldos = True
+Exit Function
+Resume
+Trata:
+MsgBox DescError(Err.Number, Err.Description, sSql), vbCritical, "clsExtrato.LimparSaldos"
+End Function
+
+
+Public Function InserirSaldos(ParMes As Byte, ParRendimento As Double, ParSaldo As Double) As Boolean
+On Error GoTo Trata
+Dim sSql As String
+
+sSql = "INSERT INTO SALDOS (SAL_APLICACAO, SAL_MES, SAL_RENDIMENTO, SAL_SALDO) VALUES ('" & fCodigoAplicacao _
+    & "', '" & TratarVariavel(ParMes, "N") & "', '" & TratarVariavel(ParRendimento, "NB") & "', '" & TratarVariavel(ParSaldo, "NB") & "')"
+If Not ExecutarSql(sSql) Then GoTo Trata
+
+InserirSaldos = True
+Exit Function
+Resume
+Trata:
+MsgBox DescError(Err.Number, Err.Description, sSql), vbCritical, "clsExtrato.InserirSaldos"
 End Function
 
 Public Sub Sacar(ByVal ParValorSaque As Double)

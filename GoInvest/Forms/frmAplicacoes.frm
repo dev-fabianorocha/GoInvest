@@ -1,4 +1,5 @@
 VERSION 5.00
+Object = "{CDF3B183-D408-11CE-AE2C-0080C786E37D}#3.0#0"; "Edt32x30.ocx"
 Object = "{F856EC8B-F03C-4515-BDC6-64CBD617566A}#7.0#0"; "FPSPR70.ocx"
 Object = "{FD2FB1F1-D4FC-11CE-A335-A8D5ECAE5B02}#2.0#0"; "btn32a20.ocx"
 Begin VB.Form frmAplicacoes 
@@ -24,14 +25,14 @@ Begin VB.Form frmAplicacoes
       ForeColor       =   &H8000000E&
       Height          =   8280
       Left            =   11400
-      TabIndex        =   15
+      TabIndex        =   13
       Top             =   0
       Width           =   975
       Begin fpBtnAtlLibCtl.fpBtn cmdB 
          Height          =   735
          Index           =   0
          Left            =   120
-         TabIndex        =   16
+         TabIndex        =   14
          Top             =   1320
          Width           =   675
          _Version        =   131072
@@ -68,7 +69,7 @@ Begin VB.Form frmAplicacoes
          Height          =   735
          Index           =   6
          Left            =   120
-         TabIndex        =   22
+         TabIndex        =   20
          Top             =   4680
          Width           =   675
          _Version        =   131072
@@ -105,7 +106,7 @@ Begin VB.Form frmAplicacoes
          Height          =   735
          Index           =   1
          Left            =   0
-         TabIndex        =   17
+         TabIndex        =   15
          Top             =   2160
          Width           =   915
          _Version        =   131072
@@ -142,7 +143,7 @@ Begin VB.Form frmAplicacoes
          Height          =   735
          Index           =   2
          Left            =   120
-         TabIndex        =   18
+         TabIndex        =   16
          Top             =   3000
          Width           =   675
          _Version        =   131072
@@ -179,7 +180,7 @@ Begin VB.Form frmAplicacoes
          Height          =   735
          Index           =   3
          Left            =   120
-         TabIndex        =   19
+         TabIndex        =   17
          Top             =   3840
          Width           =   675
          _Version        =   131072
@@ -216,7 +217,7 @@ Begin VB.Form frmAplicacoes
          Height          =   735
          Index           =   4
          Left            =   120
-         TabIndex        =   20
+         TabIndex        =   18
          Top             =   2520
          Width           =   675
          _Version        =   131072
@@ -253,7 +254,7 @@ Begin VB.Form frmAplicacoes
          Height          =   735
          Index           =   5
          Left            =   120
-         TabIndex        =   21
+         TabIndex        =   19
          Top             =   3360
          Width           =   675
          _Version        =   131072
@@ -293,7 +294,7 @@ Begin VB.Form frmAplicacoes
       Height          =   375
       Index           =   1
       Left            =   0
-      TabIndex        =   30
+      TabIndex        =   28
       Top             =   7800
       Width           =   11895
       Begin VB.Label lblRodape 
@@ -308,7 +309,7 @@ Begin VB.Form frmAplicacoes
          EndProperty
          Height          =   420
          Left            =   0
-         TabIndex        =   31
+         TabIndex        =   29
          Top             =   80
          Width           =   11895
       End
@@ -334,7 +335,7 @@ Begin VB.Form frmAplicacoes
          EndProperty
          Height          =   375
          Left            =   6360
-         TabIndex        =   46
+         TabIndex        =   44
          Top             =   840
          Width           =   1335
       End
@@ -350,7 +351,7 @@ Begin VB.Form frmAplicacoes
          EndProperty
          Height          =   375
          Left            =   4680
-         TabIndex        =   36
+         TabIndex        =   34
          Top             =   840
          Width           =   1575
       End
@@ -368,7 +369,7 @@ Begin VB.Form frmAplicacoes
          EndProperty
          Height          =   255
          Left            =   8160
-         TabIndex        =   35
+         TabIndex        =   33
          Top             =   880
          Width           =   1215
       End
@@ -386,13 +387,209 @@ Begin VB.Form frmAplicacoes
          EndProperty
          Height          =   5055
          Left            =   120
-         TabIndex        =   33
+         TabIndex        =   31
          Top             =   1440
          Width           =   11175
+         Begin EditLib.fpCurrency txtSaque 
+            Height          =   375
+            Left            =   6880
+            TabIndex        =   47
+            Top             =   4080
+            Width           =   1455
+            _Version        =   196608
+            _ExtentX        =   2566
+            _ExtentY        =   661
+            Enabled         =   -1  'True
+            MousePointer    =   0
+            Object.TabStop         =   -1  'True
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "Arial"
+               Size            =   9.75
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            BackColor       =   -2147483643
+            ForeColor       =   -2147483640
+            ThreeDInsideStyle=   1
+            ThreeDInsideHighlightColor=   -2147483633
+            ThreeDInsideShadowColor=   -2147483642
+            ThreeDInsideWidth=   1
+            ThreeDOutsideStyle=   1
+            ThreeDOutsideHighlightColor=   -2147483628
+            ThreeDOutsideShadowColor=   -2147483632
+            ThreeDOutsideWidth=   1
+            ThreeDFrameWidth=   0
+            BorderStyle     =   0
+            BorderColor     =   -2147483642
+            BorderWidth     =   1
+            ButtonDisable   =   0   'False
+            ButtonHide      =   0   'False
+            ButtonIncrement =   1
+            ButtonMin       =   0
+            ButtonMax       =   100
+            ButtonStyle     =   0
+            ButtonWidth     =   0
+            ButtonWrap      =   -1  'True
+            ButtonDefaultAction=   -1  'True
+            ThreeDText      =   0
+            ThreeDTextHighlightColor=   -2147483633
+            ThreeDTextShadowColor=   -2147483632
+            ThreeDTextOffset=   1
+            AlignTextH      =   0
+            AlignTextV      =   0
+            AllowNull       =   0   'False
+            NoSpecialKeys   =   0
+            AutoAdvance     =   0   'False
+            AutoBeep        =   0   'False
+            CaretInsert     =   0
+            CaretOverWrite  =   3
+            UserEntry       =   0
+            HideSelection   =   -1  'True
+            InvalidColor    =   -2147483637
+            InvalidOption   =   0
+            MarginLeft      =   3
+            MarginTop       =   3
+            MarginRight     =   3
+            MarginBottom    =   3
+            NullColor       =   -2147483637
+            OnFocusAlignH   =   0
+            OnFocusAlignV   =   0
+            OnFocusNoSelect =   0   'False
+            OnFocusPosition =   0
+            ControlType     =   0
+            Text            =   "R$ 0,00"
+            CurrencyDecimalPlaces=   -1
+            CurrencyNegFormat=   0
+            CurrencyPlacement=   0
+            CurrencySymbol  =   ""
+            DecimalPoint    =   ""
+            FixedPoint      =   -1  'True
+            LeadZero        =   0
+            MaxValue        =   "9000000000"
+            MinValue        =   "-9000000000"
+            NegToggle       =   0   'False
+            Separator       =   ""
+            UseSeparator    =   0   'False
+            IncInt          =   1
+            IncDec          =   1
+            BorderGrayAreaColor=   -2147483637
+            ThreeDOnFocusInvert=   0   'False
+            ThreeDFrameColor=   -2147483633
+            Appearance      =   2
+            BorderDropShadow=   0
+            BorderDropShadowColor=   -2147483632
+            BorderDropShadowWidth=   3
+            ButtonColor     =   -2147483633
+            AutoMenu        =   0   'False
+            ButtonAlign     =   0
+            OLEDropMode     =   0
+            OLEDragMode     =   0
+         End
+         Begin EditLib.fpCurrency txtValor 
+            Height          =   375
+            Left            =   885
+            TabIndex        =   46
+            Top             =   4080
+            Width           =   1935
+            _Version        =   196608
+            _ExtentX        =   3413
+            _ExtentY        =   661
+            Enabled         =   -1  'True
+            MousePointer    =   0
+            Object.TabStop         =   -1  'True
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "Arial"
+               Size            =   9.75
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            BackColor       =   -2147483643
+            ForeColor       =   -2147483640
+            ThreeDInsideStyle=   1
+            ThreeDInsideHighlightColor=   -2147483633
+            ThreeDInsideShadowColor=   -2147483642
+            ThreeDInsideWidth=   1
+            ThreeDOutsideStyle=   1
+            ThreeDOutsideHighlightColor=   -2147483628
+            ThreeDOutsideShadowColor=   -2147483632
+            ThreeDOutsideWidth=   1
+            ThreeDFrameWidth=   0
+            BorderStyle     =   0
+            BorderColor     =   -2147483642
+            BorderWidth     =   1
+            ButtonDisable   =   0   'False
+            ButtonHide      =   0   'False
+            ButtonIncrement =   1
+            ButtonMin       =   0
+            ButtonMax       =   100
+            ButtonStyle     =   0
+            ButtonWidth     =   0
+            ButtonWrap      =   -1  'True
+            ButtonDefaultAction=   -1  'True
+            ThreeDText      =   0
+            ThreeDTextHighlightColor=   -2147483633
+            ThreeDTextShadowColor=   -2147483632
+            ThreeDTextOffset=   1
+            AlignTextH      =   0
+            AlignTextV      =   0
+            AllowNull       =   0   'False
+            NoSpecialKeys   =   0
+            AutoAdvance     =   0   'False
+            AutoBeep        =   0   'False
+            CaretInsert     =   0
+            CaretOverWrite  =   3
+            UserEntry       =   0
+            HideSelection   =   -1  'True
+            InvalidColor    =   -2147483637
+            InvalidOption   =   0
+            MarginLeft      =   3
+            MarginTop       =   3
+            MarginRight     =   3
+            MarginBottom    =   3
+            NullColor       =   -2147483637
+            OnFocusAlignH   =   0
+            OnFocusAlignV   =   0
+            OnFocusNoSelect =   0   'False
+            OnFocusPosition =   0
+            ControlType     =   0
+            Text            =   "R$ 0,00"
+            CurrencyDecimalPlaces=   -1
+            CurrencyNegFormat=   0
+            CurrencyPlacement=   0
+            CurrencySymbol  =   ""
+            DecimalPoint    =   ""
+            FixedPoint      =   -1  'True
+            LeadZero        =   0
+            MaxValue        =   "9000000000"
+            MinValue        =   "-9000000000"
+            NegToggle       =   0   'False
+            Separator       =   ""
+            UseSeparator    =   0   'False
+            IncInt          =   1
+            IncDec          =   1
+            BorderGrayAreaColor=   -2147483637
+            ThreeDOnFocusInvert=   0   'False
+            ThreeDFrameColor=   -2147483633
+            Appearance      =   2
+            BorderDropShadow=   0
+            BorderDropShadowColor=   -2147483632
+            BorderDropShadowWidth=   3
+            ButtonColor     =   -2147483633
+            AutoMenu        =   0   'False
+            ButtonAlign     =   0
+            OLEDropMode     =   0
+            OLEDragMode     =   0
+         End
          Begin FPSpreadADO.fpSpread gridSimulacao 
             Height          =   3165
             Left            =   6600
-            TabIndex        =   47
+            TabIndex        =   45
             Top             =   360
             Width           =   4395
             _Version        =   458752
@@ -432,41 +629,9 @@ Begin VB.Form frmAplicacoes
             EndProperty
             Height          =   375
             Left            =   5355
-            TabIndex        =   9
+            TabIndex        =   8
             Top             =   4080
             Width           =   735
-         End
-         Begin VB.TextBox txtValor 
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   9.75
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   375
-            Left            =   915
-            TabIndex        =   7
-            Top             =   4080
-            Width           =   1935
-         End
-         Begin VB.TextBox txtSaque 
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   9.75
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   375
-            Left            =   6915
-            TabIndex        =   10
-            Top             =   4080
-            Width           =   1335
          End
          Begin VB.ComboBox cmbMes 
             BeginProperty Font 
@@ -480,14 +645,15 @@ Begin VB.Form frmAplicacoes
             EndProperty
             Height          =   375
             Left            =   3195
-            TabIndex        =   8
+            TabIndex        =   7
+            Text            =   "cmbMes"
             Top             =   4080
             Width           =   1815
          End
          Begin FPSpreadADO.fpSpread gridAplicacoes 
             Height          =   3165
             Left            =   240
-            TabIndex        =   38
+            TabIndex        =   36
             Top             =   360
             Width           =   6075
             _Version        =   458752
@@ -518,7 +684,7 @@ Begin VB.Form frmAplicacoes
          Begin fpBtnAtlLibCtl.fpBtn cmdLimparAplicacoes 
             Height          =   1095
             Left            =   9555
-            TabIndex        =   12
+            TabIndex        =   10
             Top             =   3720
             Width           =   975
             _Version        =   131072
@@ -554,7 +720,7 @@ Begin VB.Form frmAplicacoes
          Begin fpBtnAtlLibCtl.fpBtn cmdAplicar 
             Height          =   945
             Left            =   8475
-            TabIndex        =   11
+            TabIndex        =   9
             Top             =   3720
             Width           =   975
             _Version        =   131072
@@ -602,7 +768,7 @@ Begin VB.Form frmAplicacoes
             Height          =   255
             Index           =   5
             Left            =   915
-            TabIndex        =   45
+            TabIndex        =   43
             Top             =   3840
             Width           =   495
          End
@@ -621,7 +787,7 @@ Begin VB.Form frmAplicacoes
             Height          =   255
             Index           =   6
             Left            =   3195
-            TabIndex        =   44
+            TabIndex        =   42
             Top             =   3840
             Width           =   1215
          End
@@ -640,7 +806,7 @@ Begin VB.Form frmAplicacoes
             Height          =   255
             Index           =   7
             Left            =   5355
-            TabIndex        =   43
+            TabIndex        =   41
             Top             =   3840
             Width           =   735
          End
@@ -659,7 +825,7 @@ Begin VB.Form frmAplicacoes
             Height          =   255
             Index           =   8
             Left            =   6915
-            TabIndex        =   42
+            TabIndex        =   40
             Top             =   3840
             Width           =   855
          End
@@ -678,7 +844,7 @@ Begin VB.Form frmAplicacoes
             Height          =   255
             Index           =   9
             Left            =   600
-            TabIndex        =   41
+            TabIndex        =   39
             Top             =   4125
             Width           =   255
          End
@@ -697,7 +863,7 @@ Begin VB.Form frmAplicacoes
             Height          =   255
             Index           =   10
             Left            =   6615
-            TabIndex        =   40
+            TabIndex        =   38
             Top             =   4125
             Width           =   255
          End
@@ -716,7 +882,7 @@ Begin VB.Form frmAplicacoes
             Height          =   255
             Index           =   11
             Left            =   6150
-            TabIndex        =   39
+            TabIndex        =   37
             Top             =   4125
             Width           =   255
          End
@@ -726,20 +892,20 @@ Begin VB.Form frmAplicacoes
          Enabled         =   0   'False
          Height          =   975
          Left            =   7560
-         TabIndex        =   23
+         TabIndex        =   21
          Top             =   6600
          Width           =   3255
          Begin VB.TextBox txtData 
             Height          =   375
             Left            =   120
-            TabIndex        =   25
+            TabIndex        =   23
             Top             =   480
             Width           =   1455
          End
          Begin VB.TextBox txtAtualizacao 
             Height          =   375
             Left            =   1680
-            TabIndex        =   24
+            TabIndex        =   22
             Top             =   480
             Width           =   1455
          End
@@ -758,7 +924,7 @@ Begin VB.Form frmAplicacoes
             Height          =   255
             Index           =   2
             Left            =   120
-            TabIndex        =   27
+            TabIndex        =   25
             Top             =   240
             Width           =   1095
          End
@@ -777,7 +943,7 @@ Begin VB.Form frmAplicacoes
             Height          =   255
             Index           =   3
             Left            =   1680
-            TabIndex        =   26
+            TabIndex        =   24
             Top             =   240
             Width           =   1095
          End
@@ -847,7 +1013,7 @@ Begin VB.Form frmAplicacoes
          Height          =   240
          Index           =   13
          Left            =   4680
-         TabIndex        =   37
+         TabIndex        =   35
          Top             =   600
          Width           =   795
       End
@@ -866,7 +1032,7 @@ Begin VB.Form frmAplicacoes
          Height          =   255
          Index           =   12
          Left            =   6360
-         TabIndex        =   34
+         TabIndex        =   32
          Top             =   600
          Width           =   855
       End
@@ -885,7 +1051,7 @@ Begin VB.Form frmAplicacoes
          Height          =   255
          Index           =   1
          Left            =   1320
-         TabIndex        =   14
+         TabIndex        =   12
          Top             =   600
          Width           =   855
       End
@@ -904,7 +1070,7 @@ Begin VB.Form frmAplicacoes
          Height          =   255
          Index           =   0
          Left            =   360
-         TabIndex        =   13
+         TabIndex        =   11
          Top             =   600
          Width           =   735
       End
@@ -931,14 +1097,14 @@ Begin VB.Form frmAplicacoes
          EndProperty
          Height          =   255
          Left            =   9720
-         TabIndex        =   32
+         TabIndex        =   30
          Top             =   720
          Width           =   1095
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdPesquisa 
          Height          =   495
          Left            =   4320
-         TabIndex        =   28
+         TabIndex        =   26
          Top             =   360
          Width           =   1875
          _Version        =   131072
@@ -1032,7 +1198,7 @@ Begin VB.Form frmAplicacoes
          Height          =   375
          Index           =   4
          Left            =   260
-         TabIndex        =   29
+         TabIndex        =   27
          Top             =   200
          Width           =   1335
       End
@@ -1060,6 +1226,7 @@ End Enum
 
 Private Sub EncherGrid()
 Dim sSql As String
+
 
 
 sSql = "SELECT APL_CODIGO AS CODIGO, APL_NOME AS NOME, COR_NOME AS CORRETORA, APL_ANO AS ANO, APL_CADASTRO AS CADASTRO, APL_ATUALIZACAO AS ATUALIZAÇÃO, " _
@@ -1095,6 +1262,8 @@ End Sub
 Private Sub cmdAplicar_Click()
 On Error GoTo vbErrorHandler
 Dim sMes As Long, sLinhas As Long, sCont As Long, sValor As Double
+
+If Not VerificarDados Then Exit Sub
 
 With gridAplicacoes
     For sCont = 1 To .MaxRows
@@ -1409,6 +1578,29 @@ Exit Function
 Resume
 Trata:
 MsgBox DescError(Err.Number, Err.Description, sSql), vbCritical, "clsCorretoras.Atualizar"
+End Function
+
+Private Function VerificarDados() As Boolean
+
+If CDbl(txtValor.Text) = 0 Then
+    MsgBox "Por favor informe o valor da aplicação.", vbInformation
+    txtValor.SetFocus
+    Exit Function
+End If
+
+If Trim(cmbMes.Text) = "" Then
+    MsgBox "Por favor informe o mês da aplicação.", vbInformation
+    cmbMes.SetFocus
+    Exit Function
+End If
+
+If CDbl(txtTaxa.Text) = 0 Then
+    MsgBox "Por favor informe a taxa de investimento.", vbInformation
+    txtTaxa.SetFocus
+    Exit Function
+End If
+
+VerificarDados = True
 End Function
 
 Private Sub LimparTela()

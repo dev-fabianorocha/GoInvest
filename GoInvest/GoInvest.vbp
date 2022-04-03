@@ -23,7 +23,6 @@ Class=clsUsuarios; Classes\clsUsuarios.cls
 Form=Forms\frmConfig.frm
 Form=Forms\frmAplicacoes.frm
 Class=ClsAplicacoes; Classes\clsAplicacoes.cls
-Class=clsInvestimento; Classes\clsInvestimento.cls
 Class=clsExtrato; Classes\clsExtrato.cls
 Startup="frmLogin"
 HelpFile=""

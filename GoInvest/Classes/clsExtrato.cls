@@ -74,7 +74,7 @@ End Property
 Property Let Saldo(ByVal ParSaldo As Double)
 fSaldo = ParSaldo
 End Property
-Public Function ConsultarExtrato(ByRef ParGrid As fpSpread, ByRef ParTextValor As TextBox, ByRef ParComboMes As ComboBox, ByRef ParTextTaxa As TextBox, ByRef ParTextSaque As TextBox, ByRef ParCmdAplicar As fpBtn) As Boolean
+Public Function ConsultarExtrato(ByRef ParGrid As fpSpread, ByRef ParTextValor As fpCurrency, ByRef ParComboMes As ComboBox, ByRef ParTextTaxa As TextBox, ByRef ParTextSaque As fpCurrency, ByRef ParCmdAplicar As fpBtn) As Boolean
 Dim sSql As String, sCont As Long, sLinha As Long
 Dim sConsulta As ADODB.Recordset, sLinhas As Long
 

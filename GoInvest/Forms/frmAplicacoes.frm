@@ -413,6 +413,7 @@ Begin VB.Form frmAplicacoes
             GridColor       =   8421504
             MaxCols         =   3
             MaxRows         =   100
+            OperationMode   =   1
             ShadowColor     =   12632256
             ShadowDark      =   8421504
             ShadowText      =   0
@@ -507,10 +508,11 @@ Begin VB.Form frmAplicacoes
             GridColor       =   8421504
             MaxCols         =   5
             MaxRows         =   100
+            OperationMode   =   1
             ShadowColor     =   12632256
             ShadowDark      =   8421504
             ShadowText      =   0
-            SpreadDesigner  =   "frmAplicacoes.frx":FAF6
+            SpreadDesigner  =   "frmAplicacoes.frx":FAFE
             UserResize      =   0
          End
          Begin fpBtnAtlLibCtl.fpBtn cmdLimparAplicacoes 
@@ -547,7 +549,7 @@ Begin VB.Form frmAplicacoes
             DropShadowType  =   0
             DropShadowColor =   0
             Redraw          =   -1  'True
-            ButtonDesigner  =   "frmAplicacoes.frx":130DF
+            ButtonDesigner  =   "frmAplicacoes.frx":130EF
          End
          Begin fpBtnAtlLibCtl.fpBtn cmdAplicar 
             Height          =   945
@@ -583,7 +585,7 @@ Begin VB.Form frmAplicacoes
             DropShadowType  =   0
             DropShadowColor =   0
             Redraw          =   -1  'True
-            ButtonDesigner  =   "frmAplicacoes.frx":143F0
+            ButtonDesigner  =   "frmAplicacoes.frx":14400
          End
          Begin VB.Label Label 
             BackColor       =   &H00E0E0E0&
@@ -967,7 +969,7 @@ Begin VB.Form frmAplicacoes
          DropShadowType  =   0
          DropShadowColor =   0
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":156F8
+         ButtonDesigner  =   "frmAplicacoes.frx":15708
       End
       Begin VB.TextBox txtPesquisa 
          BeginProperty Font 
@@ -1008,11 +1010,11 @@ Begin VB.Form frmAplicacoes
          GrayAreaBackColor=   14737632
          GridColor       =   8421504
          MaxCols         =   7
-         MaxRows         =   100
+         MaxRows         =   1
          ShadowColor     =   12632256
          ShadowDark      =   8421504
          ShadowText      =   0
-         SpreadDesigner  =   "frmAplicacoes.frx":16A07
+         SpreadDesigner  =   "frmAplicacoes.frx":16A17
          UserResize      =   0
       End
       Begin VB.Label Label 

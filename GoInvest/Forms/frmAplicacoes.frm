@@ -100,7 +100,7 @@ Begin VB.Form frmAplicacoes
          DropShadowType  =   0
          DropShadowColor =   -2147483627
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":7B12
+         ButtonDesigner  =   "frmAplicacoes.frx":7ADA
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdB 
          Height          =   735
@@ -137,7 +137,7 @@ Begin VB.Form frmAplicacoes
          DropShadowType  =   0
          DropShadowColor =   -2147483627
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":8E19
+         ButtonDesigner  =   "frmAplicacoes.frx":8DA9
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdB 
          Height          =   735
@@ -174,7 +174,7 @@ Begin VB.Form frmAplicacoes
          DropShadowType  =   0
          DropShadowColor =   -2147483627
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":A123
+         ButtonDesigner  =   "frmAplicacoes.frx":A07B
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdB 
          Height          =   735
@@ -211,7 +211,7 @@ Begin VB.Form frmAplicacoes
          DropShadowType  =   0
          DropShadowColor =   0
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":B42B
+         ButtonDesigner  =   "frmAplicacoes.frx":B34B
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdB 
          Height          =   735
@@ -248,7 +248,7 @@ Begin VB.Form frmAplicacoes
          DropShadowType  =   0
          DropShadowColor =   -2147483627
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":C733
+         ButtonDesigner  =   "frmAplicacoes.frx":C61B
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdB 
          Height          =   735
@@ -285,7 +285,7 @@ Begin VB.Form frmAplicacoes
          DropShadowType  =   0
          DropShadowColor =   -2147483627
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":DA3A
+         ButtonDesigner  =   "frmAplicacoes.frx":D8EA
       End
    End
    Begin VB.Frame quadRodape 
@@ -614,7 +614,7 @@ Begin VB.Form frmAplicacoes
             ShadowColor     =   12632256
             ShadowDark      =   8421504
             ShadowText      =   0
-            SpreadDesigner  =   "frmAplicacoes.frx":ED41
+            SpreadDesigner  =   "frmAplicacoes.frx":EBB9
             UserResize      =   0
          End
          Begin VB.TextBox txtTaxa 
@@ -678,7 +678,7 @@ Begin VB.Form frmAplicacoes
             ShadowColor     =   12632256
             ShadowDark      =   8421504
             ShadowText      =   0
-            SpreadDesigner  =   "frmAplicacoes.frx":FAFE
+            SpreadDesigner  =   "frmAplicacoes.frx":F976
             UserResize      =   0
          End
          Begin fpBtnAtlLibCtl.fpBtn cmdLimparAplicacoes 
@@ -715,7 +715,7 @@ Begin VB.Form frmAplicacoes
             DropShadowType  =   0
             DropShadowColor =   0
             Redraw          =   -1  'True
-            ButtonDesigner  =   "frmAplicacoes.frx":130EF
+            ButtonDesigner  =   "frmAplicacoes.frx":12F67
          End
          Begin fpBtnAtlLibCtl.fpBtn cmdAplicar 
             Height          =   945
@@ -751,7 +751,7 @@ Begin VB.Form frmAplicacoes
             DropShadowType  =   0
             DropShadowColor =   0
             Redraw          =   -1  'True
-            ButtonDesigner  =   "frmAplicacoes.frx":14400
+            ButtonDesigner  =   "frmAplicacoes.frx":14240
          End
          Begin VB.Label Label 
             BackColor       =   &H00E0E0E0&
@@ -1135,7 +1135,7 @@ Begin VB.Form frmAplicacoes
          DropShadowType  =   0
          DropShadowColor =   0
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":15708
+         ButtonDesigner  =   "frmAplicacoes.frx":15510
       End
       Begin VB.TextBox txtPesquisa 
          BeginProperty Font 
@@ -1180,7 +1180,7 @@ Begin VB.Form frmAplicacoes
          ShadowColor     =   12632256
          ShadowDark      =   8421504
          ShadowText      =   0
-         SpreadDesigner  =   "frmAplicacoes.frx":16A17
+         SpreadDesigner  =   "frmAplicacoes.frx":167E7
          UserResize      =   0
       End
       Begin VB.Label Label 

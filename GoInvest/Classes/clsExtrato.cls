@@ -117,7 +117,7 @@ Trata:
 MsgBox DescError(Err.Number, Err.Description, sSql), vbCritical, "clsExtrato.AtualizarExtrato"
 End Function
 
-Public Function LimparExtrato(ParCodigoAplicacao As Integer) As Boolean
+Public Function LimparExtrato() As Boolean
 On Error GoTo Trata
 Dim sSql As String
 
@@ -130,6 +130,7 @@ Resume
 Trata:
 MsgBox DescError(Err.Number, Err.Description, sSql), vbCritical, "clsExtrato.LimparExtrato"
 End Function
+
 Public Function LimparSaldos() As Boolean
 On Error GoTo Trata
 Dim sSql As String

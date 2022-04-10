@@ -41,8 +41,8 @@ Begin VB.Form frmAplicacoes
          Enabled         =   -1  'True
          MousePointer    =   0
          Object.TabStop         =   -1  'True
-         GrayAreaColor   =   -2147483627
-         BorderShowDefault=   -1  'True
+         GrayAreaColor   =   4210752
+         BorderShowDefault=   0   'False
          ButtonType      =   0
          NoPointerFocus  =   0   'False
          Value           =   0   'False
@@ -61,7 +61,7 @@ Begin VB.Form frmAplicacoes
          DropShadowOffsetX=   3
          DropShadowOffsetY=   3
          DropShadowType  =   0
-         DropShadowColor =   -2147483627
+         DropShadowColor =   4210752
          Redraw          =   -1  'True
          ButtonDesigner  =   "frmAplicacoes.frx":680A
       End
@@ -78,7 +78,7 @@ Begin VB.Form frmAplicacoes
          Enabled         =   -1  'True
          MousePointer    =   0
          Object.TabStop         =   -1  'True
-         GrayAreaColor   =   -2147483627
+         GrayAreaColor   =   4210752
          BorderShowDefault=   -1  'True
          ButtonType      =   0
          NoPointerFocus  =   0   'False
@@ -98,83 +98,9 @@ Begin VB.Form frmAplicacoes
          DropShadowOffsetX=   3
          DropShadowOffsetY=   3
          DropShadowType  =   0
-         DropShadowColor =   -2147483627
+         DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":7ADA
-      End
-      Begin fpBtnAtlLibCtl.fpBtn cmdB 
-         Height          =   735
-         Index           =   1
-         Left            =   0
-         TabIndex        =   15
-         Top             =   2160
-         Width           =   915
-         _Version        =   131072
-         _ExtentX        =   1614
-         _ExtentY        =   1296
-         Enabled         =   -1  'True
-         MousePointer    =   0
-         Object.TabStop         =   -1  'True
-         GrayAreaColor   =   -2147483627
-         BorderShowDefault=   -1  'True
-         ButtonType      =   0
-         NoPointerFocus  =   0   'False
-         Value           =   0   'False
-         GroupID         =   0
-         GroupSelect     =   0
-         DrawFocusRect   =   2
-         DrawFocusRectCell=   -1
-         GrayAreaPictureStyle=   0
-         Static          =   0   'False
-         BackStyle       =   1
-         AutoSize        =   0
-         AutoSizeOffsetTop=   0
-         AutoSizeOffsetBottom=   0
-         AutoSizeOffsetLeft=   0
-         AutoSizeOffsetRight=   0
-         DropShadowOffsetX=   3
-         DropShadowOffsetY=   3
-         DropShadowType  =   0
-         DropShadowColor =   -2147483627
-         Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":8DA9
-      End
-      Begin fpBtnAtlLibCtl.fpBtn cmdB 
-         Height          =   735
-         Index           =   2
-         Left            =   120
-         TabIndex        =   16
-         Top             =   3000
-         Width           =   675
-         _Version        =   131072
-         _ExtentX        =   1191
-         _ExtentY        =   1296
-         Enabled         =   -1  'True
-         MousePointer    =   0
-         Object.TabStop         =   -1  'True
-         GrayAreaColor   =   -2147483627
-         BorderShowDefault=   -1  'True
-         ButtonType      =   0
-         NoPointerFocus  =   0   'False
-         Value           =   0   'False
-         GroupID         =   0
-         GroupSelect     =   0
-         DrawFocusRect   =   2
-         DrawFocusRectCell=   -1
-         GrayAreaPictureStyle=   0
-         Static          =   0   'False
-         BackStyle       =   1
-         AutoSize        =   0
-         AutoSizeOffsetTop=   0
-         AutoSizeOffsetBottom=   0
-         AutoSizeOffsetLeft=   0
-         AutoSizeOffsetRight=   0
-         DropShadowOffsetX=   3
-         DropShadowOffsetY=   3
-         DropShadowType  =   0
-         DropShadowColor =   -2147483627
-         Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":A07B
+         ButtonDesigner  =   "frmAplicacoes.frx":7AD6
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdB 
          Height          =   735
@@ -189,7 +115,7 @@ Begin VB.Form frmAplicacoes
          Enabled         =   -1  'True
          MousePointer    =   0
          Object.TabStop         =   -1  'True
-         GrayAreaColor   =   12632256
+         GrayAreaColor   =   4210752
          BorderShowDefault=   -1  'True
          ButtonType      =   0
          NoPointerFocus  =   0   'False
@@ -209,9 +135,83 @@ Begin VB.Form frmAplicacoes
          DropShadowOffsetX=   3
          DropShadowOffsetY=   3
          DropShadowType  =   0
-         DropShadowColor =   0
+         DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":B34B
+         ButtonDesigner  =   "frmAplicacoes.frx":8DA5
+      End
+      Begin fpBtnAtlLibCtl.fpBtn cmdB 
+         Height          =   735
+         Index           =   1
+         Left            =   0
+         TabIndex        =   15
+         Top             =   2160
+         Width           =   915
+         _Version        =   131072
+         _ExtentX        =   1614
+         _ExtentY        =   1296
+         Enabled         =   -1  'True
+         MousePointer    =   0
+         Object.TabStop         =   -1  'True
+         GrayAreaColor   =   4210752
+         BorderShowDefault=   0   'False
+         ButtonType      =   0
+         NoPointerFocus  =   0   'False
+         Value           =   0   'False
+         GroupID         =   0
+         GroupSelect     =   0
+         DrawFocusRect   =   2
+         DrawFocusRectCell=   -1
+         GrayAreaPictureStyle=   0
+         Static          =   0   'False
+         BackStyle       =   1
+         AutoSize        =   0
+         AutoSizeOffsetTop=   0
+         AutoSizeOffsetBottom=   0
+         AutoSizeOffsetLeft=   0
+         AutoSizeOffsetRight=   0
+         DropShadowOffsetX=   3
+         DropShadowOffsetY=   3
+         DropShadowType  =   0
+         DropShadowColor =   4210752
+         Redraw          =   -1  'True
+         ButtonDesigner  =   "frmAplicacoes.frx":A071
+      End
+      Begin fpBtnAtlLibCtl.fpBtn cmdB 
+         Height          =   735
+         Index           =   2
+         Left            =   120
+         TabIndex        =   16
+         Top             =   3000
+         Width           =   675
+         _Version        =   131072
+         _ExtentX        =   1191
+         _ExtentY        =   1296
+         Enabled         =   -1  'True
+         MousePointer    =   0
+         Object.TabStop         =   -1  'True
+         GrayAreaColor   =   4210752
+         BorderShowDefault=   -1  'True
+         ButtonType      =   0
+         NoPointerFocus  =   0   'False
+         Value           =   0   'False
+         GroupID         =   0
+         GroupSelect     =   0
+         DrawFocusRect   =   2
+         DrawFocusRectCell=   -1
+         GrayAreaPictureStyle=   0
+         Static          =   0   'False
+         BackStyle       =   1
+         AutoSize        =   0
+         AutoSizeOffsetTop=   0
+         AutoSizeOffsetBottom=   0
+         AutoSizeOffsetLeft=   0
+         AutoSizeOffsetRight=   0
+         DropShadowOffsetX=   3
+         DropShadowOffsetY=   3
+         DropShadowType  =   0
+         DropShadowColor =   4210752
+         Redraw          =   -1  'True
+         ButtonDesigner  =   "frmAplicacoes.frx":B33F
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdB 
          Height          =   735
@@ -226,8 +226,8 @@ Begin VB.Form frmAplicacoes
          Enabled         =   -1  'True
          MousePointer    =   0
          Object.TabStop         =   -1  'True
-         GrayAreaColor   =   -2147483627
-         BorderShowDefault=   -1  'True
+         GrayAreaColor   =   4210752
+         BorderShowDefault=   0   'False
          ButtonType      =   0
          NoPointerFocus  =   0   'False
          Value           =   0   'False
@@ -246,9 +246,9 @@ Begin VB.Form frmAplicacoes
          DropShadowOffsetX=   3
          DropShadowOffsetY=   3
          DropShadowType  =   0
-         DropShadowColor =   -2147483627
+         DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":C61B
+         ButtonDesigner  =   "frmAplicacoes.frx":C60B
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdB 
          Height          =   735
@@ -263,7 +263,7 @@ Begin VB.Form frmAplicacoes
          Enabled         =   -1  'True
          MousePointer    =   0
          Object.TabStop         =   -1  'True
-         GrayAreaColor   =   -2147483627
+         GrayAreaColor   =   4210752
          BorderShowDefault=   -1  'True
          ButtonType      =   0
          NoPointerFocus  =   0   'False
@@ -283,9 +283,9 @@ Begin VB.Form frmAplicacoes
          DropShadowOffsetX=   3
          DropShadowOffsetY=   3
          DropShadowType  =   0
-         DropShadowColor =   -2147483627
+         DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":D8EA
+         ButtonDesigner  =   "frmAplicacoes.frx":D8D6
       End
    End
    Begin VB.Frame quadRodape 
@@ -614,7 +614,7 @@ Begin VB.Form frmAplicacoes
             ShadowColor     =   12632256
             ShadowDark      =   8421504
             ShadowText      =   0
-            SpreadDesigner  =   "frmAplicacoes.frx":EBB9
+            SpreadDesigner  =   "frmAplicacoes.frx":EBA1
             UserResize      =   0
          End
          Begin VB.TextBox txtTaxa 
@@ -646,7 +646,6 @@ Begin VB.Form frmAplicacoes
             Height          =   375
             Left            =   3195
             TabIndex        =   7
-            Text            =   "cmbMes"
             Top             =   4080
             Width           =   1815
          End
@@ -678,7 +677,7 @@ Begin VB.Form frmAplicacoes
             ShadowColor     =   12632256
             ShadowDark      =   8421504
             ShadowText      =   0
-            SpreadDesigner  =   "frmAplicacoes.frx":F976
+            SpreadDesigner  =   "frmAplicacoes.frx":F95E
             UserResize      =   0
          End
          Begin fpBtnAtlLibCtl.fpBtn cmdLimparAplicacoes 
@@ -715,7 +714,7 @@ Begin VB.Form frmAplicacoes
             DropShadowType  =   0
             DropShadowColor =   0
             Redraw          =   -1  'True
-            ButtonDesigner  =   "frmAplicacoes.frx":12F67
+            ButtonDesigner  =   "frmAplicacoes.frx":12F4F
          End
          Begin fpBtnAtlLibCtl.fpBtn cmdAplicar 
             Height          =   945
@@ -751,7 +750,7 @@ Begin VB.Form frmAplicacoes
             DropShadowType  =   0
             DropShadowColor =   0
             Redraw          =   -1  'True
-            ButtonDesigner  =   "frmAplicacoes.frx":14240
+            ButtonDesigner  =   "frmAplicacoes.frx":14228
          End
          Begin VB.Label Label 
             BackColor       =   &H00E0E0E0&
@@ -1135,7 +1134,7 @@ Begin VB.Form frmAplicacoes
          DropShadowType  =   0
          DropShadowColor =   0
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":15510
+         ButtonDesigner  =   "frmAplicacoes.frx":154F8
       End
       Begin VB.TextBox txtPesquisa 
          BeginProperty Font 
@@ -1180,7 +1179,7 @@ Begin VB.Form frmAplicacoes
          ShadowColor     =   12632256
          ShadowDark      =   8421504
          ShadowText      =   0
-         SpreadDesigner  =   "frmAplicacoes.frx":167E7
+         SpreadDesigner  =   "frmAplicacoes.frx":167CF
          UserResize      =   0
       End
       Begin VB.Label Label 
@@ -1404,6 +1403,7 @@ On Error GoTo Trata
         chkInativo.Visible = False
         quadDatas.Visible = False
         txtCodigo = "NOVO"
+        chkInvestir.Enabled = False
     ElseIf Index = enumAcao.eConsultar Or Index = enumAcao.eAlterar Or Index = enumAcao.eExcluir Then
         gridPrincipal_Click gridPrincipal.ActiveCol, gridPrincipal.ActiveRow
         fAcao = Index
@@ -1442,7 +1442,8 @@ Private Sub cmdLimparAplicacoes_Click()
 If MsgBox("Deseja realmente limpar essa aplicação?", vbYesNo, "Aplicacções") = 6 Then
     LimparGrid gridAplicacoes
     LimparGrid gridSimulacao
-    fClsExtrato.LimparExtrato CInt(txtCodigo.Text)
+    fClsExtrato.LimparExtrato
+    fClsExtrato.LimparSaldos
     Set fClsExtrato = Nothing
 End If
 End Sub
@@ -1548,27 +1549,30 @@ With fClsExtrato
         .Taxa = txtTaxa
         .Saque = CDbl(PegarTextoGrid(gridAplicacoes, 5, sCont))
         .Mes = CStr(cmbMes.ListIndex)
-        fClsExtrato.CodigoAplicacao = TratarVariavel(txtCodigo.Text, "N")
-        If Not .AtualizarExtrato() Then GoTo Trata
+        If fAcao = enumAcao.eAlterar Then
+            fClsExtrato.CodigoAplicacao = TratarVariavel(txtCodigo.Text, "N")
+            If Not .AtualizarExtrato() Then GoTo Trata
+        End If
 Fim:
     Next
-    If Not .LimparSaldos Then GoTo Trata
-    For sCont = 1 To gridSimulacao.MaxRows
-        gridSimulacao.Row = sCont
-        gridSimulacao.col = 1
-        If gridSimulacao.Text <> "0" Then
+    If fAcao = enumAcao.eAlterar Then
+        If Not .LimparSaldos Then GoTo Trata
+        For sCont = 1 To gridSimulacao.MaxRows
+            gridSimulacao.Row = sCont
             gridSimulacao.col = 1
-            sMes = RetornaNumeroMes(gridSimulacao.Text)
-            gridSimulacao.col = 2
-            sRendimento = CDbl(gridSimulacao.Text)
-            gridSimulacao.col = 3
-            sSaldo = CDbl(gridSimulacao.Text)
-            If Not .InserirSaldos(sMes, sRendimento, sSaldo) Then GoTo Trata
-        Else
-            Exit For
-        End If
-    Next
-    
+            If gridSimulacao.Text <> "0" Then
+                gridSimulacao.col = 1
+                sMes = RetornaNumeroMes(gridSimulacao.Text)
+                gridSimulacao.col = 2
+                sRendimento = CDbl(gridSimulacao.Text)
+                gridSimulacao.col = 3
+                sSaldo = CDbl(gridSimulacao.Text)
+                If Not .InserirSaldos(sMes, sRendimento, sSaldo) Then GoTo Trata
+            Else
+                Exit For
+            End If
+        Next
+    End If
 End With
 
 EncherGrid
@@ -1621,6 +1625,7 @@ txtValor.Text = ""
 cmbMes.Text = ""
 txtTaxa.Text = ""
 txtSaque.Text = ""
+chkInvestir.Enabled = True
 Set fClsExtrato = Nothing
 Set fClsAplicacoes = Nothing
 

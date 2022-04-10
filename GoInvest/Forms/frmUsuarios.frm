@@ -40,8 +40,8 @@ Begin VB.Form frmUsuarios
          Enabled         =   -1  'True
          MousePointer    =   0
          Object.TabStop         =   -1  'True
-         GrayAreaColor   =   -2147483627
-         BorderShowDefault=   -1  'True
+         GrayAreaColor   =   4210752
+         BorderShowDefault=   0   'False
          ButtonType      =   0
          NoPointerFocus  =   0   'False
          Value           =   0   'False
@@ -60,7 +60,7 @@ Begin VB.Form frmUsuarios
          DropShadowOffsetX=   3
          DropShadowOffsetY=   3
          DropShadowType  =   0
-         DropShadowColor =   -2147483627
+         DropShadowColor =   4210752
          Redraw          =   -1  'True
          ButtonDesigner  =   "frmUsuarios.frx":680A
       End
@@ -77,8 +77,8 @@ Begin VB.Form frmUsuarios
          Enabled         =   -1  'True
          MousePointer    =   0
          Object.TabStop         =   -1  'True
-         GrayAreaColor   =   -2147483627
-         BorderShowDefault=   -1  'True
+         GrayAreaColor   =   4210752
+         BorderShowDefault=   0   'False
          ButtonType      =   0
          NoPointerFocus  =   0   'False
          Value           =   0   'False
@@ -97,9 +97,9 @@ Begin VB.Form frmUsuarios
          DropShadowOffsetX=   3
          DropShadowOffsetY=   3
          DropShadowType  =   0
-         DropShadowColor =   -2147483627
+         DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmUsuarios.frx":7ADA
+         ButtonDesigner  =   "frmUsuarios.frx":7B12
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdB 
          Height          =   735
@@ -114,8 +114,8 @@ Begin VB.Form frmUsuarios
          Enabled         =   -1  'True
          MousePointer    =   0
          Object.TabStop         =   -1  'True
-         GrayAreaColor   =   -2147483627
-         BorderShowDefault=   -1  'True
+         GrayAreaColor   =   4210752
+         BorderShowDefault=   0   'False
          ButtonType      =   0
          NoPointerFocus  =   0   'False
          Value           =   0   'False
@@ -134,46 +134,9 @@ Begin VB.Form frmUsuarios
          DropShadowOffsetX=   3
          DropShadowOffsetY=   3
          DropShadowType  =   0
-         DropShadowColor =   -2147483627
+         DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmUsuarios.frx":8DA9
-      End
-      Begin fpBtnAtlLibCtl.fpBtn cmdB 
-         Height          =   735
-         Index           =   2
-         Left            =   120
-         TabIndex        =   18
-         Top             =   3000
-         Width           =   675
-         _Version        =   131072
-         _ExtentX        =   1191
-         _ExtentY        =   1296
-         Enabled         =   -1  'True
-         MousePointer    =   0
-         Object.TabStop         =   -1  'True
-         GrayAreaColor   =   -2147483627
-         BorderShowDefault=   -1  'True
-         ButtonType      =   0
-         NoPointerFocus  =   0   'False
-         Value           =   0   'False
-         GroupID         =   0
-         GroupSelect     =   0
-         DrawFocusRect   =   2
-         DrawFocusRectCell=   -1
-         GrayAreaPictureStyle=   0
-         Static          =   0   'False
-         BackStyle       =   1
-         AutoSize        =   0
-         AutoSizeOffsetTop=   0
-         AutoSizeOffsetBottom=   0
-         AutoSizeOffsetLeft=   0
-         AutoSizeOffsetRight=   0
-         DropShadowOffsetX=   3
-         DropShadowOffsetY=   3
-         DropShadowType  =   0
-         DropShadowColor =   -2147483627
-         Redraw          =   -1  'True
-         ButtonDesigner  =   "frmUsuarios.frx":A07B
+         ButtonDesigner  =   "frmUsuarios.frx":8E19
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdB 
          Height          =   735
@@ -188,8 +151,8 @@ Begin VB.Form frmUsuarios
          Enabled         =   -1  'True
          MousePointer    =   0
          Object.TabStop         =   -1  'True
-         GrayAreaColor   =   12632256
-         BorderShowDefault=   -1  'True
+         GrayAreaColor   =   4210752
+         BorderShowDefault=   0   'False
          ButtonType      =   0
          NoPointerFocus  =   0   'False
          Value           =   0   'False
@@ -208,9 +171,46 @@ Begin VB.Form frmUsuarios
          DropShadowOffsetX=   3
          DropShadowOffsetY=   3
          DropShadowType  =   0
-         DropShadowColor =   0
+         DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmUsuarios.frx":B34B
+         ButtonDesigner  =   "frmUsuarios.frx":A123
+      End
+      Begin fpBtnAtlLibCtl.fpBtn cmdB 
+         Height          =   735
+         Index           =   2
+         Left            =   120
+         TabIndex        =   18
+         Top             =   3000
+         Width           =   675
+         _Version        =   131072
+         _ExtentX        =   1191
+         _ExtentY        =   1296
+         Enabled         =   -1  'True
+         MousePointer    =   0
+         Object.TabStop         =   -1  'True
+         GrayAreaColor   =   4210752
+         BorderShowDefault=   0   'False
+         ButtonType      =   0
+         NoPointerFocus  =   0   'False
+         Value           =   0   'False
+         GroupID         =   0
+         GroupSelect     =   0
+         DrawFocusRect   =   2
+         DrawFocusRectCell=   -1
+         GrayAreaPictureStyle=   0
+         Static          =   0   'False
+         BackStyle       =   1
+         AutoSize        =   0
+         AutoSizeOffsetTop=   0
+         AutoSizeOffsetBottom=   0
+         AutoSizeOffsetLeft=   0
+         AutoSizeOffsetRight=   0
+         DropShadowOffsetX=   3
+         DropShadowOffsetY=   3
+         DropShadowType  =   0
+         DropShadowColor =   4210752
+         Redraw          =   -1  'True
+         ButtonDesigner  =   "frmUsuarios.frx":B42B
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdB 
          Height          =   735
@@ -225,8 +225,8 @@ Begin VB.Form frmUsuarios
          Enabled         =   -1  'True
          MousePointer    =   0
          Object.TabStop         =   -1  'True
-         GrayAreaColor   =   -2147483627
-         BorderShowDefault=   -1  'True
+         GrayAreaColor   =   4210752
+         BorderShowDefault=   0   'False
          ButtonType      =   0
          NoPointerFocus  =   0   'False
          Value           =   0   'False
@@ -245,9 +245,9 @@ Begin VB.Form frmUsuarios
          DropShadowOffsetX=   3
          DropShadowOffsetY=   3
          DropShadowType  =   0
-         DropShadowColor =   -2147483627
+         DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmUsuarios.frx":C61B
+         ButtonDesigner  =   "frmUsuarios.frx":C733
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdB 
          Height          =   735
@@ -262,8 +262,8 @@ Begin VB.Form frmUsuarios
          Enabled         =   -1  'True
          MousePointer    =   0
          Object.TabStop         =   -1  'True
-         GrayAreaColor   =   -2147483627
-         BorderShowDefault=   -1  'True
+         GrayAreaColor   =   4210752
+         BorderShowDefault=   0   'False
          ButtonType      =   0
          NoPointerFocus  =   0   'False
          Value           =   0   'False
@@ -279,12 +279,12 @@ Begin VB.Form frmUsuarios
          AutoSizeOffsetBottom=   0
          AutoSizeOffsetLeft=   0
          AutoSizeOffsetRight=   0
-         DropShadowOffsetX=   3
-         DropShadowOffsetY=   3
+         DropShadowOffsetX=   0
+         DropShadowOffsetY=   0
          DropShadowType  =   0
-         DropShadowColor =   -2147483627
+         DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmUsuarios.frx":D8EA
+         ButtonDesigner  =   "frmUsuarios.frx":DA3A
       End
    End
    Begin VB.Frame quadRodape 
@@ -373,7 +373,7 @@ Begin VB.Form frmUsuarios
          DropShadowType  =   0
          DropShadowColor =   0
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmUsuarios.frx":EBB9
+         ButtonDesigner  =   "frmUsuarios.frx":ED41
       End
       Begin VB.TextBox txtPesquisa 
          BeginProperty Font 
@@ -418,7 +418,7 @@ Begin VB.Form frmUsuarios
          ShadowColor     =   12632256
          ShadowDark      =   8421504
          ShadowText      =   0
-         SpreadDesigner  =   "frmUsuarios.frx":FE90
+         SpreadDesigner  =   "frmUsuarios.frx":10050
          UserResize      =   0
       End
       Begin VB.Label Label 

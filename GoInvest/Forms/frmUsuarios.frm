@@ -99,7 +99,7 @@ Begin VB.Form frmUsuarios
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmUsuarios.frx":7B12
+         ButtonDesigner  =   "frmUsuarios.frx":7AD6
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdB 
          Height          =   735
@@ -136,7 +136,7 @@ Begin VB.Form frmUsuarios
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmUsuarios.frx":8E19
+         ButtonDesigner  =   "frmUsuarios.frx":8DA1
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdB 
          Height          =   735
@@ -173,7 +173,7 @@ Begin VB.Form frmUsuarios
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmUsuarios.frx":A123
+         ButtonDesigner  =   "frmUsuarios.frx":A06F
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdB 
          Height          =   735
@@ -210,7 +210,7 @@ Begin VB.Form frmUsuarios
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmUsuarios.frx":B42B
+         ButtonDesigner  =   "frmUsuarios.frx":B33B
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdB 
          Height          =   735
@@ -247,7 +247,7 @@ Begin VB.Form frmUsuarios
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmUsuarios.frx":C733
+         ButtonDesigner  =   "frmUsuarios.frx":C607
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdB 
          Height          =   735
@@ -284,7 +284,7 @@ Begin VB.Form frmUsuarios
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmUsuarios.frx":DA3A
+         ButtonDesigner  =   "frmUsuarios.frx":D8D2
       End
    End
    Begin VB.Frame quadRodape 
@@ -373,7 +373,7 @@ Begin VB.Form frmUsuarios
          DropShadowType  =   0
          DropShadowColor =   0
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmUsuarios.frx":ED41
+         ButtonDesigner  =   "frmUsuarios.frx":EB9D
       End
       Begin VB.TextBox txtPesquisa 
          BeginProperty Font 
@@ -415,10 +415,11 @@ Begin VB.Form frmUsuarios
          GridColor       =   8421504
          MaxCols         =   5
          MaxRows         =   1
+         OperationMode   =   2
          ShadowColor     =   12632256
          ShadowDark      =   8421504
          ShadowText      =   0
-         SpreadDesigner  =   "frmUsuarios.frx":10050
+         SpreadDesigner  =   "frmUsuarios.frx":FE74
          UserResize      =   0
       End
       Begin VB.Label Label 

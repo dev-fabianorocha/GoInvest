@@ -78,7 +78,7 @@ Public Function ConsultarExtrato(ByRef ParGrid As fpSpread, ByRef ParTextValor A
 Dim sSql As String, sCont As Long, sLinha As Long
 Dim sConsulta As ADODB.Recordset, sLinhas As Long
 
-sSql = "SELECT EXT_REGISTRO, EXT_VALOR, EXT_MES, EXT_TAXA, EXT_SAQUE FROM EXTRATO WHERE EXT_APLICACAO = '" & fCodigoAplicacao & "'"
+sSql = "SELECT EXT_REGISTRO, EXT_VALOR, EXT_MES, EXT_TAXA, EXT_SAQUE FROM EXTRATO WHERE EXT_APLICACAO = '" & fCodigoAplicacao & "' ORDER BY EXT_MES"
 sCont = 1
 
 If Not Consulta(sSql).EOF Then

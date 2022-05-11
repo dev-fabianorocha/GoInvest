@@ -57,13 +57,11 @@ fInativo = ParInativo
 End Property
 Public Function Consultar(ParCodigo) As Boolean
 Dim sSql As String
-Dim sConsulta As ADODB.Recordset
 
 sSql = "SELECT USU_CODIGO, USU_NOME, USU_SENHA, USU_CADASTRO, USU_ATUALIZACAO, USU_INATIVO FROM USUARIOS WHERE USU_CODIGO = '" & ParCodigo & "'"
 
 If Not Consulta(sSql).EOF Then
-    Set sConsulta = Consulta(sSql)
-    With sConsulta
+    With Consulta(sSql)
         fNome = TratarVariavel(!USU_NOME, "T")
         fSenha = TratarVariavel(!USU_SENHA, "T")
         fCadastro = TratarVariavel(!USU_CADASTRO, "T")

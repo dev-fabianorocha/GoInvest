@@ -76,14 +76,13 @@ fSaldo = ParSaldo
 End Property
 Public Function ConsultarExtrato(ByRef ParGrid As fpSpread, ByRef ParTextValor As fpCurrency, ByRef ParComboMes As ComboBox, ByRef ParTextTaxa As TextBox, ByRef ParTextSaque As fpCurrency, ByRef ParCmdAplicar As fpBtn) As Boolean
 Dim sSql As String, sCont As Long, sLinha As Long
-Dim sConsulta As ADODB.Recordset, sLinhas As Long
+Dim sLinhas As Long
 
 sSql = "SELECT EXT_REGISTRO, EXT_VALOR, EXT_MES, EXT_TAXA, EXT_SAQUE FROM EXTRATO WHERE EXT_APLICACAO = '" & fCodigoAplicacao & "' ORDER BY EXT_MES"
 sCont = 1
 
 If Not Consulta(sSql).EOF Then
-    Set sConsulta = Consulta(sSql, sLinhas)
-    With sConsulta
+    With Consulta(sSql, sLinhas)
         For sLinha = 1 To sLinhas
             ParTextValor.Text = TratarVariavel(!EXT_VALOR, "N")
             ParComboMes.ListIndex = TratarVariavel(!EXT_MES, "T")

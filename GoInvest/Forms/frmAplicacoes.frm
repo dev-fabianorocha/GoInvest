@@ -100,7 +100,7 @@ Begin VB.Form frmAplicacoes
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":7B0E
+         ButtonDesigner  =   "frmAplicacoes.frx":7AD6
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdB 
          Height          =   735
@@ -137,7 +137,7 @@ Begin VB.Form frmAplicacoes
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":8E15
+         ButtonDesigner  =   "frmAplicacoes.frx":8DA5
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdB 
          Height          =   735
@@ -174,7 +174,7 @@ Begin VB.Form frmAplicacoes
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":A119
+         ButtonDesigner  =   "frmAplicacoes.frx":A071
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdB 
          Height          =   735
@@ -211,7 +211,7 @@ Begin VB.Form frmAplicacoes
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":B41F
+         ButtonDesigner  =   "frmAplicacoes.frx":B33F
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdB 
          Height          =   735
@@ -248,7 +248,7 @@ Begin VB.Form frmAplicacoes
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":C723
+         ButtonDesigner  =   "frmAplicacoes.frx":C60B
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdB 
          Height          =   735
@@ -285,7 +285,7 @@ Begin VB.Form frmAplicacoes
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":DA26
+         ButtonDesigner  =   "frmAplicacoes.frx":D8D6
       End
    End
    Begin VB.Frame quadRodape 
@@ -374,7 +374,7 @@ Begin VB.Form frmAplicacoes
          DropShadowType  =   0
          DropShadowColor =   0
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":ED29
+         ButtonDesigner  =   "frmAplicacoes.frx":EBA1
       End
       Begin VB.TextBox txtPesquisa 
          BeginProperty Font 
@@ -420,7 +420,7 @@ Begin VB.Form frmAplicacoes
          ShadowColor     =   12632256
          ShadowDark      =   8421504
          ShadowText      =   0
-         SpreadDesigner  =   "frmAplicacoes.frx":10038
+         SpreadDesigner  =   "frmAplicacoes.frx":FE78
          UserResize      =   0
       End
       Begin VB.Label Label 
@@ -743,7 +743,7 @@ Begin VB.Form frmAplicacoes
             ShadowColor     =   12632256
             ShadowDark      =   8421504
             ShadowText      =   0
-            SpreadDesigner  =   "frmAplicacoes.frx":105EF
+            SpreadDesigner  =   "frmAplicacoes.frx":1042F
             UserResize      =   0
          End
          Begin VB.TextBox txtTaxa 
@@ -806,7 +806,7 @@ Begin VB.Form frmAplicacoes
             ShadowColor     =   12632256
             ShadowDark      =   8421504
             ShadowText      =   0
-            SpreadDesigner  =   "frmAplicacoes.frx":113AC
+            SpreadDesigner  =   "frmAplicacoes.frx":111EC
             UserResize      =   0
          End
          Begin fpBtnAtlLibCtl.fpBtn cmdLimparAplicacoes 
@@ -843,7 +843,7 @@ Begin VB.Form frmAplicacoes
             DropShadowType  =   0
             DropShadowColor =   0
             Redraw          =   -1  'True
-            ButtonDesigner  =   "frmAplicacoes.frx":1499D
+            ButtonDesigner  =   "frmAplicacoes.frx":147DD
          End
          Begin fpBtnAtlLibCtl.fpBtn cmdAplicar 
             Height          =   945
@@ -879,7 +879,7 @@ Begin VB.Form frmAplicacoes
             DropShadowType  =   0
             DropShadowColor =   0
             Redraw          =   -1  'True
-            ButtonDesigner  =   "frmAplicacoes.frx":15CAE
+            ButtonDesigner  =   "frmAplicacoes.frx":15AB6
          End
          Begin VB.Label Label 
             BackColor       =   &H00E0E0E0&
@@ -1548,10 +1548,10 @@ End With
 
 With fClsExtrato
     For sCont = 1 To gridAplicacoes.MaxRows
-        sSql = "SELECT EXT_REGISTRO FROM EXTRATO WHERE EXT_REGISTRO = '" & CInt(PegarTextoGrid(gridAplicacoes, 1, sCont)) & "'"
+        sSql = "SELECT EXT_REGISTRO FROM EXTRATO WHERE EXT_REGISTRO = '" & CDbl(PegarTextoGrid(gridAplicacoes, 1, sCont)) & "'"
         Consulta sSql, sLinhas
         If sLinhas <> 0 Then GoTo Fim
-        .Registro = CInt(PegarTextoGrid(gridAplicacoes, 1, sCont))
+        .Registro = CDbl(PegarTextoGrid(gridAplicacoes, 1, sCont))
         If .Registro = 0 Then Exit For
         .Valor = CDbl(PegarTextoGrid(gridAplicacoes, 3, sCont))
         .Taxa = txtTaxa

@@ -50,13 +50,11 @@ fInativo = ParInativo
 End Property
 Public Function Consultar(ParCodigo) As Boolean
 Dim sSql As String
-Dim sConsulta As ADODB.Recordset
 
 sSql = "SELECT COR_CODIGO, COR_NOME, COR_CADASTRO, COR_ATUALIZACAO, COR_INATIVO FROM CORRETORAS WHERE COR_CODIGO = '" & ParCodigo & "'"
 
 If Not Consulta(sSql).EOF Then
-    Set sConsulta = Consulta(sSql)
-    With sConsulta
+    With Consulta(sSql)
         fNome = IIf(Null, "", !COR_NOME)
         fCadastro = !COR_CADASTRO
         fAtualizacao = !COR_ATUALIZACAO

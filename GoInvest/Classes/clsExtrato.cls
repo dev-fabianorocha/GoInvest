@@ -13,7 +13,7 @@ Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = False
 Option Explicit
 
-Dim fRegistro As Integer
+Dim fRegistro As Long
 Dim fCodigoAplicacao As Integer
 Dim fValor As Double
 Dim fMes As String
@@ -21,10 +21,10 @@ Dim fTaxa As Double
 Dim fSaque As Double
 Dim fRendimento As Double
 Dim fSaldo As Double
-Property Get Registro() As Integer
+Property Get Registro() As Long
 Registro = fRegistro
 End Property
-Property Let Registro(ByVal ParRegistro As Integer)
+Property Let Registro(ByVal ParRegistro As Long)
 fRegistro = ParRegistro
 End Property
 Property Get CodigoAplicacao() As Integer
@@ -99,7 +99,6 @@ End If
 
 ConsultarExtrato = True
 End Function
-
 Public Function AtualizarExtrato() As Boolean
 On Error GoTo Trata
 Dim sSql As String
@@ -115,7 +114,6 @@ Resume
 Trata:
 MsgBox DescError(Err.Number, Err.Description, sSql), vbCritical, "clsExtrato.AtualizarExtrato"
 End Function
-
 Public Function LimparExtrato() As Boolean
 On Error GoTo Trata
 Dim sSql As String
@@ -161,7 +159,6 @@ MsgBox DescError(Err.Number, Err.Description, sSql), vbCritical, "clsExtrato.Ins
 End Function
 
 Public Sub Sacar(ByVal ParValorSaque As Double)
-
 If ParValorSaque < 0 Then
     Err.Raise vbObjectError + 2002, "Conta Bancaria::Saque", "Valor de saque inválido : " & ParValorSaque
 End If
@@ -174,23 +171,17 @@ End If
 End Sub
 
 Public Sub Depositar(ByVal ParValorDeposito As Double)
-
 If ParValorDeposito <= 0 Then
    Err.Raise vbObjectError + 2002, "Conta Bancária::Depósito", "Valor de depósito inválido : " & ParValorDeposito
 End If
 
 fSaldo = fSaldo + ParValorDeposito
-
 End Sub
 
 Private Sub CalculoInvestimento()
-
 fSaldo = fSaldo + (fSaldo * (fTaxa / 100))
-
 End Sub
 
 Public Sub ProcessamentoMensal()
-
 CalculoInvestimento
-
 End Sub

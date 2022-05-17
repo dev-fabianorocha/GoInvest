@@ -1556,7 +1556,7 @@ With fClsExtrato
         .Valor = CDbl(PegarTextoGrid(gridAplicacoes, 3, sCont))
         .Taxa = txtTaxa
         .Saque = CDbl(PegarTextoGrid(gridAplicacoes, 5, sCont))
-        .Mes = CStr(cmbMes.ListIndex)
+        .Mes = RetornaNumeroMes(PegarTextoGrid(gridAplicacoes, 2, sCont))
         If fAcao = enumAcao.eAlterar Then
             fClsExtrato.CodigoAplicacao = TratarVariavel(txtCodigo.Text, "N")
             If Not .AtualizarExtrato() Then GoTo Trata
@@ -1576,8 +1576,6 @@ Fim:
                 gridSimulacao.col = 3
                 sSaldo = CDbl(gridSimulacao.Text)
                 If Not .InserirSaldos(sMes, sRendimento, sSaldo) Then GoTo Trata
-            Else
-                Exit For
             End If
         Next
     End If

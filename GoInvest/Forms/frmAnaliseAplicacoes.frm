@@ -37,7 +37,7 @@ Dim sConsulta As New Recordset, sSql As String, sLinhas As Long, sLinha As Long
 sSql = "SELECT DISTINCT APL_NOME AS APLICACACAO, SUM(SAL_RENDIMENTO) AS RENDIMENTO FROM APLICACOES" _
     & " INNER JOIN SALDOS ON SAL_APLICACAO = APL_CODIGO GROUP BY  APL_NOME"
     
-Set sConsulta = Consulta(sSql, sLinhas)
+Set sConsulta = ConsultarSql(sSql, sLinhas)
 
 MSChart.chartType = 1
 MSChart.ShowLegend = False

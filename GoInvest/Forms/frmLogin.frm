@@ -338,14 +338,14 @@ Dim sSql As String, sLinhas As Long, sRetorno As Boolean
 
 If VerificaNome Then
     sSql = "SELECT USU_NOME FROM USUARIOS WHERE USU_NOME = '" & txtUsuario.Text & "'"
-    Consulta sSql, sLinhas
+    ConsultarSql sSql, sLinhas
     
     If sLinhas <> 0 Then
         sRetorno = True
     End If
 ElseIf VerificaSenha Then
     sSql = "SELECT USU_NOME FROM USUARIOS WHERE USU_NOME = '" & txtUsuario.Text & "' AND USU_SENHA = '" & txtSenha.Text & "'"
-    Consulta sSql, sLinhas
+    ConsultarSql sSql, sLinhas
     
     If sLinhas <> 0 Then
         sRetorno = True

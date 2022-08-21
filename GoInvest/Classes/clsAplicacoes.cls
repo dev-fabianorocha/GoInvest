@@ -74,8 +74,8 @@ Dim sSql As String
 sSql = "SELECT APL_CODIGO, APL_NOME, APL_CORRETORA, APL_ANO, APL_INVESTIR, APL_CADASTRO, APL_ATUALIZACAO, APL_INATIVO " _
     & " FROM APLICACOES WHERE APL_CODIGO = '" & ParCodigo & "'"
 
-If Not Consulta(sSql).EOF Then
-    With Consulta(sSql)
+If Not ConsultarSql(sSql).EOF Then
+    With ConsultarSql(sSql)
         fCodigo = TratarVariavel(!APL_CODIGO, "N")
         fCorretora = TratarVariavel(!APL_CORRETORA, "N")
         fNome = TratarVariavel(!APL_NOME, "T")
@@ -93,26 +93,35 @@ End If
 Consultar = True
 End Function
 
-Public Function Atualizar(ParAcao) As Boolean
+Public Function Inserir() As Boolean
 On Error GoTo Trata
 Dim sSql As String
 
-If ParAcao = enumAcao.eIncluir Then
-    sSql = "INSERT INTO APLICACOES (APL_NOME, APL_CORRETORA, APL_ANO, APL_INVESTIR, APL_CADASTRO, APL_ATUALIZACAO, APL_INATIVO) " _
-        & " VALUES ('" & fNome & "','" & fCorretora & "','" & fAno & "','" & fInvestir & "',GETDATE(), GETDATE(), '" & fInativo & "')"
-    If Not ExecutarSql(sSql) Then GoTo Trata
-Else
-    sSql = "UPDATE APLICACOES SET APL_NOME = '" & fNome & "', APL_CORRETORA = '" & fCorretora & "', APL_ANO = '" & fAno & "' ,APL_INVESTIR = '" _
-        & fInvestir & "', APL_ATUALIZACAO = GETDATE(), APL_INATIVO = '" & fInativo _
-        & "' WHERE APL_CODIGO = '" & fCodigo & "'"
-    If Not ExecutarSql(sSql) Then GoTo Trata
-End If
+sSql = "INSERT INTO APLICACOES (APL_NOME, APL_CORRETORA, APL_ANO, APL_INVESTIR, APL_CADASTRO, APL_ATUALIZACAO, APL_INATIVO) " _
+    & " VALUES ('" & fNome & "','" & fCorretora & "','" & fAno & "','" & fInvestir & "',GETDATE(), GETDATE(), '" & fInativo & "')"
+If Not ExecutarSql(sSql) Then GoTo Trata
+
+Inserir = True
+Exit Function
+Resume
+Trata:
+MsgBox ExporErro(Err.Number, Err.Description, sSql), vbCritical, "clsCorretoras.Inserir"
+End Function
+
+Public Function Atualizar() As Boolean
+On Error GoTo Trata
+Dim sSql As String
+
+sSql = "UPDATE APLICACOES SET APL_NOME = '" & fNome & "', APL_CORRETORA = '" & fCorretora & "', APL_ANO = '" & fAno & "' ,APL_INVESTIR = '" _
+    & fInvestir & "', APL_ATUALIZACAO = GETDATE(), APL_INATIVO = '" & fInativo _
+    & "' WHERE APL_CODIGO = '" & fCodigo & "'"
+If Not ExecutarSql(sSql) Then GoTo Trata
 
 Atualizar = True
 Exit Function
 Resume
 Trata:
-MsgBox DescError(Err.Number, Err.Description, sSql), vbCritical, "clsCorretoras.Atualizar"
+MsgBox ExporErro(Err.Number, Err.Description, sSql), vbCritical, "clsCorretoras.Atualizar"
 End Function
 
 Public Function Excluir(ParCodigo As Integer) As Boolean
@@ -128,5 +137,5 @@ Excluir = True
 Exit Function
 Resume
 Trata:
-MsgBox DescError(Err.Number, Err.Description, sSql), vbCritical, "clsCorretoras.Excluir"
+MsgBox ExporErro(Err.Number, Err.Description, sSql), vbCritical, "clsCorretoras.Excluir"
 End Function

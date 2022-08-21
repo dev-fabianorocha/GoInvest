@@ -24,7 +24,7 @@ Dim sContCol As Long, sContRow As Long
     End With
 End Sub
 
-Public Sub LimparGrid(ByRef ParGrid As fpSpread)
+Public Sub ExpurgarGrid(ByRef ParGrid As fpSpread)
 Dim sContCol As Long, sContRow As Long
 
 With ParGrid
@@ -40,10 +40,10 @@ End With
 
 End Sub
 
-Public Sub PopularGrid(ByRef ParGrid As fpSpread, ByVal ParSql As String)
+Public Sub PreencherGrid(ByRef ParGrid As fpSpread, ByVal ParSql As String)
 Dim sConsulta As New ADODB.Recordset, sLinhas As Long, sCont As Long
 
-Set sConsulta = Consulta(ParSql, sLinhas)
+Set sConsulta = ConsultarSql(ParSql, sLinhas)
 
 With ParGrid
     For sCont = 1 To sLinhas

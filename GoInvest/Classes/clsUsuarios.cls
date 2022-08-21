@@ -60,8 +60,8 @@ Dim sSql As String
 
 sSql = "SELECT USU_CODIGO, USU_NOME, USU_SENHA, USU_CADASTRO, USU_ATUALIZACAO, USU_INATIVO FROM USUARIOS WHERE USU_CODIGO = '" & ParCodigo & "'"
 
-If Not Consulta(sSql).EOF Then
-    With Consulta(sSql)
+If Not ConsultarSql(sSql).EOF Then
+    With ConsultarSql(sSql)
         fNome = TratarVariavel(!USU_NOME, "T")
         fSenha = TratarVariavel(!USU_SENHA, "T")
         fCadastro = TratarVariavel(!USU_CADASTRO, "T")
@@ -76,24 +76,34 @@ End If
 Consultar = True
 End Function
 
-Public Function Atualizar(ParAcao) As Boolean
+Public Function Inserir() As Boolean
 On Error GoTo Trata
 Dim sSql As String
 
-If ParAcao = enumAcao.eIncluir Then
-    sSql = "INSERT INTO USUARIOS (USU_NOME, USU_SENHA, USU_CADASTRO, USU_ATUALIZACAO, USU_INATIVO) VALUES ('" & fNome & "', '" & fSenha & "', GETDATE(), GETDATE(), '" & fInativo & "')"
-    If Not ExecutarSql(sSql) Then GoTo Trata
-Else
-    sSql = "UPDATE USUARIOS SET USU_NOME = '" & fNome & "', USU_SENHA = '" & fSenha & "', USU_ATUALIZACAO = GETDATE(), USU_INATIVO = '" & fInativo _
-        & "' WHERE USU_CODIGO = '" & fCodigo & "'"
-    If Not ExecutarSql(sSql) Then GoTo Trata
-End If
+sSql = "INSERT INTO USUARIOS (USU_NOME, USU_SENHA, USU_CADASTRO, USU_ATUALIZACAO, USU_INATIVO) VALUES ('" _
+    & fNome & "', '" & fSenha & "', GETDATE(), GETDATE(), '" & fInativo & "')"
+If Not ExecutarSql(sSql) Then GoTo Trata
+
+Inserir = True
+Exit Function
+Resume
+Trata:
+MsgBox ExporErro(Err.Number, Err.Description, sSql), vbCritical, "clsCorretoras.Inserir"
+End Function
+
+Public Function Atualizar() As Boolean
+On Error GoTo Trata
+Dim sSql As String
+
+sSql = "UPDATE USUARIOS SET USU_NOME = '" & fNome & "', USU_SENHA = '" & fSenha & "', USU_ATUALIZACAO = GETDATE(), USU_INATIVO = '" & fInativo _
+    & "' WHERE USU_CODIGO = '" & fCodigo & "'"
+If Not ExecutarSql(sSql) Then GoTo Trata
 
 Atualizar = True
 Exit Function
 Resume
 Trata:
-MsgBox DescError(Err.Number, Err.Description, sSql), vbCritical, "clsCorretoras.Atualizar"
+MsgBox ExporErro(Err.Number, Err.Description, sSql), vbCritical, "clsCorretoras.Atualizar"
 End Function
 
 Public Function Excluir(ParCodigo As Integer) As Boolean
@@ -109,5 +119,5 @@ Excluir = True
 Exit Function
 Resume
 Trata:
-MsgBox DescError(Err.Number, Err.Description, sSql), vbCritical, "clsCorretoras.Excluir"
+MsgBox ExporErro(Err.Number, Err.Description, sSql), vbCritical, "clsCorretoras.Excluir"
 End Function

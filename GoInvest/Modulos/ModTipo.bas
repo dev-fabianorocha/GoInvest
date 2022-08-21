@@ -3,7 +3,7 @@ Option Explicit
 
 Public pUsuario As String
 
-Public Enum enumAcao
+Public Enum enumOpcao
     eIncluir
     eConsultar
     eAlterar
@@ -66,7 +66,7 @@ End Function
 Public Function AlimentarCombo(ByRef ParCombo As ComboBox, ByVal ParSql As String)
 Dim sConsulta As New ADODB.Recordset, sLinhas As Long
 
-Set sConsulta = Consulta(ParSql, sLinhas)
+Set sConsulta = ConsultarSql(ParSql, sLinhas)
 ParCombo.AddItem " ", 0
 
 With sConsulta

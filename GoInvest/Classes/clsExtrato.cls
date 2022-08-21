@@ -81,8 +81,8 @@ Dim sLinhas As Long
 sSql = "SELECT EXT_REGISTRO, EXT_VALOR, EXT_MES, EXT_TAXA, EXT_SAQUE FROM EXTRATO WHERE EXT_APLICACAO = '" & fCodigoAplicacao & "' ORDER BY EXT_MES"
 sCont = 1
 
-If Not Consulta(sSql).EOF Then
-    With Consulta(sSql, sLinhas)
+If Not ConsultarSql(sSql).EOF Then
+    With ConsultarSql(sSql, sLinhas)
         For sLinha = 1 To sLinhas
             ParTextValor.Text = TratarVariavel(!EXT_VALOR, "N")
             ParComboMes.ListIndex = TratarVariavel(!EXT_MES, "T")
@@ -112,7 +112,7 @@ AtualizarExtrato = True
 Exit Function
 Resume
 Trata:
-MsgBox DescError(Err.Number, Err.Description, sSql), vbCritical, "clsExtrato.AtualizarExtrato"
+MsgBox ExporErro(Err.Number, Err.Description, sSql), vbCritical, "clsExtrato.AtualizarExtrato"
 End Function
 Public Function LimparExtrato() As Boolean
 On Error GoTo Trata
@@ -125,7 +125,7 @@ LimparExtrato = True
 Exit Function
 Resume
 Trata:
-MsgBox DescError(Err.Number, Err.Description, sSql), vbCritical, "clsExtrato.LimparExtrato"
+MsgBox ExporErro(Err.Number, Err.Description, sSql), vbCritical, "clsExtrato.LimparExtrato"
 End Function
 
 Public Function LimparSaldos() As Boolean
@@ -139,7 +139,7 @@ LimparSaldos = True
 Exit Function
 Resume
 Trata:
-MsgBox DescError(Err.Number, Err.Description, sSql), vbCritical, "clsExtrato.LimparSaldos"
+MsgBox ExporErro(Err.Number, Err.Description, sSql), vbCritical, "clsExtrato.LimparSaldos"
 End Function
 
 
@@ -155,7 +155,7 @@ InserirSaldos = True
 Exit Function
 Resume
 Trata:
-MsgBox DescError(Err.Number, Err.Description, sSql), vbCritical, "clsExtrato.InserirSaldos"
+MsgBox ExporErro(Err.Number, Err.Description, sSql), vbCritical, "clsExtrato.InserirSaldos"
 End Function
 
 Public Sub Sacar(ByVal ParValorSaque As Double)

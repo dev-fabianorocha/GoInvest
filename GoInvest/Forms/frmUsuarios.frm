@@ -27,7 +27,7 @@ Begin VB.Form frmUsuarios
       TabIndex        =   15
       Top             =   0
       Width           =   975
-      Begin fpBtnAtlLibCtl.fpBtn cmdB 
+      Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   735
          Index           =   0
          Left            =   120
@@ -64,7 +64,7 @@ Begin VB.Form frmUsuarios
          Redraw          =   -1  'True
          ButtonDesigner  =   "frmUsuarios.frx":680A
       End
-      Begin fpBtnAtlLibCtl.fpBtn cmdB 
+      Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   735
          Index           =   6
          Left            =   120
@@ -101,7 +101,7 @@ Begin VB.Form frmUsuarios
          Redraw          =   -1  'True
          ButtonDesigner  =   "frmUsuarios.frx":7AD6
       End
-      Begin fpBtnAtlLibCtl.fpBtn cmdB 
+      Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   735
          Index           =   1
          Left            =   0
@@ -138,7 +138,7 @@ Begin VB.Form frmUsuarios
          Redraw          =   -1  'True
          ButtonDesigner  =   "frmUsuarios.frx":8DA1
       End
-      Begin fpBtnAtlLibCtl.fpBtn cmdB 
+      Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   735
          Index           =   3
          Left            =   120
@@ -175,7 +175,7 @@ Begin VB.Form frmUsuarios
          Redraw          =   -1  'True
          ButtonDesigner  =   "frmUsuarios.frx":A06F
       End
-      Begin fpBtnAtlLibCtl.fpBtn cmdB 
+      Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   735
          Index           =   2
          Left            =   120
@@ -212,7 +212,7 @@ Begin VB.Form frmUsuarios
          Redraw          =   -1  'True
          ButtonDesigner  =   "frmUsuarios.frx":B33B
       End
-      Begin fpBtnAtlLibCtl.fpBtn cmdB 
+      Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   735
          Index           =   4
          Left            =   120
@@ -249,7 +249,7 @@ Begin VB.Form frmUsuarios
          Redraw          =   -1  'True
          ButtonDesigner  =   "frmUsuarios.frx":C607
       End
-      Begin fpBtnAtlLibCtl.fpBtn cmdB 
+      Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   735
          Index           =   5
          Left            =   120
@@ -667,7 +667,7 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
 
-Dim fAcao As Integer
+Dim fOpcao As Integer
 Dim fClsUsuarios As New clsUsuarios
 Dim fCodigo As Integer
 Dim fCondicao As String
@@ -679,7 +679,7 @@ Private Enum EnumGrid
     eStatus
 End Enum
 
-Private Sub EncherGrid()
+Private Sub AlimentarGrid()
 Dim sSql As String
 
 sSql = "SELECT USU_CODIGO AS CODIGO, USU_NOME AS NOME, USU_CADASTRO AS CADASTRO, USU_ATUALIZACAO AS ATUALIZACAO, CASE WHEN USU_INATIVO = 0 THEN 'ATIVO'" _
@@ -695,45 +695,45 @@ If txtPesquisa.Text <> "" Then
     sSql = sSql & " AND USU_NOME LIKE '" & Trim(txtPesquisa.Text) & "%'"
 End If
 
-LimparGrid gridPrincipal
-PopularGrid gridPrincipal, sSql
+ExpurgarGrid gridPrincipal
+PreencherGrid gridPrincipal, sSql
 
 Exit Sub
 End Sub
 
-Private Sub cmdB_Click(Index As Integer)
+Private Sub cmdOpcao_Click(Index As Integer)
 On Error GoTo Trata
 
-    If Index = enumAcao.eIncluir Then
-        fAcao = Index
-        TrocarTela True
+    If Index = enumOpcao.eIncluir Then
+        fOpcao = Index
+        DefinirTela True
         chkInativo.Visible = False
         quadDatas.Visible = False
         txtCodigo = "NOVO"
-    ElseIf Index = enumAcao.eConsultar Or Index = enumAcao.eAlterar Or Index = enumAcao.eExcluir Then
+    ElseIf Index = enumOpcao.eConsultar Or Index = enumOpcao.eAlterar Or Index = enumOpcao.eExcluir Then
         gridPrincipal_Click gridPrincipal.ActiveCol, gridPrincipal.ActiveRow
-        fAcao = Index
-        TrocarTela True
-        If Not ReceberDados Then GoTo Trata
-        If fAcao = enumAcao.eExcluir Then cmdB_Click (enumAcao.eConfirmar)
-    ElseIf Index = enumAcao.eConfirmar Then
-        If fAcao = enumAcao.eIncluir Or fAcao = enumAcao.eAlterar Then
-            PassarDados
-            TrocarTela False
-            LimparTela
-        ElseIf fAcao = enumAcao.eExcluir Then
+        fOpcao = Index
+        DefinirTela True
+        If Not ObterDados Then GoTo Trata
+        If fOpcao = enumOpcao.eExcluir Then cmdOpcao_Click (enumOpcao.eConfirmar)
+    ElseIf Index = enumOpcao.eConfirmar Then
+        If fOpcao = enumOpcao.eIncluir Or fOpcao = enumOpcao.eAlterar Then
+            TransferirDados
+            DefinirTela False
+            ExpurgarDados
+        ElseIf fOpcao = enumOpcao.eExcluir Then
             If Not fClsUsuarios.Excluir(fCodigo) Then GoTo Trata
-            EncherGrid
-            TrocarTela False
-            LimparTela
+            AlimentarGrid
+            DefinirTela False
+            ExpurgarDados
         Else
-            TrocarTela False
-            LimparTela
+            DefinirTela False
+            ExpurgarDados
         End If
-    ElseIf Index = enumAcao.eCancelar Then
-        TrocarTela False
-        LimparTela
-    ElseIf Index = enumAcao.eSair Then
+    ElseIf Index = enumOpcao.eCancelar Then
+        DefinirTela False
+        ExpurgarDados
+    ElseIf Index = enumOpcao.eSair Then
         Unload Me
     End If
 Exit Sub
@@ -741,48 +741,48 @@ Exit Sub
 Exit Sub
 Resume
 Trata:
-MsgBox DescError(Err.Number, Err.Description), vbCritical, "clsCorretoras.Atualizar"
+MsgBox ExporErro(Err.Number, Err.Description), vbCritical, "clsCorretoras.Atualizar"
 End Sub
 
 Private Sub cmdPesquisa_Click()
-EncherGrid
+AlimentarGrid
 End Sub
 
 Private Sub Form_Load()
-cmdB(enumAcao.eConfirmar).Visible = False
-cmdB(enumAcao.eCancelar).Visible = False
+cmdOpcao(enumOpcao.eConfirmar).Visible = False
+cmdOpcao(enumOpcao.eCancelar).Visible = False
 quadCadastro.Visible = False
 quadPesquisa.Visible = True
-EncherGrid
+AlimentarGrid
 lblRodape = AlimentarRodape
 End Sub
 
-Private Sub TrocarTela(ParCadastro As Boolean)
+Private Sub DefinirTela(ParCadastro As Boolean)
 If ParCadastro = True Then
     quadPesquisa.Visible = False
     quadCadastro.Visible = True
-    cmdB(enumAcao.eIncluir).Visible = False
-    cmdB(enumAcao.eConsultar).Visible = False
-    cmdB(enumAcao.eAlterar).Visible = False
-    cmdB(enumAcao.eExcluir).Visible = False
-    cmdB(enumAcao.eSair).Visible = False
-    cmdB(enumAcao.eConfirmar).Visible = True
-    cmdB(enumAcao.eCancelar).Visible = True
+    cmdOpcao(enumOpcao.eIncluir).Visible = False
+    cmdOpcao(enumOpcao.eConsultar).Visible = False
+    cmdOpcao(enumOpcao.eAlterar).Visible = False
+    cmdOpcao(enumOpcao.eExcluir).Visible = False
+    cmdOpcao(enumOpcao.eSair).Visible = False
+    cmdOpcao(enumOpcao.eConfirmar).Visible = True
+    cmdOpcao(enumOpcao.eCancelar).Visible = True
 Else
     quadPesquisa.Visible = True
     quadCadastro.Visible = False
-    cmdB(enumAcao.eIncluir).Visible = True
-    cmdB(enumAcao.eConsultar).Visible = True
-    cmdB(enumAcao.eAlterar).Visible = True
-    cmdB(enumAcao.eExcluir).Visible = True
-    cmdB(enumAcao.eSair).Visible = True
-    cmdB(enumAcao.eConfirmar).Visible = False
-    cmdB(enumAcao.eCancelar).Visible = False
+    cmdOpcao(enumOpcao.eIncluir).Visible = True
+    cmdOpcao(enumOpcao.eConsultar).Visible = True
+    cmdOpcao(enumOpcao.eAlterar).Visible = True
+    cmdOpcao(enumOpcao.eExcluir).Visible = True
+    cmdOpcao(enumOpcao.eSair).Visible = True
+    cmdOpcao(enumOpcao.eConfirmar).Visible = False
+    cmdOpcao(enumOpcao.eCancelar).Visible = False
 End If
 
 End Sub
 
-Private Function ReceberDados() As Boolean
+Private Function ObterDados() As Boolean
 If fClsUsuarios.Consultar(fCodigo) Then
     With fClsUsuarios
         txtNome = .Nome
@@ -793,10 +793,10 @@ If fClsUsuarios.Consultar(fCodigo) Then
     End With
 End If
 txtCodigo = fCodigo
-ReceberDados = True
+ObterDados = True
 End Function
 
-Private Function PassarDados() As Boolean
+Private Function TransferirDados() As Boolean
 On Error GoTo Trata
 
 Dim sSql As String, sCont As Long
@@ -807,20 +807,21 @@ With fClsUsuarios
     .Nome = Trim(txtNome)
     .Senha = txtSenha
     .Inativo = IIf(chkInativo.Value, 1, 0)
-    If Not .Atualizar(fAcao) Then GoTo Trata
+    If fOpcao = enumOpcao.eIncluir Then If Not .Inserir Then GoTo Trata
+    If fOpcao = enumOpcao.eAlterar Then If Not .Atualizar Then GoTo Trata
 End With
 
 
-EncherGrid
+AlimentarGrid
 
-PassarDados = True
+TransferirDados = True
 Exit Function
 Resume
 Trata:
-MsgBox DescError(Err.Number, Err.Description, sSql), vbCritical, "clsCorretoras.Atualizar"
+MsgBox ExporErro(Err.Number, Err.Description, sSql), vbCritical, "clsCorretoras.Atualizar"
 End Function
 
-Private Sub LimparTela()
+Private Sub ExpurgarDados()
 
 txtCodigo = ""
 txtNome = ""
@@ -838,7 +839,7 @@ MarcarLinha gridPrincipal, Row, fCodigo
 End Sub
 
 Private Sub gridPrincipal_DblClick(ByVal col As Long, ByVal Row As Long)
-cmdB_Click (enumAcao.eAlterar)
+cmdOpcao_Click (enumOpcao.eAlterar)
 End Sub
 
 Private Sub txtNome_KeyPress(KeyAscii As Integer)

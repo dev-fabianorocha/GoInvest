@@ -3,11 +3,11 @@ Option Explicit
 Public pServidor As String
 Public pVersao As String
 Public pConexaoWindows As Boolean
-Public pBanco As String
+Public pConexao As String
 Dim fUsuario As String
 Dim fSenha As String
 
-Public Function Consulta(ParSql As String, Optional ByRef ParLinhas As Long) As ADODB.Recordset
+Public Function ConsultarSql(ParSql As String, Optional ByRef ParLinhas As Long) As ADODB.Recordset
 On Error GoTo Trata
 
 Dim sConexao As New ADODB.Connection, sConsulta As New ADODB.Recordset
@@ -20,12 +20,12 @@ With sConsulta
     ParLinhas = .RecordCount
 End With
 
-Set Consulta = sConsulta
+Set ConsultarSql = sConsulta
 
 Exit Function
 Resume
 Trata:
-MsgBox DescError(Err.Number, Err.Description, ParSql), vbCritical, "ModBanco.Consulta"
+MsgBox ExporErro(Err.Number, Err.Description, ParSql), vbCritical, "ModBanco.Consulta"
 End Function
 
 Public Function Conexao() As ADODB.Connection
@@ -36,12 +36,12 @@ Dim sConexao As New ADODB.Connection
 With sConexao
     If pConexaoWindows Then
     .Open "Provider=SQLOLEDB; " & _
-        "Initial Catalog=" & pBanco & ";" & _
+        "Initial Catalog=" & pConexao & ";" & _
         "Data Source=" & pServidor & ";" & _
         "integrated security=SSPI; persist security info=True;"
     Else
     .Open "Provider=SQLOLEDB; " _
-        & " Initial Catalog=" & pBanco & ";" _
+        & " Initial Catalog=" & pConexao & ";" _
         & " Data Source=" & pServidor & ";" _
         & " persist security info=True;", fUsuario, fSenha
     End If
@@ -52,32 +52,8 @@ Set Conexao = sConexao
 Exit Function
 Resume
 Trata:
-MsgBox DescError(Err.Number, Err.Description), vbCritical, "ModBanco.Conexao"
+MsgBox ExporErro(Err.Number, Err.Description), vbCritical, "ModBanco.Conexao"
 End Function
-
-'Public Function ExecutarInsert(ParSql As String) As Boolean
-'On Error GoTo Trata
-
-'Dim ExecutaSql As New ADODB.Command
-
-'Dim sConexao As ADODB.Connection
-'Set sConexao = New ADODB.Connection
-
-'sConexao = Conexao
-'sConexao.Open
-
-'With ExecutaSql
-'   .ActiveConnection = sConexao
-'   .CommandType = adCmdText
-'   .CommandText = ParSql
-'End With
-
-'ExecutarInsert = True
-'Exit Function
-'Resume
-'Trata:
-'MsgBox DescError(Err.Number, Err.Description, ParSql), vbCritical, "ModBanco.ExecutarInsert"
-'End Function
 
 Public Function ExecutarSql(ParSql As String) As Boolean
 On Error GoTo Trata
@@ -97,10 +73,10 @@ ExecutarSql = True
 Exit Function
 Resume
 Trata:
-MsgBox DescError(Err.Number, Err.Description, ParSql), vbCritical, "ModBanco.ExecutarSql"
+MsgBox ExporErro(Err.Number, Err.Description, ParSql), vbCritical, "ModBanco.ExecutarSql"
 End Function
 
-Public Function DescError(ByVal ParNumero As String, ByVal ParDescricao As String, Optional ByVal ParSql As String) As String
+Public Function ExporErro(ByVal ParNumero As String, ByVal ParDescricao As String, Optional ByVal ParSql As String) As String
 Dim sRetorno As String
 
 sRetorno = "-------------------------------------------------------------------------------" & vbCrLf
@@ -111,13 +87,13 @@ sRetorno = sRetorno & "---------------------------------------------------------
 sRetorno = sRetorno & ParSql & vbCrLf
 sRetorno = sRetorno & "-------------------------------------------------------------------------------" & vbCrLf
 
-DescError = sRetorno
+ExporErro = sRetorno
 End Function
 
 Public Function AlimentarRodape() As String
 Dim sRetorno As String
 
-sRetorno = "| Servidor: " & pServidor & " | Banco de Dados: " & pBanco & " | Usuário: " & pUsuario & " | V." & pVersao & " | "
+sRetorno = "| Servidor: " & pServidor & " | Banco de Dados: " & pConexao & " | Usuário: " & pUsuario & " | V." & pVersao & " | "
 
 AlimentarRodape = sRetorno
 End Function
@@ -146,7 +122,7 @@ If Dir("C:\GoInvest\Config.ini") <> Empty Then
     
     If sServidor <> Empty And sBanco <> Empty Then
         pServidor = sServidor
-        pBanco = sBanco
+        pConexao = sBanco
         fUsuario = sUsuario
         fSenha = sSenha
         pConexaoWindows = sConexaoWindows
@@ -161,7 +137,7 @@ LerConfig = sRetorno
 Exit Function
 Resume
 Trata:
-MsgBox DescError(Err.Number, Err.Description, ""), vbCritical, "ModBanco.ExecutarSql"
+MsgBox ExporErro(Err.Number, Err.Description, ""), vbCritical, "ModBanco.ExecutarSql"
 End Function
 
 Public Function GravarConfig(ParServidor As String, ParBanco As String, ParUsuario As String, ParSenha As String, ParConexaoWindows As Boolean) As Boolean
@@ -182,5 +158,5 @@ GravarConfig = True
 Exit Function
 Resume
 Trata:
-MsgBox DescError(Err.Number, Err.Description, ""), vbCritical, "ModBanco.ExecutarSql"
+MsgBox ExporErro(Err.Number, Err.Description, ""), vbCritical, "ModBanco.ExecutarSql"
 End Function

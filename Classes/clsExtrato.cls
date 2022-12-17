@@ -81,16 +81,16 @@ Dim sLinhas As Long
 sSql = "SELECT EXT_REGISTRO, EXT_VALOR, EXT_MES, EXT_TAXA, EXT_SAQUE FROM EXTRATO WHERE EXT_APLICACAO = '" & fCodigoAplicacao & "' ORDER BY EXT_MES"
 sCont = 1
 
-If Not ConsultarSql(sSql).EOF Then
-    With ConsultarSql(sSql, sLinhas)
+If Not ReadQuery(sSql).EOF Then
+    With ReadQuery(sSql, sLinhas)
         For sLinha = 1 To sLinhas
-            ParTextValor.Text = TratarVariavel(!EXT_VALOR, "N")
-            ParComboMes.ListIndex = TratarVariavel(!EXT_MES, "T")
-            ParTextTaxa.Text = TratarVariavel(!EXT_TAXA, "N")
-            ParTextSaque.Text = TratarVariavel(!EXT_SAQUE, "N")
+            ParTextValor.Text = VariableAdjust(!EXT_VALOR, DoubleNumber)
+            ParComboMes.ListIndex = VariableAdjust(!EXT_MES, StringText)
+            ParTextTaxa.Text = VariableAdjust(!EXT_TAXA, DoubleNumber)
+            ParTextSaque.Text = VariableAdjust(!EXT_SAQUE, DoubleNumber)
             ParCmdAplicar.DoClick
-            ParGrid.SetText 1, sCont, TratarVariavel(!EXT_REGISTRO, "N")
-            ParGrid.SetText 2, sCont, MonthName(TratarVariavel(!EXT_MES, "N"))
+            ParGrid.SetText 1, sCont, VariableAdjust(!EXT_REGISTRO, DoubleNumber)
+            ParGrid.SetText 2, sCont, MonthName(VariableAdjust(!EXT_MES, DoubleNumber))
             sCont = sCont + 1
             .MoveNext
         Next
@@ -104,28 +104,28 @@ On Error GoTo Trata
 Dim sSql As String
 
 sSql = "INSERT INTO EXTRATO (EXT_REGISTRO, EXT_VALOR, EXT_MES, EXT_TAXA, EXT_SAQUE, EXT_APLICACAO) VALUES ('" & fRegistro _
-    & "', '" & TratarVariavel(fValor, "NB") & "', '" & fMes & "', '" & TratarVariavel(fTaxa, "NB") & "', '" & TratarVariavel(fSaque, "NB") & "', '" _
+    & "', '" & VariableAdjust(fValor, NumberSql) & "', '" & fMes & "', '" & VariableAdjust(fTaxa, NumberSql) & "', '" & VariableAdjust(fSaque, NumberSql) & "', '" _
     & fCodigoAplicacao & "')"
-If Not ExecutarSql(sSql) Then GoTo Trata
+If Not QueryExecute(sSql) Then GoTo Trata
 
 AtualizarExtrato = True
 Exit Function
 Resume
 Trata:
-MsgBox ExporErro(Err.Number, Err.Description, sSql), vbCritical, "clsExtrato.AtualizarExtrato"
+MsgBox ErrorHandler(Err.Number, Err.Description, sSql), vbCritical, "clsExtrato.AtualizarExtrato"
 End Function
 Public Function LimparExtrato() As Boolean
 On Error GoTo Trata
 Dim sSql As String
 
 sSql = "DELETE FROM EXTRATO WHERE EXT_APLICACAO = '" & fCodigoAplicacao & "'"
-    If Not ExecutarSql(sSql) Then GoTo Trata
+    If Not QueryExecute(sSql) Then GoTo Trata
 
 LimparExtrato = True
 Exit Function
 Resume
 Trata:
-MsgBox ExporErro(Err.Number, Err.Description, sSql), vbCritical, "clsExtrato.LimparExtrato"
+MsgBox ErrorHandler(Err.Number, Err.Description, sSql), vbCritical, "clsExtrato.LimparExtrato"
 End Function
 
 Public Function LimparSaldos() As Boolean
@@ -133,13 +133,13 @@ On Error GoTo Trata
 Dim sSql As String
 
 sSql = "DELETE FROM SALDOS WHERE SAL_APLICACAO = '" & fCodigoAplicacao & "'"
-If Not ExecutarSql(sSql) Then GoTo Trata
+If Not QueryExecute(sSql) Then GoTo Trata
 
 LimparSaldos = True
 Exit Function
 Resume
 Trata:
-MsgBox ExporErro(Err.Number, Err.Description, sSql), vbCritical, "clsExtrato.LimparSaldos"
+MsgBox ErrorHandler(Err.Number, Err.Description, sSql), vbCritical, "clsExtrato.LimparSaldos"
 End Function
 
 
@@ -148,14 +148,14 @@ On Error GoTo Trata
 Dim sSql As String
 
 sSql = "INSERT INTO SALDOS (SAL_APLICACAO, SAL_MES, SAL_RENDIMENTO, SAL_SALDO) VALUES ('" & fCodigoAplicacao _
-    & "', '" & TratarVariavel(ParMes, "N") & "', '" & TratarVariavel(ParRendimento, "NB") & "', '" & TratarVariavel(ParSaldo, "NB") & "')"
-If Not ExecutarSql(sSql) Then GoTo Trata
+    & "', '" & VariableAdjust(ParMes, DoubleNumber) & "', '" & VariableAdjust(ParRendimento, NumberSql) & "', '" & VariableAdjust(ParSaldo, NumberSql) & "')"
+If Not QueryExecute(sSql) Then GoTo Trata
 
 InserirSaldos = True
 Exit Function
 Resume
 Trata:
-MsgBox ExporErro(Err.Number, Err.Description, sSql), vbCritical, "clsExtrato.InserirSaldos"
+MsgBox ErrorHandler(Err.Number, Err.Description, sSql), vbCritical, "clsExtrato.InserirSaldos"
 End Function
 
 Public Sub Sacar(ByVal ParValorSaque As Double)

@@ -1243,8 +1243,8 @@ If txtPesquisa.Text <> "" Then
     sSql = sSql & " AND APL_NOME LIKE '" & Trim(txtPesquisa.Text) & "%'"
 End If
 
-ExpurgarGrid gridPrincipal
-PreencherGrid gridPrincipal, sSql
+SpreadClean gridPrincipal
+SpreadFill gridPrincipal, sSql
 
 Exit Sub
 End Sub
@@ -1253,8 +1253,8 @@ Private Sub chkInvestir_Click()
     If chkInvestir.Value Then
         quadInvestimento.Visible = True
         chkInvestir.Enabled = False
-        ExpurgarGrid gridAplicacoes
-        ExpurgarGrid gridSimulacao
+        SpreadClean gridAplicacoes
+        SpreadClean gridSimulacao
     End If
 End Sub
 
@@ -1396,25 +1396,25 @@ End Function
 Private Sub cmdOpcao_Click(Index As Integer)
 On Error GoTo Trata
 
-    If Index = enumOpcao.eIncluir Then
+    If Index = EnumOption.Include Then
         fOpcao = Index
         DefinirTela True
         chkInativo.Visible = False
         quadDatas.Visible = False
         txtCodigo = "NOVO"
         chkInvestir.Enabled = False
-    ElseIf Index = enumOpcao.eConsultar Or Index = enumOpcao.eAlterar Or Index = enumOpcao.eExcluir Then
+    ElseIf Index = EnumOption.Read Or Index = EnumOption.Update Or Index = EnumOption.Delete Then
         gridPrincipal_Click gridPrincipal.ActiveCol, gridPrincipal.ActiveRow
         fOpcao = Index
         DefinirTela True
         If Not ObterDados Then GoTo Trata
-        If fOpcao = enumOpcao.eExcluir Then cmdOpcao_Click (enumOpcao.eConfirmar)
-    ElseIf Index = enumOpcao.eConfirmar Then
-        If fOpcao = enumOpcao.eIncluir Or fOpcao = enumOpcao.eAlterar Then
+        If fOpcao = EnumOption.Delete Then cmdOpcao_Click (EnumOption.Confirm)
+    ElseIf Index = EnumOption.Confirm Then
+        If fOpcao = EnumOption.Include Or fOpcao = EnumOption.Update Then
             TransferirDados
             DefinirTela False
             ExpurgarTela
-        ElseIf fOpcao = enumOpcao.eExcluir Then
+        ElseIf fOpcao = EnumOption.Delete Then
             If Not fClsAplicacoes.Excluir(fCodigo) Then GoTo Trata
             AlimentarGrid
             DefinirTela False
@@ -1423,10 +1423,10 @@ On Error GoTo Trata
             DefinirTela False
             ExpurgarTela
         End If
-    ElseIf Index = enumOpcao.eCancelar Then
+    ElseIf Index = EnumOption.Cancel Then
         DefinirTela False
         ExpurgarTela
-    ElseIf Index = enumOpcao.eSair Then
+    ElseIf Index = EnumOption.Leave Then
         Unload Me
     End If
 Exit Sub
@@ -1434,13 +1434,13 @@ Exit Sub
 Exit Sub
 Resume
 Trata:
-MsgBox ExporErro(Err.Number, Err.Description), vbCritical, "clsCorretoras.Atualizar"
+MsgBox ErrorHandler(Err.Number, Err.Description), vbCritical, "clsCorretoras.Atualizar"
 End Sub
 
 Private Sub cmdLimparAplicacoes_Click()
 If MsgBox("Deseja realmente limpar essa aplicação?", vbYesNo, "Aplicacções") = 6 Then
-    ExpurgarGrid gridAplicacoes
-    ExpurgarGrid gridSimulacao
+    SpreadClean gridAplicacoes
+    SpreadClean gridSimulacao
     fClsExtrato.LimparExtrato
     fClsExtrato.LimparSaldos
     Set fClsExtrato = Nothing
@@ -1452,13 +1452,13 @@ AlimentarGrid
 End Sub
 
 Private Sub Form_Load()
-cmdOpcao(enumOpcao.eConfirmar).Visible = False
-cmdOpcao(enumOpcao.eCancelar).Visible = False
+cmdOpcao(EnumOption.Confirm).Visible = False
+cmdOpcao(EnumOption.Cancel).Visible = False
 quadCadastro.Visible = False
 quadInvestimento.Visible = False
 quadPesquisa.Visible = True
-lblRodape = AlimentarRodape
-AlimentarCombo cmbCorretora, "SELECT COR_CODIGO, (COR_NOME + '(' + CONVERT(VARCHAR,COR_CODIGO) + ')') AS DESCRICAO FROM CORRETORAS WHERE COR_INATIVO = '0'"
+lblRodape = FillFooter
+ComboBoxFill cmbCorretora, "SELECT COR_CODIGO, (COR_NOME + '(' + CONVERT(VARCHAR,COR_CODIGO) + ')') AS DESCRICAO FROM CORRETORAS WHERE COR_INATIVO = '0'"
 cmbAno.AddItem Year(Date), 0
 With cmbMes
     Dim sCont As Long
@@ -1474,23 +1474,23 @@ Private Sub DefinirTela(ParCadastro As Boolean)
 If ParCadastro = True Then
     quadPesquisa.Visible = False
     quadCadastro.Visible = True
-    cmdOpcao(enumOpcao.eIncluir).Visible = False
-    cmdOpcao(enumOpcao.eConsultar).Visible = False
-    cmdOpcao(enumOpcao.eAlterar).Visible = False
-    cmdOpcao(enumOpcao.eExcluir).Visible = False
-    cmdOpcao(enumOpcao.eSair).Visible = False
-    cmdOpcao(enumOpcao.eConfirmar).Visible = True
-    cmdOpcao(enumOpcao.eCancelar).Visible = True
+    cmdOpcao(EnumOption.Include).Visible = False
+    cmdOpcao(EnumOption.Read).Visible = False
+    cmdOpcao(EnumOption.Update).Visible = False
+    cmdOpcao(EnumOption.Delete).Visible = False
+    cmdOpcao(EnumOption.Leave).Visible = False
+    cmdOpcao(EnumOption.Confirm).Visible = True
+    cmdOpcao(EnumOption.Cancel).Visible = True
 Else
     quadPesquisa.Visible = True
     quadCadastro.Visible = False
-    cmdOpcao(enumOpcao.eIncluir).Visible = True
-    cmdOpcao(enumOpcao.eConsultar).Visible = True
-    cmdOpcao(enumOpcao.eAlterar).Visible = True
-    cmdOpcao(enumOpcao.eExcluir).Visible = True
-    cmdOpcao(enumOpcao.eSair).Visible = True
-    cmdOpcao(enumOpcao.eConfirmar).Visible = False
-    cmdOpcao(enumOpcao.eCancelar).Visible = False
+    cmdOpcao(EnumOption.Include).Visible = True
+    cmdOpcao(EnumOption.Read).Visible = True
+    cmdOpcao(EnumOption.Update).Visible = True
+    cmdOpcao(EnumOption.Delete).Visible = True
+    cmdOpcao(EnumOption.Leave).Visible = True
+    cmdOpcao(EnumOption.Confirm).Visible = False
+    cmdOpcao(EnumOption.Cancel).Visible = False
 End If
 
 End Sub
@@ -1539,28 +1539,28 @@ With fClsAplicacoes
     .Ano = cmbAno.Text
     .Investir = IIf(chkInvestir.Value, 1, 0)
     .Inativo = IIf(chkInativo.Value, 1, 0)
-    If fOpcao = enumOpcao.eIncluir Then If Not .Inserir Then GoTo Trata
-    If fOpcao = enumOpcao.eAlterar Then If Not .Atualizar Then GoTo Trata
+    If fOpcao = EnumOption.Include Then If Not .Inserir Then GoTo Trata
+    If fOpcao = EnumOption.Update Then If Not .Atualizar Then GoTo Trata
 End With
 
 With fClsExtrato
     For sCont = 1 To gridAplicacoes.MaxRows
-        sSql = "SELECT EXT_REGISTRO FROM EXTRATO WHERE EXT_REGISTRO = '" & CDbl(PegarTextoGrid(gridAplicacoes, 1, sCont)) & "'"
-        ConsultarSql sSql, sLinhas
+        sSql = "SELECT EXT_REGISTRO FROM EXTRATO WHERE EXT_REGISTRO = '" & CDbl(SpreadGetText(gridAplicacoes, 1, sCont)) & "'"
+        ReadQuery sSql, sLinhas
         If sLinhas <> 0 Then GoTo Fim
-        .Registro = CDbl(PegarTextoGrid(gridAplicacoes, 1, sCont))
+        .Registro = CDbl(SpreadGetText(gridAplicacoes, 1, sCont))
         If .Registro = 0 Then Exit For
-        .Valor = CDbl(PegarTextoGrid(gridAplicacoes, 3, sCont))
+        .Valor = CDbl(SpreadGetText(gridAplicacoes, 3, sCont))
         .Taxa = txtTaxa
-        .Saque = CDbl(PegarTextoGrid(gridAplicacoes, 5, sCont))
-        .Mes = RetornaNumeroMes(PegarTextoGrid(gridAplicacoes, 2, sCont))
-        If fOpcao = enumOpcao.eAlterar Then
-            fClsExtrato.CodigoAplicacao = TratarVariavel(txtCodigo.Text, "N")
+        .Saque = CDbl(SpreadGetText(gridAplicacoes, 5, sCont))
+        .Mes = RetornaNumeroMes(SpreadGetText(gridAplicacoes, 2, sCont))
+        If fOpcao = EnumOption.Update Then
+            fClsExtrato.CodigoAplicacao = VariableAdjust(txtCodigo.Text, DoubleNumber)
             If Not .AtualizarExtrato() Then GoTo Trata
         End If
 Fim:
     Next
-    If fOpcao = enumOpcao.eAlterar Then
+    If fOpcao = EnumOption.Update Then
         If Not .LimparSaldos Then GoTo Trata
         For sCont = 1 To gridSimulacao.MaxRows
             gridSimulacao.Row = sCont
@@ -1584,7 +1584,7 @@ TransferirDados = True
 Exit Function
 Resume
 Trata:
-MsgBox ExporErro(Err.Number, Err.Description, sSql), vbCritical, "clsCorretoras.Atualizar"
+MsgBox ErrorHandler(Err.Number, Err.Description, sSql), vbCritical, "clsCorretoras.Atualizar"
 End Function
 
 Private Function AnalisarDados() As Boolean
@@ -1635,10 +1635,10 @@ Set fClsAplicacoes = Nothing
 End Sub
 
 Private Sub gridPrincipal_Click(ByVal col As Long, ByVal Row As Long)
-MarcarLinha gridPrincipal, Row, fCodigo
+SpreadGetCode gridPrincipal, Row, fCodigo
 End Sub
 
 Private Sub gridPrincipal_DblClick(ByVal col As Long, ByVal Row As Long)
-cmdOpcao_Click (enumOpcao.eAlterar)
+cmdOpcao_Click (EnumOption.Update)
 End Sub
 

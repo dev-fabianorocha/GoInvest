@@ -74,16 +74,16 @@ Dim sSql As String
 sSql = "SELECT APL_CODIGO, APL_NOME, APL_CORRETORA, APL_ANO, APL_INVESTIR, APL_CADASTRO, APL_ATUALIZACAO, APL_INATIVO " _
     & " FROM APLICACOES WHERE APL_CODIGO = '" & ParCodigo & "'"
 
-If Not ConsultarSql(sSql).EOF Then
-    With ConsultarSql(sSql)
-        fCodigo = TratarVariavel(!APL_CODIGO, "N")
-        fCorretora = TratarVariavel(!APL_CORRETORA, "N")
-        fNome = TratarVariavel(!APL_NOME, "T")
-        fAno = TratarVariavel(!APL_ANO, "N")
-        fCadastro = TratarVariavel(!APL_CADASTRO, "T")
-        fAtualizacao = TratarVariavel(!APL_ATUALIZACAO, "T")
-        fInvestir = TratarVariavel(!APL_INVESTIR, "B")
-        fInativo = TratarVariavel(!APL_INATIVO, "B")
+If Not ReadQuery(sSql).EOF Then
+    With ReadQuery(sSql)
+        fCodigo = VariableAdjust(!APL_CODIGO, DoubleNumber)
+        fCorretora = VariableAdjust(!APL_CORRETORA, DoubleNumber)
+        fNome = VariableAdjust(!APL_NOME, StringText)
+        fAno = VariableAdjust(!APL_ANO, DoubleNumber)
+        fCadastro = VariableAdjust(!APL_CADASTRO, StringText)
+        fAtualizacao = VariableAdjust(!APL_ATUALIZACAO, StringText)
+        fInvestir = VariableAdjust(!APL_INVESTIR, LogicSql)
+        fInativo = VariableAdjust(!APL_INATIVO, LogicSql)
     End With
 Else
     MsgBox "Código não localizado"
@@ -99,13 +99,13 @@ Dim sSql As String
 
 sSql = "INSERT INTO APLICACOES (APL_NOME, APL_CORRETORA, APL_ANO, APL_INVESTIR, APL_CADASTRO, APL_ATUALIZACAO, APL_INATIVO) " _
     & " VALUES ('" & fNome & "','" & fCorretora & "','" & fAno & "','" & fInvestir & "',GETDATE(), GETDATE(), '" & fInativo & "')"
-If Not ExecutarSql(sSql) Then GoTo Trata
+If Not QueryExecute(sSql) Then GoTo Trata
 
 Inserir = True
 Exit Function
 Resume
 Trata:
-MsgBox ExporErro(Err.Number, Err.Description, sSql), vbCritical, "clsCorretoras.Inserir"
+MsgBox ErrorHandler(Err.Number, Err.Description, sSql), vbCritical, "clsCorretoras.Inserir"
 End Function
 
 Public Function Atualizar() As Boolean
@@ -115,13 +115,13 @@ Dim sSql As String
 sSql = "UPDATE APLICACOES SET APL_NOME = '" & fNome & "', APL_CORRETORA = '" & fCorretora & "', APL_ANO = '" & fAno & "' ,APL_INVESTIR = '" _
     & fInvestir & "', APL_ATUALIZACAO = GETDATE(), APL_INATIVO = '" & fInativo _
     & "' WHERE APL_CODIGO = '" & fCodigo & "'"
-If Not ExecutarSql(sSql) Then GoTo Trata
+If Not QueryExecute(sSql) Then GoTo Trata
 
 Atualizar = True
 Exit Function
 Resume
 Trata:
-MsgBox ExporErro(Err.Number, Err.Description, sSql), vbCritical, "clsCorretoras.Atualizar"
+MsgBox ErrorHandler(Err.Number, Err.Description, sSql), vbCritical, "clsCorretoras.Atualizar"
 End Function
 
 Public Function Excluir(ParCodigo As Integer) As Boolean
@@ -130,12 +130,12 @@ Dim sSql As String
 
 sSql = "UPDATE APLICACOES SET APL_INATIVO = '1' WHERE APL_CODIGO = '" & ParCodigo & "'"
 If MsgBox("Deseja excluir essa corretora?", vbYesNo, "Corretoras") = 6 Then
-    If Not ExecutarSql(sSql) Then GoTo Trata
+    If Not QueryExecute(sSql) Then GoTo Trata
 End If
 
 Excluir = True
 Exit Function
 Resume
 Trata:
-MsgBox ExporErro(Err.Number, Err.Description, sSql), vbCritical, "clsCorretoras.Excluir"
+MsgBox ErrorHandler(Err.Number, Err.Description, sSql), vbCritical, "clsCorretoras.Excluir"
 End Function

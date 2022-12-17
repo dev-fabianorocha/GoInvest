@@ -60,13 +60,13 @@ Dim sSql As String
 
 sSql = "SELECT USU_CODIGO, USU_NOME, USU_SENHA, USU_CADASTRO, USU_ATUALIZACAO, USU_INATIVO FROM USUARIOS WHERE USU_CODIGO = '" & ParCodigo & "'"
 
-If Not ConsultarSql(sSql).EOF Then
-    With ConsultarSql(sSql)
-        fNome = TratarVariavel(!USU_NOME, "T")
-        fSenha = TratarVariavel(!USU_SENHA, "T")
-        fCadastro = TratarVariavel(!USU_CADASTRO, "T")
-        fAtualizacao = TratarVariavel(!USU_ATUALIZACAO, "T")
-        fInativo = TratarVariavel(!USU_INATIVO, "B")
+If Not ReadQuery(sSql).EOF Then
+    With ReadQuery(sSql)
+        fNome = VariableAdjust(!USU_NOME, StringText)
+        fSenha = VariableAdjust(!USU_SENHA, StringText)
+        fCadastro = VariableAdjust(!USU_CADASTRO, StringText)
+        fAtualizacao = VariableAdjust(!USU_ATUALIZACAO, StringText)
+        fInativo = VariableAdjust(!USU_INATIVO, LogicSql)
     End With
 Else
     MsgBox "Código não localizado"
@@ -82,13 +82,13 @@ Dim sSql As String
 
 sSql = "INSERT INTO USUARIOS (USU_NOME, USU_SENHA, USU_CADASTRO, USU_ATUALIZACAO, USU_INATIVO) VALUES ('" _
     & fNome & "', '" & fSenha & "', GETDATE(), GETDATE(), '" & fInativo & "')"
-If Not ExecutarSql(sSql) Then GoTo Trata
+If Not QueryExecute(sSql) Then GoTo Trata
 
 Inserir = True
 Exit Function
 Resume
 Trata:
-MsgBox ExporErro(Err.Number, Err.Description, sSql), vbCritical, "clsCorretoras.Inserir"
+MsgBox ErrorHandler(Err.Number, Err.Description, sSql), vbCritical, "clsCorretoras.Inserir"
 End Function
 
 Public Function Atualizar() As Boolean
@@ -97,13 +97,13 @@ Dim sSql As String
 
 sSql = "UPDATE USUARIOS SET USU_NOME = '" & fNome & "', USU_SENHA = '" & fSenha & "', USU_ATUALIZACAO = GETDATE(), USU_INATIVO = '" & fInativo _
     & "' WHERE USU_CODIGO = '" & fCodigo & "'"
-If Not ExecutarSql(sSql) Then GoTo Trata
+If Not QueryExecute(sSql) Then GoTo Trata
 
 Atualizar = True
 Exit Function
 Resume
 Trata:
-MsgBox ExporErro(Err.Number, Err.Description, sSql), vbCritical, "clsCorretoras.Atualizar"
+MsgBox ErrorHandler(Err.Number, Err.Description, sSql), vbCritical, "clsCorretoras.Atualizar"
 End Function
 
 Public Function Excluir(ParCodigo As Integer) As Boolean
@@ -112,12 +112,12 @@ Dim sSql As String
 
 sSql = "UPDATE USUARIOS SET USU_INATIVO = '1' WHERE USU_CODIGO = '" & ParCodigo & "'"
 If MsgBox("Deseja excluir esse usuário?", vbYesNo, "Corretoras") = 6 Then
-    If Not ExecutarSql(sSql) Then GoTo Trata
+    If Not QueryExecute(sSql) Then GoTo Trata
 End If
 
 Excluir = True
 Exit Function
 Resume
 Trata:
-MsgBox ExporErro(Err.Number, Err.Description, sSql), vbCritical, "clsCorretoras.Excluir"
+MsgBox ErrorHandler(Err.Number, Err.Description, sSql), vbCritical, "clsCorretoras.Excluir"
 End Function

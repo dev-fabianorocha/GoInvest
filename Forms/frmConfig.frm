@@ -244,20 +244,20 @@ Private Sub chkLoginWindows_Click()
         txtUsuario.BackColor = &HE0E0E0
         txtSenha.Enabled = False
         txtSenha.BackColor = &HE0E0E0
-        pConexaoWindows = True
+        gWindowsConnection = True
     Else
         txtUsuario.Enabled = True
         txtUsuario.BackColor = &HFFFFFF
         txtSenha.Enabled = True
         txtSenha.BackColor = &HFFFFFF
-        pConexaoWindows = False
+        gWindowsConnection = False
     End If
 End Sub
 
 Private Sub cmdConectar_Click()
 
 If GravarConfig(txtServidor, txtBanco, txtUsuario, txtSenha, chkLoginWindows.Value) Then
-    If LerConfig Then
+    If ReadConfig Then
         MsgBox "O banco de dados foi configurado, com sucesso!", vbInformation
         Unload Me
         frmLogin.Show

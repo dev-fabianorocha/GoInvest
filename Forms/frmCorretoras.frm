@@ -658,8 +658,8 @@ If txtPesquisa.Text <> "" Then
     sSql = sSql & " AND COR_NOME LIKE '" & Trim(txtPesquisa.Text) & "%'"
 End If
 
-ExpurgarGrid gridPrincipal
-PreencherGrid gridPrincipal, sSql
+SpreadClean gridPrincipal
+SpreadFill gridPrincipal, sSql
 
 Exit Sub
 End Sub
@@ -667,24 +667,24 @@ End Sub
 Private Sub cmdOpcao_Click(Index As Integer)
 On Error GoTo Trata
 
-    If Index = enumOpcao.eIncluir Then
+    If Index = enumOption.Include Then
         fOpcao = Index
         DefinirTela True
         chkInativo.Visible = False
         quadDatas.Visible = False
         txtCodigo = "NOVO"
-    ElseIf Index = enumOpcao.eConsultar Or Index = enumOpcao.eAlterar Or Index = enumOpcao.eExcluir Then
+    ElseIf Index = enumOption.Read Or Index = enumOption.Update Or Index = enumOption.Delete Then
         gridPrincipal_Click gridPrincipal.ActiveCol, gridPrincipal.ActiveRow
         fOpcao = Index
         DefinirTela True
         If Not ObterDados Then GoTo Trata
-        If fOpcao = enumOpcao.eExcluir Then cmdOpcao_Click (enumOpcao.eConfirmar)
-    ElseIf Index = enumOpcao.eConfirmar Then
-        If fOpcao = enumOpcao.eIncluir Or fOpcao = enumOpcao.eAlterar Then
+        If fOpcao = enumOption.Delete Then cmdOpcao_Click (enumOption.Confirm)
+    ElseIf Index = enumOption.Confirm Then
+        If fOpcao = enumOption.Include Or fOpcao = enumOption.Update Then
             TransferirDados
             DefinirTela False
             ExpurgarDados
-        ElseIf fOpcao = enumOpcao.eExcluir Then
+        ElseIf fOpcao = enumOption.Delete Then
             If Not fClsCorretoras.Excluir(fCodigo) Then GoTo Trata
             AlimentarGrid
             DefinirTela False
@@ -693,17 +693,17 @@ On Error GoTo Trata
             DefinirTela False
             ExpurgarDados
         End If
-    ElseIf Index = enumOpcao.eCancelar Then
+    ElseIf Index = enumOption.Cancel Then
         DefinirTela False
         ExpurgarDados
-    ElseIf Index = enumOpcao.eSair Then
+    ElseIf Index = enumOption.Leave Then
         Unload Me
     End If
 
 Exit Sub
 Resume
 Trata:
-MsgBox ExporErro(Err.Number, Err.Description), vbCritical, "clsCorretoras.Atualizar"
+MsgBox ErrorHandler(Err.Number, Err.Description), vbCritical, "clsCorretoras.Atualizar"
 End Sub
 
 Private Sub cmdPesquisa_Click()
@@ -711,35 +711,35 @@ AlimentarGrid
 End Sub
 
 Private Sub Form_Load()
-cmdOpcao(enumOpcao.eConfirmar).Visible = False
-cmdOpcao(enumOpcao.eCancelar).Visible = False
+cmdOpcao(enumOption.Confirm).Visible = False
+cmdOpcao(enumOption.Cancel).Visible = False
 quadCadastro.Visible = False
 quadPesquisa.Visible = True
 AlimentarGrid
-lblRodape = AlimentarRodape
+lblRodape = FillFooter
 End Sub
 
 Private Sub DefinirTela(ParCadastro As Boolean)
 If ParCadastro = True Then
     quadPesquisa.Visible = False
     quadCadastro.Visible = True
-    cmdOpcao(enumOpcao.eIncluir).Visible = False
-    cmdOpcao(enumOpcao.eConsultar).Visible = False
-    cmdOpcao(enumOpcao.eAlterar).Visible = False
-    cmdOpcao(enumOpcao.eExcluir).Visible = False
-    cmdOpcao(enumOpcao.eSair).Visible = False
-    cmdOpcao(enumOpcao.eConfirmar).Visible = True
-    cmdOpcao(enumOpcao.eCancelar).Visible = True
+    cmdOpcao(enumOption.Include).Visible = False
+    cmdOpcao(enumOption.Read).Visible = False
+    cmdOpcao(enumOption.Update).Visible = False
+    cmdOpcao(enumOption.Delete).Visible = False
+    cmdOpcao(enumOption.Leave).Visible = False
+    cmdOpcao(enumOption.Confirm).Visible = True
+    cmdOpcao(enumOption.Cancel).Visible = True
 Else
     quadPesquisa.Visible = True
     quadCadastro.Visible = False
-    cmdOpcao(enumOpcao.eIncluir).Visible = True
-    cmdOpcao(enumOpcao.eConsultar).Visible = True
-    cmdOpcao(enumOpcao.eAlterar).Visible = True
-    cmdOpcao(enumOpcao.eExcluir).Visible = True
-    cmdOpcao(enumOpcao.eSair).Visible = True
-    cmdOpcao(enumOpcao.eConfirmar).Visible = False
-    cmdOpcao(enumOpcao.eCancelar).Visible = False
+    cmdOpcao(enumOption.Include).Visible = True
+    cmdOpcao(enumOption.Read).Visible = True
+    cmdOpcao(enumOption.Update).Visible = True
+    cmdOpcao(enumOption.Delete).Visible = True
+    cmdOpcao(enumOption.Leave).Visible = True
+    cmdOpcao(enumOption.Confirm).Visible = False
+    cmdOpcao(enumOption.Cancel).Visible = False
 End If
 End Sub
 
@@ -761,13 +761,13 @@ On Error GoTo Trata
 
 Dim sSql As String, sCont As Long
 
-If fOpcao = enumOpcao.eAlterar Then fClsCorretoras.Consultar (fCodigo)
+If fOpcao = enumOption.Update Then fClsCorretoras.Consultar (fCodigo)
 With fClsCorretoras
     .Codigo = fCodigo
     .Nome = txtNome
     .Inativo = IIf(chkInativo.Value, 1, 0)
-    If fOpcao = enumOpcao.eIncluir Then If Not .Inserir Then GoTo Trata
-    If fOpcao = enumOpcao.eAlterar Then If Not .Atualizar Then GoTo Trata
+    If fOpcao = enumOption.Include Then If Not .Inserir Then GoTo Trata
+    If fOpcao = enumOption.Update Then If Not .Atualizar Then GoTo Trata
 End With
 
 AlimentarGrid
@@ -776,7 +776,7 @@ TransferirDados = True
 Exit Function
 Resume
 Trata:
-MsgBox ExporErro(Err.Number, Err.Description, sSql), vbCritical, "clsCorretoras.Atualizar"
+MsgBox ErrorHandler(Err.Number, Err.Description, sSql), vbCritical, "clsCorretoras.Atualizar"
 End Function
 
 Private Sub ExpurgarDados()
@@ -791,11 +791,11 @@ Set fClsCorretoras = Nothing
 End Sub
 
 Private Sub gridPrincipal_Click(ByVal col As Long, ByVal Row As Long)
-MarcarLinha gridPrincipal, Row, fCodigo
+SpreadGetCode gridPrincipal, Row, fCodigo
 End Sub
 
 Private Sub gridPrincipal_DblClick(ByVal col As Long, ByVal Row As Long)
-cmdOpcao_Click (enumOpcao.eAlterar)
+cmdOpcao_Click (enumOption.Update)
 End Sub
 Private Sub txtNome_KeyPress(KeyAscii As Integer)
 KeyAscii = Asc(UCase(Chr(KeyAscii)))

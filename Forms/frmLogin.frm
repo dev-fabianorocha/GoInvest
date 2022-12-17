@@ -315,15 +315,15 @@ Private Sub cmdLogin_Click()
         txtSenha.SetFocus
         txtSenha.Text = ""
     Else
-        pUsuario = txtUsuario
+        gUser = txtUsuario
         frmPrincipal.Show
         Unload Me
     End If
 End Sub
 
 Private Sub Form_Load()
-pVersao = "26/03/2022"
-If Not LerConfig Then
+gVersion = "26/03/2022"
+If Not ReadConfig Then
     MsgBox "O banco de dados não esta configurado!", vbExclamation
     Unload Me
 End If
@@ -338,14 +338,14 @@ Dim sSql As String, sLinhas As Long, sRetorno As Boolean
 
 If VerificaNome Then
     sSql = "SELECT USU_NOME FROM USUARIOS WHERE USU_NOME = '" & txtUsuario.Text & "'"
-    ConsultarSql sSql, sLinhas
+    ReadQuery sSql, sLinhas
     
     If sLinhas <> 0 Then
         sRetorno = True
     End If
 ElseIf VerificaSenha Then
     sSql = "SELECT USU_NOME FROM USUARIOS WHERE USU_NOME = '" & txtUsuario.Text & "' AND USU_SENHA = '" & txtSenha.Text & "'"
-    ConsultarSql sSql, sLinhas
+    ReadQuery sSql, sLinhas
     
     If sLinhas <> 0 Then
         sRetorno = True

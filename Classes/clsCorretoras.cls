@@ -53,8 +53,8 @@ Dim sSql As String
 
 sSql = "SELECT COR_CODIGO, COR_NOME, COR_CADASTRO, COR_ATUALIZACAO, COR_INATIVO FROM CORRETORAS WHERE COR_CODIGO = '" & ParCodigo & "'"
 
-If Not ConsultarSql(sSql).EOF Then
-    With ConsultarSql(sSql)
+If Not ReadQuery(sSql).EOF Then
+    With ReadQuery(sSql)
         fNome = IIf(Null, "", !COR_NOME)
         fCadastro = !COR_CADASTRO
         fAtualizacao = !COR_ATUALIZACAO
@@ -74,13 +74,13 @@ Dim sSql As String
 
 sSql = "INSERT INTO CORRETORAS (COR_NOME, COR_CADASTRO, COR_ATUALIZACAO, COR_INATIVO) VALUES ('" & fNome _
     & "', GETDATE(), GETDATE(), '" & fInativo & "')"
-If Not ExecutarSql(sSql) Then GoTo Trata
+If Not QueryExecute(sSql) Then GoTo Trata
 
 Inserir = True
 Exit Function
 Resume
 Trata:
-MsgBox ExporErro(Err.Number, Err.Description, sSql), vbCritical, "clsCorretoras.Inserir"
+MsgBox ErrorHandler(Err.Number, Err.Description, sSql), vbCritical, "clsCorretoras.Inserir"
 End Function
 
 Public Function Atualizar() As Boolean
@@ -90,13 +90,13 @@ Dim sSql As String
 
 sSql = "UPDATE CORRETORAS SET COR_NOME = '" & fNome & "', COR_ATUALIZACAO = GETDATE(), COR_INATIVO = '" & fInativo _
     & "' WHERE COR_CODIGO = '" & fCodigo & "'"
-If Not ExecutarSql(sSql) Then GoTo Trata
+If Not QueryExecute(sSql) Then GoTo Trata
 
 Atualizar = True
 Exit Function
 Resume
 Trata:
-MsgBox ExporErro(Err.Number, Err.Description, sSql), vbCritical, "clsCorretoras.Atualizar"
+MsgBox ErrorHandler(Err.Number, Err.Description, sSql), vbCritical, "clsCorretoras.Atualizar"
 End Function
 
 Public Function Excluir(ParCodigo As Integer) As Boolean
@@ -105,12 +105,12 @@ Dim sSql As String
 
 sSql = "UPDATE CORRETORAS SET COR_INATIVO = '1' WHERE COR_CODIGO = '" & ParCodigo & "'"
 If MsgBox("Deseja excluir essa corretora?", vbYesNo, "Corretoras") = 6 Then
-    If Not ExecutarSql(sSql) Then GoTo Trata
+    If Not QueryExecute(sSql) Then GoTo Trata
 End If
 
 Excluir = True
 Exit Function
 Resume
 Trata:
-MsgBox ExporErro(Err.Number, Err.Description, sSql), vbCritical, "clsCorretoras.Excluir"
+MsgBox ErrorHandler(Err.Number, Err.Description, sSql), vbCritical, "clsCorretoras.Excluir"
 End Function

@@ -6,6 +6,8 @@ Option Explicit
 'Form Variable = e (External)
 'Parameter = Example_
 
+'©Copyright 2022 - Fabiano Gomes da Rocha
+
 Public gUser As String
 
 Public gServer As String

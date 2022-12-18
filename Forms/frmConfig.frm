@@ -256,7 +256,7 @@ End Sub
 
 Private Sub cmdConectar_Click()
 
-If GravarConfig(txtServidor, txtBanco, txtUsuario, txtSenha, chkLoginWindows.Value) Then
+If WriteConfig(txtServidor, txtBanco, txtUsuario, txtSenha, chkLoginWindows.Value) Then
     If ReadConfig Then
         MsgBox "O banco de dados foi configurado, com sucesso!", vbInformation
         Unload Me

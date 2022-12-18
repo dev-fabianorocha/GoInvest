@@ -1,18 +1,18 @@
 Attribute VB_Name = "ModuleMessage"
 Option Explicit
 
-Public Function ErrorHandler(ByVal NumberError_ As String, ByVal ErrorDescription_ As String, Optional ByVal Query_ As String) As String
-Dim sRetorno As String
+Public Function ErrorHandler(ByVal NumberError_ As Integer, ByVal ErrorDescription_ As String, ByVal ErrorPlace As String, Optional ByVal Query_ As String)
+Dim iMessage As String
 
-sRetorno = "-------------------------------------------------------------------------------" & vbCrLf
-sRetorno = sRetorno & "                                         GoInvest" & vbCrLf
-sRetorno = sRetorno & "-------------------------------------------------------------------------------" & vbCrLf
-sRetorno = sRetorno & "Error #" & NumberError_ & ": '" & ErrorDescription_ & vbCrLf
-sRetorno = sRetorno & "-------------------------------------------------------------------------------" & vbCrLf
-sRetorno = sRetorno & Query_ & vbCrLf
-sRetorno = sRetorno & "-------------------------------------------------------------------------------" & vbCrLf
+iMessage = "-------------------------------------------------------------------------------" & vbCrLf
+iMessage = iMessage & "                                         GoInvest" & vbCrLf
+iMessage = iMessage & "-------------------------------------------------------------------------------" & vbCrLf
+iMessage = iMessage & "Error #" & NumberError_ & ": '" & ErrorDescription_ & vbCrLf
+iMessage = iMessage & "-------------------------------------------------------------------------------" & vbCrLf
+iMessage = iMessage & Query_ & vbCrLf
+iMessage = iMessage & "-------------------------------------------------------------------------------" & vbCrLf
 
-ErrorHandler = sRetorno
+MsgBox iMessage, vbCritical, "GoInvest", , ErrorPlace
 End Function
 
 Public Function FillFooter() As String

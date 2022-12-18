@@ -3,30 +3,25 @@ Object = "{F856EC8B-F03C-4515-BDC6-64CBD617566A}#7.0#0"; "FPSPR70.ocx"
 Object = "{FD2FB1F1-D4FC-11CE-A335-A8D5ECAE5B02}#2.0#0"; "btn32a20.ocx"
 Begin VB.Form frmCorretoras 
    Appearance      =   0  'Flat
-   BackColor       =   &H00404040&
-   BorderStyle     =   3  'Fixed Dialog
    Caption         =   "Corretoras"
-   ClientHeight    =   8175
-   ClientLeft      =   3465
-   ClientTop       =   2220
-   ClientWidth     =   12360
+   ClientHeight    =   10590
+   ClientLeft      =   60
+   ClientTop       =   435
+   ClientWidth     =   20385
    Icon            =   "frmCorretoras.frx":0000
    LinkTopic       =   "Form1"
-   MaxButton       =   0   'False
-   MinButton       =   0   'False
-   ScaleHeight     =   8175
-   ScaleWidth      =   12360
-   ShowInTaskbar   =   0   'False
-   StartUpPosition =   2  'CenterScreen
+   ScaleHeight     =   10590
+   ScaleWidth      =   20385
+   WindowState     =   2  'Maximized
    Begin VB.Frame quadBotoes 
       BackColor       =   &H00404040&
       BorderStyle     =   0  'None
       ForeColor       =   &H8000000E&
-      Height          =   8280
-      Left            =   11400
+      Height          =   10800
+      Left            =   19440
       TabIndex        =   9
       Top             =   0
-      Width           =   975
+      Width           =   1215
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   735
          Index           =   0
@@ -294,8 +289,8 @@ Begin VB.Form frmCorretoras
       Index           =   1
       Left            =   0
       TabIndex        =   24
-      Top             =   7800
-      Width           =   11895
+      Top             =   10320
+      Width           =   19455
       Begin VB.Label lblRodape 
          BeginProperty Font 
             Name            =   "Arial"
@@ -309,18 +304,18 @@ Begin VB.Form frmCorretoras
          Height          =   420
          Left            =   0
          TabIndex        =   25
-         Top             =   80
+         Top             =   0
          Width           =   11895
       End
    End
    Begin VB.Frame quadPesquisa 
       BackColor       =   &H00E0E0E0&
       BorderStyle     =   0  'None
-      Height          =   7820
+      Height          =   10215
       Left            =   0
       TabIndex        =   0
       Top             =   0
-      Width           =   11415
+      Width           =   19455
       Begin VB.CheckBox chkInativoPesquisa 
          BackColor       =   &H00E0E0E0&
          Caption         =   "I&nativos"
@@ -334,14 +329,14 @@ Begin VB.Form frmCorretoras
             Strikethrough   =   0   'False
          EndProperty
          Height          =   255
-         Left            =   9720
+         Left            =   17760
          TabIndex        =   26
          Top             =   720
          Width           =   1095
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdPesquisa 
          Height          =   495
-         Left            =   4320
+         Left            =   6840
          TabIndex        =   22
          Top             =   360
          Width           =   1875
@@ -389,17 +384,17 @@ Begin VB.Form frmCorretoras
          Left            =   240
          TabIndex        =   3
          Top             =   480
-         Width           =   3975
+         Width           =   6375
       End
       Begin FPSpreadADO.fpSpread gridPrincipal 
-         Height          =   6285
+         Height          =   8925
          Left            =   240
          TabIndex        =   2
          Top             =   1080
-         Width           =   10545
+         Width           =   18705
          _Version        =   458752
-         _ExtentX        =   18600
-         _ExtentY        =   11086
+         _ExtentX        =   32994
+         _ExtentY        =   15743
          _StockProps     =   64
          DisplayRowHeaders=   0   'False
          BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
@@ -446,18 +441,18 @@ Begin VB.Form frmCorretoras
       BackColor       =   &H00E0E0E0&
       BorderStyle     =   0  'None
       ForeColor       =   &H80000010&
-      Height          =   7815
+      Height          =   10215
       Left            =   0
       TabIndex        =   1
       Top             =   0
-      Width           =   11415
+      Width           =   19575
       Begin VB.Frame quadDatas 
          BackColor       =   &H00E0E0E0&
          Enabled         =   0   'False
          Height          =   975
-         Left            =   7560
+         Left            =   14280
          TabIndex        =   17
-         Top             =   6600
+         Top             =   8400
          Width           =   3255
          Begin VB.TextBox txtData 
             Enabled         =   0   'False
@@ -545,9 +540,9 @@ Begin VB.Form frmCorretoras
             Strikethrough   =   0   'False
          EndProperty
          Height          =   495
-         Left            =   6360
+         Left            =   9840
          TabIndex        =   6
-         Top             =   760
+         Top             =   840
          Width           =   1095
       End
       Begin VB.TextBox txtNome 
@@ -564,7 +559,7 @@ Begin VB.Form frmCorretoras
          Left            =   1320
          TabIndex        =   5
          Top             =   840
-         Width           =   4815
+         Width           =   8295
       End
       Begin VB.TextBox txtCodigo 
          Enabled         =   0   'False
@@ -665,27 +660,27 @@ Exit Sub
 End Sub
 
 Private Sub cmdOpcao_Click(Index As Integer)
-On Error GoTo Trata
+On Error GoTo ErrorHandler
 
-    If Index = enumOption.Include Then
+    If Index = EnumOption.Include Then
         fOpcao = Index
         DefinirTela True
         chkInativo.Visible = False
         quadDatas.Visible = False
         txtCodigo = "NOVO"
-    ElseIf Index = enumOption.Read Or Index = enumOption.Update Or Index = enumOption.Delete Then
+    ElseIf Index = EnumOption.Read Or Index = EnumOption.Update Or Index = EnumOption.Delete Then
         gridPrincipal_Click gridPrincipal.ActiveCol, gridPrincipal.ActiveRow
         fOpcao = Index
         DefinirTela True
-        If Not ObterDados Then GoTo Trata
-        If fOpcao = enumOption.Delete Then cmdOpcao_Click (enumOption.Confirm)
-    ElseIf Index = enumOption.Confirm Then
-        If fOpcao = enumOption.Include Or fOpcao = enumOption.Update Then
+        If Not ObterDados Then GoTo ErrorHandler
+        If fOpcao = EnumOption.Delete Then cmdOpcao_Click (EnumOption.Confirm)
+    ElseIf Index = EnumOption.Confirm Then
+        If fOpcao = EnumOption.Include Or fOpcao = EnumOption.Update Then
             TransferirDados
             DefinirTela False
             ExpurgarDados
-        ElseIf fOpcao = enumOption.Delete Then
-            If Not fClsCorretoras.Excluir(fCodigo) Then GoTo Trata
+        ElseIf fOpcao = EnumOption.Delete Then
+            If Not fClsCorretoras.Excluir(fCodigo) Then GoTo ErrorHandler
             AlimentarGrid
             DefinirTela False
             ExpurgarDados
@@ -693,17 +688,17 @@ On Error GoTo Trata
             DefinirTela False
             ExpurgarDados
         End If
-    ElseIf Index = enumOption.Cancel Then
+    ElseIf Index = EnumOption.Cancel Then
         DefinirTela False
         ExpurgarDados
-    ElseIf Index = enumOption.Leave Then
+    ElseIf Index = EnumOption.Leave Then
         Unload Me
     End If
 
 Exit Sub
 Resume
-Trata:
-MsgBox ErrorHandler(Err.Number, Err.Description), vbCritical, "clsCorretoras.Atualizar"
+ErrorHandler:
+
 End Sub
 
 Private Sub cmdPesquisa_Click()
@@ -711,8 +706,8 @@ AlimentarGrid
 End Sub
 
 Private Sub Form_Load()
-cmdOpcao(enumOption.Confirm).Visible = False
-cmdOpcao(enumOption.Cancel).Visible = False
+cmdOpcao(EnumOption.Confirm).Visible = False
+cmdOpcao(EnumOption.Cancel).Visible = False
 quadCadastro.Visible = False
 quadPesquisa.Visible = True
 AlimentarGrid
@@ -723,23 +718,23 @@ Private Sub DefinirTela(ParCadastro As Boolean)
 If ParCadastro = True Then
     quadPesquisa.Visible = False
     quadCadastro.Visible = True
-    cmdOpcao(enumOption.Include).Visible = False
-    cmdOpcao(enumOption.Read).Visible = False
-    cmdOpcao(enumOption.Update).Visible = False
-    cmdOpcao(enumOption.Delete).Visible = False
-    cmdOpcao(enumOption.Leave).Visible = False
-    cmdOpcao(enumOption.Confirm).Visible = True
-    cmdOpcao(enumOption.Cancel).Visible = True
+    cmdOpcao(EnumOption.Include).Visible = False
+    cmdOpcao(EnumOption.Read).Visible = False
+    cmdOpcao(EnumOption.Update).Visible = False
+    cmdOpcao(EnumOption.Delete).Visible = False
+    cmdOpcao(EnumOption.Leave).Visible = False
+    cmdOpcao(EnumOption.Confirm).Visible = True
+    cmdOpcao(EnumOption.Cancel).Visible = True
 Else
     quadPesquisa.Visible = True
     quadCadastro.Visible = False
-    cmdOpcao(enumOption.Include).Visible = True
-    cmdOpcao(enumOption.Read).Visible = True
-    cmdOpcao(enumOption.Update).Visible = True
-    cmdOpcao(enumOption.Delete).Visible = True
-    cmdOpcao(enumOption.Leave).Visible = True
-    cmdOpcao(enumOption.Confirm).Visible = False
-    cmdOpcao(enumOption.Cancel).Visible = False
+    cmdOpcao(EnumOption.Include).Visible = True
+    cmdOpcao(EnumOption.Read).Visible = True
+    cmdOpcao(EnumOption.Update).Visible = True
+    cmdOpcao(EnumOption.Delete).Visible = True
+    cmdOpcao(EnumOption.Leave).Visible = True
+    cmdOpcao(EnumOption.Confirm).Visible = False
+    cmdOpcao(EnumOption.Cancel).Visible = False
 End If
 End Sub
 
@@ -761,13 +756,13 @@ On Error GoTo Trata
 
 Dim sSql As String, sCont As Long
 
-If fOpcao = enumOption.Update Then fClsCorretoras.Consultar (fCodigo)
+If fOpcao = EnumOption.Update Then fClsCorretoras.Consultar (fCodigo)
 With fClsCorretoras
     .Codigo = fCodigo
     .Nome = txtNome
     .Inativo = IIf(chkInativo.Value, 1, 0)
-    If fOpcao = enumOption.Include Then If Not .Inserir Then GoTo Trata
-    If fOpcao = enumOption.Update Then If Not .Atualizar Then GoTo Trata
+    If fOpcao = EnumOption.Include Then If Not .Inserir Then GoTo Trata
+    If fOpcao = EnumOption.Update Then If Not .Atualizar Then GoTo Trata
 End With
 
 AlimentarGrid
@@ -790,12 +785,16 @@ quadDatas.Visible = True
 Set fClsCorretoras = Nothing
 End Sub
 
+Private Sub Form_Resize()
+ResizeForm Me
+End Sub
+
 Private Sub gridPrincipal_Click(ByVal col As Long, ByVal Row As Long)
 SpreadGetCode gridPrincipal, Row, fCodigo
 End Sub
 
 Private Sub gridPrincipal_DblClick(ByVal col As Long, ByVal Row As Long)
-cmdOpcao_Click (enumOption.Update)
+cmdOpcao_Click (EnumOption.Update)
 End Sub
 Private Sub txtNome_KeyPress(KeyAscii As Integer)
 KeyAscii = Asc(UCase(Chr(KeyAscii)))

@@ -27,6 +27,7 @@ Module=ModuleMessage; Modules\ModuleMessage.bas
 Module=ModuleDataBase; Modules\ModuleDataBase.bas
 Module=ModuleVariableHandler; Modules\ModuleVariableHandler.bas
 Module=ModuleSpread; Modules\ModuleSpread.bas
+Module=ModuleResize; Modules\ModuleResize.bas
 Startup="frmLogin"
 HelpFile=""
 ExeName32="GoInvest.exe"

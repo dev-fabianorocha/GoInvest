@@ -22,7 +22,7 @@ Set ReadQuery = iRecordset
 Exit Function
 Resume
 ErrorHandler:
-MsgBox ErrorHandler(Err.Number, Err.Description, Query_), vbCritical, "ModBanco.ReadQuery"
+ErrorHandler Err.Number, Err.Description, "ModuleDataBase.ReadQuery", Query_
 End Function
 
 Public Function Connection() As ADODB.Connection
@@ -49,13 +49,12 @@ Set Connection = iConnection
 Exit Function
 Resume
 ErrorHandler:
-MsgBox ErrorHandler(Err.Number, Err.Description), vbCritical, "ModBanco.Connection"
+ErrorHandler Err.Number, Err.Description, "ModuleDataBase.Connection"
 End Function
 
 Public Function QueryExecute(Query_ As String) As Boolean
 On Error GoTo ErrorHandler
 Dim iRecordset As New ADODB.Recordset
-
 Dim iConnection As New ADODB.Connection
 
 iConnection = Connection
@@ -69,7 +68,7 @@ QueryExecute = True
 Exit Function
 Resume
 ErrorHandler:
-MsgBox ErrorHandler(Err.Number, Err.Description, Query_), vbCritical, "ModBanco.QueryExecute"
+ErrorHandler Err.Number, Err.Description, "ModuleDataBase.QueryExecute", Query_
 End Function
 
 Public Function ReadConfig() As Boolean
@@ -111,28 +110,28 @@ ReadConfig = iReturn
 Exit Function
 Resume
 ErrorHandler:
-MsgBox ErrorHandler(Err.Number, Err.Description, ""), vbCritical, "ModBanco.ReadConfig"
+ErrorHandler Err.Number, Err.Description, "ModuleDataBase.ReadConfig"
 End Function
 
-Public Function GravarConfig(ParServidor As String, ParBanco As String, ParUsuario As String, ParSenha As String, ParConexaoWindows As Boolean) As Boolean
+Public Function WriteConfig(Server_ As String, DataBase_ As String, User_ As String, Password_ As String, WindowsConnection_ As Boolean) As Boolean
 On Error GoTo ErrorHandler
-Dim sLinha As Long
+Dim iPosition As Long
 
 Open "C:\GoInvest\Config.ini" For Output As #1
-For sLinha = 1 To 5
-    If sLinha = 1 Then Print #1, "0" & sLinha & "=" & ParServidor
-    If sLinha = 2 Then Print #1, "0" & sLinha & "=" & ParBanco
-    If sLinha = 3 Then Print #1, "0" & sLinha & "=" & ParUsuario
-    If sLinha = 4 Then Print #1, "0" & sLinha & "=" & ParSenha
-    If sLinha = 5 Then Print #1, "0" & sLinha & "=" & ParConexaoWindows
+For iPosition = 1 To 5
+    If iPosition = 1 Then Print #1, "0" & iPosition & "=" & Server_
+    If iPosition = 2 Then Print #1, "0" & iPosition & "=" & DataBase_
+    If iPosition = 3 Then Print #1, "0" & iPosition & "=" & User_
+    If iPosition = 4 Then Print #1, "0" & iPosition & "=" & Password_
+    If iPosition = 5 Then Print #1, "0" & iPosition & "=" & WindowsConnection_
 Next
 Close #1
 
-GravarConfig = True
+WriteConfig = True
 Exit Function
 Resume
 ErrorHandler:
-MsgBox ErrorHandler(Err.Number, Err.Description, ""), vbCritical, "ModBanco.QueryExecute"
+ErrorHandler Err.Number, Err.Description, "ModuleDataBase.WriteConfig"
 End Function
 
 

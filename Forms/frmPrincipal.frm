@@ -1,33 +1,42 @@
 VERSION 5.00
 Object = "{FD2FB1F1-D4FC-11CE-A335-A8D5ECAE5B02}#2.0#0"; "btn32a20.ocx"
 Begin VB.Form frmPrincipal 
-   BorderStyle     =   3  'Fixed Dialog
+   BackColor       =   &H00E0E0E0&
    Caption         =   "GoInvest"
-   ClientHeight    =   8205
-   ClientLeft      =   3465
-   ClientTop       =   2190
-   ClientWidth     =   12360
+   ClientHeight    =   10590
+   ClientLeft      =   60
+   ClientTop       =   420
+   ClientWidth     =   20385
    Icon            =   "frmPrincipal.frx":0000
    LinkTopic       =   "Form1"
-   MaxButton       =   0   'False
-   MinButton       =   0   'False
-   Picture         =   "frmPrincipal.frx":680A
-   ScaleHeight     =   8205
-   ScaleWidth      =   12360
-   ShowInTaskbar   =   0   'False
-   StartUpPosition =   2  'CenterScreen
+   ScaleHeight     =   10590
+   ScaleWidth      =   20385
+   WindowState     =   2  'Maximized
+   Begin VB.PictureBox Picture 
+      BorderStyle     =   0  'None
+      Enabled         =   0   'False
+      Height          =   8535
+      Left            =   4560
+      Picture         =   "frmPrincipal.frx":680A
+      ScaleHeight     =   8535
+      ScaleWidth      =   13095
+      TabIndex        =   7
+      Top             =   1080
+      Width           =   13095
+   End
    Begin VB.Frame Frame 
       BackColor       =   &H00404040&
-      Height          =   1455
-      Left            =   -120
+      BorderStyle     =   0  'None
+      Height          =   10815
+      Left            =   0
       TabIndex        =   4
-      Top             =   -120
-      Width           =   12495
+      Top             =   0
+      Width           =   1455
       Begin fpBtnAtlLibCtl.fpBtn fpBtn 
          Height          =   1095
-         Left            =   3720
+         Left            =   120
          TabIndex        =   6
-         Top             =   240
+         Top             =   3600
          Width           =   1215
          _Version        =   131072
          _ExtentX        =   2143
@@ -61,9 +70,9 @@ Begin VB.Form frmPrincipal
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdAplicacoes 
          Height          =   855
-         Left            =   2520
+         Left            =   120
          TabIndex        =   5
-         Top             =   240
+         Top             =   2520
          Width           =   1215
          _Version        =   131072
          _ExtentX        =   2143
@@ -97,9 +106,9 @@ Begin VB.Form frmPrincipal
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdFechar 
          Height          =   1095
-         Left            =   11280
+         Left            =   120
          TabIndex        =   3
-         Top             =   240
+         Top             =   9360
          Width           =   1095
          _Version        =   131072
          _ExtentX        =   1931
@@ -133,9 +142,9 @@ Begin VB.Form frmPrincipal
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdTrocarUsuario 
          Height          =   1095
-         Left            =   10320
+         Left            =   120
          TabIndex        =   2
-         Top             =   240
+         Top             =   8160
          Width           =   1095
          _Version        =   131072
          _ExtentX        =   1931
@@ -169,7 +178,7 @@ Begin VB.Form frmPrincipal
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdUsuario 
          Height          =   855
-         Left            =   360
+         Left            =   240
          TabIndex        =   0
          Top             =   240
          Width           =   975
@@ -205,9 +214,9 @@ Begin VB.Form frmPrincipal
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdCorretoras 
          Height          =   855
-         Left            =   1320
+         Left            =   120
          TabIndex        =   1
-         Top             =   240
+         Top             =   1320
          Width           =   1215
          _Version        =   131072
          _ExtentX        =   2143
@@ -267,6 +276,11 @@ End Sub
 
 Private Sub cmdUsuario_Click()
 frmUsuarios.Show 1
+End Sub
+
+
+Private Sub Form_Resize()
+ResizeForm Me
 End Sub
 
 Private Sub fpBtn_Click()

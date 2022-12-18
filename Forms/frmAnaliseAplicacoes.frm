@@ -1,27 +1,23 @@
 VERSION 5.00
 Object = "{65E121D4-0C60-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCHRT20.OCX"
 Begin VB.Form frmAnaliseAplicacoes 
-   BorderStyle     =   3  'Fixed Dialog
    Caption         =   "Análise de Aplicações"
-   ClientHeight    =   8175
-   ClientLeft      =   3705
-   ClientTop       =   2340
-   ClientWidth     =   12360
+   ClientHeight    =   10590
+   ClientLeft      =   45
+   ClientTop       =   420
+   ClientWidth     =   20385
    Icon            =   "frmAnaliseAplicacoes.frx":0000
    LinkTopic       =   "Form1"
-   MaxButton       =   0   'False
-   MinButton       =   0   'False
-   ScaleHeight     =   8175
-   ScaleWidth      =   12360
-   ShowInTaskbar   =   0   'False
-   StartUpPosition =   2  'CenterScreen
+   ScaleHeight     =   10590
+   ScaleWidth      =   20385
+   WindowState     =   2  'Maximized
    Begin MSChart20Lib.MSChart MSChart 
-      Height          =   8175
+      Height          =   10575
       Left            =   0
       OleObjectBlob   =   "frmAnaliseAplicacoes.frx":680A
       TabIndex        =   0
       Top             =   0
-      Width           =   12375
+      Width           =   20295
    End
 End
 Attribute VB_Name = "frmAnaliseAplicacoes"
@@ -59,4 +55,8 @@ If Not sConsulta.EOF Then
     
 End If
 
+End Sub
+
+Private Sub Form_Resize()
+ResizeForm Me
 End Sub

@@ -316,7 +316,7 @@ Private Sub cmdLogin_Click()
         txtSenha.Text = ""
     Else
         gUser = txtUsuario
-        frmPrincipal.Show
+        frmMain.Show
         Unload Me
     End If
 End Sub

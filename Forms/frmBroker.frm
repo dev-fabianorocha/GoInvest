@@ -1,14 +1,14 @@
 VERSION 5.00
 Object = "{F856EC8B-F03C-4515-BDC6-64CBD617566A}#7.0#0"; "FPSPR70.ocx"
 Object = "{FD2FB1F1-D4FC-11CE-A335-A8D5ECAE5B02}#2.0#0"; "btn32a20.ocx"
-Begin VB.Form frmCorretoras 
+Begin VB.Form frmBroker 
    Appearance      =   0  'Flat
    Caption         =   "Corretoras"
    ClientHeight    =   10590
    ClientLeft      =   60
    ClientTop       =   435
    ClientWidth     =   20385
-   Icon            =   "frmCorretoras.frx":0000
+   Icon            =   "frmBroker.frx":0000
    LinkTopic       =   "Form1"
    ScaleHeight     =   10590
    ScaleWidth      =   20385
@@ -57,7 +57,7 @@ Begin VB.Form frmCorretoras
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmCorretoras.frx":680A
+         ButtonDesigner  =   "frmBroker.frx":680A
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   735
@@ -94,7 +94,7 @@ Begin VB.Form frmCorretoras
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmCorretoras.frx":7AD6
+         ButtonDesigner  =   "frmBroker.frx":7AD6
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   735
@@ -131,7 +131,7 @@ Begin VB.Form frmCorretoras
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmCorretoras.frx":8DA1
+         ButtonDesigner  =   "frmBroker.frx":8DA1
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   735
@@ -168,7 +168,7 @@ Begin VB.Form frmCorretoras
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmCorretoras.frx":A06F
+         ButtonDesigner  =   "frmBroker.frx":A06F
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   735
@@ -205,7 +205,7 @@ Begin VB.Form frmCorretoras
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmCorretoras.frx":B33B
+         ButtonDesigner  =   "frmBroker.frx":B33B
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   735
@@ -242,7 +242,7 @@ Begin VB.Form frmCorretoras
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmCorretoras.frx":C606
+         ButtonDesigner  =   "frmBroker.frx":C606
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   735
@@ -279,7 +279,7 @@ Begin VB.Form frmCorretoras
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmCorretoras.frx":D8D1
+         ButtonDesigner  =   "frmBroker.frx":D8D1
       End
    End
    Begin VB.Frame quadRodape 
@@ -368,7 +368,7 @@ Begin VB.Form frmCorretoras
          DropShadowType  =   0
          DropShadowColor =   0
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmCorretoras.frx":EB9D
+         ButtonDesigner  =   "frmBroker.frx":EB9D
       End
       Begin VB.TextBox txtPesquisa 
          BeginProperty Font 
@@ -414,7 +414,7 @@ Begin VB.Form frmCorretoras
          ShadowColor     =   12632256
          ShadowDark      =   8421504
          ShadowText      =   0
-         SpreadDesigner  =   "frmCorretoras.frx":FE74
+         SpreadDesigner  =   "frmBroker.frx":FE74
          UserResize      =   0
       End
       Begin VB.Label Label 
@@ -618,7 +618,7 @@ Begin VB.Form frmCorretoras
       End
    End
 End
-Attribute VB_Name = "frmCorretoras"
+Attribute VB_Name = "frmBroker"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True

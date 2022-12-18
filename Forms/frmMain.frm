@@ -1,28 +1,29 @@
 VERSION 5.00
 Object = "{FD2FB1F1-D4FC-11CE-A335-A8D5ECAE5B02}#2.0#0"; "btn32a20.ocx"
-Begin VB.Form frmPrincipal 
+Begin VB.Form frmMain 
    BackColor       =   &H00E0E0E0&
    Caption         =   "GoInvest"
    ClientHeight    =   10590
    ClientLeft      =   60
    ClientTop       =   420
    ClientWidth     =   20385
-   Icon            =   "frmPrincipal.frx":0000
+   Icon            =   "frmMain.frx":0000
    LinkTopic       =   "Form1"
    ScaleHeight     =   10590
    ScaleWidth      =   20385
    WindowState     =   2  'Maximized
    Begin VB.PictureBox Picture 
+      BackColor       =   &H00E0E0E0&
       BorderStyle     =   0  'None
       Enabled         =   0   'False
-      Height          =   8535
-      Left            =   4560
-      Picture         =   "frmPrincipal.frx":680A
-      ScaleHeight     =   8535
-      ScaleWidth      =   13095
+      Height          =   9375
+      Left            =   4200
+      Picture         =   "frmMain.frx":680A
+      ScaleHeight     =   9375
+      ScaleWidth      =   12855
       TabIndex        =   7
-      Top             =   1080
-      Width           =   13095
+      Top             =   600
+      Width           =   12855
    End
    Begin VB.Frame Frame 
       BackColor       =   &H00404040&
@@ -66,7 +67,7 @@ Begin VB.Form frmPrincipal
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmPrincipal.frx":11AFA
+         ButtonDesigner  =   "frmMain.frx":11AFA
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdAplicacoes 
          Height          =   855
@@ -102,7 +103,7 @@ Begin VB.Form frmPrincipal
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmPrincipal.frx":12DD4
+         ButtonDesigner  =   "frmMain.frx":12DD4
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdFechar 
          Height          =   1095
@@ -138,7 +139,7 @@ Begin VB.Form frmPrincipal
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmPrincipal.frx":140A3
+         ButtonDesigner  =   "frmMain.frx":140A3
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdTrocarUsuario 
          Height          =   1095
@@ -174,7 +175,7 @@ Begin VB.Form frmPrincipal
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmPrincipal.frx":15376
+         ButtonDesigner  =   "frmMain.frx":15376
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdUsuario 
          Height          =   855
@@ -210,7 +211,7 @@ Begin VB.Form frmPrincipal
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmPrincipal.frx":16649
+         ButtonDesigner  =   "frmMain.frx":16649
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdCorretoras 
          Height          =   855
@@ -246,11 +247,11 @@ Begin VB.Form frmPrincipal
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmPrincipal.frx":17916
+         ButtonDesigner  =   "frmMain.frx":17916
       End
    End
 End
-Attribute VB_Name = "frmPrincipal"
+Attribute VB_Name = "frmMain"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
@@ -258,11 +259,11 @@ Attribute VB_Exposed = False
 Option Explicit
 
 Private Sub cmdAplicacoes_Click()
-frmAplicacoes.Show 1
+frmApplication.Show 1
 End Sub
 
 Private Sub cmdCorretoras_Click()
-frmCorretoras.Show 1
+frmBroker.Show 1
 End Sub
 
 Private Sub cmdFechar_Click()
@@ -275,7 +276,7 @@ frmLogin.Show
 End Sub
 
 Private Sub cmdUsuario_Click()
-frmUsuarios.Show 1
+frmUser.Show 1
 End Sub
 
 
@@ -284,5 +285,5 @@ ResizeForm Me
 End Sub
 
 Private Sub fpBtn_Click()
-frmAnaliseAplicacoes.Show 1
+frmAnalyze.Show 1
 End Sub

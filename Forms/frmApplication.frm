@@ -2,14 +2,14 @@ VERSION 5.00
 Object = "{CDF3B183-D408-11CE-AE2C-0080C786E37D}#3.0#0"; "Edt32x30.ocx"
 Object = "{F856EC8B-F03C-4515-BDC6-64CBD617566A}#7.0#0"; "FPSPR70.ocx"
 Object = "{FD2FB1F1-D4FC-11CE-A335-A8D5ECAE5B02}#2.0#0"; "btn32a20.ocx"
-Begin VB.Form frmAplicacoes 
+Begin VB.Form frmApplication 
    Appearance      =   0  'Flat
    Caption         =   "Aplicações"
    ClientHeight    =   10590
    ClientLeft      =   60
    ClientTop       =   420
    ClientWidth     =   20385
-   Icon            =   "frmAplicacoes.frx":0000
+   Icon            =   "frmApplication.frx":0000
    LinkTopic       =   "Form1"
    ScaleHeight     =   10590
    ScaleWidth      =   20385
@@ -58,7 +58,7 @@ Begin VB.Form frmAplicacoes
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":680A
+         ButtonDesigner  =   "frmApplication.frx":680A
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   735
@@ -95,7 +95,7 @@ Begin VB.Form frmAplicacoes
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":7AD6
+         ButtonDesigner  =   "frmApplication.frx":7B0E
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   735
@@ -132,7 +132,7 @@ Begin VB.Form frmAplicacoes
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":8DA5
+         ButtonDesigner  =   "frmApplication.frx":8E15
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   735
@@ -169,7 +169,7 @@ Begin VB.Form frmAplicacoes
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":A071
+         ButtonDesigner  =   "frmApplication.frx":A119
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   735
@@ -206,7 +206,7 @@ Begin VB.Form frmAplicacoes
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":B33F
+         ButtonDesigner  =   "frmApplication.frx":B41F
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   735
@@ -243,7 +243,7 @@ Begin VB.Form frmAplicacoes
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":C60B
+         ButtonDesigner  =   "frmApplication.frx":C723
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   735
@@ -280,7 +280,7 @@ Begin VB.Form frmAplicacoes
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":D8D6
+         ButtonDesigner  =   "frmApplication.frx":DA26
       End
    End
    Begin VB.Frame quadRodape 
@@ -363,7 +363,7 @@ Begin VB.Form frmAplicacoes
             Strikethrough   =   0   'False
          EndProperty
          Height          =   255
-         Left            =   10800
+         Left            =   8760
          TabIndex        =   33
          Top             =   885
          Width           =   1215
@@ -384,11 +384,11 @@ Begin VB.Form frmAplicacoes
          Left            =   360
          TabIndex        =   31
          Top             =   1800
-         Width           =   18615
+         Width           =   10815
          Begin EditLib.fpCurrency txtSaque 
             Height          =   375
             Left            =   6525
-            TabIndex        =   47
+            TabIndex        =   46
             Top             =   5880
             Width           =   1455
             _Version        =   196608
@@ -486,7 +486,7 @@ Begin VB.Form frmAplicacoes
          Begin EditLib.fpCurrency txtValor 
             Height          =   375
             Left            =   525
-            TabIndex        =   46
+            TabIndex        =   45
             Top             =   5880
             Width           =   1935
             _Version        =   196608
@@ -581,37 +581,6 @@ Begin VB.Form frmAplicacoes
             OLEDropMode     =   0
             OLEDragMode     =   0
          End
-         Begin FPSpreadADO.fpSpread gridSimulacao 
-            Height          =   4845
-            Left            =   8280
-            TabIndex        =   45
-            Top             =   360
-            Width           =   4395
-            _Version        =   458752
-            _ExtentX        =   7752
-            _ExtentY        =   8546
-            _StockProps     =   64
-            DisplayRowHeaders=   0   'False
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-               Name            =   "Arial"
-               Size            =   9.75
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            GrayAreaBackColor=   14737632
-            GridColor       =   8421504
-            MaxCols         =   3
-            MaxRows         =   100
-            OperationMode   =   1
-            ShadowColor     =   12632256
-            ShadowDark      =   8421504
-            ShadowText      =   0
-            SpreadDesigner  =   "frmAplicacoes.frx":EBA1
-            UserResize      =   0
-         End
          Begin VB.TextBox txtTaxa 
             BeginProperty Font 
                Name            =   "Arial"
@@ -649,15 +618,15 @@ Begin VB.Form frmAplicacoes
             Left            =   240
             TabIndex        =   36
             Top             =   360
-            Width           =   7755
+            Width           =   10035
             _Version        =   458752
-            _ExtentX        =   13679
+            _ExtentX        =   17701
             _ExtentY        =   8758
             _StockProps     =   64
             DisplayRowHeaders=   0   'False
             BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
                Name            =   "Arial"
-               Size            =   9.75
+               Size            =   12
                Charset         =   0
                Weight          =   400
                Underline       =   0   'False
@@ -672,14 +641,14 @@ Begin VB.Form frmAplicacoes
             ShadowColor     =   12632256
             ShadowDark      =   8421504
             ShadowText      =   0
-            SpreadDesigner  =   "frmAplicacoes.frx":F95E
+            SpreadDesigner  =   "frmApplication.frx":ED29
             UserResize      =   0
          End
          Begin fpBtnAtlLibCtl.fpBtn cmdLimparAplicacoes 
             Height          =   1095
-            Left            =   17235
+            Left            =   9435
             TabIndex        =   10
-            Top             =   5400
+            Top             =   5520
             Width           =   975
             _Version        =   131072
             _ExtentX        =   1720
@@ -709,13 +678,13 @@ Begin VB.Form frmAplicacoes
             DropShadowType  =   0
             DropShadowColor =   0
             Redraw          =   -1  'True
-            ButtonDesigner  =   "frmAplicacoes.frx":12F4F
+            ButtonDesigner  =   "frmApplication.frx":1235A
          End
          Begin fpBtnAtlLibCtl.fpBtn cmdAplicar 
             Height          =   945
-            Left            =   16155
+            Left            =   8355
             TabIndex        =   9
-            Top             =   5400
+            Top             =   5520
             Width           =   975
             _Version        =   131072
             _ExtentX        =   1720
@@ -745,7 +714,7 @@ Begin VB.Form frmAplicacoes
             DropShadowType  =   0
             DropShadowColor =   0
             Redraw          =   -1  'True
-            ButtonDesigner  =   "frmAplicacoes.frx":14228
+            ButtonDesigner  =   "frmApplication.frx":1366B
          End
          Begin VB.Label Label 
             BackColor       =   &H00E0E0E0&
@@ -957,7 +926,7 @@ Begin VB.Form frmAplicacoes
             Strikethrough   =   0   'False
          EndProperty
          Height          =   495
-         Left            =   12135
+         Left            =   10095
          TabIndex        =   6
          Top             =   780
          Width           =   1095
@@ -993,6 +962,38 @@ Begin VB.Form frmAplicacoes
          TabIndex        =   4
          Top             =   840
          Width           =   855
+      End
+      Begin FPSpreadADO.fpSpread gridSimulacao 
+         Height          =   5085
+         Left            =   12000
+         TabIndex        =   47
+         Top             =   2640
+         Width           =   6315
+         _Version        =   458752
+         _ExtentX        =   11139
+         _ExtentY        =   8969
+         _StockProps     =   64
+         BorderStyle     =   0
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Arial"
+            Size            =   12
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         GrayAreaBackColor=   14737632
+         GridColor       =   8421504
+         MaxCols         =   3
+         MaxRows         =   12
+         OperationMode   =   1
+         ScrollBars      =   0
+         ShadowColor     =   12632256
+         ShadowDark      =   8421504
+         ShadowText      =   0
+         SpreadDesigner  =   "frmApplication.frx":14973
+         UserResize      =   0
       End
       Begin VB.Label Label 
          BackColor       =   &H00E0E0E0&
@@ -1131,7 +1132,7 @@ Begin VB.Form frmAplicacoes
          DropShadowType  =   0
          DropShadowColor =   0
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmAplicacoes.frx":154F8
+         ButtonDesigner  =   "frmApplication.frx":14E5E
       End
       Begin VB.TextBox txtPesquisa 
          BeginProperty Font 
@@ -1177,7 +1178,7 @@ Begin VB.Form frmAplicacoes
          ShadowColor     =   12632256
          ShadowDark      =   8421504
          ShadowText      =   0
-         SpreadDesigner  =   "frmAplicacoes.frx":167CF
+         SpreadDesigner  =   "frmApplication.frx":1616D
          UserResize      =   0
       End
       Begin VB.Label Label 
@@ -1201,7 +1202,7 @@ Begin VB.Form frmAplicacoes
       End
    End
 End
-Attribute VB_Name = "frmAplicacoes"
+Attribute VB_Name = "frmApplication"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
@@ -1463,6 +1464,7 @@ With cmbMes
     Next
 End With
 AlimentarGrid
+gridSimulacao.Enabled = False
 End Sub
 
 Private Sub DefinirTela(ParCadastro As Boolean)

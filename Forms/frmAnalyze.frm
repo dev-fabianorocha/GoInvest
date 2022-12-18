@@ -1,12 +1,12 @@
 VERSION 5.00
 Object = "{65E121D4-0C60-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCHRT20.OCX"
-Begin VB.Form frmAnaliseAplicacoes 
+Begin VB.Form frmAnalyze 
    Caption         =   "Análise de Aplicações"
    ClientHeight    =   10590
    ClientLeft      =   45
-   ClientTop       =   420
+   ClientTop       =   405
    ClientWidth     =   20385
-   Icon            =   "frmAnaliseAplicacoes.frx":0000
+   Icon            =   "frmAnalyze.frx":0000
    LinkTopic       =   "Form1"
    ScaleHeight     =   10590
    ScaleWidth      =   20385
@@ -14,13 +14,13 @@ Begin VB.Form frmAnaliseAplicacoes
    Begin MSChart20Lib.MSChart MSChart 
       Height          =   10575
       Left            =   0
-      OleObjectBlob   =   "frmAnaliseAplicacoes.frx":680A
+      OleObjectBlob   =   "frmAnalyze.frx":680A
       TabIndex        =   0
       Top             =   0
       Width           =   20295
    End
 End
-Attribute VB_Name = "frmAnaliseAplicacoes"
+Attribute VB_Name = "frmAnalyze"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
@@ -28,25 +28,25 @@ Attribute VB_Exposed = False
 Option Explicit
 
 Private Sub Form_Load()
-Dim sConsulta As New Recordset, sSql As String, sLinhas As Long, sLinha As Long
+Dim iRecordset As New Recordset, iQuery As String, iRows As Long, iPosition As Long
 
-sSql = "SELECT DISTINCT APL_NOME AS APLICACACAO, SUM(SAL_RENDIMENTO) AS RENDIMENTO FROM APLICACOES" _
+iQuery = "SELECT DISTINCT APL_NOME AS APLICACACAO, SUM(SAL_RENDIMENTO) AS RENDIMENTO FROM APLICACOES" _
     & " INNER JOIN SALDOS ON SAL_APLICACAO = APL_CODIGO GROUP BY  APL_NOME"
     
-Set sConsulta = ReadQuery(sSql, sLinhas)
+Set iRecordset = ReadQuery(iQuery, iRows)
 
 MSChart.chartType = 1
 MSChart.ShowLegend = False
 MSChart.Title = "Análise de Aplicacões"
 
 MSChart.Column = 1
-MSChart.RowCount = sLinhas
+MSChart.RowCount = iRows
 MSChart.Visible = True
 
-If Not sConsulta.EOF Then
-    With sConsulta
-        For sLinha = 1 To sLinhas
-            MSChart.Row = sLinha
+If Not iRecordset.EOF Then
+    With iRecordset
+        For iPosition = 1 To iRows
+            MSChart.Row = iPosition
             MSChart.RowLabel = VariableAdjust(!APLICACACAO, StringText)
             MSChart.Data = VariableAdjust(!Rendimento, DoubleNumber)
             .MoveNext

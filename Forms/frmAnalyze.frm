@@ -31,7 +31,7 @@ Private Sub Form_Load()
 Dim iRecordset As New Recordset, iQuery As String, iRows As Long, iPosition As Long
 
 iQuery = "SELECT DISTINCT APL_NOME AS APLICACACAO, SUM(SAL_RENDIMENTO) AS RENDIMENTO FROM APLICACOES" _
-    & " INNER JOIN SALDOS ON SAL_APLICACAO = APL_CODIGO GROUP BY  APL_NOME"
+    & " INNER JOIN SALDOS ON SAL_APLICACAO = APL_CODIGO AND APL_INATIVO = 0 GROUP BY  APL_NOME"
     
 Set iRecordset = ReadQuery(iQuery, iRows)
 

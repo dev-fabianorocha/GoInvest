@@ -3,15 +3,42 @@ Object = "{FD2FB1F1-D4FC-11CE-A335-A8D5ECAE5B02}#2.0#0"; "btn32a20.ocx"
 Begin VB.Form frmMain 
    BackColor       =   &H00E0E0E0&
    Caption         =   "GoInvest"
-   ClientHeight    =   10590
+   ClientHeight    =   10605
    ClientLeft      =   60
-   ClientTop       =   420
+   ClientTop       =   405
    ClientWidth     =   20385
    Icon            =   "frmMain.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   10590
+   ScaleHeight     =   10605
    ScaleWidth      =   20385
    WindowState     =   2  'Maximized
+   Begin VB.Frame quadRodape 
+      BorderStyle     =   0  'None
+      ForeColor       =   &H00FFFFFF&
+      Height          =   495
+      Index           =   1
+      Left            =   1460
+      TabIndex        =   8
+      Top             =   10200
+      Width           =   19450
+      Begin VB.Label lblRodape 
+         Caption         =   "Footer"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   420
+         Left            =   120
+         TabIndex        =   9
+         Top             =   120
+         Width           =   11895
+      End
+   End
    Begin VB.PictureBox Picture 
       BackColor       =   &H00E0E0E0&
       BorderStyle     =   0  'None
@@ -279,6 +306,9 @@ Private Sub cmdUsuario_Click()
 frmUser.Show 1
 End Sub
 
+Private Sub Form_Load()
+lblRodape = FillFooter
+End Sub
 
 Private Sub Form_Resize()
 ResizeForm Me

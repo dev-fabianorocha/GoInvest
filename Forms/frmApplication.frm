@@ -95,7 +95,7 @@ Begin VB.Form frmApplication
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmApplication.frx":7B0E
+         ButtonDesigner  =   "frmApplication.frx":7AD6
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   735
@@ -132,7 +132,7 @@ Begin VB.Form frmApplication
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmApplication.frx":8E15
+         ButtonDesigner  =   "frmApplication.frx":8DA5
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   735
@@ -169,7 +169,7 @@ Begin VB.Form frmApplication
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmApplication.frx":A119
+         ButtonDesigner  =   "frmApplication.frx":A071
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   735
@@ -206,7 +206,7 @@ Begin VB.Form frmApplication
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmApplication.frx":B41F
+         ButtonDesigner  =   "frmApplication.frx":B33F
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   735
@@ -243,7 +243,7 @@ Begin VB.Form frmApplication
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmApplication.frx":C723
+         ButtonDesigner  =   "frmApplication.frx":C60B
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   735
@@ -280,7 +280,7 @@ Begin VB.Form frmApplication
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmApplication.frx":DA26
+         ButtonDesigner  =   "frmApplication.frx":D8D6
       End
    End
    Begin VB.Frame quadRodape 
@@ -641,7 +641,7 @@ Begin VB.Form frmApplication
             ShadowColor     =   12632256
             ShadowDark      =   8421504
             ShadowText      =   0
-            SpreadDesigner  =   "frmApplication.frx":ED29
+            SpreadDesigner  =   "frmApplication.frx":EBA1
             UserResize      =   0
          End
          Begin fpBtnAtlLibCtl.fpBtn cmdLimparAplicacoes 
@@ -678,7 +678,7 @@ Begin VB.Form frmApplication
             DropShadowType  =   0
             DropShadowColor =   0
             Redraw          =   -1  'True
-            ButtonDesigner  =   "frmApplication.frx":1235A
+            ButtonDesigner  =   "frmApplication.frx":121D2
          End
          Begin fpBtnAtlLibCtl.fpBtn cmdAplicar 
             Height          =   945
@@ -714,7 +714,7 @@ Begin VB.Form frmApplication
             DropShadowType  =   0
             DropShadowColor =   0
             Redraw          =   -1  'True
-            ButtonDesigner  =   "frmApplication.frx":1366B
+            ButtonDesigner  =   "frmApplication.frx":134AB
          End
          Begin VB.Label Label 
             BackColor       =   &H00E0E0E0&
@@ -992,7 +992,7 @@ Begin VB.Form frmApplication
          ShadowColor     =   12632256
          ShadowDark      =   8421504
          ShadowText      =   0
-         SpreadDesigner  =   "frmApplication.frx":14973
+         SpreadDesigner  =   "frmApplication.frx":1477B
          UserResize      =   0
       End
       Begin VB.Label Label 
@@ -1132,7 +1132,7 @@ Begin VB.Form frmApplication
          DropShadowType  =   0
          DropShadowColor =   0
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmApplication.frx":14E5E
+         ButtonDesigner  =   "frmApplication.frx":14C66
       End
       Begin VB.TextBox txtPesquisa 
          BeginProperty Font 
@@ -1178,7 +1178,7 @@ Begin VB.Form frmApplication
          ShadowColor     =   12632256
          ShadowDark      =   8421504
          ShadowText      =   0
-         SpreadDesigner  =   "frmApplication.frx":1616D
+         SpreadDesigner  =   "frmApplication.frx":15F3D
          UserResize      =   0
       End
       Begin VB.Label Label 
@@ -1309,7 +1309,7 @@ If cmbMes.ListIndex <= CInt(Month(Date)) Then
         End With
     Next
 Else
-    MsgBox "Não é possível realizar uma aplicação futura, escolha um mês menor ou igual ao atual"
+    MsgBox "Não é possível realizar uma aplicação futura, escolha um mês menor ou igual ao atual", vbInformation, "GoInvest"
 End If
 
 Exit Sub
@@ -1358,30 +1358,29 @@ End Function
 Private Function RetornaNumeroMes(ParMes As String) As Byte
 Dim sRetorno As Byte
 
-
-If ParMes = "janeiro" Then
+If ParMes = "Janeiro" Then
     sRetorno = 1
-ElseIf ParMes = "fevereiro" Then
+ElseIf ParMes = "Fevereiro" Then
     sRetorno = 2
-ElseIf ParMes = "março" Then
+ElseIf ParMes = "Março" Then
     sRetorno = 3
-ElseIf ParMes = "abril" Then
+ElseIf ParMes = "Abril" Then
     sRetorno = 4
-ElseIf ParMes = "maio" Then
+ElseIf ParMes = "Maio" Then
     sRetorno = 5
-ElseIf ParMes = "junho" Then
+ElseIf ParMes = "Junho" Then
     sRetorno = 6
-ElseIf ParMes = "julho" Then
+ElseIf ParMes = "Julho" Then
     sRetorno = 7
-ElseIf ParMes = "agosto" Then
+ElseIf ParMes = "Agosto" Then
     sRetorno = 8
-ElseIf ParMes = "setembro" Then
+ElseIf ParMes = "Setembro" Then
     sRetorno = 9
-ElseIf ParMes = "outubro" Then
+ElseIf ParMes = "Outubro" Then
     sRetorno = 10
-ElseIf ParMes = "novembro" Then
+ElseIf ParMes = "Novembro" Then
     sRetorno = 11
-ElseIf ParMes = "dezembro" Then
+ElseIf ParMes = "Dezembro" Then
     sRetorno = 12
 Else
     sRetorno = 0
@@ -1393,40 +1392,39 @@ End Function
 Private Sub cmdOpcao_Click(Index As Integer)
 On Error GoTo ErrorHandler
 
-    If Index = EnumOption.Include Then
-        fOpcao = Index
-        DefinirTela True
-        chkInativo.Visible = False
-        quadDatas.Visible = False
-        txtCodigo = "NOVO"
-        chkInvestir.Enabled = False
-    ElseIf Index = EnumOption.Read Or Index = EnumOption.Update Or Index = EnumOption.Delete Then
-        gridPrincipal_Click gridPrincipal.ActiveCol, gridPrincipal.ActiveRow
-        fOpcao = Index
-        DefinirTela True
-        If Not ObterDados Then GoTo ErrorHandler
-        If fOpcao = EnumOption.Delete Then cmdOpcao_Click (EnumOption.Confirm)
-    ElseIf Index = EnumOption.Confirm Then
-        If fOpcao = EnumOption.Include Or fOpcao = EnumOption.Update Then
-            TransferirDados
-            DefinirTela False
-            ExpurgarTela
-        ElseIf fOpcao = EnumOption.Delete Then
-            If Not fClsAplicacoes.Excluir(fCodigo) Then GoTo ErrorHandler
-            AlimentarGrid
-            DefinirTela False
-            ExpurgarTela
-        Else
-            DefinirTela False
-            ExpurgarTela
-        End If
-    ElseIf Index = EnumOption.Cancel Then
+If Index = EnumOption.Include Then
+    fOpcao = Index
+    DefinirTela True
+    chkInativo.Visible = False
+    quadDatas.Visible = False
+    txtCodigo = "NOVO"
+    chkInvestir.Enabled = False
+ElseIf Index = EnumOption.Read Or Index = EnumOption.Update Or Index = EnumOption.Delete Then
+    gridPrincipal_Click gridPrincipal.ActiveCol, gridPrincipal.ActiveRow
+    fOpcao = Index
+    DefinirTela True
+    If Not ObterDados Then GoTo ErrorHandler
+    If fOpcao = EnumOption.Delete Then cmdOpcao_Click (EnumOption.Confirm)
+ElseIf Index = EnumOption.Confirm Then
+    If fOpcao = EnumOption.Include Or fOpcao = EnumOption.Update Then
+        TransferirDados
         DefinirTela False
         ExpurgarTela
-    ElseIf Index = EnumOption.Leave Then
-        Unload Me
+    ElseIf fOpcao = EnumOption.Delete Then
+        If Not fClsAplicacoes.Excluir(fCodigo) Then GoTo ErrorHandler
+        AlimentarGrid
+        DefinirTela False
+        ExpurgarTela
+    Else
+        DefinirTela False
+        ExpurgarTela
     End If
-Exit Sub
+ElseIf Index = EnumOption.Cancel Then
+    DefinirTela False
+    ExpurgarTela
+ElseIf Index = EnumOption.Leave Then
+    Unload Me
+End If
 
 Exit Sub
 Resume
@@ -1434,7 +1432,7 @@ ErrorHandler:
 End Sub
 
 Private Sub cmdLimparAplicacoes_Click()
-If MsgBox("Deseja realmente limpar essa aplicação?", vbYesNo, "Aplicacções") = 6 Then
+If MsgBox("Deseja realmente limpar essa aplicação?", vbYesNo, "Goinvest") = 6 Then
     SpreadClean gridAplicacoes
     SpreadClean gridSimulacao
     fClsExtrato.LimparExtrato
@@ -1587,19 +1585,19 @@ End Function
 Private Function AnalisarDados() As Boolean
 
 If CDbl(txtValor.Text) = 0 Then
-    MsgBox "Por favor informe o valor da aplicação.", vbInformation
+    MsgBox "Por favor informe o valor da aplicação.", vbInformation, "GoInvest"
     txtValor.SetFocus
     Exit Function
 End If
 
 If Trim(cmbMes.Text) = "" Then
-    MsgBox "Por favor informe o mês da aplicação.", vbInformation
+    MsgBox "Por favor informe o mês da aplicação.", vbInformation, "GoInvest"
     cmbMes.SetFocus
     Exit Function
 End If
 
 If CDbl(txtTaxa.Text) = 0 Then
-    MsgBox "Por favor informe a taxa de investimento.", vbInformation
+    MsgBox "Por favor informe a taxa de investimento.", vbInformation, "GoInvest"
     txtTaxa.SetFocus
     Exit Function
 End If

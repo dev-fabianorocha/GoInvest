@@ -18,8 +18,8 @@ Begin VB.Form frmUser
       BorderStyle     =   0  'None
       ForeColor       =   &H8000000E&
       Height          =   10800
-      Left            =   -120
-      TabIndex        =   15
+      Left            =   19200
+      TabIndex        =   21
       Top             =   0
       Width           =   1455
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
@@ -63,7 +63,7 @@ Begin VB.Form frmUser
          Height          =   855
          Index           =   0
          Left            =   240
-         TabIndex        =   16
+         TabIndex        =   23
          Top             =   2520
          Width           =   975
          _Version        =   131072
@@ -100,7 +100,7 @@ Begin VB.Form frmUser
          Height          =   855
          Index           =   1
          Left            =   240
-         TabIndex        =   17
+         TabIndex        =   24
          Top             =   3480
          Width           =   975
          _Version        =   131072
@@ -137,7 +137,7 @@ Begin VB.Form frmUser
          Height          =   855
          Index           =   4
          Left            =   240
-         TabIndex        =   20
+         TabIndex        =   25
          Top             =   4200
          Width           =   975
          _Version        =   131072
@@ -174,7 +174,7 @@ Begin VB.Form frmUser
          Height          =   855
          Index           =   5
          Left            =   240
-         TabIndex        =   21
+         TabIndex        =   26
          Top             =   5160
          Width           =   975
          _Version        =   131072
@@ -211,7 +211,7 @@ Begin VB.Form frmUser
          Height          =   855
          Index           =   2
          Left            =   240
-         TabIndex        =   18
+         TabIndex        =   27
          Top             =   4440
          Width           =   975
          _Version        =   131072
@@ -248,7 +248,7 @@ Begin VB.Form frmUser
          Height          =   855
          Index           =   3
          Left            =   240
-         TabIndex        =   19
+         TabIndex        =   28
          Top             =   5400
          Width           =   975
          _Version        =   131072
@@ -287,10 +287,10 @@ Begin VB.Form frmUser
       ForeColor       =   &H00FFFFFF&
       Height          =   255
       Index           =   1
-      Left            =   1440
-      TabIndex        =   26
+      Left            =   0
+      TabIndex        =   18
       Top             =   10320
-      Width           =   18975
+      Width           =   19335
       Begin VB.Label lblRodape 
          Caption         =   "Footer"
          BeginProperty Font 
@@ -303,8 +303,8 @@ Begin VB.Form frmUser
             Strikethrough   =   0   'False
          EndProperty
          Height          =   420
-         Left            =   120
-         TabIndex        =   27
+         Left            =   0
+         TabIndex        =   19
          Top             =   0
          Width           =   11895
       End
@@ -313,10 +313,10 @@ Begin VB.Form frmUser
       BackColor       =   &H00E0E0E0&
       BorderStyle     =   0  'None
       Height          =   10215
-      Left            =   1320
+      Left            =   0
       TabIndex        =   11
       Top             =   0
-      Width           =   19125
+      Width           =   19275
       Begin VB.CheckBox chkInativoPesquisa 
          BackColor       =   &H00E0E0E0&
          Caption         =   "I&nativos"
@@ -443,7 +443,7 @@ Begin VB.Form frmUser
       BorderStyle     =   0  'None
       ForeColor       =   &H80000010&
       Height          =   10215
-      Left            =   1320
+      Left            =   120
       TabIndex        =   12
       Top             =   0
       Width           =   19095
@@ -470,7 +470,7 @@ Begin VB.Form frmUser
          Enabled         =   0   'False
          Height          =   975
          Left            =   15120
-         TabIndex        =   23
+         TabIndex        =   15
          Top             =   9000
          Width           =   3255
          Begin VB.TextBox txtData 
@@ -522,7 +522,7 @@ Begin VB.Form frmUser
             Height          =   255
             Index           =   2
             Left            =   120
-            TabIndex        =   25
+            TabIndex        =   17
             Top             =   240
             Width           =   1095
          End
@@ -541,7 +541,7 @@ Begin VB.Form frmUser
             Height          =   255
             Index           =   3
             Left            =   1680
-            TabIndex        =   24
+            TabIndex        =   16
             Top             =   240
             Width           =   1095
          End
@@ -612,7 +612,7 @@ Begin VB.Form frmUser
          Height          =   255
          Index           =   5
          Left            =   6240
-         TabIndex        =   28
+         TabIndex        =   20
          Top             =   600
          Width           =   855
       End

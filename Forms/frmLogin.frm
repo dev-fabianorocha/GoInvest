@@ -311,7 +311,7 @@ Attribute VB_Exposed = False
 Option Explicit
 Private Sub cmdLogin_Click()
     If txtUsuario = "" Or Not VerificarUsuario(, True) Then
-        MsgBox "Senha incorreta!!"
+        MsgBox "Senha incorreta!!", vbInformation, "GoInvest"
         txtSenha.SetFocus
         txtSenha.Text = ""
     Else
@@ -365,7 +365,7 @@ Private Sub txtUsuario_KeyPress(KeyAscii As Integer)
 KeyAscii = Asc(UCase(Chr(KeyAscii)))
  If KeyAscii = 13 Then
     If txtUsuario = "" Or Not VerificarUsuario(True) Then
-        MsgBox "Usuário não localizado!!"
+        MsgBox "Usuário não localizado!!", vbInformation, "GoInvest"
         txtUsuario.SetFocus
         txtUsuario.Text = ""
     Else

@@ -4,10 +4,11 @@ Object = "{F856EC8B-F03C-4515-BDC6-64CBD617566A}#7.0#0"; "FPSPR70.ocx"
 Object = "{FD2FB1F1-D4FC-11CE-A335-A8D5ECAE5B02}#2.0#0"; "btn32a20.ocx"
 Begin VB.Form frmApplication 
    Appearance      =   0  'Flat
+   BackColor       =   &H00E0E0E0&
    Caption         =   "Aplicações"
    ClientHeight    =   10590
-   ClientLeft      =   60
-   ClientTop       =   420
+   ClientLeft      =   -15
+   ClientTop       =   510
    ClientWidth     =   20385
    Icon            =   "frmApplication.frx":0000
    LinkTopic       =   "Form1"
@@ -16,23 +17,22 @@ Begin VB.Form frmApplication
    WindowState     =   2  'Maximized
    Begin VB.Frame quadBotoes 
       BackColor       =   &H00404040&
-      BorderStyle     =   0  'None
       ForeColor       =   &H8000000E&
       Height          =   10800
-      Left            =   19440
-      TabIndex        =   13
-      Top             =   -120
-      Width           =   1335
+      Left            =   19080
+      TabIndex        =   38
+      Top             =   -90
+      Width           =   1455
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
-         Height          =   735
-         Index           =   0
-         Left            =   120
-         TabIndex        =   14
-         Top             =   1320
-         Width           =   675
+         Height          =   855
+         Index           =   6
+         Left            =   240
+         TabIndex        =   39
+         Top             =   6360
+         Width           =   975
          _Version        =   131072
-         _ExtentX        =   1191
-         _ExtentY        =   1296
+         _ExtentX        =   1720
+         _ExtentY        =   1508
          Enabled         =   -1  'True
          MousePointer    =   0
          Object.TabStop         =   -1  'True
@@ -61,163 +61,15 @@ Begin VB.Form frmApplication
          ButtonDesigner  =   "frmApplication.frx":680A
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
-         Height          =   735
-         Index           =   6
-         Left            =   120
-         TabIndex        =   20
-         Top             =   4680
-         Width           =   675
-         _Version        =   131072
-         _ExtentX        =   1191
-         _ExtentY        =   1296
-         Enabled         =   -1  'True
-         MousePointer    =   0
-         Object.TabStop         =   -1  'True
-         GrayAreaColor   =   4210752
-         BorderShowDefault=   -1  'True
-         ButtonType      =   0
-         NoPointerFocus  =   0   'False
-         Value           =   0   'False
-         GroupID         =   0
-         GroupSelect     =   0
-         DrawFocusRect   =   2
-         DrawFocusRectCell=   -1
-         GrayAreaPictureStyle=   0
-         Static          =   0   'False
-         BackStyle       =   1
-         AutoSize        =   0
-         AutoSizeOffsetTop=   0
-         AutoSizeOffsetBottom=   0
-         AutoSizeOffsetLeft=   0
-         AutoSizeOffsetRight=   0
-         DropShadowOffsetX=   3
-         DropShadowOffsetY=   3
-         DropShadowType  =   0
-         DropShadowColor =   4210752
-         Redraw          =   -1  'True
-         ButtonDesigner  =   "frmApplication.frx":7AD6
-      End
-      Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
-         Height          =   735
-         Index           =   3
-         Left            =   120
-         TabIndex        =   17
-         Top             =   3840
-         Width           =   675
-         _Version        =   131072
-         _ExtentX        =   1191
-         _ExtentY        =   1296
-         Enabled         =   -1  'True
-         MousePointer    =   0
-         Object.TabStop         =   -1  'True
-         GrayAreaColor   =   4210752
-         BorderShowDefault=   -1  'True
-         ButtonType      =   0
-         NoPointerFocus  =   0   'False
-         Value           =   0   'False
-         GroupID         =   0
-         GroupSelect     =   0
-         DrawFocusRect   =   2
-         DrawFocusRectCell=   -1
-         GrayAreaPictureStyle=   0
-         Static          =   0   'False
-         BackStyle       =   1
-         AutoSize        =   0
-         AutoSizeOffsetTop=   0
-         AutoSizeOffsetBottom=   0
-         AutoSizeOffsetLeft=   0
-         AutoSizeOffsetRight=   0
-         DropShadowOffsetX=   3
-         DropShadowOffsetY=   3
-         DropShadowType  =   0
-         DropShadowColor =   4210752
-         Redraw          =   -1  'True
-         ButtonDesigner  =   "frmApplication.frx":8DA5
-      End
-      Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
-         Height          =   735
-         Index           =   1
-         Left            =   0
-         TabIndex        =   15
-         Top             =   2160
-         Width           =   915
-         _Version        =   131072
-         _ExtentX        =   1614
-         _ExtentY        =   1296
-         Enabled         =   -1  'True
-         MousePointer    =   0
-         Object.TabStop         =   -1  'True
-         GrayAreaColor   =   4210752
-         BorderShowDefault=   0   'False
-         ButtonType      =   0
-         NoPointerFocus  =   0   'False
-         Value           =   0   'False
-         GroupID         =   0
-         GroupSelect     =   0
-         DrawFocusRect   =   2
-         DrawFocusRectCell=   -1
-         GrayAreaPictureStyle=   0
-         Static          =   0   'False
-         BackStyle       =   1
-         AutoSize        =   0
-         AutoSizeOffsetTop=   0
-         AutoSizeOffsetBottom=   0
-         AutoSizeOffsetLeft=   0
-         AutoSizeOffsetRight=   0
-         DropShadowOffsetX=   3
-         DropShadowOffsetY=   3
-         DropShadowType  =   0
-         DropShadowColor =   4210752
-         Redraw          =   -1  'True
-         ButtonDesigner  =   "frmApplication.frx":A071
-      End
-      Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
-         Height          =   735
-         Index           =   2
-         Left            =   120
-         TabIndex        =   16
-         Top             =   3000
-         Width           =   675
-         _Version        =   131072
-         _ExtentX        =   1191
-         _ExtentY        =   1296
-         Enabled         =   -1  'True
-         MousePointer    =   0
-         Object.TabStop         =   -1  'True
-         GrayAreaColor   =   4210752
-         BorderShowDefault=   -1  'True
-         ButtonType      =   0
-         NoPointerFocus  =   0   'False
-         Value           =   0   'False
-         GroupID         =   0
-         GroupSelect     =   0
-         DrawFocusRect   =   2
-         DrawFocusRectCell=   -1
-         GrayAreaPictureStyle=   0
-         Static          =   0   'False
-         BackStyle       =   1
-         AutoSize        =   0
-         AutoSizeOffsetTop=   0
-         AutoSizeOffsetBottom=   0
-         AutoSizeOffsetLeft=   0
-         AutoSizeOffsetRight=   0
-         DropShadowOffsetX=   3
-         DropShadowOffsetY=   3
-         DropShadowType  =   0
-         DropShadowColor =   4210752
-         Redraw          =   -1  'True
-         ButtonDesigner  =   "frmApplication.frx":B33F
-      End
-      Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
-         Height          =   735
-         Index           =   4
-         Left            =   120
-         TabIndex        =   18
+         Height          =   855
+         Index           =   0
+         Left            =   240
+         TabIndex        =   40
          Top             =   2520
-         Width           =   675
+         Width           =   975
          _Version        =   131072
-         _ExtentX        =   1191
-         _ExtentY        =   1296
+         _ExtentX        =   1720
+         _ExtentY        =   1508
          Enabled         =   -1  'True
          MousePointer    =   0
          Object.TabStop         =   -1  'True
@@ -243,23 +95,23 @@ Begin VB.Form frmApplication
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmApplication.frx":C60B
+         ButtonDesigner  =   "frmApplication.frx":7AD5
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
-         Height          =   735
-         Index           =   5
-         Left            =   120
-         TabIndex        =   19
-         Top             =   3360
-         Width           =   675
+         Height          =   855
+         Index           =   1
+         Left            =   240
+         TabIndex        =   41
+         Top             =   3480
+         Width           =   975
          _Version        =   131072
-         _ExtentX        =   1191
-         _ExtentY        =   1296
+         _ExtentX        =   1720
+         _ExtentY        =   1508
          Enabled         =   -1  'True
          MousePointer    =   0
          Object.TabStop         =   -1  'True
          GrayAreaColor   =   4210752
-         BorderShowDefault=   -1  'True
+         BorderShowDefault=   0   'False
          ButtonType      =   0
          NoPointerFocus  =   0   'False
          Value           =   0   'False
@@ -280,19 +132,168 @@ Begin VB.Form frmApplication
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmApplication.frx":D8D6
+         ButtonDesigner  =   "frmApplication.frx":8DA1
+      End
+      Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
+         Height          =   855
+         Index           =   4
+         Left            =   240
+         TabIndex        =   42
+         Top             =   4200
+         Width           =   975
+         _Version        =   131072
+         _ExtentX        =   1720
+         _ExtentY        =   1508
+         Enabled         =   -1  'True
+         MousePointer    =   0
+         Object.TabStop         =   -1  'True
+         GrayAreaColor   =   4210752
+         BorderShowDefault=   0   'False
+         ButtonType      =   0
+         NoPointerFocus  =   0   'False
+         Value           =   0   'False
+         GroupID         =   0
+         GroupSelect     =   0
+         DrawFocusRect   =   2
+         DrawFocusRectCell=   -1
+         GrayAreaPictureStyle=   0
+         Static          =   0   'False
+         BackStyle       =   1
+         AutoSize        =   0
+         AutoSizeOffsetTop=   0
+         AutoSizeOffsetBottom=   0
+         AutoSizeOffsetLeft=   0
+         AutoSizeOffsetRight=   0
+         DropShadowOffsetX=   3
+         DropShadowOffsetY=   3
+         DropShadowType  =   0
+         DropShadowColor =   4210752
+         Redraw          =   -1  'True
+         ButtonDesigner  =   "frmApplication.frx":A06F
+      End
+      Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
+         Height          =   855
+         Index           =   5
+         Left            =   240
+         TabIndex        =   43
+         Top             =   5160
+         Width           =   975
+         _Version        =   131072
+         _ExtentX        =   1720
+         _ExtentY        =   1508
+         Enabled         =   -1  'True
+         MousePointer    =   0
+         Object.TabStop         =   -1  'True
+         GrayAreaColor   =   4210752
+         BorderShowDefault=   0   'False
+         ButtonType      =   0
+         NoPointerFocus  =   0   'False
+         Value           =   0   'False
+         GroupID         =   0
+         GroupSelect     =   0
+         DrawFocusRect   =   2
+         DrawFocusRectCell=   -1
+         GrayAreaPictureStyle=   0
+         Static          =   0   'False
+         BackStyle       =   1
+         AutoSize        =   0
+         AutoSizeOffsetTop=   0
+         AutoSizeOffsetBottom=   0
+         AutoSizeOffsetLeft=   0
+         AutoSizeOffsetRight=   0
+         DropShadowOffsetX=   0
+         DropShadowOffsetY=   0
+         DropShadowType  =   0
+         DropShadowColor =   4210752
+         Redraw          =   -1  'True
+         ButtonDesigner  =   "frmApplication.frx":B33A
+      End
+      Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
+         Height          =   855
+         Index           =   2
+         Left            =   240
+         TabIndex        =   44
+         Top             =   4440
+         Width           =   975
+         _Version        =   131072
+         _ExtentX        =   1720
+         _ExtentY        =   1508
+         Enabled         =   -1  'True
+         MousePointer    =   0
+         Object.TabStop         =   -1  'True
+         GrayAreaColor   =   4210752
+         BorderShowDefault=   0   'False
+         ButtonType      =   0
+         NoPointerFocus  =   0   'False
+         Value           =   0   'False
+         GroupID         =   0
+         GroupSelect     =   0
+         DrawFocusRect   =   2
+         DrawFocusRectCell=   -1
+         GrayAreaPictureStyle=   0
+         Static          =   0   'False
+         BackStyle       =   1
+         AutoSize        =   0
+         AutoSizeOffsetTop=   0
+         AutoSizeOffsetBottom=   0
+         AutoSizeOffsetLeft=   0
+         AutoSizeOffsetRight=   0
+         DropShadowOffsetX=   3
+         DropShadowOffsetY=   3
+         DropShadowType  =   0
+         DropShadowColor =   4210752
+         Redraw          =   -1  'True
+         ButtonDesigner  =   "frmApplication.frx":C605
+      End
+      Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
+         Height          =   855
+         Index           =   3
+         Left            =   240
+         TabIndex        =   45
+         Top             =   5400
+         Width           =   975
+         _Version        =   131072
+         _ExtentX        =   1720
+         _ExtentY        =   1508
+         Enabled         =   -1  'True
+         MousePointer    =   0
+         Object.TabStop         =   -1  'True
+         GrayAreaColor   =   4210752
+         BorderShowDefault=   0   'False
+         ButtonType      =   0
+         NoPointerFocus  =   0   'False
+         Value           =   0   'False
+         GroupID         =   0
+         GroupSelect     =   0
+         DrawFocusRect   =   2
+         DrawFocusRectCell=   -1
+         GrayAreaPictureStyle=   0
+         Static          =   0   'False
+         BackStyle       =   1
+         AutoSize        =   0
+         AutoSizeOffsetTop=   0
+         AutoSizeOffsetBottom=   0
+         AutoSizeOffsetLeft=   0
+         AutoSizeOffsetRight=   0
+         DropShadowOffsetX=   3
+         DropShadowOffsetY=   3
+         DropShadowType  =   0
+         DropShadowColor =   4210752
+         Redraw          =   -1  'True
+         ButtonDesigner  =   "frmApplication.frx":D8D1
       End
    End
-   Begin VB.Frame quadRodape 
+   Begin VB.Frame quadPesquisa 
+      BackColor       =   &H00E0E0E0&
       BorderStyle     =   0  'None
-      ForeColor       =   &H00FFFFFF&
-      Height          =   375
-      Index           =   1
+      Height          =   10215
       Left            =   0
-      TabIndex        =   28
-      Top             =   10200
+      TabIndex        =   0
+      Top             =   0
       Width           =   19455
-      Begin VB.Label lblRodape 
+      Begin VB.CheckBox chkInativoPesquisa 
+         BackColor       =   &H00E0E0E0&
+         Caption         =   "I&nativos"
          BeginProperty Font 
             Name            =   "Arial"
             Size            =   9.75
@@ -302,18 +303,120 @@ Begin VB.Form frmApplication
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         Height          =   420
-         Left            =   0
-         TabIndex        =   29
-         Top             =   80
-         Width           =   11895
+         Height          =   255
+         Left            =   17400
+         TabIndex        =   20
+         Top             =   720
+         Width           =   1095
+      End
+      Begin fpBtnAtlLibCtl.fpBtn cmdPesquisa 
+         Height          =   495
+         Left            =   7800
+         TabIndex        =   18
+         Top             =   360
+         Width           =   1875
+         _Version        =   131072
+         _ExtentX        =   3307
+         _ExtentY        =   873
+         Enabled         =   -1  'True
+         MousePointer    =   0
+         Object.TabStop         =   -1  'True
+         GrayAreaColor   =   12632256
+         BorderShowDefault=   -1  'True
+         ButtonType      =   0
+         NoPointerFocus  =   0   'False
+         Value           =   0   'False
+         GroupID         =   0
+         GroupSelect     =   0
+         DrawFocusRect   =   2
+         DrawFocusRectCell=   -1
+         GrayAreaPictureStyle=   0
+         Static          =   0   'False
+         BackStyle       =   0
+         AutoSize        =   0
+         AutoSizeOffsetTop=   0
+         AutoSizeOffsetBottom=   0
+         AutoSizeOffsetLeft=   0
+         AutoSizeOffsetRight=   0
+         DropShadowOffsetX=   3
+         DropShadowOffsetY=   3
+         DropShadowType  =   0
+         DropShadowColor =   0
+         Redraw          =   -1  'True
+         ButtonDesigner  =   "frmApplication.frx":EB9D
+      End
+      Begin VB.TextBox txtPesquisa 
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   330
+         Left            =   240
+         TabIndex        =   3
+         Top             =   480
+         Width           =   7335
+      End
+      Begin FPSpreadADO.fpSpread gridPrincipal 
+         Height          =   8925
+         Left            =   240
+         TabIndex        =   2
+         Top             =   1080
+         Width           =   18705
+         _Version        =   458752
+         _ExtentX        =   32994
+         _ExtentY        =   15743
+         _StockProps     =   64
+         DisplayRowHeaders=   0   'False
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Arial"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         GrayAreaBackColor=   14737632
+         GridColor       =   8421504
+         MaxCols         =   7
+         MaxRows         =   1
+         OperationMode   =   2
+         ShadowColor     =   12632256
+         ShadowDark      =   8421504
+         ShadowText      =   0
+         SpreadDesigner  =   "frmApplication.frx":FE74
+         UserResize      =   0
+      End
+      Begin VB.Label Label 
+         BackColor       =   &H00E0E0E0&
+         Caption         =   "Nome:"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Index           =   4
+         Left            =   260
+         TabIndex        =   19
+         Top             =   200
+         Width           =   1335
       End
    End
    Begin VB.Frame quadCadastro 
       BackColor       =   &H00E0E0E0&
       BorderStyle     =   0  'None
       ForeColor       =   &H80000010&
-      Height          =   10215
+      Height          =   10575
       Left            =   0
       TabIndex        =   1
       Top             =   0
@@ -330,7 +433,7 @@ Begin VB.Form frmApplication
          EndProperty
          Height          =   375
          Left            =   7200
-         TabIndex        =   44
+         TabIndex        =   34
          Top             =   840
          Width           =   1335
       End
@@ -346,7 +449,7 @@ Begin VB.Form frmApplication
          EndProperty
          Height          =   375
          Left            =   4680
-         TabIndex        =   34
+         TabIndex        =   24
          Top             =   840
          Width           =   2415
       End
@@ -364,7 +467,7 @@ Begin VB.Form frmApplication
          EndProperty
          Height          =   255
          Left            =   8760
-         TabIndex        =   33
+         TabIndex        =   23
          Top             =   885
          Width           =   1215
       End
@@ -382,13 +485,13 @@ Begin VB.Form frmApplication
          EndProperty
          Height          =   6735
          Left            =   360
-         TabIndex        =   31
+         TabIndex        =   21
          Top             =   1800
          Width           =   10815
          Begin EditLib.fpCurrency txtSaque 
             Height          =   375
             Left            =   6525
-            TabIndex        =   46
+            TabIndex        =   36
             Top             =   5880
             Width           =   1455
             _Version        =   196608
@@ -486,7 +589,7 @@ Begin VB.Form frmApplication
          Begin EditLib.fpCurrency txtValor 
             Height          =   375
             Left            =   525
-            TabIndex        =   45
+            TabIndex        =   35
             Top             =   5880
             Width           =   1935
             _Version        =   196608
@@ -616,7 +719,7 @@ Begin VB.Form frmApplication
          Begin FPSpreadADO.fpSpread gridAplicacoes 
             Height          =   4965
             Left            =   240
-            TabIndex        =   36
+            TabIndex        =   26
             Top             =   360
             Width           =   10035
             _Version        =   458752
@@ -641,7 +744,7 @@ Begin VB.Form frmApplication
             ShadowColor     =   12632256
             ShadowDark      =   8421504
             ShadowText      =   0
-            SpreadDesigner  =   "frmApplication.frx":EBA1
+            SpreadDesigner  =   "frmApplication.frx":1044D
             UserResize      =   0
          End
          Begin fpBtnAtlLibCtl.fpBtn cmdLimparAplicacoes 
@@ -678,7 +781,7 @@ Begin VB.Form frmApplication
             DropShadowType  =   0
             DropShadowColor =   0
             Redraw          =   -1  'True
-            ButtonDesigner  =   "frmApplication.frx":121D2
+            ButtonDesigner  =   "frmApplication.frx":13A7E
          End
          Begin fpBtnAtlLibCtl.fpBtn cmdAplicar 
             Height          =   945
@@ -714,7 +817,7 @@ Begin VB.Form frmApplication
             DropShadowType  =   0
             DropShadowColor =   0
             Redraw          =   -1  'True
-            ButtonDesigner  =   "frmApplication.frx":134AB
+            ButtonDesigner  =   "frmApplication.frx":14D57
          End
          Begin VB.Label Label 
             BackColor       =   &H00E0E0E0&
@@ -731,7 +834,7 @@ Begin VB.Form frmApplication
             Height          =   255
             Index           =   5
             Left            =   555
-            TabIndex        =   43
+            TabIndex        =   33
             Top             =   5640
             Width           =   495
          End
@@ -750,7 +853,7 @@ Begin VB.Form frmApplication
             Height          =   255
             Index           =   6
             Left            =   2835
-            TabIndex        =   42
+            TabIndex        =   32
             Top             =   5640
             Width           =   1215
          End
@@ -769,7 +872,7 @@ Begin VB.Form frmApplication
             Height          =   255
             Index           =   7
             Left            =   4995
-            TabIndex        =   41
+            TabIndex        =   31
             Top             =   5640
             Width           =   735
          End
@@ -788,7 +891,7 @@ Begin VB.Form frmApplication
             Height          =   255
             Index           =   8
             Left            =   6555
-            TabIndex        =   40
+            TabIndex        =   30
             Top             =   5640
             Width           =   855
          End
@@ -807,7 +910,7 @@ Begin VB.Form frmApplication
             Height          =   255
             Index           =   9
             Left            =   240
-            TabIndex        =   39
+            TabIndex        =   29
             Top             =   5925
             Width           =   255
          End
@@ -826,7 +929,7 @@ Begin VB.Form frmApplication
             Height          =   255
             Index           =   10
             Left            =   6255
-            TabIndex        =   38
+            TabIndex        =   28
             Top             =   5925
             Width           =   255
          End
@@ -845,7 +948,7 @@ Begin VB.Form frmApplication
             Height          =   255
             Index           =   11
             Left            =   5790
-            TabIndex        =   37
+            TabIndex        =   27
             Top             =   5925
             Width           =   255
          End
@@ -855,14 +958,14 @@ Begin VB.Form frmApplication
          Enabled         =   0   'False
          Height          =   975
          Left            =   15720
-         TabIndex        =   21
+         TabIndex        =   13
          Top             =   8880
          Width           =   3255
          Begin VB.TextBox txtData 
             Enabled         =   0   'False
             Height          =   375
             Left            =   120
-            TabIndex        =   23
+            TabIndex        =   15
             Top             =   480
             Width           =   1455
          End
@@ -870,7 +973,7 @@ Begin VB.Form frmApplication
             Enabled         =   0   'False
             Height          =   375
             Left            =   1680
-            TabIndex        =   22
+            TabIndex        =   14
             Top             =   480
             Width           =   1455
          End
@@ -889,7 +992,7 @@ Begin VB.Form frmApplication
             Height          =   255
             Index           =   2
             Left            =   120
-            TabIndex        =   25
+            TabIndex        =   17
             Top             =   240
             Width           =   1095
          End
@@ -908,7 +1011,7 @@ Begin VB.Form frmApplication
             Height          =   255
             Index           =   3
             Left            =   1680
-            TabIndex        =   24
+            TabIndex        =   16
             Top             =   240
             Width           =   1095
          End
@@ -966,7 +1069,7 @@ Begin VB.Form frmApplication
       Begin FPSpreadADO.fpSpread gridSimulacao 
          Height          =   5085
          Left            =   12000
-         TabIndex        =   47
+         TabIndex        =   37
          Top             =   2640
          Width           =   6315
          _Version        =   458752
@@ -992,7 +1095,7 @@ Begin VB.Form frmApplication
          ShadowColor     =   12632256
          ShadowDark      =   8421504
          ShadowText      =   0
-         SpreadDesigner  =   "frmApplication.frx":1477B
+         SpreadDesigner  =   "frmApplication.frx":16027
          UserResize      =   0
       End
       Begin VB.Label Label 
@@ -1010,7 +1113,7 @@ Begin VB.Form frmApplication
          Height          =   240
          Index           =   13
          Left            =   4680
-         TabIndex        =   35
+         TabIndex        =   25
          Top             =   600
          Width           =   795
       End
@@ -1029,7 +1132,7 @@ Begin VB.Form frmApplication
          Height          =   255
          Index           =   12
          Left            =   7200
-         TabIndex        =   32
+         TabIndex        =   22
          Top             =   600
          Width           =   855
       End
@@ -1070,135 +1173,6 @@ Begin VB.Form frmApplication
          TabIndex        =   11
          Top             =   600
          Width           =   735
-      End
-   End
-   Begin VB.Frame quadPesquisa 
-      BackColor       =   &H00E0E0E0&
-      BorderStyle     =   0  'None
-      Height          =   10215
-      Left            =   0
-      TabIndex        =   0
-      Top             =   0
-      Width           =   19455
-      Begin VB.CheckBox chkInativoPesquisa 
-         BackColor       =   &H00E0E0E0&
-         Caption         =   "I&nativos"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   255
-         Left            =   17400
-         TabIndex        =   30
-         Top             =   720
-         Width           =   1095
-      End
-      Begin fpBtnAtlLibCtl.fpBtn cmdPesquisa 
-         Height          =   495
-         Left            =   7800
-         TabIndex        =   26
-         Top             =   360
-         Width           =   1875
-         _Version        =   131072
-         _ExtentX        =   3307
-         _ExtentY        =   873
-         Enabled         =   -1  'True
-         MousePointer    =   0
-         Object.TabStop         =   -1  'True
-         GrayAreaColor   =   12632256
-         BorderShowDefault=   -1  'True
-         ButtonType      =   0
-         NoPointerFocus  =   0   'False
-         Value           =   0   'False
-         GroupID         =   0
-         GroupSelect     =   0
-         DrawFocusRect   =   2
-         DrawFocusRectCell=   -1
-         GrayAreaPictureStyle=   0
-         Static          =   0   'False
-         BackStyle       =   0
-         AutoSize        =   0
-         AutoSizeOffsetTop=   0
-         AutoSizeOffsetBottom=   0
-         AutoSizeOffsetLeft=   0
-         AutoSizeOffsetRight=   0
-         DropShadowOffsetX=   3
-         DropShadowOffsetY=   3
-         DropShadowType  =   0
-         DropShadowColor =   0
-         Redraw          =   -1  'True
-         ButtonDesigner  =   "frmApplication.frx":14C66
-      End
-      Begin VB.TextBox txtPesquisa 
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   330
-         Left            =   240
-         TabIndex        =   3
-         Top             =   480
-         Width           =   7335
-      End
-      Begin FPSpreadADO.fpSpread gridPrincipal 
-         Height          =   8925
-         Left            =   240
-         TabIndex        =   2
-         Top             =   1080
-         Width           =   18705
-         _Version        =   458752
-         _ExtentX        =   32994
-         _ExtentY        =   15743
-         _StockProps     =   64
-         DisplayRowHeaders=   0   'False
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Arial"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         GrayAreaBackColor=   14737632
-         GridColor       =   8421504
-         MaxCols         =   7
-         MaxRows         =   1
-         OperationMode   =   2
-         ShadowColor     =   12632256
-         ShadowDark      =   8421504
-         ShadowText      =   0
-         SpreadDesigner  =   "frmApplication.frx":15F3D
-         UserResize      =   0
-      End
-      Begin VB.Label Label 
-         BackColor       =   &H00E0E0E0&
-         Caption         =   "Nome:"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   375
-         Index           =   4
-         Left            =   260
-         TabIndex        =   27
-         Top             =   200
-         Width           =   1335
       End
    End
 End
@@ -1399,6 +1373,7 @@ If Index = EnumOption.Include Then
     quadDatas.Visible = False
     txtCodigo = "NOVO"
     chkInvestir.Enabled = False
+    gridSimulacao.Visible = False
 ElseIf Index = EnumOption.Read Or Index = EnumOption.Update Or Index = EnumOption.Delete Then
     gridPrincipal_Click gridPrincipal.ActiveCol, gridPrincipal.ActiveRow
     fOpcao = Index
@@ -1451,7 +1426,7 @@ cmdOpcao(EnumOption.Cancel).Visible = False
 quadCadastro.Visible = False
 quadInvestimento.Visible = False
 quadPesquisa.Visible = True
-lblRodape = FillFooter
+Me.Caption = Me.Caption & FillFooter
 ComboBoxFill cmbCorretora, "SELECT COR_CODIGO, (COR_NOME + '(' + CONVERT(VARCHAR,COR_CODIGO) + ')') AS DESCRICAO FROM CORRETORAS WHERE COR_INATIVO = '0'"
 cmbAno.AddItem Year(Date), 0
 With cmbMes

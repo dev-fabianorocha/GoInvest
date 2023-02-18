@@ -3,62 +3,36 @@ Object = "{FD2FB1F1-D4FC-11CE-A335-A8D5ECAE5B02}#2.0#0"; "btn32a20.ocx"
 Begin VB.Form frmMain 
    BackColor       =   &H00E0E0E0&
    Caption         =   "GoInvest"
-   ClientHeight    =   10605
+   ClientHeight    =   10680
    ClientLeft      =   60
    ClientTop       =   405
    ClientWidth     =   20385
    Icon            =   "frmMain.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   10605
+   ScaleHeight     =   10680
    ScaleWidth      =   20385
    WindowState     =   2  'Maximized
-   Begin VB.Frame quadRodape 
-      BorderStyle     =   0  'None
-      ForeColor       =   &H00FFFFFF&
-      Height          =   495
-      Index           =   1
-      Left            =   1460
-      TabIndex        =   8
-      Top             =   10200
-      Width           =   19450
-      Begin VB.Label lblRodape 
-         Caption         =   "Footer"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   420
-         Left            =   120
-         TabIndex        =   9
-         Top             =   120
-         Width           =   11895
-      End
-   End
    Begin VB.PictureBox Picture 
       BackColor       =   &H00E0E0E0&
       BorderStyle     =   0  'None
       Enabled         =   0   'False
-      Height          =   9375
-      Left            =   4200
+      Height          =   8895
+      Left            =   4080
       Picture         =   "frmMain.frx":680A
-      ScaleHeight     =   9375
-      ScaleWidth      =   12855
+      ScaleHeight     =   8895
+      ScaleWidth      =   13095
       TabIndex        =   7
-      Top             =   600
-      Width           =   12855
+      Top             =   720
+      Width           =   13095
    End
    Begin VB.Frame Frame 
+      Appearance      =   0  'Flat
       BackColor       =   &H00404040&
-      BorderStyle     =   0  'None
-      Height          =   10815
+      ForeColor       =   &H80000008&
+      Height          =   10800
       Left            =   0
       TabIndex        =   4
-      Top             =   0
+      Top             =   -100
       Width           =   1455
       Begin fpBtnAtlLibCtl.fpBtn fpBtn 
          Height          =   1095
@@ -223,7 +197,7 @@ Begin VB.Form frmMain
          Value           =   0   'False
          GroupID         =   0
          GroupSelect     =   0
-         DrawFocusRect   =   2
+         DrawFocusRect   =   1
          DrawFocusRectCell=   -1
          GrayAreaPictureStyle=   0
          Static          =   0   'False
@@ -307,7 +281,7 @@ frmUser.Show 1
 End Sub
 
 Private Sub Form_Load()
-lblRodape = FillFooter
+Me.Caption = Me.Caption & FillFooter
 End Sub
 
 Private Sub Form_Resize()

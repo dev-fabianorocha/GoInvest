@@ -18,7 +18,7 @@ End Function
 Public Function FillFooter() As String
 Dim iReturn As String
 
-iReturn = "| Servidor: " & gServer & " | Banco de Dados: " & gConnection & " | Usuário: " & gUser & " | V." & gVersion & " | "
+iReturn = " - Servidor: " & gServer & " | Banco de Dados: " & gConnection & " | Usuário: " & gUser & " | V." & gVersion & " | "
 
 FillFooter = iReturn
 End Function

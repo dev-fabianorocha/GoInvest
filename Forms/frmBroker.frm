@@ -3,10 +3,11 @@ Object = "{F856EC8B-F03C-4515-BDC6-64CBD617566A}#7.0#0"; "FPSPR70.ocx"
 Object = "{FD2FB1F1-D4FC-11CE-A335-A8D5ECAE5B02}#2.0#0"; "btn32a20.ocx"
 Begin VB.Form frmBroker 
    Appearance      =   0  'Flat
+   BackColor       =   &H00E0E0E0&
    Caption         =   "Corretoras"
    ClientHeight    =   10590
    ClientLeft      =   60
-   ClientTop       =   435
+   ClientTop       =   555
    ClientWidth     =   20385
    Icon            =   "frmBroker.frx":0000
    LinkTopic       =   "Form1"
@@ -15,23 +16,22 @@ Begin VB.Form frmBroker
    WindowState     =   2  'Maximized
    Begin VB.Frame quadBotoes 
       BackColor       =   &H00404040&
-      BorderStyle     =   0  'None
       ForeColor       =   &H8000000E&
       Height          =   10800
-      Left            =   19440
-      TabIndex        =   9
-      Top             =   0
-      Width           =   1215
+      Left            =   19080
+      TabIndex        =   17
+      Top             =   -90
+      Width           =   1455
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
-         Height          =   735
-         Index           =   0
-         Left            =   120
-         TabIndex        =   10
-         Top             =   1320
-         Width           =   675
+         Height          =   855
+         Index           =   6
+         Left            =   240
+         TabIndex        =   18
+         Top             =   6360
+         Width           =   975
          _Version        =   131072
-         _ExtentX        =   1191
-         _ExtentY        =   1296
+         _ExtentX        =   1720
+         _ExtentY        =   1508
          Enabled         =   -1  'True
          MousePointer    =   0
          Object.TabStop         =   -1  'True
@@ -60,15 +60,15 @@ Begin VB.Form frmBroker
          ButtonDesigner  =   "frmBroker.frx":680A
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
-         Height          =   735
-         Index           =   6
-         Left            =   120
-         TabIndex        =   16
-         Top             =   4680
-         Width           =   675
+         Height          =   855
+         Index           =   0
+         Left            =   240
+         TabIndex        =   19
+         Top             =   2520
+         Width           =   975
          _Version        =   131072
-         _ExtentX        =   1191
-         _ExtentY        =   1296
+         _ExtentX        =   1720
+         _ExtentY        =   1508
          Enabled         =   -1  'True
          MousePointer    =   0
          Object.TabStop         =   -1  'True
@@ -94,18 +94,18 @@ Begin VB.Form frmBroker
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmBroker.frx":7AD6
+         ButtonDesigner  =   "frmBroker.frx":7AD5
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
-         Height          =   735
+         Height          =   855
          Index           =   1
-         Left            =   0
-         TabIndex        =   11
-         Top             =   2160
-         Width           =   915
+         Left            =   240
+         TabIndex        =   20
+         Top             =   3480
+         Width           =   975
          _Version        =   131072
-         _ExtentX        =   1614
-         _ExtentY        =   1296
+         _ExtentX        =   1720
+         _ExtentY        =   1508
          Enabled         =   -1  'True
          MousePointer    =   0
          Object.TabStop         =   -1  'True
@@ -134,15 +134,15 @@ Begin VB.Form frmBroker
          ButtonDesigner  =   "frmBroker.frx":8DA1
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
-         Height          =   735
-         Index           =   3
-         Left            =   120
-         TabIndex        =   13
-         Top             =   3840
-         Width           =   675
+         Height          =   855
+         Index           =   4
+         Left            =   240
+         TabIndex        =   21
+         Top             =   4200
+         Width           =   975
          _Version        =   131072
-         _ExtentX        =   1191
-         _ExtentY        =   1296
+         _ExtentX        =   1720
+         _ExtentY        =   1508
          Enabled         =   -1  'True
          MousePointer    =   0
          Object.TabStop         =   -1  'True
@@ -171,15 +171,15 @@ Begin VB.Form frmBroker
          ButtonDesigner  =   "frmBroker.frx":A06F
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
-         Height          =   735
+         Height          =   855
          Index           =   5
-         Left            =   120
-         TabIndex        =   15
-         Top             =   3360
-         Width           =   675
+         Left            =   240
+         TabIndex        =   22
+         Top             =   5160
+         Width           =   975
          _Version        =   131072
-         _ExtentX        =   1191
-         _ExtentY        =   1296
+         _ExtentX        =   1720
+         _ExtentY        =   1508
          Enabled         =   -1  'True
          MousePointer    =   0
          Object.TabStop         =   -1  'True
@@ -200,60 +200,60 @@ Begin VB.Form frmBroker
          AutoSizeOffsetBottom=   0
          AutoSizeOffsetLeft=   0
          AutoSizeOffsetRight=   0
-         DropShadowOffsetX=   3
-         DropShadowOffsetY=   3
+         DropShadowOffsetX=   0
+         DropShadowOffsetY=   0
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmBroker.frx":B33B
+         ButtonDesigner  =   "frmBroker.frx":B33A
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
-         Height          =   735
-         Index           =   4
-         Left            =   120
-         TabIndex        =   14
-         Top             =   2520
-         Width           =   675
-         _Version        =   131072
-         _ExtentX        =   1191
-         _ExtentY        =   1296
-         Enabled         =   -1  'True
-         MousePointer    =   0
-         Object.TabStop         =   -1  'True
-         GrayAreaColor   =   4210752
-         BorderShowDefault=   0   'False
-         ButtonType      =   0
-         NoPointerFocus  =   0   'False
-         Value           =   0   'False
-         GroupID         =   0
-         GroupSelect     =   0
-         DrawFocusRect   =   2
-         DrawFocusRectCell=   -1
-         GrayAreaPictureStyle=   0
-         Static          =   0   'False
-         BackStyle       =   1
-         AutoSize        =   0
-         AutoSizeOffsetTop=   0
-         AutoSizeOffsetBottom=   0
-         AutoSizeOffsetLeft=   0
-         AutoSizeOffsetRight=   0
-         DropShadowOffsetX=   3
-         DropShadowOffsetY=   3
-         DropShadowType  =   0
-         DropShadowColor =   4210752
-         Redraw          =   -1  'True
-         ButtonDesigner  =   "frmBroker.frx":C606
-      End
-      Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
-         Height          =   735
+         Height          =   855
          Index           =   2
-         Left            =   120
-         TabIndex        =   12
-         Top             =   3000
-         Width           =   675
+         Left            =   240
+         TabIndex        =   23
+         Top             =   4440
+         Width           =   975
          _Version        =   131072
-         _ExtentX        =   1191
-         _ExtentY        =   1296
+         _ExtentX        =   1720
+         _ExtentY        =   1508
+         Enabled         =   -1  'True
+         MousePointer    =   0
+         Object.TabStop         =   -1  'True
+         GrayAreaColor   =   4210752
+         BorderShowDefault=   0   'False
+         ButtonType      =   0
+         NoPointerFocus  =   0   'False
+         Value           =   0   'False
+         GroupID         =   0
+         GroupSelect     =   0
+         DrawFocusRect   =   2
+         DrawFocusRectCell=   -1
+         GrayAreaPictureStyle=   0
+         Static          =   0   'False
+         BackStyle       =   1
+         AutoSize        =   0
+         AutoSizeOffsetTop=   0
+         AutoSizeOffsetBottom=   0
+         AutoSizeOffsetLeft=   0
+         AutoSizeOffsetRight=   0
+         DropShadowOffsetX=   3
+         DropShadowOffsetY=   3
+         DropShadowType  =   0
+         DropShadowColor =   4210752
+         Redraw          =   -1  'True
+         ButtonDesigner  =   "frmBroker.frx":C605
+      End
+      Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
+         Height          =   855
+         Index           =   3
+         Left            =   240
+         TabIndex        =   24
+         Top             =   5400
+         Width           =   975
+         _Version        =   131072
+         _ExtentX        =   1720
+         _ExtentY        =   1508
          Enabled         =   -1  'True
          MousePointer    =   0
          Object.TabStop         =   -1  'True
@@ -282,36 +282,10 @@ Begin VB.Form frmBroker
          ButtonDesigner  =   "frmBroker.frx":D8D1
       End
    End
-   Begin VB.Frame quadRodape 
-      BorderStyle     =   0  'None
-      ForeColor       =   &H00FFFFFF&
-      Height          =   375
-      Index           =   1
-      Left            =   0
-      TabIndex        =   24
-      Top             =   10320
-      Width           =   19455
-      Begin VB.Label lblRodape 
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   420
-         Left            =   0
-         TabIndex        =   25
-         Top             =   0
-         Width           =   11895
-      End
-   End
    Begin VB.Frame quadPesquisa 
       BackColor       =   &H00E0E0E0&
       BorderStyle     =   0  'None
-      Height          =   10215
+      Height          =   10575
       Left            =   0
       TabIndex        =   0
       Top             =   0
@@ -330,14 +304,14 @@ Begin VB.Form frmBroker
          EndProperty
          Height          =   255
          Left            =   17760
-         TabIndex        =   26
+         TabIndex        =   16
          Top             =   720
          Width           =   1095
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdPesquisa 
          Height          =   495
          Left            =   6840
-         TabIndex        =   22
+         TabIndex        =   14
          Top             =   360
          Width           =   1875
          _Version        =   131072
@@ -432,7 +406,7 @@ Begin VB.Form frmBroker
          Height          =   375
          Index           =   4
          Left            =   260
-         TabIndex        =   23
+         TabIndex        =   15
          Top             =   200
          Width           =   1335
       End
@@ -451,7 +425,7 @@ Begin VB.Form frmBroker
          Enabled         =   0   'False
          Height          =   975
          Left            =   14280
-         TabIndex        =   17
+         TabIndex        =   9
          Top             =   8400
          Width           =   3255
          Begin VB.TextBox txtData 
@@ -467,7 +441,7 @@ Begin VB.Form frmBroker
             EndProperty
             Height          =   375
             Left            =   120
-            TabIndex        =   19
+            TabIndex        =   11
             Top             =   480
             Width           =   1455
          End
@@ -484,7 +458,7 @@ Begin VB.Form frmBroker
             EndProperty
             Height          =   375
             Left            =   1680
-            TabIndex        =   18
+            TabIndex        =   10
             Top             =   480
             Width           =   1455
          End
@@ -503,7 +477,7 @@ Begin VB.Form frmBroker
             Height          =   255
             Index           =   2
             Left            =   120
-            TabIndex        =   21
+            TabIndex        =   13
             Top             =   240
             Width           =   1095
          End
@@ -522,7 +496,7 @@ Begin VB.Form frmBroker
             Height          =   255
             Index           =   3
             Left            =   1680
-            TabIndex        =   20
+            TabIndex        =   12
             Top             =   240
             Width           =   1095
          End
@@ -711,7 +685,7 @@ cmdOpcao(EnumOption.Cancel).Visible = False
 quadCadastro.Visible = False
 quadPesquisa.Visible = True
 AlimentarGrid
-lblRodape = FillFooter
+Me.Caption = Me.Caption & FillFooter
 End Sub
 
 Private Sub DefinirTela(ParCadastro As Boolean)

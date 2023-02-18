@@ -52,9 +52,9 @@ If Not iRecordset.EOF Then
             .MoveNext
         Next
     End With
-    
 End If
 
+Me.Caption = Me.Caption & FillFooter
 End Sub
 
 Private Sub Form_Resize()

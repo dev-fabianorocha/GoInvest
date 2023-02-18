@@ -3,30 +3,30 @@ Object = "{F856EC8B-F03C-4515-BDC6-64CBD617566A}#7.0#0"; "FPSPR70.ocx"
 Object = "{FD2FB1F1-D4FC-11CE-A335-A8D5ECAE5B02}#2.0#0"; "btn32a20.ocx"
 Begin VB.Form frmUser 
    Appearance      =   0  'Flat
+   BackColor       =   &H00E0E0E0&
    Caption         =   "Usuários"
-   ClientHeight    =   10590
-   ClientLeft      =   60
-   ClientTop       =   405
+   ClientHeight    =   10500
+   ClientLeft      =   45
+   ClientTop       =   510
    ClientWidth     =   20385
    Icon            =   "frmUser.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   10590
+   ScaleHeight     =   10500
    ScaleWidth      =   20385
    WindowState     =   2  'Maximized
    Begin VB.Frame quadBotoes 
       BackColor       =   &H00404040&
-      BorderStyle     =   0  'None
       ForeColor       =   &H8000000E&
       Height          =   10800
-      Left            =   19200
-      TabIndex        =   21
-      Top             =   0
+      Left            =   19080
+      TabIndex        =   19
+      Top             =   -90
       Width           =   1455
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   855
          Index           =   6
          Left            =   240
-         TabIndex        =   22
+         TabIndex        =   20
          Top             =   6360
          Width           =   975
          _Version        =   131072
@@ -63,7 +63,7 @@ Begin VB.Form frmUser
          Height          =   855
          Index           =   0
          Left            =   240
-         TabIndex        =   23
+         TabIndex        =   21
          Top             =   2520
          Width           =   975
          _Version        =   131072
@@ -100,7 +100,7 @@ Begin VB.Form frmUser
          Height          =   855
          Index           =   1
          Left            =   240
-         TabIndex        =   24
+         TabIndex        =   22
          Top             =   3480
          Width           =   975
          _Version        =   131072
@@ -137,7 +137,7 @@ Begin VB.Form frmUser
          Height          =   855
          Index           =   4
          Left            =   240
-         TabIndex        =   25
+         TabIndex        =   23
          Top             =   4200
          Width           =   975
          _Version        =   131072
@@ -174,7 +174,7 @@ Begin VB.Form frmUser
          Height          =   855
          Index           =   5
          Left            =   240
-         TabIndex        =   26
+         TabIndex        =   24
          Top             =   5160
          Width           =   975
          _Version        =   131072
@@ -211,7 +211,7 @@ Begin VB.Form frmUser
          Height          =   855
          Index           =   2
          Left            =   240
-         TabIndex        =   27
+         TabIndex        =   25
          Top             =   4440
          Width           =   975
          _Version        =   131072
@@ -248,7 +248,7 @@ Begin VB.Form frmUser
          Height          =   855
          Index           =   3
          Left            =   240
-         TabIndex        =   28
+         TabIndex        =   26
          Top             =   5400
          Width           =   975
          _Version        =   131072
@@ -282,37 +282,10 @@ Begin VB.Form frmUser
          ButtonDesigner  =   "frmUser.frx":D8D1
       End
    End
-   Begin VB.Frame quadRodape 
-      BorderStyle     =   0  'None
-      ForeColor       =   &H00FFFFFF&
-      Height          =   255
-      Index           =   1
-      Left            =   0
-      TabIndex        =   18
-      Top             =   10320
-      Width           =   19335
-      Begin VB.Label lblRodape 
-         Caption         =   "Footer"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   420
-         Left            =   0
-         TabIndex        =   19
-         Top             =   0
-         Width           =   11895
-      End
-   End
    Begin VB.Frame quadPesquisa 
       BackColor       =   &H00E0E0E0&
       BorderStyle     =   0  'None
-      Height          =   10215
+      Height          =   10575
       Left            =   0
       TabIndex        =   11
       Top             =   0
@@ -330,7 +303,7 @@ Begin VB.Form frmUser
             Strikethrough   =   0   'False
          EndProperty
          Height          =   255
-         Left            =   16680
+         Left            =   17160
          TabIndex        =   3
          Top             =   720
          Width           =   1095
@@ -612,7 +585,7 @@ Begin VB.Form frmUser
          Height          =   255
          Index           =   5
          Left            =   6240
-         TabIndex        =   20
+         TabIndex        =   18
          Top             =   600
          Width           =   855
       End
@@ -750,7 +723,7 @@ cmdOpcao(EnumOption.Cancel).Visible = False
 quadCadastro.Visible = False
 quadPesquisa.Visible = True
 AlimentarGrid
-lblRodape = FillFooter
+Me.Caption = Me.Caption & FillFooter
 End Sub
 
 Private Sub DefinirTela(ParCadastro As Boolean)

@@ -29,7 +29,7 @@ End Sub
 Public Sub SpreadFill(ByRef Spread_ As fpSpread, ByVal Query_ As String)
 Dim iRecordset As New ADODB.Recordset, iRows As Long, iPosition As Long
 
-Set iRecordset = ReadQuery(Query_, iRows)
+Set iRecordset = eReadQuery(Query_, iRows)
 
 With Spread_
     For iPosition = 1 To iRows

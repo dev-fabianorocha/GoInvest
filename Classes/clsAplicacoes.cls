@@ -74,16 +74,16 @@ Dim sSql As String
 sSql = "SELECT APL_CODIGO, APL_NOME, APL_CORRETORA, APL_ANO, APL_INVESTIR, APL_CADASTRO, APL_ATUALIZACAO, APL_INATIVO " _
     & " FROM APLICACOES WHERE APL_CODIGO = '" & ParCodigo & "'"
 
-If Not ReadQuery(sSql).EOF Then
-    With ReadQuery(sSql)
-        fCodigo = VariableAdjust(!APL_CODIGO, DoubleNumber)
-        fCorretora = VariableAdjust(!APL_CORRETORA, DoubleNumber)
-        fNome = VariableAdjust(!APL_NOME, StringText)
-        fAno = VariableAdjust(!APL_ANO, DoubleNumber)
-        fCadastro = VariableAdjust(!APL_CADASTRO, StringText)
-        fAtualizacao = VariableAdjust(!APL_ATUALIZACAO, StringText)
-        fInvestir = VariableAdjust(!APL_INVESTIR, LogicSql)
-        fInativo = VariableAdjust(!APL_INATIVO, LogicSql)
+If Not eReadQuery(sSql).EOF Then
+    With eReadQuery(sSql)
+        fCodigo = VariableAdjust(!APL_CODIGO, eDoubleNumber)
+        fCorretora = VariableAdjust(!APL_CORRETORA, eDoubleNumber)
+        fNome = VariableAdjust(!APL_NOME, eStringText)
+        fAno = VariableAdjust(!APL_ANO, eDoubleNumber)
+        fCadastro = VariableAdjust(!APL_CADASTRO, eStringText)
+        fAtualizacao = VariableAdjust(!APL_ATUALIZACAO, eStringText)
+        fInvestir = VariableAdjust(!APL_INVESTIR, eLogicSql)
+        fInativo = VariableAdjust(!APL_INATIVO, eLogicSql)
     End With
 Else
     MsgBox "Código não localizado"
@@ -105,7 +105,7 @@ Inserir = True
 Exit Function
 Resume
 Trata:
-MsgBox ErrorHandler(Err.Number, Err.Description, sSql), vbCritical, "clsCorretoras.Inserir"
+ErrorHandler Err.Number, Err.Description, "ClsAplicacoes.Inserir", sSql
 End Function
 
 Public Function Atualizar() As Boolean

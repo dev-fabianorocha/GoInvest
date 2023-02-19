@@ -81,16 +81,16 @@ Dim sLinhas As Long
 sSql = "SELECT EXT_REGISTRO, EXT_VALOR, EXT_MES, EXT_TAXA, EXT_SAQUE FROM EXTRATO WHERE EXT_APLICACAO = '" & fCodigoAplicacao & "' ORDER BY EXT_MES"
 sCont = 1
 
-If Not ReadQuery(sSql).EOF Then
-    With ReadQuery(sSql, sLinhas)
+If Not eReadQuery(sSql).EOF Then
+    With eReadQuery(sSql, sLinhas)
         For sLinha = 1 To sLinhas
-            ParTextValor.Text = VariableAdjust(!EXT_VALOR, DoubleNumber)
-            ParComboMes.ListIndex = VariableAdjust(!EXT_MES, StringText)
-            ParTextTaxa.Text = VariableAdjust(!EXT_TAXA, DoubleNumber)
-            ParTextSaque.Text = VariableAdjust(!EXT_SAQUE, DoubleNumber)
+            ParTextValor.Text = VariableAdjust(!EXT_VALOR, eDoubleNumber)
+            ParComboMes.ListIndex = VariableAdjust(!EXT_MES, eStringText)
+            ParTextTaxa.Text = VariableAdjust(!EXT_TAXA, eDoubleNumber)
+            ParTextSaque.Text = VariableAdjust(!EXT_SAQUE, eDoubleNumber)
             ParCmdAplicar.DoClick
-            ParGrid.SetText 1, sCont, VariableAdjust(!EXT_REGISTRO, DoubleNumber)
-            ParGrid.SetText 2, sCont, MonthName(VariableAdjust(!EXT_MES, DoubleNumber))
+            ParGrid.SetText 1, sCont, VariableAdjust(!EXT_REGISTRO, eStringText)
+            ParGrid.SetText 2, sCont, MonthName(VariableAdjust(!EXT_MES, eByteNumber))
             sCont = sCont + 1
             .MoveNext
         Next
@@ -104,7 +104,7 @@ On Error GoTo Trata
 Dim sSql As String
 
 sSql = "INSERT INTO EXTRATO (EXT_REGISTRO, EXT_VALOR, EXT_MES, EXT_TAXA, EXT_SAQUE, EXT_APLICACAO) VALUES ('" & fRegistro _
-    & "', '" & VariableAdjust(fValor, NumberSql) & "', '" & fMes & "', '" & VariableAdjust(fTaxa, NumberSql) & "', '" & VariableAdjust(fSaque, NumberSql) & "', '" _
+    & "', '" & VariableAdjust(fValor, eNumberSql) & "', '" & fMes & "', '" & VariableAdjust(fTaxa, eNumberSql) & "', '" & VariableAdjust(fSaque, eNumberSql) & "', '" _
     & fCodigoAplicacao & "')"
 If Not QueryExecute(sSql) Then GoTo Trata
 
@@ -148,7 +148,7 @@ On Error GoTo Trata
 Dim sSql As String
 
 sSql = "INSERT INTO SALDOS (SAL_APLICACAO, SAL_MES, SAL_RENDIMENTO, SAL_SALDO) VALUES ('" & fCodigoAplicacao _
-    & "', '" & VariableAdjust(ParMes, DoubleNumber) & "', '" & VariableAdjust(ParRendimento, NumberSql) & "', '" & VariableAdjust(ParSaldo, NumberSql) & "')"
+    & "', '" & VariableAdjust(ParMes, eDoubleNumber) & "', '" & VariableAdjust(ParRendimento, eNumberSql) & "', '" & VariableAdjust(ParSaldo, eNumberSql) & "')"
 If Not QueryExecute(sSql) Then GoTo Trata
 
 InserirSaldos = True

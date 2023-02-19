@@ -12,7 +12,7 @@ iMessage = iMessage & "---------------------------------------------------------
 iMessage = iMessage & Query_ & vbCrLf
 iMessage = iMessage & "-------------------------------------------------------------------------------" & vbCrLf
 
-MsgBox iMessage, vbCritical, "GoInvest", , ErrorPlace
+MsgBox iMessage, vbCritical, "GoInvest"
 End Function
 
 Public Function FillFooter() As String

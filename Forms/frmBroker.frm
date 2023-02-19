@@ -636,24 +636,24 @@ End Sub
 Private Sub cmdOpcao_Click(Index As Integer)
 On Error GoTo ErrorHandler
 
-    If Index = EnumOption.Include Then
+    If Index = EnumOption.eInclude Then
         fOpcao = Index
         DefinirTela True
         chkInativo.Visible = False
         quadDatas.Visible = False
         txtCodigo = "NOVO"
-    ElseIf Index = EnumOption.Read Or Index = EnumOption.Update Or Index = EnumOption.Delete Then
+    ElseIf Index = EnumOption.eRead Or Index = EnumOption.Update Or Index = EnumOption.eDelete Then
         gridPrincipal_Click gridPrincipal.ActiveCol, gridPrincipal.ActiveRow
         fOpcao = Index
         DefinirTela True
         If Not ObterDados Then GoTo ErrorHandler
-        If fOpcao = EnumOption.Delete Then cmdOpcao_Click (EnumOption.Confirm)
-    ElseIf Index = EnumOption.Confirm Then
-        If fOpcao = EnumOption.Include Or fOpcao = EnumOption.Update Then
+        If fOpcao = EnumOption.eDelete Then cmdOpcao_Click (EnumOption.eConfirm)
+    ElseIf Index = EnumOption.eConfirm Then
+        If fOpcao = EnumOption.eInclude Or fOpcao = EnumOption.Update Then
             TransferirDados
             DefinirTela False
             ExpurgarDados
-        ElseIf fOpcao = EnumOption.Delete Then
+        ElseIf fOpcao = EnumOption.eDelete Then
             If Not fClsCorretoras.Excluir(fCodigo) Then GoTo ErrorHandler
             AlimentarGrid
             DefinirTela False
@@ -662,10 +662,10 @@ On Error GoTo ErrorHandler
             DefinirTela False
             ExpurgarDados
         End If
-    ElseIf Index = EnumOption.Cancel Then
+    ElseIf Index = EnumOption.eCancel Then
         DefinirTela False
         ExpurgarDados
-    ElseIf Index = EnumOption.Leave Then
+    ElseIf Index = EnumOption.eLeave Then
         Unload Me
     End If
 
@@ -680,8 +680,8 @@ AlimentarGrid
 End Sub
 
 Private Sub Form_Load()
-cmdOpcao(EnumOption.Confirm).Visible = False
-cmdOpcao(EnumOption.Cancel).Visible = False
+cmdOpcao(EnumOption.eConfirm).Visible = False
+cmdOpcao(EnumOption.eCancel).Visible = False
 quadCadastro.Visible = False
 quadPesquisa.Visible = True
 AlimentarGrid
@@ -692,23 +692,23 @@ Private Sub DefinirTela(ParCadastro As Boolean)
 If ParCadastro = True Then
     quadPesquisa.Visible = False
     quadCadastro.Visible = True
-    cmdOpcao(EnumOption.Include).Visible = False
-    cmdOpcao(EnumOption.Read).Visible = False
+    cmdOpcao(EnumOption.eInclude).Visible = False
+    cmdOpcao(EnumOption.eRead).Visible = False
     cmdOpcao(EnumOption.Update).Visible = False
-    cmdOpcao(EnumOption.Delete).Visible = False
-    cmdOpcao(EnumOption.Leave).Visible = False
-    cmdOpcao(EnumOption.Confirm).Visible = True
-    cmdOpcao(EnumOption.Cancel).Visible = True
+    cmdOpcao(EnumOption.eDelete).Visible = False
+    cmdOpcao(EnumOption.eLeave).Visible = False
+    cmdOpcao(EnumOption.eConfirm).Visible = True
+    cmdOpcao(EnumOption.eCancel).Visible = True
 Else
     quadPesquisa.Visible = True
     quadCadastro.Visible = False
-    cmdOpcao(EnumOption.Include).Visible = True
-    cmdOpcao(EnumOption.Read).Visible = True
+    cmdOpcao(EnumOption.eInclude).Visible = True
+    cmdOpcao(EnumOption.eRead).Visible = True
     cmdOpcao(EnumOption.Update).Visible = True
-    cmdOpcao(EnumOption.Delete).Visible = True
-    cmdOpcao(EnumOption.Leave).Visible = True
-    cmdOpcao(EnumOption.Confirm).Visible = False
-    cmdOpcao(EnumOption.Cancel).Visible = False
+    cmdOpcao(EnumOption.eDelete).Visible = True
+    cmdOpcao(EnumOption.eLeave).Visible = True
+    cmdOpcao(EnumOption.eConfirm).Visible = False
+    cmdOpcao(EnumOption.eCancel).Visible = False
 End If
 End Sub
 
@@ -735,7 +735,7 @@ With fClsCorretoras
     .Codigo = fCodigo
     .Nome = txtNome
     .Inativo = IIf(chkInativo.Value, 1, 0)
-    If fOpcao = EnumOption.Include Then If Not .Inserir Then GoTo Trata
+    If fOpcao = EnumOption.eInclude Then If Not .Inserir Then GoTo Trata
     If fOpcao = EnumOption.Update Then If Not .Atualizar Then GoTo Trata
 End With
 

@@ -744,7 +744,7 @@ Begin VB.Form frmApplication
             ShadowColor     =   12632256
             ShadowDark      =   8421504
             ShadowText      =   0
-            SpreadDesigner  =   "frmApplication.frx":1044D
+            SpreadDesigner  =   "frmApplication.frx":1045C
             UserResize      =   0
          End
          Begin fpBtnAtlLibCtl.fpBtn cmdLimparAplicacoes 
@@ -781,7 +781,7 @@ Begin VB.Form frmApplication
             DropShadowType  =   0
             DropShadowColor =   0
             Redraw          =   -1  'True
-            ButtonDesigner  =   "frmApplication.frx":13A7E
+            ButtonDesigner  =   "frmApplication.frx":13A8D
          End
          Begin fpBtnAtlLibCtl.fpBtn cmdAplicar 
             Height          =   945
@@ -817,7 +817,7 @@ Begin VB.Form frmApplication
             DropShadowType  =   0
             DropShadowColor =   0
             Redraw          =   -1  'True
-            ButtonDesigner  =   "frmApplication.frx":14D57
+            ButtonDesigner  =   "frmApplication.frx":14D66
          End
          Begin VB.Label Label 
             BackColor       =   &H00E0E0E0&
@@ -1095,7 +1095,7 @@ Begin VB.Form frmApplication
          ShadowColor     =   12632256
          ShadowDark      =   8421504
          ShadowText      =   0
-         SpreadDesigner  =   "frmApplication.frx":16027
+         SpreadDesigner  =   "frmApplication.frx":16036
          UserResize      =   0
       End
       Begin VB.Label Label 
@@ -1286,6 +1286,7 @@ Else
     MsgBox "Não é possível realizar uma aplicação futura, escolha um mês menor ou igual ao atual", vbInformation, "GoInvest"
 End If
 
+gridSimulacao.Visible = True
 Exit Sub
 Resume
 vbErrorHandler:
@@ -1332,29 +1333,29 @@ End Function
 Private Function RetornaNumeroMes(ParMes As String) As Byte
 Dim sRetorno As Byte
 
-If ParMes = "Janeiro" Then
+If ParMes = "janeiro" Then
     sRetorno = 1
-ElseIf ParMes = "Fevereiro" Then
+ElseIf ParMes = "fevereiro" Then
     sRetorno = 2
-ElseIf ParMes = "Março" Then
+ElseIf ParMes = "março" Then
     sRetorno = 3
-ElseIf ParMes = "Abril" Then
+ElseIf ParMes = "abril" Then
     sRetorno = 4
-ElseIf ParMes = "Maio" Then
+ElseIf ParMes = "maio" Then
     sRetorno = 5
-ElseIf ParMes = "Junho" Then
+ElseIf ParMes = "junho" Then
     sRetorno = 6
-ElseIf ParMes = "Julho" Then
+ElseIf ParMes = "julho" Then
     sRetorno = 7
-ElseIf ParMes = "Agosto" Then
+ElseIf ParMes = "agosto" Then
     sRetorno = 8
-ElseIf ParMes = "Setembro" Then
+ElseIf ParMes = "setembro" Then
     sRetorno = 9
-ElseIf ParMes = "Outubro" Then
+ElseIf ParMes = "outubro" Then
     sRetorno = 10
-ElseIf ParMes = "Novembro" Then
+ElseIf ParMes = "novembro" Then
     sRetorno = 11
-ElseIf ParMes = "Dezembro" Then
+ElseIf ParMes = "dezembro" Then
     sRetorno = 12
 Else
     sRetorno = 0
@@ -1366,7 +1367,7 @@ End Function
 Private Sub cmdOpcao_Click(Index As Integer)
 On Error GoTo ErrorHandler
 
-If Index = EnumOption.Include Then
+If Index = EnumOption.eInclude Then
     fOpcao = Index
     DefinirTela True
     chkInativo.Visible = False
@@ -1374,18 +1375,18 @@ If Index = EnumOption.Include Then
     txtCodigo = "NOVO"
     chkInvestir.Enabled = False
     gridSimulacao.Visible = False
-ElseIf Index = EnumOption.Read Or Index = EnumOption.Update Or Index = EnumOption.Delete Then
+ElseIf Index = EnumOption.eRead Or Index = EnumOption.Update Or Index = EnumOption.eDelete Then
     gridPrincipal_Click gridPrincipal.ActiveCol, gridPrincipal.ActiveRow
     fOpcao = Index
     DefinirTela True
     If Not ObterDados Then GoTo ErrorHandler
-    If fOpcao = EnumOption.Delete Then cmdOpcao_Click (EnumOption.Confirm)
-ElseIf Index = EnumOption.Confirm Then
-    If fOpcao = EnumOption.Include Or fOpcao = EnumOption.Update Then
+    If fOpcao = EnumOption.eDelete Then cmdOpcao_Click (EnumOption.eConfirm)
+ElseIf Index = EnumOption.eConfirm Then
+    If fOpcao = EnumOption.eInclude Or fOpcao = EnumOption.Update Then
         TransferirDados
         DefinirTela False
         ExpurgarTela
-    ElseIf fOpcao = EnumOption.Delete Then
+    ElseIf fOpcao = EnumOption.eDelete Then
         If Not fClsAplicacoes.Excluir(fCodigo) Then GoTo ErrorHandler
         AlimentarGrid
         DefinirTela False
@@ -1394,10 +1395,10 @@ ElseIf Index = EnumOption.Confirm Then
         DefinirTela False
         ExpurgarTela
     End If
-ElseIf Index = EnumOption.Cancel Then
+ElseIf Index = EnumOption.eCancel Then
     DefinirTela False
     ExpurgarTela
-ElseIf Index = EnumOption.Leave Then
+ElseIf Index = EnumOption.eLeave Then
     Unload Me
 End If
 
@@ -1421,8 +1422,8 @@ AlimentarGrid
 End Sub
 
 Private Sub Form_Load()
-cmdOpcao(EnumOption.Confirm).Visible = False
-cmdOpcao(EnumOption.Cancel).Visible = False
+cmdOpcao(EnumOption.eConfirm).Visible = False
+cmdOpcao(EnumOption.eCancel).Visible = False
 quadCadastro.Visible = False
 quadInvestimento.Visible = False
 quadPesquisa.Visible = True
@@ -1444,23 +1445,23 @@ Private Sub DefinirTela(ParCadastro As Boolean)
 If ParCadastro = True Then
     quadPesquisa.Visible = False
     quadCadastro.Visible = True
-    cmdOpcao(EnumOption.Include).Visible = False
-    cmdOpcao(EnumOption.Read).Visible = False
+    cmdOpcao(EnumOption.eInclude).Visible = False
+    cmdOpcao(EnumOption.eRead).Visible = False
     cmdOpcao(EnumOption.Update).Visible = False
-    cmdOpcao(EnumOption.Delete).Visible = False
-    cmdOpcao(EnumOption.Leave).Visible = False
-    cmdOpcao(EnumOption.Confirm).Visible = True
-    cmdOpcao(EnumOption.Cancel).Visible = True
+    cmdOpcao(EnumOption.eDelete).Visible = False
+    cmdOpcao(EnumOption.eLeave).Visible = False
+    cmdOpcao(EnumOption.eConfirm).Visible = True
+    cmdOpcao(EnumOption.eCancel).Visible = True
 Else
     quadPesquisa.Visible = True
     quadCadastro.Visible = False
-    cmdOpcao(EnumOption.Include).Visible = True
-    cmdOpcao(EnumOption.Read).Visible = True
+    cmdOpcao(EnumOption.eInclude).Visible = True
+    cmdOpcao(EnumOption.eRead).Visible = True
     cmdOpcao(EnumOption.Update).Visible = True
-    cmdOpcao(EnumOption.Delete).Visible = True
-    cmdOpcao(EnumOption.Leave).Visible = True
-    cmdOpcao(EnumOption.Confirm).Visible = False
-    cmdOpcao(EnumOption.Cancel).Visible = False
+    cmdOpcao(EnumOption.eDelete).Visible = True
+    cmdOpcao(EnumOption.eLeave).Visible = True
+    cmdOpcao(EnumOption.eConfirm).Visible = False
+    cmdOpcao(EnumOption.eCancel).Visible = False
 End If
 
 End Sub
@@ -1478,6 +1479,8 @@ If fClsAplicacoes.Consultar(fCodigo) Then
         chkInativo = .Inativo
     End With
 End If
+
+gridSimulacao.Visible = chkInvestir.Value
 
 fClsExtrato.CodigoAplicacao = CInt(txtCodigo)
 fClsExtrato.ConsultarExtrato gridAplicacoes, txtValor, cmbMes, txtTaxa, txtSaque, cmdAplicar
@@ -1509,14 +1512,14 @@ With fClsAplicacoes
     .Ano = cmbAno.Text
     .Investir = IIf(chkInvestir.Value, 1, 0)
     .Inativo = IIf(chkInativo.Value, 1, 0)
-    If fOpcao = EnumOption.Include Then If Not .Inserir Then GoTo Trata
+    If fOpcao = EnumOption.eInclude Then If Not .Inserir Then GoTo Trata
     If fOpcao = EnumOption.Update Then If Not .Atualizar Then GoTo Trata
 End With
 
 With fClsExtrato
     For sCont = 1 To gridAplicacoes.MaxRows
         sSql = "SELECT EXT_REGISTRO FROM EXTRATO WHERE EXT_REGISTRO = '" & CDbl(SpreadGetText(gridAplicacoes, 1, sCont)) & "'"
-        ReadQuery sSql, sLinhas
+        eReadQuery sSql, sLinhas
         If sLinhas <> 0 Then GoTo Fim
         .Registro = CDbl(SpreadGetText(gridAplicacoes, 1, sCont))
         If .Registro = 0 Then Exit For
@@ -1525,7 +1528,7 @@ With fClsExtrato
         .Saque = CDbl(SpreadGetText(gridAplicacoes, 5, sCont))
         .Mes = RetornaNumeroMes(SpreadGetText(gridAplicacoes, 2, sCont))
         If fOpcao = EnumOption.Update Then
-            fClsExtrato.CodigoAplicacao = VariableAdjust(txtCodigo.Text, DoubleNumber)
+            fClsExtrato.CodigoAplicacao = VariableAdjust(txtCodigo.Text, eDoubleNumber)
             If Not .AtualizarExtrato() Then GoTo Trata
         End If
 Fim:

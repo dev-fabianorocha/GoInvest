@@ -4,7 +4,7 @@ Option Explicit
 Private eUser As String
 Private ePassword As String
 
-Public Function ReadQuery(Query_ As String, Optional ByRef Rows_ As Long) As ADODB.Recordset
+Public Function eReadQuery(Query_ As String, Optional ByRef Rows_ As Long) As ADODB.Recordset
 On Error GoTo ErrorHandler
 
 Dim iConnection As New ADODB.Connection, iRecordset As New ADODB.Recordset
@@ -17,12 +17,12 @@ With iRecordset
     Rows_ = .RecordCount
 End With
 
-Set ReadQuery = iRecordset
+Set eReadQuery = iRecordset
 
 Exit Function
 Resume
 ErrorHandler:
-ErrorHandler Err.Number, Err.Description, "ModuleDataBase.ReadQuery", Query_
+ErrorHandler Err.Number, Err.Description, "ModuleDataBase.eReadQuery", Query_
 End Function
 
 Public Function Connection() As ADODB.Connection
@@ -71,7 +71,7 @@ ErrorHandler:
 ErrorHandler Err.Number, Err.Description, "ModuleDataBase.QueryExecute", Query_
 End Function
 
-Public Function ReadConfig() As Boolean
+Public Function eReadConfig() As Boolean
 On Error GoTo ErrorHandler
 Dim iServer As String, iDataBase As String, iUser As String, iPassword As String, iText As String, iReturn As Boolean, iWindowsConnection As Boolean
 
@@ -106,11 +106,11 @@ Else
     frmConfig.Show
 End If
 
-ReadConfig = iReturn
+eReadConfig = iReturn
 Exit Function
 Resume
 ErrorHandler:
-ErrorHandler Err.Number, Err.Description, "ModuleDataBase.ReadConfig"
+ErrorHandler Err.Number, Err.Description, "ModuleDataBase.eReadConfig"
 End Function
 
 Public Function WriteConfig(Server_ As String, DataBase_ As String, User_ As String, Password_ As String, WindowsConnection_ As Boolean) As Boolean

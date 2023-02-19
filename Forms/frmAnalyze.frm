@@ -33,7 +33,7 @@ Dim iRecordset As New Recordset, iQuery As String, iRows As Long, iPosition As L
 iQuery = "SELECT DISTINCT APL_NOME AS APLICACACAO, SUM(SAL_RENDIMENTO) AS RENDIMENTO FROM APLICACOES" _
     & " INNER JOIN SALDOS ON SAL_APLICACAO = APL_CODIGO AND APL_INATIVO = 0 GROUP BY  APL_NOME"
     
-Set iRecordset = ReadQuery(iQuery, iRows)
+Set iRecordset = eReadQuery(iQuery, iRows)
 
 MSChart.chartType = 1
 MSChart.ShowLegend = False
@@ -47,8 +47,8 @@ If Not iRecordset.EOF Then
     With iRecordset
         For iPosition = 1 To iRows
             MSChart.Row = iPosition
-            MSChart.RowLabel = VariableAdjust(!APLICACACAO, StringText)
-            MSChart.Data = VariableAdjust(!Rendimento, DoubleNumber)
+            MSChart.RowLabel = VariableAdjust(!APLICACACAO, eStringText)
+            MSChart.Data = VariableAdjust(!Rendimento, eDoubleNumber)
             .MoveNext
         Next
     End With

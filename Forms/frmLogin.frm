@@ -323,7 +323,7 @@ End Sub
 
 Private Sub Form_Load()
 gVersion = "26/03/2022"
-If Not ReadConfig Then
+If Not eReadConfig Then
     MsgBox "O banco de dados não esta configurado!", vbExclamation
     Unload Me
 End If
@@ -338,14 +338,14 @@ Dim sSql As String, sLinhas As Long, sRetorno As Boolean
 
 If VerificaNome Then
     sSql = "SELECT USU_NOME FROM USUARIOS WHERE USU_NOME = '" & txtUsuario.Text & "'"
-    ReadQuery sSql, sLinhas
+    eReadQuery sSql, sLinhas
     
     If sLinhas <> 0 Then
         sRetorno = True
     End If
 ElseIf VerificaSenha Then
     sSql = "SELECT USU_NOME FROM USUARIOS WHERE USU_NOME = '" & txtUsuario.Text & "' AND USU_SENHA = '" & txtSenha.Text & "'"
-    ReadQuery sSql, sLinhas
+    eReadQuery sSql, sLinhas
     
     If sLinhas <> 0 Then
         sRetorno = True

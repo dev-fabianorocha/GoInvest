@@ -60,13 +60,13 @@ Dim sSql As String
 
 sSql = "SELECT USU_CODIGO, USU_NOME, USU_SENHA, USU_CADASTRO, USU_ATUALIZACAO, USU_INATIVO FROM USUARIOS WHERE USU_CODIGO = '" & ParCodigo & "'"
 
-If Not ReadQuery(sSql).EOF Then
-    With ReadQuery(sSql)
-        fNome = VariableAdjust(!USU_NOME, StringText)
-        fSenha = VariableAdjust(!USU_SENHA, StringText)
-        fCadastro = VariableAdjust(!USU_CADASTRO, StringText)
-        fAtualizacao = VariableAdjust(!USU_ATUALIZACAO, StringText)
-        fInativo = VariableAdjust(!USU_INATIVO, LogicSql)
+If Not eReadQuery(sSql).EOF Then
+    With eReadQuery(sSql)
+        fNome = VariableAdjust(!USU_NOME, eStringText)
+        fSenha = VariableAdjust(!USU_SENHA, eStringText)
+        fCadastro = VariableAdjust(!USU_CADASTRO, eStringText)
+        fAtualizacao = VariableAdjust(!USU_ATUALIZACAO, eStringText)
+        fInativo = VariableAdjust(!USU_INATIVO, eLogicSql)
     End With
 Else
     MsgBox "Código não localizado"

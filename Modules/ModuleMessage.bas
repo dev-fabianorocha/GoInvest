@@ -1,7 +1,7 @@
 Attribute VB_Name = "ModuleMessage"
 Option Explicit
 
-Public Function ErrorHandler(ByVal NumberError_ As Integer, ByVal ErrorDescription_ As String, ByVal ErrorPlace As String, Optional ByVal Query_ As String)
+Public Function ErrorHandler(ByVal NumberError_ As Long, ByVal ErrorDescription_ As String, ByVal ErrorPlace As String, Optional ByVal Query_ As String)
 Dim iMessage As String
 
 iMessage = "-------------------------------------------------------------------------------" & vbCrLf

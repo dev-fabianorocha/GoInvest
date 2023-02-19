@@ -105,7 +105,7 @@ Inserir = True
 Exit Function
 Resume
 Trata:
-ErrorHandler Err.Number, Err.Description, "ClsAplicacoes.Inserir", sSql
+ErrorHandler Err.Number, Err.Description, "clsAplicacoes.Inserir", sSql
 End Function
 
 Public Function Atualizar() As Boolean
@@ -121,7 +121,7 @@ Atualizar = True
 Exit Function
 Resume
 Trata:
-MsgBox ErrorHandler(Err.Number, Err.Description, sSql), vbCritical, "clsCorretoras.Atualizar"
+ErrorHandler Err.Number, Err.Description, "clsAplicacoes.Atualizar", sSql
 End Function
 
 Public Function Excluir(ParCodigo As Integer) As Boolean
@@ -137,5 +137,5 @@ Excluir = True
 Exit Function
 Resume
 Trata:
-MsgBox ErrorHandler(Err.Number, Err.Description, sSql), vbCritical, "clsCorretoras.Excluir"
+ErrorHandler Err.Number, Err.Description, "clsAplicacoes.Excluir", sSql
 End Function

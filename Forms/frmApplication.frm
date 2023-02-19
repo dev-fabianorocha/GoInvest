@@ -304,7 +304,7 @@ Begin VB.Form frmApplication
             Strikethrough   =   0   'False
          EndProperty
          Height          =   255
-         Left            =   17400
+         Left            =   17880
          TabIndex        =   20
          Top             =   720
          Width           =   1095
@@ -1230,7 +1230,7 @@ Private Sub chkInvestir_Click()
 End Sub
 
 Private Sub cmdAplicar_Click()
-On Error GoTo vbErrorHandler
+On Error GoTo ErrorHandler
 Dim sMes As Long, sLinhas As Long, sCont As Long, sValor As Double
 
 If Not AnalisarDados Then Exit Sub
@@ -1289,8 +1289,8 @@ End If
 gridSimulacao.Visible = True
 Exit Sub
 Resume
-vbErrorHandler:
-MsgBox Err.Number & " - " & Err.Description, vbOKOnly, Err.Source
+ErrorHandler:
+ErrorHandler Err.Number, Err.Description, "frmApplication.cmdAplicar_Click", ""
 End Sub
 
 Private Function SomarValorMensal()
@@ -1405,6 +1405,7 @@ End If
 Exit Sub
 Resume
 ErrorHandler:
+ErrorHandler Err.Number, Err.Description, "frmApplication.cmdOpcao_Click", ""
 End Sub
 
 Private Sub cmdLimparAplicacoes_Click()
@@ -1557,7 +1558,7 @@ TransferirDados = True
 Exit Function
 Resume
 Trata:
-MsgBox ErrorHandler(Err.Number, Err.Description, sSql), vbCritical, "clsCorretoras.Atualizar"
+ErrorHandler Err.Number, Err.Description, "frmApplication.TransferirDados", sSql
 End Function
 
 Private Function AnalisarDados() As Boolean

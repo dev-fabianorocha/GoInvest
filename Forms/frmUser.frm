@@ -709,7 +709,7 @@ End If
 Exit Sub
 Resume
 ErrorHandler:
-ErrorHandler Err.Number, Err.Description, "frmUser.cmdOption_Click"
+ErrorHandler Err.Number, Err.Description, "frmUser.cmdOpcao_Click", ""
 End Sub
 
 Private Sub cmdPesquisa_Click()
@@ -786,7 +786,7 @@ TransferirDados = True
 Exit Function
 Resume
 Trata:
-ErrorHandler Err.Number, Err.Description, sSql
+ErrorHandler Err.Number, Err.Description, "frmUser.TransferirDados", sSql
 End Function
 
 Private Sub ExpurgarDados()

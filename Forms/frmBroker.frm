@@ -303,7 +303,7 @@ Begin VB.Form frmBroker
             Strikethrough   =   0   'False
          EndProperty
          Height          =   255
-         Left            =   17760
+         Left            =   17880
          TabIndex        =   16
          Top             =   720
          Width           =   1095
@@ -672,7 +672,7 @@ On Error GoTo ErrorHandler
 Exit Sub
 Resume
 ErrorHandler:
-
+ErrorHandler Err.Number, Err.Description, "cmdOpcao_Click", ""
 End Sub
 
 Private Sub cmdPesquisa_Click()
@@ -745,7 +745,7 @@ TransferirDados = True
 Exit Function
 Resume
 Trata:
-MsgBox ErrorHandler(Err.Number, Err.Description, sSql), vbCritical, "clsCorretoras.Atualizar"
+ErrorHandler Err.Number, Err.Description, "frmBroker.TransferirDados", sSql
 End Function
 
 Private Sub ExpurgarDados()

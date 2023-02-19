@@ -112,7 +112,7 @@ AtualizarExtrato = True
 Exit Function
 Resume
 Trata:
-MsgBox ErrorHandler(Err.Number, Err.Description, sSql), vbCritical, "clsExtrato.AtualizarExtrato"
+ErrorHandler Err.Number, Err.Description, "clsExtrato.AtualizarExtrato", sSql
 End Function
 Public Function LimparExtrato() As Boolean
 On Error GoTo Trata
@@ -125,7 +125,7 @@ LimparExtrato = True
 Exit Function
 Resume
 Trata:
-MsgBox ErrorHandler(Err.Number, Err.Description, sSql), vbCritical, "clsExtrato.LimparExtrato"
+ErrorHandler Err.Number, Err.Description, "clsExtrato.LimparExtrato", sSql
 End Function
 
 Public Function LimparSaldos() As Boolean
@@ -139,7 +139,7 @@ LimparSaldos = True
 Exit Function
 Resume
 Trata:
-MsgBox ErrorHandler(Err.Number, Err.Description, sSql), vbCritical, "clsExtrato.LimparSaldos"
+ErrorHandler Err.Number, Err.Description, "clsExtrato.LimparSaldos", sSql
 End Function
 
 
@@ -155,7 +155,7 @@ InserirSaldos = True
 Exit Function
 Resume
 Trata:
-MsgBox ErrorHandler(Err.Number, Err.Description, sSql), vbCritical, "clsExtrato.InserirSaldos"
+ErrorHandler Err.Number, Err.Description, "clsExtrato.InserirSaldos", sSql
 End Function
 
 Public Sub Sacar(ByVal ParValorSaque As Double)

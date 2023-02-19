@@ -687,7 +687,7 @@ ElseIf Index = EnumOption.eRead Or Index = EnumOption.Update Or Index = EnumOpti
     If fOpcao = EnumOption.eDelete Then cmdOpcao_Click (EnumOption.eConfirm)
 ElseIf Index = EnumOption.eConfirm Then
     If fOpcao = EnumOption.eInclude Or fOpcao = EnumOption.Update Then
-        TransferirDados
+        If Not TransferirDados Then Exit Sub
         DefinirTela False
         ExpurgarDados
     ElseIf fOpcao = EnumOption.eDelete Then
@@ -766,8 +766,9 @@ End Function
 
 Private Function TransferirDados() As Boolean
 On Error GoTo Trata
-
 Dim sSql As String, sCont As Long
+
+If Not AnalisarDados Then Exit Function
 
 If fCodigo <> 0 Then fClsUsuarios.Consultar (fCodigo)
 With fClsUsuarios
@@ -789,12 +790,30 @@ Trata:
 ErrorHandler Err.Number, Err.Description, "frmUser.TransferirDados", sSql
 End Function
 
+Private Function AnalisarDados() As Boolean
+
+If txtNome.Text = Empty Then
+    MsgBox "Por favor informe o nome do usuário.", vbInformation, "GoInvest"
+    txtNome.SetFocus
+    Exit Function
+End If
+
+If txtSenha.Text = Empty Then
+    MsgBox "Por favor informe uma senha para o usuário.", vbInformation, "GoInvest"
+    txtSenha.SetFocus
+    Exit Function
+End If
+
+AnalisarDados = True
+End Function
+
 Private Sub ExpurgarDados()
-txtCodigo = ""
-txtNome = ""
+txtCodigo.Text = Empty
+txtNome.Text = Empty
+txtSenha.Text = Empty
 chkInativo.Value = 0
-txtData = ""
-txtAtualizacao = ""
+txtData.Text = Empty
+txtAtualizacao.Text = Empty
 chkInativo.Visible = True
 quadDatas.Visible = True
 Set fClsUsuarios = Nothing

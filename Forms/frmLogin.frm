@@ -226,7 +226,7 @@ Begin VB.Form frmLogin
       NoSpecialKeys   =   0
       AutoAdvance     =   0   'False
       AutoBeep        =   0   'False
-      AutoCase        =   1
+      AutoCase        =   0
       CaretInsert     =   0
       CaretOverWrite  =   3
       UserEntry       =   0
@@ -334,7 +334,7 @@ Private Sub txtSenha_GotFocus()
 End Sub
 
 Private Function VerificarUsuario(Optional ByVal VerificaNome As Boolean, Optional ByVal VerificaSenha As Boolean) As Boolean
-Dim sSql As String, sLinhas As Long, sRetorno As Boolean
+Dim sSql As String, sLinhas As Long, sRetorno As Boolean, iClsCipher As clsCipher
 
 If VerificaNome Then
     sSql = "SELECT USU_NOME FROM USUARIOS WHERE USU_NOME = '" & txtUsuario.Text & "'"
@@ -344,12 +344,15 @@ If VerificaNome Then
         sRetorno = True
     End If
 ElseIf VerificaSenha Then
-    sSql = "SELECT USU_NOME FROM USUARIOS WHERE USU_NOME = '" & txtUsuario.Text & "' AND USU_SENHA = '" & txtSenha.Text & "'"
+    Set iClsCipher = New clsCipher
+    sSql = "SELECT USU_NOME FROM USUARIOS WHERE USU_NOME = '" & txtUsuario.Text & "' AND USU_SENHA = '" & iClsCipher.Encrypt(txtSenha.Text) & "'"
     eReadQuery sSql, sLinhas
     
     If sLinhas <> 0 Then
         sRetorno = True
     End If
+    
+    Set iClsCipher = Nothing
 End If
 
 VerificarUsuario = sRetorno

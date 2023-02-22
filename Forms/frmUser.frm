@@ -6,8 +6,8 @@ Begin VB.Form frmUser
    BackColor       =   &H00E0E0E0&
    Caption         =   "Usuários"
    ClientHeight    =   10500
-   ClientLeft      =   45
-   ClientTop       =   510
+   ClientLeft      =   2535
+   ClientTop       =   900
    ClientWidth     =   20385
    Icon            =   "frmUser.frx":0000
    LinkTopic       =   "Form1"
@@ -94,7 +94,7 @@ Begin VB.Form frmUser
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmUser.frx":7AD5
+         ButtonDesigner  =   "frmUser.frx":7B0D
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   855
@@ -131,7 +131,7 @@ Begin VB.Form frmUser
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmUser.frx":8DA1
+         ButtonDesigner  =   "frmUser.frx":8E11
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   855
@@ -168,7 +168,7 @@ Begin VB.Form frmUser
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmUser.frx":A06F
+         ButtonDesigner  =   "frmUser.frx":A117
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   855
@@ -205,7 +205,7 @@ Begin VB.Form frmUser
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmUser.frx":B33A
+         ButtonDesigner  =   "frmUser.frx":B41A
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   855
@@ -242,7 +242,7 @@ Begin VB.Form frmUser
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmUser.frx":C605
+         ButtonDesigner  =   "frmUser.frx":C71D
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   855
@@ -279,136 +279,7 @@ Begin VB.Form frmUser
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmUser.frx":D8D1
-      End
-   End
-   Begin VB.Frame quadPesquisa 
-      BackColor       =   &H00E0E0E0&
-      BorderStyle     =   0  'None
-      Height          =   10575
-      Left            =   0
-      TabIndex        =   11
-      Top             =   0
-      Width           =   19275
-      Begin VB.CheckBox chkInativoPesquisa 
-         BackColor       =   &H00E0E0E0&
-         Caption         =   "I&nativos"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   255
-         Left            =   17160
-         TabIndex        =   3
-         Top             =   720
-         Width           =   1095
-      End
-      Begin fpBtnAtlLibCtl.fpBtn cmdPesquisa 
-         Height          =   495
-         Left            =   8280
-         TabIndex        =   2
-         Top             =   360
-         Width           =   1875
-         _Version        =   131072
-         _ExtentX        =   3307
-         _ExtentY        =   873
-         Enabled         =   -1  'True
-         MousePointer    =   0
-         Object.TabStop         =   -1  'True
-         GrayAreaColor   =   12632256
-         BorderShowDefault=   -1  'True
-         ButtonType      =   0
-         NoPointerFocus  =   0   'False
-         Value           =   0   'False
-         GroupID         =   0
-         GroupSelect     =   0
-         DrawFocusRect   =   2
-         DrawFocusRectCell=   -1
-         GrayAreaPictureStyle=   0
-         Static          =   0   'False
-         BackStyle       =   0
-         AutoSize        =   0
-         AutoSizeOffsetTop=   0
-         AutoSizeOffsetBottom=   0
-         AutoSizeOffsetLeft=   0
-         AutoSizeOffsetRight=   0
-         DropShadowOffsetX=   3
-         DropShadowOffsetY=   3
-         DropShadowType  =   0
-         DropShadowColor =   0
-         Redraw          =   -1  'True
-         ButtonDesigner  =   "frmUser.frx":EB9D
-      End
-      Begin VB.TextBox txtPesquisa 
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   330
-         Left            =   240
-         TabIndex        =   1
-         Top             =   480
-         Width           =   7815
-      End
-      Begin FPSpreadADO.fpSpread gridPrincipal 
-         Height          =   8805
-         Left            =   240
-         TabIndex        =   4
-         Top             =   1080
-         Width           =   17985
-         _Version        =   458752
-         _ExtentX        =   31724
-         _ExtentY        =   15531
-         _StockProps     =   64
-         DisplayRowHeaders=   0   'False
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Arial"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         GrayAreaBackColor=   14737632
-         GridColor       =   8421504
-         MaxCols         =   5
-         MaxRows         =   1
-         OperationMode   =   2
-         ShadowColor     =   12632256
-         ShadowDark      =   8421504
-         ShadowText      =   0
-         SpreadDesigner  =   "frmUser.frx":FE74
-         UserResize      =   0
-      End
-      Begin VB.Label Label 
-         BackColor       =   &H00E0E0E0&
-         Caption         =   "Nome:"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   375
-         Index           =   4
-         Left            =   260
-         TabIndex        =   0
-         Top             =   200
-         Width           =   1335
+         ButtonDesigner  =   "frmUser.frx":DA21
       End
    End
    Begin VB.Frame quadCadastro 
@@ -420,6 +291,16 @@ Begin VB.Form frmUser
       TabIndex        =   12
       Top             =   0
       Width           =   19095
+      Begin VB.CheckBox SeePassword 
+         Appearance      =   0  'Flat
+         BackColor       =   &H00E0E0E0&
+         ForeColor       =   &H80000008&
+         Height          =   855
+         Left            =   8640
+         TabIndex        =   27
+         Top             =   600
+         Width           =   375
+      End
       Begin VB.TextBox txtSenha 
          BeginProperty Font 
             Name            =   "Arial"
@@ -532,9 +413,9 @@ Begin VB.Form frmUser
             Strikethrough   =   0   'False
          EndProperty
          Height          =   495
-         Left            =   8760
+         Left            =   9600
          TabIndex        =   8
-         Top             =   760
+         Top             =   780
          Width           =   1095
       End
       Begin VB.TextBox txtNome 
@@ -628,6 +509,135 @@ Begin VB.Form frmUser
          Width           =   735
       End
    End
+   Begin VB.Frame quadPesquisa 
+      BackColor       =   &H00E0E0E0&
+      BorderStyle     =   0  'None
+      Height          =   10575
+      Left            =   0
+      TabIndex        =   11
+      Top             =   0
+      Width           =   19275
+      Begin VB.CheckBox chkInativoPesquisa 
+         BackColor       =   &H00E0E0E0&
+         Caption         =   "I&nativos"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   255
+         Left            =   17160
+         TabIndex        =   3
+         Top             =   720
+         Width           =   1095
+      End
+      Begin fpBtnAtlLibCtl.fpBtn cmdPesquisa 
+         Height          =   495
+         Left            =   8280
+         TabIndex        =   2
+         Top             =   360
+         Width           =   1875
+         _Version        =   131072
+         _ExtentX        =   3307
+         _ExtentY        =   873
+         Enabled         =   -1  'True
+         MousePointer    =   0
+         Object.TabStop         =   -1  'True
+         GrayAreaColor   =   12632256
+         BorderShowDefault=   -1  'True
+         ButtonType      =   0
+         NoPointerFocus  =   0   'False
+         Value           =   0   'False
+         GroupID         =   0
+         GroupSelect     =   0
+         DrawFocusRect   =   2
+         DrawFocusRectCell=   -1
+         GrayAreaPictureStyle=   0
+         Static          =   0   'False
+         BackStyle       =   0
+         AutoSize        =   0
+         AutoSizeOffsetTop=   0
+         AutoSizeOffsetBottom=   0
+         AutoSizeOffsetLeft=   0
+         AutoSizeOffsetRight=   0
+         DropShadowOffsetX=   3
+         DropShadowOffsetY=   3
+         DropShadowType  =   0
+         DropShadowColor =   0
+         Redraw          =   -1  'True
+         ButtonDesigner  =   "frmUser.frx":ED25
+      End
+      Begin VB.TextBox txtPesquisa 
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   330
+         Left            =   240
+         TabIndex        =   1
+         Top             =   480
+         Width           =   7815
+      End
+      Begin FPSpreadADO.fpSpread gridPrincipal 
+         Height          =   8805
+         Left            =   240
+         TabIndex        =   4
+         Top             =   1080
+         Width           =   17985
+         _Version        =   458752
+         _ExtentX        =   31724
+         _ExtentY        =   15531
+         _StockProps     =   64
+         DisplayRowHeaders=   0   'False
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Arial"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         GrayAreaBackColor=   14737632
+         GridColor       =   8421504
+         MaxCols         =   5
+         MaxRows         =   1
+         OperationMode   =   2
+         ShadowColor     =   12632256
+         ShadowDark      =   8421504
+         ShadowText      =   0
+         SpreadDesigner  =   "frmUser.frx":10034
+         UserResize      =   0
+      End
+      Begin VB.Label Label 
+         BackColor       =   &H00E0E0E0&
+         Caption         =   "Nome:"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Index           =   4
+         Left            =   260
+         TabIndex        =   0
+         Top             =   200
+         Width           =   1335
+      End
+   End
 End
 Attribute VB_Name = "frmUser"
 Attribute VB_GlobalNameSpace = False
@@ -669,6 +679,7 @@ SpreadFill gridPrincipal, sSql
 
 Exit Sub
 End Sub
+
 
 Private Sub cmdOpcao_Click(Index As Integer)
 On Error GoTo ErrorHandler
@@ -775,7 +786,7 @@ With fClsUsuarios
     .Codigo = fCodigo
     .Nome = Trim(txtNome)
     .Senha = txtSenha
-    .Inativo = IIf(chkInativo.Value, 1, 0)
+    .Inativo = IIf(chkInativo.value, 1, 0)
     If fOpcao = EnumOption.eInclude Then If Not .Inserir Then GoTo Trata
     If fOpcao = EnumOption.Update Then If Not .Atualizar Then GoTo Trata
 End With
@@ -811,7 +822,7 @@ Private Sub ExpurgarDados()
 txtCodigo.Text = Empty
 txtNome.Text = Empty
 txtSenha.Text = Empty
-chkInativo.Value = 0
+chkInativo.value = 0
 txtData.Text = Empty
 txtAtualizacao.Text = Empty
 chkInativo.Visible = True
@@ -829,6 +840,14 @@ End Sub
 
 Private Sub gridPrincipal_DblClick(ByVal col As Long, ByVal Row As Long)
 cmdOpcao_Click (EnumOption.Update)
+End Sub
+
+Private Sub SeePassword_Click()
+If SeePassword Then
+    txtSenha.PasswordChar = ""
+Else
+    txtSenha.PasswordChar = "*"
+End If
 End Sub
 
 Private Sub txtNome_KeyPress(KeyAscii As Integer)

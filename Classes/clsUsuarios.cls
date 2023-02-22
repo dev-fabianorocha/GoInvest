@@ -19,6 +19,8 @@ Dim fSenha As String
 Dim fCadastro As Date
 Dim fAtualizacao As Date
 Dim fInativo As Byte
+Dim eClsCipher As clsCipher
+
 Property Get Codigo() As Integer
 Codigo = fCodigo
 End Property
@@ -60,10 +62,12 @@ Dim sSql As String
 
 sSql = "SELECT USU_CODIGO, USU_NOME, USU_SENHA, USU_CADASTRO, USU_ATUALIZACAO, USU_INATIVO FROM USUARIOS WHERE USU_CODIGO = '" & ParCodigo & "'"
 
+Set eClsCipher = New clsCipher
+
 If Not eReadQuery(sSql).EOF Then
     With eReadQuery(sSql)
         fNome = VariableAdjust(!USU_NOME, eStringText)
-        fSenha = VariableAdjust(!USU_SENHA, eStringText)
+        fSenha = eClsCipher.Decrypt(VariableAdjust(!USU_SENHA, eStringText))
         fCadastro = VariableAdjust(!USU_CADASTRO, eStringText)
         fAtualizacao = VariableAdjust(!USU_ATUALIZACAO, eStringText)
         fInativo = VariableAdjust(!USU_INATIVO, eLogicSql)
@@ -73,6 +77,8 @@ Else
     Exit Function
 End If
 
+Set eClsCipher = Nothing
+
 Consultar = True
 End Function
 
@@ -80,9 +86,13 @@ Public Function Inserir() As Boolean
 On Error GoTo Trata
 Dim sSql As String
 
+Set eClsCipher = New clsCipher
+
 sSql = "INSERT INTO USUARIOS (USU_NOME, USU_SENHA, USU_CADASTRO, USU_ATUALIZACAO, USU_INATIVO) VALUES ('" _
-    & fNome & "', '" & fSenha & "', GETDATE(), GETDATE(), '" & fInativo & "')"
+    & fNome & "', '" & eClsCipher.Encrypt(fSenha) & "', GETDATE(), GETDATE(), '" & fInativo & "')"
 If Not QueryExecute(sSql) Then GoTo Trata
+
+Set eClsCipher = Nothing
 
 Inserir = True
 Exit Function
@@ -95,9 +105,13 @@ Public Function Atualizar() As Boolean
 On Error GoTo Trata
 Dim sSql As String
 
-sSql = "UPDATE USUARIOS SET USU_NOME = '" & fNome & "', USU_SENHA = '" & fSenha & "', USU_ATUALIZACAO = GETDATE(), USU_INATIVO = '" & fInativo _
+Set eClsCipher = New clsCipher
+
+sSql = "UPDATE USUARIOS SET USU_NOME = '" & fNome & "', USU_SENHA = '" & eClsCipher.Encrypt(fSenha) & "', USU_ATUALIZACAO = GETDATE(), USU_INATIVO = '" & fInativo _
     & "' WHERE USU_CODIGO = '" & fCodigo & "'"
 If Not QueryExecute(sSql) Then GoTo Trata
+
+Set eClsCipher = Nothing
 
 Atualizar = True
 Exit Function

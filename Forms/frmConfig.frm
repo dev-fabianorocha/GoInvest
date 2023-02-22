@@ -70,6 +70,7 @@ Begin VB.Form frmConfig
       Top             =   0
       Width           =   5295
       Begin VB.CheckBox chkLoginWindows 
+         Appearance      =   0  'Flat
          BackColor       =   &H00E0E0E0&
          Caption         =   "Login Windows"
          BeginProperty Font 
@@ -81,6 +82,7 @@ Begin VB.Form frmConfig
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
+         ForeColor       =   &H80000008&
          Height          =   255
          Left            =   3360
          TabIndex        =   11
@@ -239,7 +241,7 @@ Attribute VB_Exposed = False
 Option Explicit
 
 Private Sub chkLoginWindows_Click()
-    If chkLoginWindows.Value Then
+    If chkLoginWindows.value Then
         txtUsuario.Enabled = False
         txtUsuario.BackColor = &HE0E0E0
         txtSenha.Enabled = False
@@ -256,7 +258,7 @@ End Sub
 
 Private Sub cmdConectar_Click()
 
-If WriteConfig(txtServidor, txtBanco, txtUsuario, txtSenha, chkLoginWindows.Value) Then
+If WriteConfig(txtServidor, txtBanco, txtUsuario, txtSenha, chkLoginWindows.value) Then
     If eReadConfig Then
         MsgBox "O banco de dados foi configurado, com sucesso!", vbInformation
         Unload Me

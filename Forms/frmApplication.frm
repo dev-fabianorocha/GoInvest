@@ -292,6 +292,7 @@ Begin VB.Form frmApplication
       Top             =   0
       Width           =   19455
       Begin VB.CheckBox chkInativoPesquisa 
+         Appearance      =   0  'Flat
          BackColor       =   &H00E0E0E0&
          Caption         =   "I&nativos"
          BeginProperty Font 
@@ -303,6 +304,7 @@ Begin VB.Form frmApplication
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
+         ForeColor       =   &H80000008&
          Height          =   255
          Left            =   17880
          TabIndex        =   20
@@ -454,6 +456,7 @@ Begin VB.Form frmApplication
          Width           =   2415
       End
       Begin VB.CheckBox chkInvestir 
+         Appearance      =   0  'Flat
          BackColor       =   &H00E0E0E0&
          Caption         =   "&Investir"
          BeginProperty Font 
@@ -465,6 +468,7 @@ Begin VB.Form frmApplication
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
+         ForeColor       =   &H80000008&
          Height          =   255
          Left            =   8760
          TabIndex        =   23
@@ -1017,6 +1021,7 @@ Begin VB.Form frmApplication
          End
       End
       Begin VB.CheckBox chkInativo 
+         Appearance      =   0  'Flat
          BackColor       =   &H00E0E0E0&
          Caption         =   "I&nativo"
          BeginProperty Font 
@@ -1028,6 +1033,7 @@ Begin VB.Form frmApplication
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
+         ForeColor       =   &H80000008&
          Height          =   495
          Left            =   10095
          TabIndex        =   6
@@ -1221,7 +1227,7 @@ Exit Sub
 End Sub
 
 Private Sub chkInvestir_Click()
-    If chkInvestir.Value Then
+    If chkInvestir.value Then
         quadInvestimento.Visible = True
         chkInvestir.Enabled = False
         SpreadClean gridAplicacoes
@@ -1481,7 +1487,7 @@ If fClsAplicacoes.Consultar(fCodigo) Then
     End With
 End If
 
-gridSimulacao.Visible = chkInvestir.Value
+gridSimulacao.Visible = chkInvestir.value
 
 fClsExtrato.CodigoAplicacao = CInt(txtCodigo)
 fClsExtrato.ConsultarExtrato gridAplicacoes, txtValor, cmbMes, txtTaxa, txtSaque, cmdAplicar
@@ -1511,8 +1517,8 @@ With fClsAplicacoes
     .Nome = txtNome
     .Corretora = cmbCorretora.ListIndex
     .Ano = cmbAno.Text
-    .Investir = IIf(chkInvestir.Value, 1, 0)
-    .Inativo = IIf(chkInativo.Value, 1, 0)
+    .Investir = IIf(chkInvestir.value, 1, 0)
+    .Inativo = IIf(chkInativo.value, 1, 0)
     If fOpcao = EnumOption.eInclude Then If Not .Inserir Then GoTo Trata
     If fOpcao = EnumOption.Update Then If Not .Atualizar Then GoTo Trata
 End With
@@ -1588,13 +1594,13 @@ Private Sub ExpurgarTela()
 
 txtCodigo = ""
 txtNome = ""
-chkInativo.Value = 0
+chkInativo.value = 0
 txtData = ""
 txtAtualizacao = ""
 chkInativo.Visible = True
 quadDatas.Visible = True
 chkInvestir.Enabled = True
-chkInvestir.Value = False
+chkInvestir.value = False
 quadInvestimento.Visible = False
 cmbCorretora.Text = ""
 cmbAno.Text = ""

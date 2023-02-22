@@ -104,7 +104,7 @@ Begin VB.Form frmMain
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmMain.frx":12DD4
+         ButtonDesigner  =   "frmMain.frx":12E0C
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdFechar 
          Height          =   1095
@@ -140,7 +140,7 @@ Begin VB.Form frmMain
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmMain.frx":140A3
+         ButtonDesigner  =   "frmMain.frx":14113
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdTrocarUsuario 
          Height          =   1095
@@ -176,7 +176,7 @@ Begin VB.Form frmMain
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmMain.frx":15376
+         ButtonDesigner  =   "frmMain.frx":1541E
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdUsuario 
          Height          =   855
@@ -212,7 +212,7 @@ Begin VB.Form frmMain
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmMain.frx":16649
+         ButtonDesigner  =   "frmMain.frx":16729
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdCorretoras 
          Height          =   855
@@ -248,7 +248,7 @@ Begin VB.Form frmMain
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmMain.frx":17916
+         ButtonDesigner  =   "frmMain.frx":17A2E
       End
    End
 End

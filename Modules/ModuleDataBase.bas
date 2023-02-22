@@ -73,7 +73,7 @@ End Function
 
 Public Function eReadConfig() As Boolean
 On Error GoTo ErrorHandler
-Dim iServer As String, iDataBase As String, iUser As String, iPassword As String, iText As String, iReturn As Boolean, iWindowsConnection As Boolean
+Dim iServer As String, iDataBase As String, iUser As String, iPassword As String, iText As String, iReturn As Boolean, iWindowsConnection As Boolean, iClsCipher As New clsCipher
 
 If Dir("C:\GoInvest\Config.ini") <> Empty Then
     Open "C:\GoInvest\Config.ini" For Input As #1
@@ -82,7 +82,7 @@ If Dir("C:\GoInvest\Config.ini") <> Empty Then
             If Mid(iText, 1, 2) = "01" Then iServer = Mid(iText, 4)
             If Mid(iText, 1, 2) = "02" Then iDataBase = Mid(iText, 4)
             If Mid(iText, 1, 2) = "03" Then iUser = Mid(iText, 4)
-            If Mid(iText, 1, 2) = "04" Then iPassword = Mid(iText, 4)
+            If Mid(iText, 1, 2) = "04" Then iPassword = iClsCipher.Decrypt(Mid(iText, 4))
             If Mid(iText, 1, 2) = "05" Then
                 If Mid(iText, 4) = "Verdadeiro" Then
                     iWindowsConnection = True
@@ -106,6 +106,7 @@ Else
     frmConfig.Show
 End If
 
+Set iClsCipher = Nothing
 eReadConfig = iReturn
 Exit Function
 Resume
@@ -115,18 +116,19 @@ End Function
 
 Public Function WriteConfig(Server_ As String, DataBase_ As String, User_ As String, Password_ As String, WindowsConnection_ As Boolean) As Boolean
 On Error GoTo ErrorHandler
-Dim iPosition As Long
+Dim iPosition As Long, iClsCipher As New clsCipher
 
 Open "C:\GoInvest\Config.ini" For Output As #1
 For iPosition = 1 To 5
     If iPosition = 1 Then Print #1, "0" & iPosition & "=" & Server_
     If iPosition = 2 Then Print #1, "0" & iPosition & "=" & DataBase_
     If iPosition = 3 Then Print #1, "0" & iPosition & "=" & User_
-    If iPosition = 4 Then Print #1, "0" & iPosition & "=" & Password_
+    If iPosition = 4 Then Print #1, "0" & iPosition & "=" & iClsCipher.Encrypt(Password_)
     If iPosition = 5 Then Print #1, "0" & iPosition & "=" & WindowsConnection_
 Next
 Close #1
 
+Set iClsCipher = Nothing
 WriteConfig = True
 Exit Function
 Resume

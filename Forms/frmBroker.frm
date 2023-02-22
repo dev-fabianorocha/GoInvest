@@ -291,6 +291,7 @@ Begin VB.Form frmBroker
       Top             =   0
       Width           =   19455
       Begin VB.CheckBox chkInativoPesquisa 
+         Appearance      =   0  'Flat
          BackColor       =   &H00E0E0E0&
          Caption         =   "I&nativos"
          BeginProperty Font 
@@ -302,6 +303,7 @@ Begin VB.Form frmBroker
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
+         ForeColor       =   &H80000008&
          Height          =   255
          Left            =   17880
          TabIndex        =   16
@@ -502,6 +504,7 @@ Begin VB.Form frmBroker
          End
       End
       Begin VB.CheckBox chkInativo 
+         Appearance      =   0  'Flat
          BackColor       =   &H00E0E0E0&
          Caption         =   "I&nativo"
          BeginProperty Font 
@@ -513,6 +516,7 @@ Begin VB.Form frmBroker
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
+         ForeColor       =   &H80000008&
          Height          =   495
          Left            =   9840
          TabIndex        =   6
@@ -734,7 +738,7 @@ If fOpcao = EnumOption.Update Then fClsCorretoras.Consultar (fCodigo)
 With fClsCorretoras
     .Codigo = fCodigo
     .Nome = txtNome
-    .Inativo = IIf(chkInativo.Value, 1, 0)
+    .Inativo = IIf(chkInativo.value, 1, 0)
     If fOpcao = EnumOption.eInclude Then If Not .Inserir Then GoTo Trata
     If fOpcao = EnumOption.Update Then If Not .Atualizar Then GoTo Trata
 End With
@@ -751,7 +755,7 @@ End Function
 Private Sub ExpurgarDados()
 txtCodigo = ""
 txtNome = ""
-chkInativo.Value = 0
+chkInativo.value = 0
 txtData = ""
 txtAtualizacao = ""
 chkInativo.Visible = True

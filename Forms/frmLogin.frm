@@ -338,7 +338,7 @@ Dim sSql As String, sLinhas As Long, sRetorno As Boolean, iClsCipher As clsCiphe
 
 If VerificaNome Then
     sSql = "SELECT USU_NOME FROM USUARIOS WHERE USU_NOME = '" & txtUsuario.Text & "'"
-    eReadQuery sSql, sLinhas
+    ReadQuery sSql, sLinhas
     
     If sLinhas <> 0 Then
         sRetorno = True
@@ -346,7 +346,7 @@ If VerificaNome Then
 ElseIf VerificaSenha Then
     Set iClsCipher = New clsCipher
     sSql = "SELECT USU_NOME FROM USUARIOS WHERE USU_NOME = '" & txtUsuario.Text & "' AND USU_SENHA = '" & iClsCipher.Encrypt(txtSenha.Text) & "'"
-    eReadQuery sSql, sLinhas
+    ReadQuery sSql, sLinhas
     
     If sLinhas <> 0 Then
         sRetorno = True

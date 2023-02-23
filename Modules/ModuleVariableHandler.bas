@@ -113,7 +113,7 @@ End Function
 Public Function ComboBoxFill(ByRef ParCombo As ComboBox, ByVal Query_ As String)
 Dim iRecordset As New ADODB.Recordset, iRows As Long
 
-Set iRecordset = eReadQuery(Query_, iRows)
+Set iRecordset = ReadQuery(Query_, iRows)
 ParCombo.AddItem " ", 0
 
 With iRecordset

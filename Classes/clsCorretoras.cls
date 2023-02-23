@@ -53,8 +53,8 @@ Dim sSql As String
 
 sSql = "SELECT COR_CODIGO, COR_NOME, COR_CADASTRO, COR_ATUALIZACAO, COR_INATIVO FROM CORRETORAS WHERE COR_CODIGO = '" & ParCodigo & "'"
 
-If Not eReadQuery(sSql).EOF Then
-    With eReadQuery(sSql)
+If Not ReadQuery(sSql).EOF Then
+    With ReadQuery(sSql)
         fNome = IIf(Null, "", !COR_NOME)
         fCadastro = !COR_CADASTRO
         fAtualizacao = !COR_ATUALIZACAO

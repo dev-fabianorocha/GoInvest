@@ -428,13 +428,13 @@ Begin VB.Form frmUser
          DownPicture     =   "frmUser.frx":10359
          DragIcon        =   "frmUser.frx":10DCB
          ForeColor       =   &H80000008&
-         Height          =   495
+         Height          =   330
          Left            =   8640
          Picture         =   "frmUser.frx":1183D
          Style           =   1  'Graphical
          TabIndex        =   27
-         Top             =   760
-         Width           =   495
+         Top             =   860
+         Width           =   400
       End
       Begin VB.TextBox txtSenha 
          BeginProperty Font 

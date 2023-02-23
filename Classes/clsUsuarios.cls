@@ -64,8 +64,8 @@ sSql = "SELECT USU_CODIGO, USU_NOME, USU_SENHA, USU_CADASTRO, USU_ATUALIZACAO, U
 
 Set eClsCipher = New clsCipher
 
-If Not eReadQuery(sSql).EOF Then
-    With eReadQuery(sSql)
+If Not ReadQuery(sSql).EOF Then
+    With ReadQuery(sSql)
         fNome = VariableAdjust(!USU_NOME, eStringText)
         fSenha = eClsCipher.Decrypt(VariableAdjust(!USU_SENHA, eStringText))
         fCadastro = VariableAdjust(!USU_CADASTRO, eStringText)

@@ -4,7 +4,7 @@ Option Explicit
 Private eUser As String
 Private ePassword As String
 
-Public Function eReadQuery(Query_ As String, Optional ByRef Rows_ As Long) As ADODB.Recordset
+Public Function ReadQuery(Query_ As String, Optional ByRef Rows_ As Long) As ADODB.Recordset
 On Error GoTo ErrorHandler
 
 Dim iConnection As New ADODB.Connection, iRecordset As New ADODB.Recordset
@@ -17,12 +17,12 @@ With iRecordset
     Rows_ = .RecordCount
 End With
 
-Set eReadQuery = iRecordset
+Set ReadQuery = iRecordset
 
 Exit Function
 Resume
 ErrorHandler:
-ErrorHandler Err.Number, Err.Description, "ModuleDataBase.eReadQuery", Query_
+ErrorHandler Err.Number, Err.Description, "ModuleDataBase.ReadQuery", Query_
 End Function
 
 Public Function Connection() As ADODB.Connection
@@ -136,4 +136,19 @@ ErrorHandler:
 ErrorHandler Err.Number, Err.Description, "ModuleDataBase.WriteConfig"
 End Function
 
+Public Function FieldCollect(Query_ As String, Type_ As EnumType) As Variant
+On Error GoTo ErrorHandler
+Dim iReturn As Variant
 
+If Not ReadQuery(Query_).EOF Then
+    With ReadQuery(Query_)
+        iReturn = VariableAdjust(.Fields(0), Type_)
+    End With
+End If
+
+FieldCollect = iReturn
+Exit Function
+Resume
+ErrorHandler:
+ErrorHandler Err.Number, Err.Description, "ModuleDataBase.FieldCollect"
+End Function

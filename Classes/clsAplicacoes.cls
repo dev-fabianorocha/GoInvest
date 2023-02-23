@@ -74,8 +74,8 @@ Dim sSql As String
 sSql = "SELECT APL_CODIGO, APL_NOME, APL_CORRETORA, APL_ANO, APL_INVESTIR, APL_CADASTRO, APL_ATUALIZACAO, APL_INATIVO " _
     & " FROM APLICACOES WHERE APL_CODIGO = '" & ParCodigo & "'"
 
-If Not eReadQuery(sSql).EOF Then
-    With eReadQuery(sSql)
+If Not ReadQuery(sSql).EOF Then
+    With ReadQuery(sSql)
         fCodigo = VariableAdjust(!APL_CODIGO, eDoubleNumber)
         fCorretora = VariableAdjust(!APL_CORRETORA, eDoubleNumber)
         fNome = VariableAdjust(!APL_NOME, eStringText)
@@ -101,6 +101,8 @@ sSql = "INSERT INTO APLICACOES (APL_NOME, APL_CORRETORA, APL_ANO, APL_INVESTIR, 
     & " VALUES ('" & fNome & "','" & fCorretora & "','" & fAno & "','" & fInvestir & "',GETDATE(), GETDATE(), '" & fInativo & "')"
 If Not QueryExecute(sSql) Then GoTo Trata
 
+fCodigo = FieldCollect("SELECT MAX(APL_CODIGO) FROM APLICACOES (NOLOCK)", eIntNumber)
+
 Inserir = True
 Exit Function
 Resume
@@ -116,6 +118,8 @@ sSql = "UPDATE APLICACOES SET APL_NOME = '" & fNome & "', APL_CORRETORA = '" & f
     & fInvestir & "', APL_ATUALIZACAO = GETDATE(), APL_INATIVO = '" & fInativo _
     & "' WHERE APL_CODIGO = '" & fCodigo & "'"
 If Not QueryExecute(sSql) Then GoTo Trata
+
+
 
 Atualizar = True
 Exit Function

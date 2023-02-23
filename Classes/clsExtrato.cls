@@ -81,8 +81,8 @@ Dim sLinhas As Long
 sSql = "SELECT EXT_REGISTRO, EXT_VALOR, EXT_MES, EXT_TAXA, EXT_SAQUE FROM EXTRATO WHERE EXT_APLICACAO = '" & fCodigoAplicacao & "' ORDER BY EXT_MES"
 sCont = 1
 
-If Not eReadQuery(sSql).EOF Then
-    With eReadQuery(sSql, sLinhas)
+If Not ReadQuery(sSql).EOF Then
+    With ReadQuery(sSql, sLinhas)
         For sLinha = 1 To sLinhas
             ParTextValor.Text = VariableAdjust(!EXT_VALOR, eDoubleNumber)
             ParComboMes.ListIndex = VariableAdjust(!EXT_MES, eStringText)

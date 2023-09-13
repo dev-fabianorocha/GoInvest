@@ -71,7 +71,7 @@ ErrorHandler:
 ErrorHandler Err.Number, Err.Description, "ModuleDataBase.QueryExecute", Query_
 End Function
 
-Public Function eReadConfig() As Boolean
+Public Function ReadConfig() As Boolean
 On Error GoTo ErrorHandler
 Dim iServer As String, iDataBase As String, iUser As String, iPassword As String, iText As String, iReturn As Boolean, iWindowsConnection As Boolean, iClsCipher As New clsCipher
 
@@ -107,7 +107,7 @@ Else
 End If
 
 Set iClsCipher = Nothing
-eReadConfig = iReturn
+ReadConfig = iReturn
 Exit Function
 Resume
 ErrorHandler:

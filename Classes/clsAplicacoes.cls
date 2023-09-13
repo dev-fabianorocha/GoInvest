@@ -13,133 +13,137 @@ Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = False
 Option Explicit
 
-Dim fCodigo As Integer
-Dim fNome As String
-Dim fAno As String
-Dim fCorretora As Integer
-Dim fCadastro As Date
-Dim fAtualizacao As Date
-Dim fInvestir As Byte
-Dim fInativo As Byte
+Dim eCodigo As Integer
+Dim eNome As String
+Dim eAno As String
+Dim eCorretora As Integer
+Dim eCadastro As Date
+Dim eAtualizacao As Date
+Dim eInvestir As Byte
+Dim eInativo As Byte
 Property Get Codigo() As Integer
-Codigo = fCodigo
+Codigo = eCodigo
 End Property
 Property Let Codigo(ByVal ParCodigo As Integer)
-fCodigo = ParCodigo
+eCodigo = ParCodigo
 End Property
 Property Get Corretora() As Integer
-Corretora = fCorretora
+Corretora = eCorretora
 End Property
 Property Let Corretora(ByVal ParCorretora As Integer)
-fCorretora = ParCorretora
+eCorretora = ParCorretora
 End Property
 Property Get Nome() As String
-Nome = fNome
+Nome = eNome
 End Property
 Property Let Nome(ByVal ParNome As String)
-fNome = ParNome
+eNome = ParNome
 End Property
 Property Get Ano() As String
-Ano = fAno
+Ano = eAno
 End Property
 Property Let Ano(ByVal ParAno As String)
-fAno = ParAno
+eAno = ParAno
 End Property
 Property Get Cadastro() As Date
-Cadastro = fCadastro
+Cadastro = eCadastro
 End Property
 Property Let Cadastro(ByVal ParCadastro As Date)
-fCadastro = ParCadastro
+eCadastro = ParCadastro
 End Property
 Property Get Atualizacao() As Date
-Atualizacao = fAtualizacao
+Atualizacao = eAtualizacao
 End Property
 Property Let Atualizacao(ByVal ParAtualizacao As Date)
-fAtualizacao = ParAtualizacao
+eAtualizacao = ParAtualizacao
 End Property
 Property Get Investir() As Byte
-Investir = fInvestir
+Investir = eInvestir
 End Property
 Property Let Investir(ByVal ParInvestir As Byte)
-fInvestir = ParInvestir
+eInvestir = ParInvestir
 End Property
 Property Get Inativo() As Byte
-Inativo = fInativo
+Inativo = eInativo
 End Property
 Property Let Inativo(ByVal ParInativo As Byte)
-fInativo = ParInativo
+eInativo = ParInativo
 End Property
-Public Function Consultar(ParCodigo) As Boolean
-Dim sSql As String
-sSql = "SELECT APL_CODIGO, APL_NOME, APL_CORRETORA, APL_ANO, APL_INVESTIR, APL_CADASTRO, APL_ATUALIZACAO, APL_INATIVO " _
-    & " FROM APLICACOES WHERE APL_CODIGO = '" & ParCodigo & "'"
+Public Function Read(Codigo_) As Boolean
+Dim iQuery As String
+iQuery = "SELECT APL_CODIGO, APL_NOME, APL_CORRETORA, APL_ANO, APL_INVESTIR, APL_CADASTRO, APL_ATUALIZACAO, APL_INATIVO " _
+    & " FROM APLICACOES WHERE APL_CODIGO = '" & Codigo_ & "'"
 
-If Not ReadQuery(sSql).EOF Then
-    With ReadQuery(sSql)
-        fCodigo = VariableAdjust(!APL_CODIGO, eDoubleNumber)
-        fCorretora = VariableAdjust(!APL_CORRETORA, eDoubleNumber)
-        fNome = VariableAdjust(!APL_NOME, eStringText)
-        fAno = VariableAdjust(!APL_ANO, eDoubleNumber)
-        fCadastro = VariableAdjust(!APL_CADASTRO, eStringText)
-        fAtualizacao = VariableAdjust(!APL_ATUALIZACAO, eStringText)
-        fInvestir = VariableAdjust(!APL_INVESTIR, eLogicSql)
-        fInativo = VariableAdjust(!APL_INATIVO, eLogicSql)
+If Not ReadQuery(iQuery).EOF Then
+    With ReadQuery(iQuery)
+        eCodigo = VariableAdjust(!APL_CODIGO, eDoubleNumber)
+        eCorretora = VariableAdjust(!APL_CORRETORA, eDoubleNumber)
+        eNome = VariableAdjust(!APL_NOME, eStringText)
+        eAno = VariableAdjust(!APL_ANO, eDoubleNumber)
+        eCadastro = VariableAdjust(!APL_CADASTRO, eStringText)
+        eAtualizacao = VariableAdjust(!APL_ATUALIZACAO, eStringText)
+        eInvestir = VariableAdjust(!APL_INVESTIR, eLogicSql)
+        eInativo = VariableAdjust(!APL_INATIVO, eLogicSql)
     End With
 Else
     MsgBox "Código não localizado"
     Exit Function
 End If
 
-Consultar = True
+Read = True
 End Function
 
-Public Function Inserir() As Boolean
+Public Function Include() As Boolean
 On Error GoTo Trata
-Dim sSql As String
+Dim iQuery As String
 
-sSql = "INSERT INTO APLICACOES (APL_NOME, APL_CORRETORA, APL_ANO, APL_INVESTIR, APL_CADASTRO, APL_ATUALIZACAO, APL_INATIVO) " _
-    & " VALUES ('" & fNome & "','" & fCorretora & "','" & fAno & "','" & fInvestir & "',GETDATE(), GETDATE(), '" & fInativo & "')"
-If Not QueryExecute(sSql) Then GoTo Trata
+iQuery = _
+    "INSERT INTO APLICACOES (APL_NOME, APL_CORRETORA, APL_ANO, APL_INVESTIR, APL_CADASTRO, APL_ATUALIZACAO, APL_INATIVO) " _
+    & " VALUES ('" & eNome & "','" & eCorretora & "','" & eAno & "','" & eInvestir _
+    & "',GETDATE(), GETDATE(), '" & eInativo & "')"
+    
+If Not QueryExecute(iQuery) Then GoTo Trata
 
-fCodigo = FieldCollect("SELECT MAX(APL_CODIGO) FROM APLICACOES (NOLOCK)", eIntNumber)
+eCodigo = FieldCollect("SELECT MAX(APL_CODIGO) FROM APLICACOES (NOLOCK)", eIntNumber)
 
-Inserir = True
+Include = True
 Exit Function
 Resume
 Trata:
-ErrorHandler Err.Number, Err.Description, "clsAplicacoes.Inserir", sSql
+ErrorHandler Err.Number, Err.Description, "clsAplicacoes.Include", iQuery
 End Function
 
-Public Function Atualizar() As Boolean
+Public Function Update() As Boolean
 On Error GoTo Trata
-Dim sSql As String
+Dim iQuery As String
 
-sSql = "UPDATE APLICACOES SET APL_NOME = '" & fNome & "', APL_CORRETORA = '" & fCorretora & "', APL_ANO = '" & fAno & "' ,APL_INVESTIR = '" _
-    & fInvestir & "', APL_ATUALIZACAO = GETDATE(), APL_INATIVO = '" & fInativo _
-    & "' WHERE APL_CODIGO = '" & fCodigo & "'"
-If Not QueryExecute(sSql) Then GoTo Trata
+iQuery = "UPDATE APLICACOES SET APL_NOME = '" & eNome & "', APL_CORRETORA = '" _
+    & eCorretora & "', APL_ANO = '" & eAno & "' ,APL_INVESTIR = '" & eInvestir & _
+    "', APL_ATUALIZACAO = GETDATE(), APL_INATIVO = '" & eInativo & _
+    "' WHERE APL_CODIGO = '" & eCodigo & "'"
+    
+If Not QueryExecute(iQuery) Then GoTo Trata
 
 
-
-Atualizar = True
+Update = True
 Exit Function
 Resume
 Trata:
-ErrorHandler Err.Number, Err.Description, "clsAplicacoes.Atualizar", sSql
+ErrorHandler Err.Number, Err.Description, "clsAplicacoes.Update", iQuery
 End Function
 
-Public Function Excluir(ParCodigo As Integer) As Boolean
+Public Function Delete(Codigo_ As Integer) As Boolean
 On Error GoTo Trata
-Dim sSql As String
+Dim iQuery As String
 
-sSql = "UPDATE APLICACOES SET APL_INATIVO = '1' WHERE APL_CODIGO = '" & ParCodigo & "'"
+iQuery = "UPDATE APLICACOES SET APL_INATIVO = '1' WHERE APL_CODIGO = '" & Codigo_ & "'"
 If MsgBox("Deseja excluir essa corretora?", vbYesNo, "Corretoras") = 6 Then
-    If Not QueryExecute(sSql) Then GoTo Trata
+    If Not QueryExecute(iQuery) Then GoTo Trata
 End If
 
-Excluir = True
+Delete = True
 Exit Function
 Resume
 Trata:
-ErrorHandler Err.Number, Err.Description, "clsAplicacoes.Excluir", sSql
+ErrorHandler Err.Number, Err.Description, "clsAplicacoes.Excluir", iQuery
 End Function

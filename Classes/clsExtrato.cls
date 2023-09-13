@@ -172,7 +172,7 @@ End Sub
 
 Public Sub Depositar(ByVal ParValorDeposito As Double)
 If ParValorDeposito <= 0 Then
-   Err.Raise vbObjectError + 2002, "Conta Bancária::Depósito", "Valor de depósito inválido : " & ParValorDeposito
+  ' Err.Raise vbObjectError + 2002, "Conta Bancária::Depósito", "Valor de depósito inválido : " & ParValorDeposito
 End If
 
 fSaldo = fSaldo + ParValorDeposito

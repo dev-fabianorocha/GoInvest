@@ -1194,6 +1194,7 @@ Dim fClsAplicacoes As New ClsAplicacoes
 Dim fCodigo As Integer
 Dim fCondicao As String
 Dim fClsExtrato As New clsExtrato
+Dim fObtendoDados As Boolean
 Private Enum EnumGrid
     eCodigo = 1
     eNome
@@ -1237,7 +1238,8 @@ End Sub
 Private Sub cmdAplicar_Click()
 'Caro programador: Quando eu escrevi esse código-fonte, apenas eu e Deus sabíamos como ele funcionava. Hoje, só Deus sabe!
 On Error GoTo ErrorHandler
-Dim sMes As Long, sLinhas As Long, sCont As Long, sValor As Double
+Dim sMes As Long, sLinhas As Long, sCont As Long, sValor As Double, sUltimoMesDeposito As String
+    
 
 If Not AnalisarDados Then Exit Sub
 
@@ -1246,6 +1248,7 @@ With gridAplicacoes
         .Row = sCont
         .col = 2
         If .Text <> "" Then
+            If Not IsNumeric(.Text) And Trim(.Text) <> "" Then sUltimoMesDeposito = .Text
             sMes = RetornaNumeroMes(.Text)
             If sMes > cmbMes.ListIndex Then
                 MsgBox "Não é possível inserir uma aplicação retroativa!", vbInformation, "GoInvest"
@@ -1276,7 +1279,8 @@ If cmbMes.ListIndex <= CInt(Month(Date)) Then
         Next
     End With
     fClsExtrato.Taxa = CDbl(txtTaxa.Text)
-    SomarValorMensal
+    
+    SomarValorMensal sUltimoMesDeposito
     For sMes = (cmbMes.ListIndex) To 12
         With gridSimulacao
             sValor = fClsExtrato.Saldo
@@ -1299,7 +1303,7 @@ ErrorHandler:
 ErrorHandler Err.Number, Err.Description, "frmApplication.cmdAplicar_Click", ""
 End Sub
 
-Private Function SomarValorMensal()
+Private Function SomarValorMensal(MesUltimoDeposito_ As String)
 Dim sCont As Long, sValor As Double, sSaque As Double, sCont2 As Long
 With gridAplicacoes
     For sCont = 1 To .MaxRows
@@ -1318,7 +1322,7 @@ With gridAplicacoes
                     gridSimulacao.Row = sCont
                     gridSimulacao.col = 1
                     If gridSimulacao.Text <> "" Then
-                        If gridSimulacao.Text = MonthName(cmbMes.ListIndex - 1) Then
+                        If gridSimulacao.Text = IIf(fObtendoDados, MonthName(cmbMes.ListIndex - 1), MesUltimoDeposito_) Then
                             gridSimulacao.col = 3
                             sValor = CDbl(gridSimulacao.Text)
                             fClsExtrato.Depositar sValor
@@ -1393,7 +1397,7 @@ ElseIf Index = EnumOption.eConfirm Then
         DefinirTela False
         ExpurgarTela
     ElseIf fOpcao = EnumOption.eDelete Then
-        If Not fClsAplicacoes.Excluir(fCodigo) Then GoTo ErrorHandler
+        If Not fClsAplicacoes.Delete(fCodigo) Then GoTo ErrorHandler
         AlimentarGrid
         DefinirTela False
         ExpurgarTela
@@ -1470,11 +1474,10 @@ Else
     cmdOpcao(EnumOption.eConfirm).Visible = False
     cmdOpcao(EnumOption.eCancel).Visible = False
 End If
-
 End Sub
 
 Private Function ObterDados() As Boolean
-If fClsAplicacoes.Consultar(fCodigo) Then
+If fClsAplicacoes.Read(fCodigo) Then
     With fClsAplicacoes
         txtCodigo.Text = .Codigo
         txtNome = .Nome
@@ -1490,7 +1493,9 @@ End If
 gridSimulacao.Visible = chkInvestir.value
 
 fClsExtrato.CodigoAplicacao = CInt(txtCodigo)
+fObtendoDados = True
 fClsExtrato.ConsultarExtrato gridAplicacoes, txtValor, cmbMes, txtTaxa, txtSaque, cmdAplicar
+fObtendoDados = False
 If txtTaxa <> Empty Then
     txtTaxa.Enabled = False
 Else
@@ -1511,7 +1516,7 @@ On Error GoTo Trata
 
 Dim sSql As String, sCont As Long, sLinhas As Long, sMes As Byte, sRendimento As Double, sSaldo As Double
 
-If fCodigo <> 0 Then fClsAplicacoes.Consultar (fCodigo)
+If fCodigo <> 0 Then fClsAplicacoes.Read (fCodigo)
 With fClsAplicacoes
     .Codigo = fCodigo
     .Nome = txtNome
@@ -1519,8 +1524,8 @@ With fClsAplicacoes
     .Ano = cmbAno.Text
     .Investir = IIf(chkInvestir.value, 1, 0)
     .Inativo = IIf(chkInativo.value, 1, 0)
-    If fOpcao = EnumOption.eInclude Then If Not .Inserir Then GoTo Trata
-    If fOpcao = EnumOption.Update Then If Not .Atualizar Then GoTo Trata
+    If fOpcao = EnumOption.eInclude Then If Not .Include Then GoTo Trata
+    If fOpcao = EnumOption.Update Then If Not .Update Then GoTo Trata
 End With
 
 fCodigo = fClsAplicacoes.Codigo

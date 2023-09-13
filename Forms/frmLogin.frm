@@ -323,7 +323,7 @@ End Sub
 
 Private Sub Form_Load()
 gVersion = "26/03/2022"
-If Not eReadConfig Then
+If Not ReadConfig Then
     MsgBox "O banco de dados não esta configurado!", vbExclamation
     Unload Me
 End If

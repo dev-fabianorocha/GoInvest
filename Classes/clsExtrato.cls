@@ -78,7 +78,9 @@ Public Function ConsultarExtrato(ByRef ParGrid As fpSpread, ByRef ParTextValor A
 Dim sSql As String, sCont As Long, sLinha As Long
 Dim sLinhas As Long
 
-sSql = "SELECT EXT_REGISTRO, EXT_VALOR, EXT_MES, EXT_TAXA, EXT_SAQUE FROM EXTRATO WHERE EXT_APLICACAO = '" & fCodigoAplicacao & "' ORDER BY EXT_MES"
+sSql = _
+    "SELECT EXT_REGISTRO, EXT_VALOR, EXT_MES, EXT_TAXA, EXT_SAQUE FROM EXTRATO WHERE EXT_APLICACAO = '" _
+    & fCodigoAplicacao & "' ORDER BY EXT_MES"
 sCont = 1
 
 If Not ReadQuery(sSql).EOF Then
@@ -103,9 +105,12 @@ Public Function AtualizarExtrato() As Boolean
 On Error GoTo Trata
 Dim sSql As String
 
-sSql = "INSERT INTO EXTRATO (EXT_REGISTRO, EXT_VALOR, EXT_MES, EXT_TAXA, EXT_SAQUE, EXT_APLICACAO) VALUES ('" & fRegistro _
-    & "', '" & VariableAdjust(fValor, eNumberSql) & "', '" & fMes & "', '" & VariableAdjust(fTaxa, eNumberSql) & "', '" & VariableAdjust(fSaque, eNumberSql) & "', '" _
-    & fCodigoAplicacao & "')"
+sSql = _
+    "INSERT INTO EXTRATO (EXT_REGISTRO, EXT_VALOR, EXT_MES, EXT_TAXA, EXT_SAQUE, EXT_APLICACAO) VALUES ('" _
+    & fRegistro & "', '" & VariableAdjust(fValor, eNumberSql) & "', '" & fMes & _
+    "', '" & VariableAdjust(fTaxa, eNumberSql) & "', '" & VariableAdjust(fSaque, _
+    eNumberSql) & "', '" & fCodigoAplicacao & "')"
+    
 If Not QueryExecute(sSql) Then GoTo Trata
 
 AtualizarExtrato = True
@@ -147,8 +152,12 @@ Public Function InserirSaldos(ParMes As Byte, ParRendimento As Double, ParSaldo 
 On Error GoTo Trata
 Dim sSql As String
 
-sSql = "INSERT INTO SALDOS (SAL_APLICACAO, SAL_MES, SAL_RENDIMENTO, SAL_SALDO) VALUES ('" & fCodigoAplicacao _
-    & "', '" & VariableAdjust(ParMes, eDoubleNumber) & "', '" & VariableAdjust(ParRendimento, eNumberSql) & "', '" & VariableAdjust(ParSaldo, eNumberSql) & "')"
+sSql = _
+    "INSERT INTO SALDOS (SAL_APLICACAO, SAL_MES, SAL_RENDIMENTO, SAL_SALDO) VALUES ('" _
+    & fCodigoAplicacao & "', '" & VariableAdjust(ParMes, eDoubleNumber) & "', '" & _
+    VariableAdjust(ParRendimento, eNumberSql) & "', '" & VariableAdjust(ParSaldo, _
+    eNumberSql) & "')"
+    
 If Not QueryExecute(sSql) Then GoTo Trata
 
 InserirSaldos = True

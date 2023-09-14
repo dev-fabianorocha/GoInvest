@@ -6,18 +6,18 @@ Begin VB.Form frmMain
    ClientHeight    =   10680
    ClientLeft      =   60
    ClientTop       =   405
-   ClientWidth     =   20385
+   ClientWidth     =   20370
    Icon            =   "frmMain.frx":0000
    LinkTopic       =   "Form1"
    ScaleHeight     =   10680
-   ScaleWidth      =   20385
+   ScaleWidth      =   20370
    WindowState     =   2  'Maximized
    Begin VB.PictureBox Picture 
       BackColor       =   &H00E0E0E0&
       BorderStyle     =   0  'None
       Enabled         =   0   'False
       Height          =   8895
-      Left            =   4080
+      Left            =   3600
       Picture         =   "frmMain.frx":680A
       ScaleHeight     =   8895
       ScaleWidth      =   13095
@@ -104,7 +104,7 @@ Begin VB.Form frmMain
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmMain.frx":12E0C
+         ButtonDesigner  =   "frmMain.frx":12DD4
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdFechar 
          Height          =   1095
@@ -140,7 +140,7 @@ Begin VB.Form frmMain
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmMain.frx":14113
+         ButtonDesigner  =   "frmMain.frx":140A3
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdTrocarUsuario 
          Height          =   1095
@@ -176,7 +176,7 @@ Begin VB.Form frmMain
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmMain.frx":1541E
+         ButtonDesigner  =   "frmMain.frx":15376
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdUsuario 
          Height          =   855
@@ -212,7 +212,7 @@ Begin VB.Form frmMain
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmMain.frx":16729
+         ButtonDesigner  =   "frmMain.frx":16649
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdCorretoras 
          Height          =   855
@@ -248,7 +248,7 @@ Begin VB.Form frmMain
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmMain.frx":17A2E
+         ButtonDesigner  =   "frmMain.frx":17916
       End
    End
 End
@@ -277,7 +277,10 @@ frmLogin.Show
 End Sub
 
 Private Sub cmdUsuario_Click()
-frmUser.Show 1
+SetForm frmUser, frmMain
+frmUser.WindowState = 0
+Centraliza frmMain, frmUser
+frmUser.Show
 End Sub
 
 Private Sub Form_Load()

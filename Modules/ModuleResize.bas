@@ -13,6 +13,8 @@ Public Type ctrObj
     ScaleWidth As Long
 End Type
 
+Declare Function SetParent Lib "user32" (ByVal hWndChild As Long, ByVal hWndNewParent As Long) As Long
+
 Private FormRecord() As ctrObj
 Private ControlRecord() As ctrObj
 Private bRunning As Boolean
@@ -27,6 +29,19 @@ Else
 End If
 End Function
 
+
+Public Sub Centraliza(Parent As Form, Child As Form)
+Dim iTop As Integer
+Dim iLeft As Integer
+If Parent.WindowState <> 0 Then Exit Sub
+  iTop = ((Parent.Height - Child.Height) \ 2) - 50
+  iLeft = ((Parent.Width - Child.Width) \ 2) + 2000
+  Child.Move iLeft, iTop
+End Sub
+
+Public Function SetForm(childForm_ As Form, mdiForm_ As Form)
+SetParent childForm_.hWnd, mdiForm_.hWnd
+End Function
 
 Private Function FindForm(pfrmIn As Form) As Long
 Dim i As Long

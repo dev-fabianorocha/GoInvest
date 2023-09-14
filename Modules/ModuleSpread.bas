@@ -14,7 +14,14 @@ Public Sub SpreadClean(ByRef Spread_ As fpSpread)
     Dim iPositionCol As Long, iPositionRow As Long
     
     With Spread_
-        .MaxRows = 0
+        For iPositionRow = 1 To .MaxRows
+            For iPositionCol = 1 To .MaxCols
+                .Row = iPositionRow
+                .col = iPositionCol
+                .Text = 0
+                .RowHidden = True
+            Next
+        Next
     End With
 
 End Sub

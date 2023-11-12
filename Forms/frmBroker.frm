@@ -1,24 +1,26 @@
 VERSION 5.00
-Object = "{F856EC8B-F03C-4515-BDC6-64CBD617566A}#7.0#0"; "FPSPR70.ocx"
 Object = "{FD2FB1F1-D4FC-11CE-A335-A8D5ECAE5B02}#2.0#0"; "btn32a20.ocx"
+Object = "{F856EC8B-F03C-4515-BDC6-64CBD617566A}#7.0#0"; "FPSPR70.ocx"
 Begin VB.Form frmBroker 
    Appearance      =   0  'Flat
    BackColor       =   &H00E0E0E0&
+   BorderStyle     =   0  'None
    Caption         =   "Corretoras"
-   ClientHeight    =   10590
-   ClientLeft      =   60
-   ClientTop       =   555
-   ClientWidth     =   20385
+   ClientHeight    =   10500
+   ClientLeft      =   0
+   ClientTop       =   150
+   ClientWidth     =   19125
    Icon            =   "frmBroker.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   10590
-   ScaleWidth      =   20385
+   ScaleHeight     =   10500
+   ScaleWidth      =   19125
+   ShowInTaskbar   =   0   'False
    WindowState     =   2  'Maximized
    Begin VB.Frame quadBotoes 
       BackColor       =   &H00404040&
       ForeColor       =   &H8000000E&
       Height          =   10800
-      Left            =   19080
+      Left            =   17760
       TabIndex        =   17
       Top             =   -90
       Width           =   1455
@@ -305,7 +307,7 @@ Begin VB.Form frmBroker
          EndProperty
          ForeColor       =   &H80000008&
          Height          =   255
-         Left            =   17880
+         Left            =   16320
          TabIndex        =   16
          Top             =   720
          Width           =   1095
@@ -367,9 +369,9 @@ Begin VB.Form frmBroker
          Left            =   240
          TabIndex        =   2
          Top             =   1080
-         Width           =   18705
+         Width           =   17265
          _Version        =   458752
-         _ExtentX        =   32994
+         _ExtentX        =   30454
          _ExtentY        =   15743
          _StockProps     =   64
          DisplayRowHeaders=   0   'False
@@ -390,7 +392,7 @@ Begin VB.Form frmBroker
          ShadowColor     =   12632256
          ShadowDark      =   8421504
          ShadowText      =   0
-         SpreadDesigner  =   "frmBroker.frx":FE74
+         SpreadDesigner  =   "frmBroker.frx":FEAC
          UserResize      =   0
       End
       Begin VB.Label Label 
@@ -670,6 +672,7 @@ On Error GoTo ErrorHandler
         DefinirTela False
         ExpurgarDados
     ElseIf Index = EnumOption.eLeave Then
+        frmMain.FormRemove Me
         Unload Me
     End If
 

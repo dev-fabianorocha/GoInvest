@@ -104,7 +104,7 @@ Begin VB.Form frmMain
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmMain.frx":12DD4
+         ButtonDesigner  =   "frmMain.frx":12E0C
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdFechar 
          Height          =   1095
@@ -140,7 +140,7 @@ Begin VB.Form frmMain
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmMain.frx":140A3
+         ButtonDesigner  =   "frmMain.frx":14113
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdTrocarUsuario 
          Height          =   1095
@@ -176,7 +176,7 @@ Begin VB.Form frmMain
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmMain.frx":15376
+         ButtonDesigner  =   "frmMain.frx":153E6
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdUsuario 
          Height          =   855
@@ -212,7 +212,7 @@ Begin VB.Form frmMain
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmMain.frx":16649
+         ButtonDesigner  =   "frmMain.frx":166B9
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdCorretoras 
          Height          =   855
@@ -248,7 +248,7 @@ Begin VB.Form frmMain
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmMain.frx":17916
+         ButtonDesigner  =   "frmMain.frx":179BE
       End
    End
 End
@@ -258,13 +258,41 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
+Dim eForms As Dictionary
 
 Private Sub cmdAplicacoes_Click()
-frmApplication.Show 1
+Dim sWidth As Long
+
+eForms.Add IIf(eForms.Exists(eForms.Count), eForms.Count + 1, eForms.Count), frmApplication
+
+sWidth = frmMain.Width - Frame.Width
+SetForm frmApplication, frmMain
+frmApplication.WindowState = 0
+Centraliza frmMain, frmApplication, sWidth
+
+frmApplication.Show
 End Sub
 
+Public Function FormRemove(parForm As Form) As Boolean
+Dim sCont As Long
+
+For sCont = 0 To eForms.Count
+    If eForms.Exists(sCont) Then If eForms.Item(sCont).Name = parForm.Name Then eForms.Remove sCont
+Next
+
+FormRemove = True
+End Function
+
 Private Sub cmdCorretoras_Click()
-frmBroker.Show 1
+Dim sWidth As Long
+
+eForms.Add IIf(eForms.Exists(eForms.Count), eForms.Count + 1, eForms.Count), frmBroker
+
+sWidth = frmMain.Width - Frame.Width
+SetForm frmBroker, frmMain
+frmBroker.WindowState = 0
+Centraliza frmMain, frmBroker, sWidth
+frmBroker.Show
 End Sub
 
 Private Sub cmdFechar_Click()
@@ -277,18 +305,28 @@ frmLogin.Show
 End Sub
 
 Private Sub cmdUsuario_Click()
+Dim sWidth As Long, sId As Long
+
+sId = IIf(eForms.Exists(eForms.Count), eForms.Count + 1, eForms.Count)
+eForms.Add sId, frmUser
+
+sWidth = frmMain.Width - Frame.Width
 SetForm frmUser, frmMain
 frmUser.WindowState = 0
-Centraliza frmMain, frmUser
+Centraliza frmMain, frmUser, sWidth
 frmUser.Show
 End Sub
 
 Private Sub Form_Load()
+Set eForms = New Dictionary
 Me.Caption = Me.Caption & FillFooter
 End Sub
 
 Private Sub Form_Resize()
+Dim sWidth As Long
+sWidth = frmMain.Width - Frame.Width
 ResizeForm Me
+If eForms.Count > 0 Then Centraliza frmMain, eForms.Item(eForms.Count - 1), sWidth
 End Sub
 
 Private Sub fpBtn_Click()

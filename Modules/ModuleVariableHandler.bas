@@ -8,12 +8,14 @@ Option Explicit
 
 '©Copyright 2022 - Fabiano Gomes da Rocha
 
-Public gUser As String
+Public gUserName As String
 
 Public gServer As String
 Public gVersion As String
 Public gWindowsConnection As Boolean
 Public gConnection As String
+
+Public gClsUser As clsUsuarios
 
 Public Enum EnumOption
     eInclude
@@ -118,7 +120,7 @@ Public Function ComboBoxFill(ByRef ParCombo As ComboBox, ByVal Query_ As String)
     
     With iRecordset
         While Not .EOF
-            ParCombo.AddItem VariableAdjust(!DESCRICAO, eStringText), (VariableAdjust(!COR_CODIGO, eLongNumber))
+            ParCombo.AddItem VariableAdjust(!Name, eStringText), (VariableAdjust(!ID, eLongNumber))
             .MoveNext
         Wend
     End With

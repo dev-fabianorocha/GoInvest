@@ -16,8 +16,9 @@ Begin VB.Form frmUser
    ScaleWidth      =   19125
    ShowInTaskbar   =   0   'False
    WindowState     =   2  'Maximized
-   Begin VB.Frame quadBotoes 
+   Begin VB.Frame FrameBarra 
       BackColor       =   &H00404040&
+      BorderStyle     =   0  'None
       ForeColor       =   &H8000000E&
       Height          =   10800
       Left            =   17760
@@ -427,12 +428,12 @@ Begin VB.Form frmUser
       Begin VB.CheckBox SeePassword 
          Appearance      =   0  'Flat
          BackColor       =   &H00E0E0E0&
-         DownPicture     =   "frmUser.frx":103B3
-         DragIcon        =   "frmUser.frx":10E25
+         DownPicture     =   "frmUser.frx":10391
+         DragIcon        =   "frmUser.frx":10E03
          ForeColor       =   &H80000008&
          Height          =   330
          Left            =   8640
-         Picture         =   "frmUser.frx":11897
+         Picture         =   "frmUser.frx":11875
          Style           =   1  'Graphical
          TabIndex        =   27
          Top             =   860
@@ -660,6 +661,7 @@ Dim fOpcao As Integer
 Dim fClsUsuarios As New clsUsuarios
 Dim fCodigo As Integer
 Dim fCondicao As String
+Dim fClsRedimenciona As clsRedimenciona
 Private Enum EnumGrid
     eCodigo = 1
     eNome
@@ -745,7 +747,11 @@ quadCadastro.Visible = False
 quadPesquisa.Visible = True
 AlimentarGrid
 Me.Caption = Me.Caption & FillFooter
-Me.Move ((frmMain.Height - Me.Height) \ 2) + 1100
+ConfigurarForm Me
+
+Set fClsRedimenciona = New clsRedimenciona
+fClsRedimenciona.IniciarRedimencionamento Me
+
 End Sub
 
 Private Sub DefinirTela(ParCadastro As Boolean)
@@ -845,7 +851,8 @@ Set fClsUsuarios = Nothing
 End Sub
 
 Private Sub Form_Resize()
-ResizeForm Me
+'ResizeForm Me
+fClsRedimenciona.Redimencionar Me
 End Sub
 
 Private Sub gridPrincipal_Click(ByVal col As Long, ByVal Row As Long)

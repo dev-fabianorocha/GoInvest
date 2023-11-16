@@ -1,23 +1,25 @@
 VERSION 5.00
 Object = "{65E121D4-0C60-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCHRT20.OCX"
 Begin VB.Form frmAnalyze 
+   BorderStyle     =   0  'None
    Caption         =   "Análise de Aplicações"
    ClientHeight    =   10590
-   ClientLeft      =   45
-   ClientTop       =   405
-   ClientWidth     =   20385
+   ClientLeft      =   -15
+   ClientTop       =   0
+   ClientWidth     =   20370
    Icon            =   "frmAnalyze.frx":0000
    LinkTopic       =   "Form1"
    ScaleHeight     =   10590
-   ScaleWidth      =   20385
+   ScaleWidth      =   20370
+   ShowInTaskbar   =   0   'False
    WindowState     =   2  'Maximized
    Begin MSChart20Lib.MSChart MSChart 
-      Height          =   10575
+      Height          =   10095
       Left            =   0
       OleObjectBlob   =   "frmAnalyze.frx":680A
       TabIndex        =   0
-      Top             =   0
-      Width           =   20295
+      Top             =   240
+      Width           =   19095
    End
 End
 Attribute VB_Name = "frmAnalyze"

@@ -11,146 +11,27 @@ Begin VB.Form frmMain
    LinkTopic       =   "Form1"
    ScaleHeight     =   10680
    ScaleWidth      =   20370
+   StartUpPosition =   2  'CenterScreen
    WindowState     =   2  'Maximized
-   Begin VB.PictureBox Picture 
-      BackColor       =   &H00E0E0E0&
-      BorderStyle     =   0  'None
-      Enabled         =   0   'False
-      Height          =   8895
-      Left            =   3600
-      Picture         =   "frmMain.frx":680A
-      ScaleHeight     =   8895
-      ScaleWidth      =   13095
-      TabIndex        =   7
-      Top             =   720
-      Width           =   13095
-   End
-   Begin VB.Frame Frame 
+   Begin VB.Frame FrameBarra 
       Appearance      =   0  'Flat
       BackColor       =   &H00404040&
+      BorderStyle     =   0  'None
       ForeColor       =   &H80000008&
       Height          =   10800
       Left            =   0
-      TabIndex        =   4
+      TabIndex        =   2
       Top             =   -100
-      Width           =   1455
-      Begin fpBtnAtlLibCtl.fpBtn fpBtn 
-         Height          =   1095
-         Left            =   120
-         TabIndex        =   6
-         Top             =   3600
-         Width           =   1215
-         _Version        =   131072
-         _ExtentX        =   2143
-         _ExtentY        =   1931
-         Enabled         =   -1  'True
-         MousePointer    =   0
-         Object.TabStop         =   -1  'True
-         GrayAreaColor   =   4210752
-         BorderShowDefault=   0   'False
-         ButtonType      =   0
-         NoPointerFocus  =   0   'False
-         Value           =   0   'False
-         GroupID         =   0
-         GroupSelect     =   0
-         DrawFocusRect   =   2
-         DrawFocusRectCell=   -1
-         GrayAreaPictureStyle=   0
-         Static          =   0   'False
-         BackStyle       =   1
-         AutoSize        =   0
-         AutoSizeOffsetTop=   0
-         AutoSizeOffsetBottom=   0
-         AutoSizeOffsetLeft=   0
-         AutoSizeOffsetRight=   0
-         DropShadowOffsetX=   0
-         DropShadowOffsetY=   0
-         DropShadowType  =   0
-         DropShadowColor =   4210752
-         Redraw          =   -1  'True
-         ButtonDesigner  =   "frmMain.frx":11AFA
-      End
-      Begin fpBtnAtlLibCtl.fpBtn cmdAplicacoes 
-         Height          =   855
-         Left            =   120
-         TabIndex        =   5
-         Top             =   2520
-         Width           =   1215
-         _Version        =   131072
-         _ExtentX        =   2143
-         _ExtentY        =   1508
-         Enabled         =   -1  'True
-         MousePointer    =   0
-         Object.TabStop         =   -1  'True
-         GrayAreaColor   =   4210752
-         BorderShowDefault=   0   'False
-         ButtonType      =   0
-         NoPointerFocus  =   0   'False
-         Value           =   0   'False
-         GroupID         =   0
-         GroupSelect     =   0
-         DrawFocusRect   =   2
-         DrawFocusRectCell=   -1
-         GrayAreaPictureStyle=   0
-         Static          =   0   'False
-         BackStyle       =   1
-         AutoSize        =   0
-         AutoSizeOffsetTop=   0
-         AutoSizeOffsetBottom=   0
-         AutoSizeOffsetLeft=   0
-         AutoSizeOffsetRight=   0
-         DropShadowOffsetX=   3
-         DropShadowOffsetY=   3
-         DropShadowType  =   0
-         DropShadowColor =   4210752
-         Redraw          =   -1  'True
-         ButtonDesigner  =   "frmMain.frx":12E0C
-      End
-      Begin fpBtnAtlLibCtl.fpBtn cmdFechar 
-         Height          =   1095
-         Left            =   120
-         TabIndex        =   3
-         Top             =   9360
-         Width           =   1095
-         _Version        =   131072
-         _ExtentX        =   1931
-         _ExtentY        =   1931
-         Enabled         =   -1  'True
-         MousePointer    =   0
-         Object.TabStop         =   -1  'True
-         GrayAreaColor   =   4210752
-         BorderShowDefault=   -1  'True
-         ButtonType      =   0
-         NoPointerFocus  =   0   'False
-         Value           =   0   'False
-         GroupID         =   0
-         GroupSelect     =   0
-         DrawFocusRect   =   2
-         DrawFocusRectCell=   -1
-         GrayAreaPictureStyle=   0
-         Static          =   0   'False
-         BackStyle       =   1
-         AutoSize        =   0
-         AutoSizeOffsetTop=   0
-         AutoSizeOffsetBottom=   0
-         AutoSizeOffsetLeft=   0
-         AutoSizeOffsetRight=   0
-         DropShadowOffsetX=   0
-         DropShadowOffsetY=   0
-         DropShadowType  =   0
-         DropShadowColor =   4210752
-         Redraw          =   -1  'True
-         ButtonDesigner  =   "frmMain.frx":14113
-      End
+      Width           =   1280
       Begin fpBtnAtlLibCtl.fpBtn cmdTrocarUsuario 
-         Height          =   1095
-         Left            =   120
-         TabIndex        =   2
-         Top             =   8160
-         Width           =   1095
+         Height          =   615
+         Left            =   0
+         TabIndex        =   1
+         Top             =   9960
+         Width           =   1260
          _Version        =   131072
-         _ExtentX        =   1931
-         _ExtentY        =   1931
+         _ExtentX        =   2222
+         _ExtentY        =   1085
          Enabled         =   -1  'True
          MousePointer    =   0
          Object.TabStop         =   -1  'True
@@ -176,17 +57,17 @@ Begin VB.Form frmMain
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmMain.frx":153E6
+         ButtonDesigner  =   "frmMain.frx":19D2E
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdUsuario 
-         Height          =   855
-         Left            =   240
+         Height          =   615
+         Left            =   0
          TabIndex        =   0
-         Top             =   240
-         Width           =   975
+         Top             =   9360
+         Width           =   1260
          _Version        =   131072
-         _ExtentX        =   1720
-         _ExtentY        =   1508
+         _ExtentX        =   2222
+         _ExtentY        =   1085
          Enabled         =   -1  'True
          MousePointer    =   0
          Object.TabStop         =   -1  'True
@@ -201,7 +82,7 @@ Begin VB.Form frmMain
          DrawFocusRectCell=   -1
          GrayAreaPictureStyle=   0
          Static          =   0   'False
-         BackStyle       =   1
+         BackStyle       =   0
          AutoSize        =   0
          AutoSizeOffsetTop=   0
          AutoSizeOffsetBottom=   0
@@ -212,43 +93,7 @@ Begin VB.Form frmMain
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmMain.frx":166B9
-      End
-      Begin fpBtnAtlLibCtl.fpBtn cmdCorretoras 
-         Height          =   855
-         Left            =   120
-         TabIndex        =   1
-         Top             =   1320
-         Width           =   1215
-         _Version        =   131072
-         _ExtentX        =   2143
-         _ExtentY        =   1508
-         Enabled         =   -1  'True
-         MousePointer    =   0
-         Object.TabStop         =   -1  'True
-         GrayAreaColor   =   4210752
-         BorderShowDefault=   0   'False
-         ButtonType      =   0
-         NoPointerFocus  =   0   'False
-         Value           =   0   'False
-         GroupID         =   0
-         GroupSelect     =   0
-         DrawFocusRect   =   2
-         DrawFocusRectCell=   -1
-         GrayAreaPictureStyle=   0
-         Static          =   0   'False
-         BackStyle       =   1
-         AutoSize        =   0
-         AutoSizeOffsetTop=   0
-         AutoSizeOffsetBottom=   0
-         AutoSizeOffsetLeft=   0
-         AutoSizeOffsetRight=   0
-         DropShadowOffsetX=   0
-         DropShadowOffsetY=   0
-         DropShadowType  =   0
-         DropShadowColor =   4210752
-         Redraw          =   -1  'True
-         ButtonDesigner  =   "frmMain.frx":179BE
+         ButtonDesigner  =   "frmMain.frx":1B002
       End
    End
 End
@@ -259,13 +104,14 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
 Dim eForms As Dictionary
+Dim fClsRedimenciona As clsRedimenciona
 
 Private Sub cmdAplicacoes_Click()
 Dim sWidth As Long
 
 eForms.Add IIf(eForms.Exists(eForms.Count), eForms.Count + 1, eForms.Count), frmApplication
 
-sWidth = frmMain.Width - Frame.Width
+sWidth = frmMain.Width - FrameBarra.Width
 SetForm frmApplication, frmMain
 frmApplication.WindowState = 0
 Centraliza frmMain, frmApplication, sWidth
@@ -286,17 +132,13 @@ End Function
 Private Sub cmdCorretoras_Click()
 Dim sWidth As Long
 
-eForms.Add IIf(eForms.Exists(eForms.Count), eForms.Count + 1, eForms.Count), frmBroker
+eForms.Add IIf(eForms.Exists(eForms.Count), eForms.Count + 1, eForms.Count), frmBank
 
-sWidth = frmMain.Width - Frame.Width
-SetForm frmBroker, frmMain
-frmBroker.WindowState = 0
-Centraliza frmMain, frmBroker, sWidth
-frmBroker.Show
-End Sub
-
-Private Sub cmdFechar_Click()
-Unload Me
+sWidth = frmMain.Width - FrameBarra.Width
+SetForm frmBank, frmMain
+frmBank.WindowState = 0
+Centraliza frmMain, frmBank, sWidth
+frmBank.Show
 End Sub
 
 Private Sub cmdTrocarUsuario_Click()
@@ -310,25 +152,42 @@ Dim sWidth As Long, sId As Long
 sId = IIf(eForms.Exists(eForms.Count), eForms.Count + 1, eForms.Count)
 eForms.Add sId, frmUser
 
-sWidth = frmMain.Width - Frame.Width
+sWidth = frmMain.Width - FrameBarra.Width
 SetForm frmUser, frmMain
 frmUser.WindowState = 0
-Centraliza frmMain, frmUser, sWidth
+Centraliza frmMain, frmUser, sWidth, FrameBarra.Width / 2
 frmUser.Show
 End Sub
 
 Private Sub Form_Load()
+ConfigurarForm Me
 Set eForms = New Dictionary
+Set fClsRedimenciona = New clsRedimenciona
+
+fClsRedimenciona.IniciarRedimencionamento Me
+
 Me.Caption = Me.Caption & FillFooter
 End Sub
 
 Private Sub Form_Resize()
 Dim sWidth As Long
-sWidth = frmMain.Width - Frame.Width
-ResizeForm Me
-If eForms.Count > 0 Then Centraliza frmMain, eForms.Item(eForms.Count - 1), sWidth
+sWidth = frmMain.Width - FrameBarra.Width
+
+
+fClsRedimenciona.Redimencionar Me
+
+If eForms.Count > 0 Then Centraliza frmMain, eForms.Item(eForms.Count - 1), sWidth, FrameBarra.Width / 2
 End Sub
 
 Private Sub fpBtn_Click()
-frmAnalyze.Show 1
+Dim sWidth As Long, sId As Long
+
+sId = IIf(eForms.Exists(eForms.Count), eForms.Count + 1, eForms.Count)
+eForms.Add sId, frmUser
+
+sWidth = frmMain.Width - FrameBarra.Width
+SetForm frmAnalyze, frmMain
+frmAnalyze.WindowState = 0
+Centraliza frmMain, frmAnalyze, sWidth
+frmAnalyze.Show
 End Sub

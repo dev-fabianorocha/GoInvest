@@ -393,7 +393,7 @@ Begin VB.Form frmApplication
          ShadowColor     =   12632256
          ShadowDark      =   8421504
          ShadowText      =   0
-         SpreadDesigner  =   "frmApplication.frx":FEAC
+         SpreadDesigner  =   "frmApplication.frx":FE74
          UserResize      =   0
       End
       Begin VB.Label Label 
@@ -750,7 +750,7 @@ Begin VB.Form frmApplication
             ShadowColor     =   12632256
             ShadowDark      =   8421504
             ShadowText      =   0
-            SpreadDesigner  =   "frmApplication.frx":10494
+            SpreadDesigner  =   "frmApplication.frx":1045C
             UserResize      =   0
          End
          Begin fpBtnAtlLibCtl.fpBtn cmdLimparAplicacoes 
@@ -787,7 +787,7 @@ Begin VB.Form frmApplication
             DropShadowType  =   0
             DropShadowColor =   0
             Redraw          =   -1  'True
-            ButtonDesigner  =   "frmApplication.frx":13AC5
+            ButtonDesigner  =   "frmApplication.frx":13A8D
          End
          Begin fpBtnAtlLibCtl.fpBtn cmdAplicar 
             Height          =   945
@@ -823,7 +823,7 @@ Begin VB.Form frmApplication
             DropShadowType  =   0
             DropShadowColor =   0
             Redraw          =   -1  'True
-            ButtonDesigner  =   "frmApplication.frx":14D9E
+            ButtonDesigner  =   "frmApplication.frx":14D66
          End
          Begin VB.Label Label 
             BackColor       =   &H00E0E0E0&
@@ -1103,7 +1103,7 @@ Begin VB.Form frmApplication
          ShadowColor     =   12632256
          ShadowDark      =   8421504
          ShadowText      =   0
-         SpreadDesigner  =   "frmApplication.frx":1606E
+         SpreadDesigner  =   "frmApplication.frx":16036
          UserResize      =   0
       End
       Begin VB.Label Label 
@@ -1208,9 +1208,9 @@ End Enum
 Private Sub AlimentarGrid()
 Dim sSql As String
 
-sSql = "SELECT APL_CODIGO AS CODIGO, APL_NOME AS NOME, COR_NOME AS CORRETORA, APL_ANO AS ANO, APL_CADASTRO AS CADASTRO, APL_ATUALIZACAO AS ATUALIZAÇÃO, " _
+sSql = "SELECT APL_CODIGO AS CODIGO, APL_NOME AS NOME, BAN_NAME AS BANK, APL_ANO AS ANO, APL_CADASTRO AS CADASTRO, APL_ATUALIZACAO AS ATUALIZAÇÃO, " _
     & " CASE WHEN APL_INATIVO = 0 THEN 'ATIVO'" _
-    & " WHEN APL_INATIVO = 1 THEN 'INATIVO' END AS STATUS FROM APLICACOES INNER JOIN CORRETORAS ON COR_CODIGO = APL_CORRETORA" _
+    & " WHEN APL_INATIVO = 1 THEN 'INATIVO' END AS STATUS FROM APLICACOES INNER JOIN BANK ON BAN_ID = APL_CORRETORA" _
     & " WHERE 1 = 1 "
 
 If chkInativoPesquisa Then
@@ -1442,7 +1442,7 @@ quadCadastro.Visible = False
 quadInvestimento.Visible = False
 quadPesquisa.Visible = True
 Me.Caption = Me.Caption & FillFooter
-ComboBoxFill cmbCorretora, "SELECT COR_CODIGO, (COR_NOME + '(' + CONVERT(VARCHAR,COR_CODIGO) + ')') AS DESCRICAO FROM CORRETORAS WHERE COR_INATIVO = '0'"
+ComboBoxFill cmbCorretora, "SELECT BAN_ID [ID], (BAN_NAME + '(' + CONVERT(VARCHAR,BAN_ID) + ')') [NAME] FROM BANK WHERE BAN_TRASH = '0'"
 cmbAno.AddItem Year(Date), 0
 With cmbMes
     Dim sCont As Long

@@ -6,7 +6,7 @@ BEGIN
   DataSourceBehavior  = 0  'vbNone
   MTSTransactionMode  = 0  'NotAnMTSObject
 END
-Attribute VB_Name = "clsBank"
+Attribute VB_Name = "clsCorretoras"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = True
 Attribute VB_PredeclaredId = False
@@ -17,7 +17,6 @@ Dim fCodigo As Integer
 Dim fNome As String
 Dim fCadastro As Date
 Dim fAtualizacao As Date
-Dim eUser As Integer
 Dim fInativo As Byte
 Property Get Codigo() As Integer
 Codigo = fCodigo
@@ -49,27 +48,17 @@ End Property
 Property Let Inativo(ByVal ParInativo As Byte)
 fInativo = ParInativo
 End Property
-
-Property Get User() As Integer
-User = eUser
-End Property
-Property Let User(ByVal User_ As Integer)
-eUser = User_
-End Property
-
 Public Function Consultar(ParCodigo) As Boolean
-On Error GoTo Trata
-Dim iQuery As String
+Dim sSql As String
 
-iQuery = "SELECT BAN_ID, BAN_NAME, BAN_REGISTER, BAN_UPDATE, BAN_TRASH FROM BANK WHERE BAN_ID = '" & ParCodigo & "'"
+sSql = "SELECT COR_CODIGO, COR_NOME, COR_CADASTRO, COR_ATUALIZACAO, COR_INATIVO FROM CORRETORAS WHERE COR_CODIGO = '" & ParCodigo & "'"
 
-If Not ReadQuery(iQuery).EOF Then
-    With ReadQuery(iQuery)
-        fCodigo = !BAN_ID
-        fNome = IIf(Null, "", !BAN_NAME)
-        fCadastro = !BAN_REGISTER
-        fAtualizacao = !BAN_UPDATE
-        fInativo = IIf(!BAN_TRASH, 1, 0)
+If Not ReadQuery(sSql).EOF Then
+    With ReadQuery(sSql)
+        fNome = IIf(Null, "", !COR_NOME)
+        fCadastro = !COR_CADASTRO
+        fAtualizacao = !COR_ATUALIZACAO
+        fInativo = IIf(!COR_INATIVO, 1, 0)
     End With
 Else
     MsgBox "Código não localizado"
@@ -77,55 +66,51 @@ Else
 End If
 
 Consultar = True
-Exit Function
-Resume
-Trata:
-ErrorHandler Err.Number, Err.Description, "clsBank.Get", iQuery
 End Function
 
 Public Function Inserir() As Boolean
 On Error GoTo Trata
-Dim iQuery As String
+Dim sSql As String
 
-iQuery = "INSERT INTO BANK (BAN_NAME, BAN_REGISTER, BAN_UPDATE, BAN_TRASH, BAN_USER) VALUES ('" & fNome _
-    & "', GETDATE(), GETDATE(), '" & fInativo & "', " & gClsUser.Codigo & ")"
-If Not QueryExecute(iQuery) Then GoTo Trata
+sSql = "INSERT INTO CORRETORAS (COR_NOME, COR_CADASTRO, COR_ATUALIZACAO, COR_INATIVO) VALUES ('" & fNome _
+    & "', GETDATE(), GETDATE(), '" & fInativo & "')"
+If Not QueryExecute(sSql) Then GoTo Trata
 
 Inserir = True
 Exit Function
 Resume
 Trata:
-ErrorHandler Err.Number, Err.Description, "clsCorretoras.Inserir", iQuery
+ErrorHandler Err.Number, Err.Description, "clsCorretoras.Inserir", sSql
 End Function
 
 Public Function Atualizar() As Boolean
 On Error GoTo Trata
-Dim iQuery As String
+Dim sSql As String
 
 
-iQuery = "UPDATE BANK SET BAN_NAME = '" & fNome & "', BAN_UPDATE = GETDATE(), BAN_TRASH = '" & fInativo & "', BAN_USER = " & gClsUser.Codigo _
-    & " WHERE BAN_ID = '" & fCodigo & "'"
-If Not QueryExecute(iQuery) Then GoTo Trata
+sSql = "UPDATE CORRETORAS SET COR_NOME = '" & fNome & "', COR_ATUALIZACAO = GETDATE(), COR_INATIVO = '" & fInativo _
+    & "' WHERE COR_CODIGO = '" & fCodigo & "'"
+If Not QueryExecute(sSql) Then GoTo Trata
 
 Atualizar = True
 Exit Function
 Resume
 Trata:
-ErrorHandler Err.Number, Err.Description, "clsCorretoras.Atualizar", iQuery
+ErrorHandler Err.Number, Err.Description, "clsCorretoras.Atualizar", sSql
 End Function
 
-Public Function Excluir(Id_ As Integer) As Boolean
+Public Function Excluir(ParCodigo As Integer) As Boolean
 On Error GoTo Trata
-Dim iQuery As String
+Dim sSql As String
 
-iQuery = "UPDATE CORRETORAS SET COR_INATIVO = '1' WHERE COR_CODIGO = '" & Id_ & "'"
+sSql = "UPDATE CORRETORAS SET COR_INATIVO = '1' WHERE COR_CODIGO = '" & ParCodigo & "'"
 If MsgBox("Deseja excluir essa corretora?", vbYesNo, "Corretoras") = 6 Then
-    If Not QueryExecute(iQuery) Then GoTo Trata
+    If Not QueryExecute(sSql) Then GoTo Trata
 End If
 
 Excluir = True
 Exit Function
 Resume
 Trata:
-ErrorHandler Err.Number, Err.Description, "clsCorretoras.Excluir", iQuery
+ErrorHandler Err.Number, Err.Description, "clsCorretoras.Excluir", sSql
 End Function

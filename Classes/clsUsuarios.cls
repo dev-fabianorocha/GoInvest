@@ -57,22 +57,15 @@ End Property
 Property Let Inativo(ByVal ParInativo As Byte)
 fInativo = ParInativo
 End Property
-Public Function Consultar(Optional ByVal Id_ As Integer, Optional ByVal userName_ As String) As Boolean
+Public Function Consultar(ParCodigo) As Boolean
 Dim sSql As String
 
-sSql = "SELECT USU_CODIGO, USU_NOME, USU_SENHA, USU_CADASTRO, USU_ATUALIZACAO, USU_INATIVO FROM USUARIOS WHERE "
-
-If Id_ <> 0 Then
-    sSql = sSql & " USU_CODIGO = '" & Id_ & "'"
-Else
-    sSql = sSql & " USU_NOME = '" & userName_ & "'"
-End If
+sSql = "SELECT USU_CODIGO, USU_NOME, USU_SENHA, USU_CADASTRO, USU_ATUALIZACAO, USU_INATIVO FROM USUARIOS WHERE USU_CODIGO = '" & ParCodigo & "'"
 
 Set eClsCipher = New clsCipher
 
 If Not ReadQuery(sSql).EOF Then
     With ReadQuery(sSql)
-        fCodigo = VariableAdjust(!USU_CODIGO, eIntNumber)
         fNome = VariableAdjust(!USU_NOME, eStringText)
         fSenha = eClsCipher.Decrypt(VariableAdjust(!USU_SENHA, eStringText))
         fCadastro = VariableAdjust(!USU_CADASTRO, eStringText)

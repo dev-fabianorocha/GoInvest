@@ -1,7 +1,7 @@
 VERSION 5.00
 Object = "{FD2FB1F1-D4FC-11CE-A335-A8D5ECAE5B02}#2.0#0"; "btn32a20.ocx"
 Object = "{F856EC8B-F03C-4515-BDC6-64CBD617566A}#7.0#0"; "FPSPR70.ocx"
-Begin VB.Form frmBank 
+Begin VB.Form frmBroker 
    Appearance      =   0  'Flat
    BackColor       =   &H00E0E0E0&
    BorderStyle     =   0  'None
@@ -19,17 +19,17 @@ Begin VB.Form frmBank
    Begin VB.Frame quadBotoes 
       BackColor       =   &H00404040&
       ForeColor       =   &H8000000E&
-      Height          =   10185
-      Left            =   17790
+      Height          =   10800
+      Left            =   17760
       TabIndex        =   17
       Top             =   -90
-      Width           =   1215
+      Width           =   1455
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   855
-         Index           =   2
-         Left            =   120
-         TabIndex        =   23
-         Top             =   4440
+         Index           =   6
+         Left            =   240
+         TabIndex        =   18
+         Top             =   6360
          Width           =   975
          _Version        =   131072
          _ExtentX        =   1720
@@ -63,156 +63,8 @@ Begin VB.Form frmBank
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   855
-         Index           =   3
-         Left            =   120
-         TabIndex        =   24
-         Top             =   5400
-         Width           =   975
-         _Version        =   131072
-         _ExtentX        =   1720
-         _ExtentY        =   1508
-         Enabled         =   -1  'True
-         MousePointer    =   0
-         Object.TabStop         =   -1  'True
-         GrayAreaColor   =   4210752
-         BorderShowDefault=   0   'False
-         ButtonType      =   0
-         NoPointerFocus  =   0   'False
-         Value           =   0   'False
-         GroupID         =   0
-         GroupSelect     =   0
-         DrawFocusRect   =   2
-         DrawFocusRectCell=   -1
-         GrayAreaPictureStyle=   0
-         Static          =   0   'False
-         BackStyle       =   1
-         AutoSize        =   0
-         AutoSizeOffsetTop=   0
-         AutoSizeOffsetBottom=   0
-         AutoSizeOffsetLeft=   0
-         AutoSizeOffsetRight=   0
-         DropShadowOffsetX=   3
-         DropShadowOffsetY=   3
-         DropShadowType  =   0
-         DropShadowColor =   4210752
-         Redraw          =   -1  'True
-         ButtonDesigner  =   "frmBroker.frx":7AD6
-      End
-      Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
-         Height          =   855
-         Index           =   5
-         Left            =   120
-         TabIndex        =   22
-         Top             =   5160
-         Width           =   975
-         _Version        =   131072
-         _ExtentX        =   1720
-         _ExtentY        =   1508
-         Enabled         =   -1  'True
-         MousePointer    =   0
-         Object.TabStop         =   -1  'True
-         GrayAreaColor   =   4210752
-         BorderShowDefault=   0   'False
-         ButtonType      =   0
-         NoPointerFocus  =   0   'False
-         Value           =   0   'False
-         GroupID         =   0
-         GroupSelect     =   0
-         DrawFocusRect   =   2
-         DrawFocusRectCell=   -1
-         GrayAreaPictureStyle=   0
-         Static          =   0   'False
-         BackStyle       =   1
-         AutoSize        =   0
-         AutoSizeOffsetTop=   0
-         AutoSizeOffsetBottom=   0
-         AutoSizeOffsetLeft=   0
-         AutoSizeOffsetRight=   0
-         DropShadowOffsetX=   0
-         DropShadowOffsetY=   0
-         DropShadowType  =   0
-         DropShadowColor =   4210752
-         Redraw          =   -1  'True
-         ButtonDesigner  =   "frmBroker.frx":8DA2
-      End
-      Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
-         Height          =   855
-         Index           =   4
-         Left            =   120
-         TabIndex        =   21
-         Top             =   4200
-         Width           =   975
-         _Version        =   131072
-         _ExtentX        =   1720
-         _ExtentY        =   1508
-         Enabled         =   -1  'True
-         MousePointer    =   0
-         Object.TabStop         =   -1  'True
-         GrayAreaColor   =   4210752
-         BorderShowDefault=   0   'False
-         ButtonType      =   0
-         NoPointerFocus  =   0   'False
-         Value           =   0   'False
-         GroupID         =   0
-         GroupSelect     =   0
-         DrawFocusRect   =   2
-         DrawFocusRectCell=   -1
-         GrayAreaPictureStyle=   0
-         Static          =   0   'False
-         BackStyle       =   1
-         AutoSize        =   0
-         AutoSizeOffsetTop=   0
-         AutoSizeOffsetBottom=   0
-         AutoSizeOffsetLeft=   0
-         AutoSizeOffsetRight=   0
-         DropShadowOffsetX=   3
-         DropShadowOffsetY=   3
-         DropShadowType  =   0
-         DropShadowColor =   4210752
-         Redraw          =   -1  'True
-         ButtonDesigner  =   "frmBroker.frx":A06D
-      End
-      Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
-         Height          =   855
-         Index           =   1
-         Left            =   120
-         TabIndex        =   20
-         Top             =   3480
-         Width           =   975
-         _Version        =   131072
-         _ExtentX        =   1720
-         _ExtentY        =   1508
-         Enabled         =   -1  'True
-         MousePointer    =   0
-         Object.TabStop         =   -1  'True
-         GrayAreaColor   =   4210752
-         BorderShowDefault=   0   'False
-         ButtonType      =   0
-         NoPointerFocus  =   0   'False
-         Value           =   0   'False
-         GroupID         =   0
-         GroupSelect     =   0
-         DrawFocusRect   =   2
-         DrawFocusRectCell=   -1
-         GrayAreaPictureStyle=   0
-         Static          =   0   'False
-         BackStyle       =   1
-         AutoSize        =   0
-         AutoSizeOffsetTop=   0
-         AutoSizeOffsetBottom=   0
-         AutoSizeOffsetLeft=   0
-         AutoSizeOffsetRight=   0
-         DropShadowOffsetX=   3
-         DropShadowOffsetY=   3
-         DropShadowType  =   0
-         DropShadowColor =   4210752
-         Redraw          =   -1  'True
-         ButtonDesigner  =   "frmBroker.frx":B338
-      End
-      Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
-         Height          =   855
          Index           =   0
-         Left            =   120
+         Left            =   240
          TabIndex        =   19
          Top             =   2520
          Width           =   975
@@ -244,14 +96,14 @@ Begin VB.Form frmBank
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmBroker.frx":C606
+         ButtonDesigner  =   "frmBroker.frx":7AD5
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   855
-         Index           =   6
-         Left            =   120
-         TabIndex        =   18
-         Top             =   6360
+         Index           =   1
+         Left            =   240
+         TabIndex        =   20
+         Top             =   3480
          Width           =   975
          _Version        =   131072
          _ExtentX        =   1720
@@ -281,7 +133,286 @@ Begin VB.Form frmBank
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmBroker.frx":D8D2
+         ButtonDesigner  =   "frmBroker.frx":8DA1
+      End
+      Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
+         Height          =   855
+         Index           =   4
+         Left            =   240
+         TabIndex        =   21
+         Top             =   4200
+         Width           =   975
+         _Version        =   131072
+         _ExtentX        =   1720
+         _ExtentY        =   1508
+         Enabled         =   -1  'True
+         MousePointer    =   0
+         Object.TabStop         =   -1  'True
+         GrayAreaColor   =   4210752
+         BorderShowDefault=   0   'False
+         ButtonType      =   0
+         NoPointerFocus  =   0   'False
+         Value           =   0   'False
+         GroupID         =   0
+         GroupSelect     =   0
+         DrawFocusRect   =   2
+         DrawFocusRectCell=   -1
+         GrayAreaPictureStyle=   0
+         Static          =   0   'False
+         BackStyle       =   1
+         AutoSize        =   0
+         AutoSizeOffsetTop=   0
+         AutoSizeOffsetBottom=   0
+         AutoSizeOffsetLeft=   0
+         AutoSizeOffsetRight=   0
+         DropShadowOffsetX=   3
+         DropShadowOffsetY=   3
+         DropShadowType  =   0
+         DropShadowColor =   4210752
+         Redraw          =   -1  'True
+         ButtonDesigner  =   "frmBroker.frx":A06F
+      End
+      Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
+         Height          =   855
+         Index           =   5
+         Left            =   240
+         TabIndex        =   22
+         Top             =   5160
+         Width           =   975
+         _Version        =   131072
+         _ExtentX        =   1720
+         _ExtentY        =   1508
+         Enabled         =   -1  'True
+         MousePointer    =   0
+         Object.TabStop         =   -1  'True
+         GrayAreaColor   =   4210752
+         BorderShowDefault=   0   'False
+         ButtonType      =   0
+         NoPointerFocus  =   0   'False
+         Value           =   0   'False
+         GroupID         =   0
+         GroupSelect     =   0
+         DrawFocusRect   =   2
+         DrawFocusRectCell=   -1
+         GrayAreaPictureStyle=   0
+         Static          =   0   'False
+         BackStyle       =   1
+         AutoSize        =   0
+         AutoSizeOffsetTop=   0
+         AutoSizeOffsetBottom=   0
+         AutoSizeOffsetLeft=   0
+         AutoSizeOffsetRight=   0
+         DropShadowOffsetX=   0
+         DropShadowOffsetY=   0
+         DropShadowType  =   0
+         DropShadowColor =   4210752
+         Redraw          =   -1  'True
+         ButtonDesigner  =   "frmBroker.frx":B33A
+      End
+      Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
+         Height          =   855
+         Index           =   2
+         Left            =   240
+         TabIndex        =   23
+         Top             =   4440
+         Width           =   975
+         _Version        =   131072
+         _ExtentX        =   1720
+         _ExtentY        =   1508
+         Enabled         =   -1  'True
+         MousePointer    =   0
+         Object.TabStop         =   -1  'True
+         GrayAreaColor   =   4210752
+         BorderShowDefault=   0   'False
+         ButtonType      =   0
+         NoPointerFocus  =   0   'False
+         Value           =   0   'False
+         GroupID         =   0
+         GroupSelect     =   0
+         DrawFocusRect   =   2
+         DrawFocusRectCell=   -1
+         GrayAreaPictureStyle=   0
+         Static          =   0   'False
+         BackStyle       =   1
+         AutoSize        =   0
+         AutoSizeOffsetTop=   0
+         AutoSizeOffsetBottom=   0
+         AutoSizeOffsetLeft=   0
+         AutoSizeOffsetRight=   0
+         DropShadowOffsetX=   3
+         DropShadowOffsetY=   3
+         DropShadowType  =   0
+         DropShadowColor =   4210752
+         Redraw          =   -1  'True
+         ButtonDesigner  =   "frmBroker.frx":C605
+      End
+      Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
+         Height          =   855
+         Index           =   3
+         Left            =   240
+         TabIndex        =   24
+         Top             =   5400
+         Width           =   975
+         _Version        =   131072
+         _ExtentX        =   1720
+         _ExtentY        =   1508
+         Enabled         =   -1  'True
+         MousePointer    =   0
+         Object.TabStop         =   -1  'True
+         GrayAreaColor   =   4210752
+         BorderShowDefault=   0   'False
+         ButtonType      =   0
+         NoPointerFocus  =   0   'False
+         Value           =   0   'False
+         GroupID         =   0
+         GroupSelect     =   0
+         DrawFocusRect   =   2
+         DrawFocusRectCell=   -1
+         GrayAreaPictureStyle=   0
+         Static          =   0   'False
+         BackStyle       =   1
+         AutoSize        =   0
+         AutoSizeOffsetTop=   0
+         AutoSizeOffsetBottom=   0
+         AutoSizeOffsetLeft=   0
+         AutoSizeOffsetRight=   0
+         DropShadowOffsetX=   3
+         DropShadowOffsetY=   3
+         DropShadowType  =   0
+         DropShadowColor =   4210752
+         Redraw          =   -1  'True
+         ButtonDesigner  =   "frmBroker.frx":D8D1
+      End
+   End
+   Begin VB.Frame quadPesquisa 
+      BackColor       =   &H00E0E0E0&
+      BorderStyle     =   0  'None
+      Height          =   10575
+      Left            =   0
+      TabIndex        =   0
+      Top             =   0
+      Width           =   19455
+      Begin VB.CheckBox chkInativoPesquisa 
+         Appearance      =   0  'Flat
+         BackColor       =   &H00E0E0E0&
+         Caption         =   "I&nativos"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H80000008&
+         Height          =   255
+         Left            =   16320
+         TabIndex        =   16
+         Top             =   720
+         Width           =   1095
+      End
+      Begin fpBtnAtlLibCtl.fpBtn cmdPesquisa 
+         Height          =   495
+         Left            =   6840
+         TabIndex        =   14
+         Top             =   360
+         Width           =   1875
+         _Version        =   131072
+         _ExtentX        =   3307
+         _ExtentY        =   873
+         Enabled         =   -1  'True
+         MousePointer    =   0
+         Object.TabStop         =   -1  'True
+         GrayAreaColor   =   12632256
+         BorderShowDefault=   -1  'True
+         ButtonType      =   0
+         NoPointerFocus  =   0   'False
+         Value           =   0   'False
+         GroupID         =   0
+         GroupSelect     =   0
+         DrawFocusRect   =   2
+         DrawFocusRectCell=   -1
+         GrayAreaPictureStyle=   0
+         Static          =   0   'False
+         BackStyle       =   0
+         AutoSize        =   0
+         AutoSizeOffsetTop=   0
+         AutoSizeOffsetBottom=   0
+         AutoSizeOffsetLeft=   0
+         AutoSizeOffsetRight=   0
+         DropShadowOffsetX=   3
+         DropShadowOffsetY=   3
+         DropShadowType  =   0
+         DropShadowColor =   0
+         Redraw          =   -1  'True
+         ButtonDesigner  =   "frmBroker.frx":EB9D
+      End
+      Begin VB.TextBox txtPesquisa 
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   330
+         Left            =   240
+         TabIndex        =   3
+         Top             =   480
+         Width           =   6375
+      End
+      Begin FPSpreadADO.fpSpread gridPrincipal 
+         Height          =   8925
+         Left            =   240
+         TabIndex        =   2
+         Top             =   1080
+         Width           =   17265
+         _Version        =   458752
+         _ExtentX        =   30454
+         _ExtentY        =   15743
+         _StockProps     =   64
+         DisplayRowHeaders=   0   'False
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Arial"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         GrayAreaBackColor=   14737632
+         GridColor       =   8421504
+         MaxCols         =   5
+         MaxRows         =   1
+         OperationMode   =   2
+         ShadowColor     =   12632256
+         ShadowDark      =   8421504
+         ShadowText      =   0
+         SpreadDesigner  =   "frmBroker.frx":FEAC
+         UserResize      =   0
+      End
+      Begin VB.Label Label 
+         BackColor       =   &H00E0E0E0&
+         Caption         =   "Nome:"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Index           =   4
+         Left            =   260
+         TabIndex        =   15
+         Top             =   200
+         Width           =   1335
       End
    End
    Begin VB.Frame quadCadastro 
@@ -466,139 +597,8 @@ Begin VB.Form frmBank
          Width           =   735
       End
    End
-   Begin VB.Frame quadPesquisa 
-      BackColor       =   &H00E0E0E0&
-      BorderStyle     =   0  'None
-      Height          =   10575
-      Left            =   0
-      TabIndex        =   0
-      Top             =   0
-      Width           =   19455
-      Begin VB.CheckBox chkInativoPesquisa 
-         Appearance      =   0  'Flat
-         BackColor       =   &H00E0E0E0&
-         Caption         =   "I&nativos"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H80000008&
-         Height          =   255
-         Left            =   16320
-         TabIndex        =   16
-         Top             =   720
-         Width           =   1095
-      End
-      Begin fpBtnAtlLibCtl.fpBtn cmdPesquisa 
-         Height          =   495
-         Left            =   6840
-         TabIndex        =   14
-         Top             =   360
-         Width           =   1875
-         _Version        =   131072
-         _ExtentX        =   3307
-         _ExtentY        =   873
-         Enabled         =   -1  'True
-         MousePointer    =   0
-         Object.TabStop         =   -1  'True
-         GrayAreaColor   =   12632256
-         BorderShowDefault=   -1  'True
-         ButtonType      =   0
-         NoPointerFocus  =   0   'False
-         Value           =   0   'False
-         GroupID         =   0
-         GroupSelect     =   0
-         DrawFocusRect   =   2
-         DrawFocusRectCell=   -1
-         GrayAreaPictureStyle=   0
-         Static          =   0   'False
-         BackStyle       =   0
-         AutoSize        =   0
-         AutoSizeOffsetTop=   0
-         AutoSizeOffsetBottom=   0
-         AutoSizeOffsetLeft=   0
-         AutoSizeOffsetRight=   0
-         DropShadowOffsetX=   3
-         DropShadowOffsetY=   3
-         DropShadowType  =   0
-         DropShadowColor =   0
-         Redraw          =   -1  'True
-         ButtonDesigner  =   "frmBroker.frx":EB9D
-      End
-      Begin VB.TextBox txtPesquisa 
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   330
-         Left            =   240
-         TabIndex        =   3
-         Top             =   480
-         Width           =   6375
-      End
-      Begin FPSpreadADO.fpSpread gridPrincipal 
-         Height          =   8925
-         Left            =   240
-         TabIndex        =   2
-         Top             =   1080
-         Width           =   17265
-         _Version        =   458752
-         _ExtentX        =   30454
-         _ExtentY        =   15743
-         _StockProps     =   64
-         DisplayRowHeaders=   0   'False
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Arial"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         GrayAreaBackColor=   14737632
-         GridColor       =   8421504
-         MaxCols         =   5
-         MaxRows         =   1
-         OperationMode   =   2
-         ShadowColor     =   12632256
-         ShadowDark      =   8421504
-         ShadowText      =   0
-         SpreadDesigner  =   "frmBroker.frx":FEAC
-         UserResize      =   0
-      End
-      Begin VB.Label Label 
-         BackColor       =   &H00E0E0E0&
-         Caption         =   "Nome:"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   375
-         Index           =   4
-         Left            =   260
-         TabIndex        =   15
-         Top             =   200
-         Width           =   1335
-      End
-   End
 End
-Attribute VB_Name = "frmBank"
+Attribute VB_Name = "frmBroker"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
@@ -606,7 +606,7 @@ Attribute VB_Exposed = False
 Option Explicit
 
 Dim fOpcao As Integer
-Dim m_ClsBank As New clsBank
+Dim fClsCorretoras As New clsCorretoras
 Dim fCodigo As Integer
 Dim fCondicao As String
 Private Enum EnumGrid
@@ -620,16 +620,17 @@ End Enum
 Private Sub AlimentarGrid()
 Dim sSql As String
 
-sSql = "SELECT BAN_ID [ID], BAN_NAME [NAME], BAN_REGISTER [REGISTER], BAN_UPDATE [UPDATE], USU_NOME [USER] FROM BANK LEFT JOIN USUARIOS ON USU_CODIGO = BAN_USER WHERE 1 = 1"
+sSql = "SELECT COR_CODIGO AS CODIGO, COR_NOME AS NOME, COR_CADASTRO AS CADASTRO, COR_ATUALIZACAO AS ATUALIZACAO, CASE WHEN COR_INATIVO = 0 THEN 'ATIVO'" _
+    & "WHEN COR_INATIVO = 1 THEN 'INATIVO' END AS STATUS FROM CORRETORAS WHERE 1 = 1"
 
 If chkInativoPesquisa Then
-    sSql = sSql & " AND BAN_TRASH = 1"
+    sSql = sSql & " AND COR_INATIVO = 1"
 Else
-    sSql = sSql & " AND BAN_TRASH = 0"
+    sSql = sSql & " AND COR_INATIVO = 0"
 End If
 
 If txtPesquisa.Text <> "" Then
-    sSql = sSql & " AND BAN_NAME LIKE '" & Trim(txtPesquisa.Text) & "%'"
+    sSql = sSql & " AND COR_NOME LIKE '" & Trim(txtPesquisa.Text) & "%'"
 End If
 
 SpreadClean gridPrincipal
@@ -659,7 +660,7 @@ On Error GoTo ErrorHandler
             DefinirTela False
             ExpurgarDados
         ElseIf fOpcao = EnumOption.eDelete Then
-            If Not m_ClsBank.Excluir(fCodigo) Then GoTo ErrorHandler
+            If Not fClsCorretoras.Excluir(fCodigo) Then GoTo ErrorHandler
             AlimentarGrid
             DefinirTela False
             ExpurgarDados
@@ -719,8 +720,8 @@ End If
 End Sub
 
 Private Function ObterDados() As Boolean
-If m_ClsBank.Consultar(fCodigo) Then
-    With m_ClsBank
+If fClsCorretoras.Consultar(fCodigo) Then
+    With fClsCorretoras
         txtNome = .Nome
         txtData = .Cadastro
         txtAtualizacao = .Atualizacao
@@ -736,12 +737,11 @@ On Error GoTo Trata
 
 Dim sSql As String, sCont As Long
 
-If fOpcao = EnumOption.Update Then m_ClsBank.Consultar (fCodigo)
-With m_ClsBank
+If fOpcao = EnumOption.Update Then fClsCorretoras.Consultar (fCodigo)
+With fClsCorretoras
     .Codigo = fCodigo
     .Nome = txtNome
     .Inativo = IIf(chkInativo.value, 1, 0)
-    .User = gClsUser.Codigo
     If fOpcao = EnumOption.eInclude Then If Not .Inserir Then GoTo Trata
     If fOpcao = EnumOption.Update Then If Not .Atualizar Then GoTo Trata
 End With
@@ -763,7 +763,7 @@ txtData = ""
 txtAtualizacao = ""
 chkInativo.Visible = True
 quadDatas.Visible = True
-Set m_ClsBank = Nothing
+Set fClsCorretoras = Nothing
 End Sub
 
 Private Sub Form_Resize()

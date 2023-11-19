@@ -30,20 +30,20 @@ End If
 End Function
 
 
-Public Sub Centraliza(Parent As Form, Child As Form, Width As Long, Optional ByVal parBarra As Long)
+Public Sub Centraliza(Parent As Form, Child As Form, Width As Long)
 Dim iTop As Integer
 Dim iLeft As Integer
 'If Parent.WindowState <> 0 Then Exit Sub
 Child.Width = Width
 Child.Height = Parent.Height
 iTop = ((Parent.Height - Child.Height) \ 2)
-iLeft = ((Parent.Width - Child.Width) \ 2) + (Parent.Width - Child.Width) - parBarra
+iLeft = ((Parent.Width - Child.Width) \ 2) + (Parent.Width - Child.Width) - 800
 Child.Move iLeft, iTop
 Child.Refresh
 End Sub
 
 Public Function SetForm(childForm_ As Form, mdiForm_ As Form)
-SetParent childForm_.hwnd, mdiForm_.hwnd
+SetParent childForm_.hWnd, mdiForm_.hWnd
 End Function
 
 Private Function FindForm(pfrmIn As Form) As Long

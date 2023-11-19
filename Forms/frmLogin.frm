@@ -1,62 +1,63 @@
 VERSION 5.00
-Object = "{FD2FB1F1-D4FC-11CE-A335-A8D5ECAE5B02}#2.0#0"; "btn32a20.ocx"
 Object = "{CDF3B183-D408-11CE-AE2C-0080C786E37D}#3.0#0"; "Edt32x30.ocx"
+Object = "{FD2FB1F1-D4FC-11CE-A335-A8D5ECAE5B02}#2.0#0"; "btn32a20.ocx"
 Begin VB.Form frmLogin 
-   BackColor       =   &H00FFFFFF&
-   BorderStyle     =   1  'Fixed Single
+   BackColor       =   &H00E0E0E0&
+   BorderStyle     =   3  'Fixed Dialog
    Caption         =   "Login"
-   ClientHeight    =   6435
+   ClientHeight    =   7755
    ClientLeft      =   6075
    ClientTop       =   1815
-   ClientWidth     =   5925
+   ClientWidth     =   6570
    Icon            =   "frmLogin.frx":0000
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   6435
-   ScaleWidth      =   5925
-   Begin VB.PictureBox Picture 
-      BackColor       =   &H80000005&
-      BorderStyle     =   0  'None
-      Height          =   495
-      Index           =   2
-      Left            =   960
-      Picture         =   "frmLogin.frx":1F75D
-      ScaleHeight     =   495
-      ScaleWidth      =   495
-      TabIndex        =   6
-      Top             =   4490
-      Width           =   495
-   End
+   Picture         =   "frmLogin.frx":680A
+   ScaleHeight     =   7755
+   ScaleWidth      =   6570
+   ShowInTaskbar   =   0   'False
    Begin VB.PictureBox Picture 
       BackColor       =   &H80000005&
       BorderStyle     =   0  'None
       Height          =   495
       Index           =   1
-      Left            =   960
-      Picture         =   "frmLogin.frx":3CB6C
+      Left            =   1990
+      Picture         =   "frmLogin.frx":E465
+      ScaleHeight     =   495
+      ScaleWidth      =   495
+      TabIndex        =   6
+      Top             =   5460
+      Width           =   495
+   End
+   Begin VB.PictureBox Picture 
+      BackColor       =   &H80000005&
+      BorderStyle     =   0  'None
+      Height          =   495
+      Index           =   0
+      Left            =   2000
+      Picture         =   "frmLogin.frx":286BD
       ScaleHeight     =   495
       ScaleWidth      =   495
       TabIndex        =   5
-      Top             =   3150
+      Top             =   4280
       Width           =   495
    End
    Begin fpBtnAtlLibCtl.fpBtn cmdLogin 
       Height          =   615
-      Left            =   2040
-      TabIndex        =   0
-      Tag             =   "1"
-      Top             =   5400
-      Width           =   1575
+      Left            =   2440
+      TabIndex        =   3
+      Top             =   6240
+      Width           =   1815
       _Version        =   131072
-      _ExtentX        =   2778
+      _ExtentX        =   3201
       _ExtentY        =   1085
       Enabled         =   -1  'True
-      MouseIcon       =   "frmLogin.frx":4543E
+      MouseIcon       =   "frmLogin.frx":30F8F
       MousePointer    =   0
       Object.TabStop         =   -1  'True
       GrayAreaColor   =   12632256
-      BorderShowDefault=   0   'False
+      BorderShowDefault=   -1  'True
       ButtonType      =   0
       NoPointerFocus  =   0   'False
       Value           =   0   'False
@@ -66,34 +67,34 @@ Begin VB.Form frmLogin
       DrawFocusRectCell=   -1
       GrayAreaPictureStyle=   0
       Static          =   0   'False
-      BackStyle       =   0
+      BackStyle       =   1
       AutoSize        =   0
       AutoSizeOffsetTop=   0
       AutoSizeOffsetBottom=   0
       AutoSizeOffsetLeft=   0
       AutoSizeOffsetRight=   0
-      DropShadowOffsetX=   1
-      DropShadowOffsetY=   1
-      DropShadowType  =   1
-      DropShadowColor =   4210752
+      DropShadowOffsetX=   3
+      DropShadowOffsetY=   3
+      DropShadowType  =   0
+      DropShadowColor =   0
       Redraw          =   -1  'True
-      ButtonDesigner  =   "frmLogin.frx":4DD20
+      ButtonDesigner  =   "frmLogin.frx":39871
    End
    Begin EditLib.fpText txtUsuario 
-      Height          =   555
-      Left            =   840
-      TabIndex        =   1
-      Top             =   3120
-      Width           =   4215
+      Height          =   615
+      Left            =   1920
+      TabIndex        =   0
+      Top             =   4200
+      Width           =   2895
       _Version        =   196608
-      _ExtentX        =   7435
-      _ExtentY        =   979
+      _ExtentX        =   5106
+      _ExtentY        =   1085
       Enabled         =   -1  'True
       MousePointer    =   0
       Object.TabStop         =   -1  'True
       BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-         Name            =   "Segoe UI"
-         Size            =   9
+         Name            =   "Arial"
+         Size            =   12
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -111,8 +112,8 @@ Begin VB.Form frmLogin
       ThreeDOutsideShadowColor=   -2147483632
       ThreeDOutsideWidth=   1
       ThreeDFrameWidth=   0
-      BorderStyle     =   2
-      BorderColor     =   -2147483648
+      BorderStyle     =   1
+      BorderColor     =   -2147483642
       BorderWidth     =   1
       ButtonDisable   =   0   'False
       ButtonHide      =   0   'False
@@ -161,7 +162,7 @@ Begin VB.Form frmLogin
       ScrollV         =   0   'False
       ThreeDOnFocusInvert=   0   'False
       ThreeDFrameColor=   -2147483633
-      Appearance      =   0
+      Appearance      =   1
       BorderDropShadow=   0
       BorderDropShadowColor=   -2147483632
       BorderDropShadowWidth=   3
@@ -172,20 +173,20 @@ Begin VB.Form frmLogin
       OLEDragMode     =   0
    End
    Begin EditLib.fpText txtSenha 
-      Height          =   555
-      Left            =   840
-      TabIndex        =   2
-      Top             =   4440
-      Width           =   4215
+      Height          =   615
+      Left            =   1920
+      TabIndex        =   1
+      Top             =   5400
+      Width           =   2895
       _Version        =   196608
-      _ExtentX        =   7435
-      _ExtentY        =   979
+      _ExtentX        =   5106
+      _ExtentY        =   1085
       Enabled         =   -1  'True
       MousePointer    =   0
       Object.TabStop         =   -1  'True
       BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
          Name            =   "Arial"
-         Size            =   9
+         Size            =   12
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -203,8 +204,8 @@ Begin VB.Form frmLogin
       ThreeDOutsideShadowColor=   -2147483632
       ThreeDOutsideWidth=   1
       ThreeDFrameWidth=   0
-      BorderStyle     =   2
-      BorderColor     =   -2147483648
+      BorderStyle     =   1
+      BorderColor     =   -2147483642
       BorderWidth     =   1
       ButtonDisable   =   0   'False
       ButtonHide      =   0   'False
@@ -227,7 +228,7 @@ Begin VB.Form frmLogin
       AutoBeep        =   0   'False
       AutoCase        =   0
       CaretInsert     =   0
-      CaretOverWrite  =   0
+      CaretOverWrite  =   3
       UserEntry       =   0
       HideSelection   =   -1  'True
       InvalidColor    =   -2147483637
@@ -253,64 +254,53 @@ Begin VB.Form frmLogin
       ScrollV         =   0   'False
       ThreeDOnFocusInvert=   0   'False
       ThreeDFrameColor=   -2147483633
-      Appearance      =   0
+      Appearance      =   1
       BorderDropShadow=   0
       BorderDropShadowColor=   -2147483632
-      BorderDropShadowWidth=   0
+      BorderDropShadowWidth=   3
       ButtonColor     =   -2147483633
       AutoMenu        =   0   'False
       ButtonAlign     =   0
       OLEDropMode     =   0
       OLEDragMode     =   0
    End
-   Begin VB.Image Image 
-      Height          =   1500
-      Left            =   2040
-      Picture         =   "frmLogin.frx":500DF
-      Top             =   720
-      Width           =   1815
-   End
    Begin VB.Label Label 
-      BackColor       =   &H80000005&
-      Caption         =   "Senha"
+      BackColor       =   &H00E0E0E0&
+      Caption         =   "Senha:"
       BeginProperty Font 
-         Name            =   "Segoe UI"
-         Size            =   12.75
+         Name            =   "Arial"
+         Size            =   15.75
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      ForeColor       =   &H00000000&
       Height          =   375
       Index           =   1
-      Left            =   2550
+      Left            =   2880
       TabIndex        =   4
-      Tag             =   "0"
-      Top             =   4080
-      Width           =   855
+      Top             =   5040
+      Width           =   975
    End
    Begin VB.Label Label 
-      BackColor       =   &H80000005&
-      Caption         =   "Usuário"
+      BackColor       =   &H00E0E0E0&
+      Caption         =   "Usuário:"
       BeginProperty Font 
-         Name            =   "Segoe UI"
-         Size            =   12.75
+         Name            =   "Arial"
+         Size            =   15.75
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      ForeColor       =   &H00000000&
       Height          =   375
       Index           =   0
-      Left            =   2520
-      TabIndex        =   3
-      Tag             =   "0"
-      Top             =   2760
-      Width           =   975
+      Left            =   2760
+      TabIndex        =   2
+      Top             =   3840
+      Width           =   1215
    End
 End
 Attribute VB_Name = "frmLogin"
@@ -325,9 +315,7 @@ Private Sub cmdLogin_Click()
         txtSenha.SetFocus
         txtSenha.Text = ""
     Else
-        Set gClsUser = New clsUsuarios
-        gClsUser.Consultar userName_:=txtUsuario
-        gUserName = txtUsuario
+        gUser = txtUsuario
         frmMain.Show
         Unload Me
     End If
@@ -335,14 +323,11 @@ End Sub
 
 Private Sub Form_Load()
 gVersion = "26/03/2022"
-ConfigurarForm Me
 If Not ReadConfig Then
     MsgBox "O banco de dados não esta configurado!", vbExclamation
     Unload Me
 End If
 End Sub
-
-
 
 Private Sub txtSenha_GotFocus()
     txtUsuario_KeyPress (13)

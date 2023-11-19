@@ -1,4 +1,4 @@
-frmMain = 817, 0, 1366, 619, Z, 104, 104, 975, 458, C
+frmMain = 817, 0, 1366, 619, , 104, 104, 975, 458, C
 frmLogin = 833, 175, 1280, 738, C, 130, 130, 1042, 466, C
 frmBroker = 240, 121, 687, 684, C, 78, 78, 949, 432, C
 frmUser = 284, 141, 731, 704, , 26, 26, 923, 354, C
@@ -9,9 +9,9 @@ frmApplication = 435, 311, 932, 874, C, 104, 104, 1001, 431, C
 ClsAplicacoes = 52, 52, 985, 367, C
 clsExtrato = 260, 106, 742, 669, C
 frmAnalyze = 263, 106, 710, 669, C, 78, 78, 990, 414, C
-ModuleMessage = 20, 132, 467, 695, C
+ModuleMessage = 20, 132, 467, 695, Z
 ModuleDataBase = 243, 102, 690, 665, 
-ModuleVariableHandler = 919, 0, 1366, 563, C
+ModuleVariableHandler = 919, 0, 1366, 563, 
 ModuleSpread = 919, 0, 1366, 563, C
 ModuleResize = 919, 0, 1366, 563, 
 clsCipher = 111, 113, 558, 676, CZ

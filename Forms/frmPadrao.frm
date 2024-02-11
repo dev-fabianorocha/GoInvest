@@ -1,10 +1,10 @@
 VERSION 5.00
-Object = "{F856EC8B-F03C-4515-BDC6-64CBD617566A}#7.0#0"; "FPSPR70.ocx"
 Object = "{FD2FB1F1-D4FC-11CE-A335-A8D5ECAE5B02}#2.0#0"; "btn32a20.ocx"
+Object = "{F856EC8B-F03C-4515-BDC6-64CBD617566A}#7.0#0"; "FPSPR70.ocx"
 Begin VB.Form frmPadrao 
    Appearance      =   0  'Flat
    BackColor       =   &H00404040&
-   BorderStyle     =   3  'Fixed Dialog
+   BorderStyle     =   0  'None
    Caption         =   "Form Padrão"
    ClientHeight    =   8175
    ClientLeft      =   2280
@@ -17,6 +17,7 @@ Begin VB.Form frmPadrao
    ScaleHeight     =   8175
    ScaleWidth      =   12360
    ShowInTaskbar   =   0   'False
+   StartUpPosition =   2  'CenterScreen
    Begin VB.Frame quadBotoes 
       BackColor       =   &H00404040&
       BorderStyle     =   0  'None
@@ -98,7 +99,7 @@ Begin VB.Form frmPadrao
          DropShadowType  =   0
          DropShadowColor =   -2147483627
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmPadrao.frx":7B12
+         ButtonDesigner  =   "frmPadrao.frx":7ADA
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdB 
          Height          =   735
@@ -135,7 +136,7 @@ Begin VB.Form frmPadrao
          DropShadowType  =   0
          DropShadowColor =   -2147483627
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmPadrao.frx":8E19
+         ButtonDesigner  =   "frmPadrao.frx":8DA9
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdB 
          Height          =   735
@@ -172,7 +173,7 @@ Begin VB.Form frmPadrao
          DropShadowType  =   0
          DropShadowColor =   -2147483627
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmPadrao.frx":A123
+         ButtonDesigner  =   "frmPadrao.frx":A07B
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdB 
          Height          =   735
@@ -209,7 +210,7 @@ Begin VB.Form frmPadrao
          DropShadowType  =   0
          DropShadowColor =   0
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmPadrao.frx":B42B
+         ButtonDesigner  =   "frmPadrao.frx":B34B
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdB 
          Height          =   735
@@ -246,7 +247,7 @@ Begin VB.Form frmPadrao
          DropShadowType  =   0
          DropShadowColor =   -2147483627
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmPadrao.frx":C733
+         ButtonDesigner  =   "frmPadrao.frx":C61B
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdB 
          Height          =   735
@@ -283,7 +284,7 @@ Begin VB.Form frmPadrao
          DropShadowType  =   0
          DropShadowColor =   -2147483627
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmPadrao.frx":DA3A
+         ButtonDesigner  =   "frmPadrao.frx":D8EA
       End
    End
    Begin VB.Frame quadRodape 
@@ -372,7 +373,7 @@ Begin VB.Form frmPadrao
          DropShadowType  =   0
          DropShadowColor =   0
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmPadrao.frx":ED41
+         ButtonDesigner  =   "frmPadrao.frx":EBB9
       End
       Begin VB.TextBox txtPesquisa 
          BeginProperty Font 
@@ -417,7 +418,7 @@ Begin VB.Form frmPadrao
          ShadowColor     =   12632256
          ShadowDark      =   8421504
          ShadowText      =   0
-         SpreadDesigner  =   "frmPadrao.frx":10050
+         SpreadDesigner  =   "frmPadrao.frx":FE90
          UserResize      =   0
       End
       Begin VB.Label Label 
@@ -741,7 +742,7 @@ If fCodigo <> 0 Then fClsCorretoras.Consultar (fCodigo)
 With fClsCorretoras
     .Codigo = fCodigo
     .Nome = txtNome
-    .Inativo = IIf(chkInativo.Value, 1, 0)
+    .Inativo = IIf(chkInativo.value, 1, 0)
     If Not .Atualizar(fAcao) Then GoTo Trata
 End With
 
@@ -759,7 +760,7 @@ Private Sub LimparTela()
 
 txtCodigo = ""
 txtNome = ""
-chkInativo.Value = 0
+chkInativo.value = 0
 txtData = ""
 txtAtualizacao = ""
 Set fClsCorretoras = Nothing

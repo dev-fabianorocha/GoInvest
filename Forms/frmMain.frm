@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{FD2FB1F1-D4FC-11CE-A335-A8D5ECAE5B02}#2.0#0"; "btn32a20.ocx"
-Begin VB.Form frmMain 
+Begin VB.Form frmPrincipal 
    BackColor       =   &H00E0E0E0&
    Caption         =   "GoInvest"
    ClientHeight    =   10680
@@ -21,7 +21,7 @@ Begin VB.Form frmMain
       Picture         =   "frmMain.frx":680A
       ScaleHeight     =   8895
       ScaleWidth      =   13095
-      TabIndex        =   7
+      TabIndex        =   4
       Top             =   720
       Width           =   13095
    End
@@ -29,52 +29,16 @@ Begin VB.Form frmMain
       Appearance      =   0  'Flat
       BackColor       =   &H00404040&
       ForeColor       =   &H80000008&
-      Height          =   10800
+      Height          =   10840
       Left            =   0
-      TabIndex        =   4
+      TabIndex        =   3
       Top             =   -100
       Width           =   1455
-      Begin fpBtnAtlLibCtl.fpBtn fpBtn 
-         Height          =   1095
-         Left            =   120
-         TabIndex        =   6
-         Top             =   3600
-         Width           =   1215
-         _Version        =   131072
-         _ExtentX        =   2143
-         _ExtentY        =   1931
-         Enabled         =   -1  'True
-         MousePointer    =   0
-         Object.TabStop         =   -1  'True
-         GrayAreaColor   =   4210752
-         BorderShowDefault=   0   'False
-         ButtonType      =   0
-         NoPointerFocus  =   0   'False
-         Value           =   0   'False
-         GroupID         =   0
-         GroupSelect     =   0
-         DrawFocusRect   =   2
-         DrawFocusRectCell=   -1
-         GrayAreaPictureStyle=   0
-         Static          =   0   'False
-         BackStyle       =   1
-         AutoSize        =   0
-         AutoSizeOffsetTop=   0
-         AutoSizeOffsetBottom=   0
-         AutoSizeOffsetLeft=   0
-         AutoSizeOffsetRight=   0
-         DropShadowOffsetX=   0
-         DropShadowOffsetY=   0
-         DropShadowType  =   0
-         DropShadowColor =   4210752
-         Redraw          =   -1  'True
-         ButtonDesigner  =   "frmMain.frx":11AFA
-      End
-      Begin fpBtnAtlLibCtl.fpBtn cmdAplicacoes 
+      Begin fpBtnAtlLibCtl.fpBtn cmdClassificacao 
          Height          =   855
          Left            =   120
          TabIndex        =   5
-         Top             =   2520
+         Top             =   1320
          Width           =   1215
          _Version        =   131072
          _ExtentX        =   2143
@@ -82,8 +46,8 @@ Begin VB.Form frmMain
          Enabled         =   -1  'True
          MousePointer    =   0
          Object.TabStop         =   -1  'True
-         GrayAreaColor   =   4210752
-         BorderShowDefault=   0   'False
+         GrayAreaColor   =   12632256
+         BorderShowDefault=   -1  'True
          ButtonType      =   0
          NoPointerFocus  =   0   'False
          Value           =   0   'False
@@ -102,14 +66,14 @@ Begin VB.Form frmMain
          DropShadowOffsetX=   3
          DropShadowOffsetY=   3
          DropShadowType  =   0
-         DropShadowColor =   4210752
+         DropShadowColor =   0
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmMain.frx":12E0C
+         ButtonDesigner  =   "frmMain.frx":11AFA
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdFechar 
          Height          =   1095
          Left            =   120
-         TabIndex        =   3
+         TabIndex        =   2
          Top             =   9360
          Width           =   1095
          _Version        =   131072
@@ -140,12 +104,12 @@ Begin VB.Form frmMain
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmMain.frx":14113
+         ButtonDesigner  =   "frmMain.frx":11CDB
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdTrocarUsuario 
          Height          =   1095
          Left            =   120
-         TabIndex        =   2
+         TabIndex        =   1
          Top             =   8160
          Width           =   1095
          _Version        =   131072
@@ -176,7 +140,7 @@ Begin VB.Form frmMain
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmMain.frx":153E6
+         ButtonDesigner  =   "frmMain.frx":12FAE
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdUsuario 
          Height          =   855
@@ -212,91 +176,45 @@ Begin VB.Form frmMain
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmMain.frx":166B9
-      End
-      Begin fpBtnAtlLibCtl.fpBtn cmdCorretoras 
-         Height          =   855
-         Left            =   120
-         TabIndex        =   1
-         Top             =   1320
-         Width           =   1215
-         _Version        =   131072
-         _ExtentX        =   2143
-         _ExtentY        =   1508
-         Enabled         =   -1  'True
-         MousePointer    =   0
-         Object.TabStop         =   -1  'True
-         GrayAreaColor   =   4210752
-         BorderShowDefault=   0   'False
-         ButtonType      =   0
-         NoPointerFocus  =   0   'False
-         Value           =   0   'False
-         GroupID         =   0
-         GroupSelect     =   0
-         DrawFocusRect   =   2
-         DrawFocusRectCell=   -1
-         GrayAreaPictureStyle=   0
-         Static          =   0   'False
-         BackStyle       =   1
-         AutoSize        =   0
-         AutoSizeOffsetTop=   0
-         AutoSizeOffsetBottom=   0
-         AutoSizeOffsetLeft=   0
-         AutoSizeOffsetRight=   0
-         DropShadowOffsetX=   0
-         DropShadowOffsetY=   0
-         DropShadowType  =   0
-         DropShadowColor =   4210752
-         Redraw          =   -1  'True
-         ButtonDesigner  =   "frmMain.frx":179BE
+         ButtonDesigner  =   "frmMain.frx":14281
       End
    End
 End
-Attribute VB_Name = "frmMain"
+Attribute VB_Name = "frmPrincipal"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
-Dim eForms As Dictionary
+Dim fForms As Dictionary
 
-Private Sub cmdAplicacoes_Click()
-Dim sWidth As Long
-
-eForms.Add IIf(eForms.Exists(eForms.Count), eForms.Count + 1, eForms.Count), frmApplication
-
-sWidth = frmMain.Width - Frame.Width
-SetForm frmApplication, frmMain
-frmApplication.WindowState = 0
-Centraliza frmMain, frmApplication, sWidth
-
-frmApplication.Show
-End Sub
-
-Public Function FormRemove(parForm As Form) As Boolean
+Public Function RemoverForm(parForm As Form) As Boolean
 Dim sCont As Long
 
-For sCont = 0 To eForms.Count
-    If eForms.Exists(sCont) Then If eForms.Item(sCont).Name = parForm.Name Then eForms.Remove sCont
+For sCont = 0 To fForms.Count
+    If fForms.Exists(sCont) Then If fForms.Item(sCont).Name = parForm.Name Then fForms.Remove sCont
 Next
 
-FormRemove = True
+RemoverForm = True
 End Function
 
-Private Sub cmdCorretoras_Click()
-Dim sWidth As Long
+Private Function AdicionarForm(parForm As Form) As Boolean
+Dim sId As Long
+sId = IIf(fForms.Exists(fForms.Count), fForms.Count + 1, fForms.Count)
+fForms.Add sId, parForm
+SetForm parForm, frmPrincipal
+parForm.WindowState = 0
+Centraliza frmPrincipal, parForm, frmPrincipal.Width - Frame.Width
+parForm.Show
+End Function
 
-eForms.Add IIf(eForms.Exists(eForms.Count), eForms.Count + 1, eForms.Count), frmBroker
-
-sWidth = frmMain.Width - Frame.Width
-SetForm frmBroker, frmMain
-frmBroker.WindowState = 0
-Centraliza frmMain, frmBroker, sWidth
-frmBroker.Show
+Private Sub cmdClassificacao_Click()
+AdicionarForm frmClassificacao
 End Sub
 
 Private Sub cmdFechar_Click()
 Unload Me
+End
 End Sub
 
 Private Sub cmdTrocarUsuario_Click()
@@ -305,30 +223,16 @@ frmLogin.Show
 End Sub
 
 Private Sub cmdUsuario_Click()
-Dim sWidth As Long, sId As Long
-
-sId = IIf(eForms.Exists(eForms.Count), eForms.Count + 1, eForms.Count)
-eForms.Add sId, frmUser
-
-sWidth = frmMain.Width - Frame.Width
-SetForm frmUser, frmMain
-frmUser.WindowState = 0
-Centraliza frmMain, frmUser, sWidth
-frmUser.Show
+AdicionarForm frmUsuarios
 End Sub
 
 Private Sub Form_Load()
-Set eForms = New Dictionary
+RemoveMenus Me, True, False, True, True, True, True
+Set fForms = New Dictionary
 Me.Caption = Me.Caption & FillFooter
 End Sub
 
 Private Sub Form_Resize()
-Dim sWidth As Long
-sWidth = frmMain.Width - Frame.Width
 ResizeForm Me
-If eForms.Count > 0 Then Centraliza frmMain, eForms.Item(eForms.Count - 1), sWidth
-End Sub
-
-Private Sub fpBtn_Click()
-frmAnalyze.Show 1
+If fForms.Count > 0 Then Centraliza frmPrincipal, fForms.Item(fForms.Count - 1), frmPrincipal.Width - Frame.Width
 End Sub

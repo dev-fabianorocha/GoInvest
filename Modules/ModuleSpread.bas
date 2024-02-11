@@ -1,4 +1,4 @@
-Attribute VB_Name = "ModuleSpread"
+Attribute VB_Name = "ModGrid"
 Option Explicit
 
 Public Sub SpreadGetCode(ByRef Spread_ As fpSpread, ByVal Row_ As Long, ByRef Code_ As Integer)
@@ -29,7 +29,7 @@ End Sub
 Public Sub SpreadFill(ByRef Spread_ As fpSpread, ByVal Query_ As String)
     Dim iRecordset As New ADODB.Recordset, iRows As Long, iPosition As Long
     
-    Set iRecordset = ReadQuery(Query_, iRows)
+    Set iRecordset = ConsultarSql(Query_, iRows)
     
     With Spread_
         For iPosition = 1 To iRows

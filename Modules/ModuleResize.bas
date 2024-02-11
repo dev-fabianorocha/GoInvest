@@ -1,4 +1,4 @@
-Attribute VB_Name = "ModuleResize"
+Attribute VB_Name = "ModResize"
 Option Explicit
 
 Public Type ctrObj
@@ -14,12 +14,32 @@ Public Type ctrObj
 End Type
 
 Declare Function SetParent Lib "user32" (ByVal hWndChild As Long, ByVal hWndNewParent As Long) As Long
+Declare Function DeleteMenu Lib "user32" (ByVal hMenu As Long, ByVal nPosition As Long, ByVal wFlags As Long) As Long
+Declare Function GetSystemMenu Lib "user32" (ByVal hWnd As Long, ByVal bRevert As Long) As Long
+
+Public Const MF_BYPOSITION = &H400&
+
+Dim hMenu As Long
 
 Private FormRecord() As ctrObj
 Private ControlRecord() As ctrObj
 Private bRunning As Boolean
 Private MaxForm As Long
 Private MaxControl As Long
+
+Public Sub RemoveMenus(frm As Form, Optional Remove_Restore As Boolean, Optional Remove_Move As Boolean, Optional Remove_Size As Boolean, _
+    Optional Remove_Minimize As Boolean, Optional Remove_Maximize As Boolean, Optional Remove_Seperator As Boolean, Optional Remove_Close As Boolean)
+
+hMenu = GetSystemMenu(frm.hWnd, False)
+
+If Remove_Close Then DeleteMenu hMenu, 6, MF_BYPOSITION
+If Remove_Seperator Then DeleteMenu hMenu, 5, MF_BYPOSITION
+If Remove_Maximize Then DeleteMenu hMenu, 4, MF_BYPOSITION
+If Remove_Minimize Then DeleteMenu hMenu, 3, MF_BYPOSITION
+If Remove_Size Then DeleteMenu hMenu, 2, MF_BYPOSITION
+If Remove_Move Then DeleteMenu hMenu, 1, MF_BYPOSITION
+If Remove_Restore Then DeleteMenu hMenu, 0, MF_BYPOSITION
+End Sub
 
 Private Function ActualPos(plLeft As Long) As Long
 If plLeft < 0 Then
@@ -37,7 +57,7 @@ Dim iLeft As Integer
 Child.Width = Width
 Child.Height = Parent.Height
 iTop = ((Parent.Height - Child.Height) \ 2)
-iLeft = ((Parent.Width - Child.Width) \ 2) + (Parent.Width - Child.Width) - 800
+iLeft = ((Parent.Width - Child.Width) \ 2) + (Parent.Width - Child.Width) - 730
 Child.Move iLeft, iTop
 Child.Refresh
 End Sub

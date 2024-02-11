@@ -1,16 +1,16 @@
 VERSION 5.00
 Object = "{FD2FB1F1-D4FC-11CE-A335-A8D5ECAE5B02}#2.0#0"; "btn32a20.ocx"
 Object = "{F856EC8B-F03C-4515-BDC6-64CBD617566A}#7.0#0"; "FPSPR70.ocx"
-Begin VB.Form frmUsuarios 
+Begin VB.Form frmPadraoNovo 
    Appearance      =   0  'Flat
    BackColor       =   &H80000005&
    BorderStyle     =   0  'None
-   Caption         =   "Usuários"
+   Caption         =   "frmPadraoNovo"
    ClientHeight    =   10500
    ClientLeft      =   0
-   ClientTop       =   75
+   ClientTop       =   405
    ClientWidth     =   19125
-   Icon            =   "frmUser.frx":0000
+   Icon            =   "frmPadraoNovo.frx":0000
    LinkTopic       =   "Form1"
    ScaleHeight     =   10500
    ScaleWidth      =   19125
@@ -59,7 +59,7 @@ Begin VB.Form frmUsuarios
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmUser.frx":680A
+         ButtonDesigner  =   "frmPadraoNovo.frx":680A
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   855
@@ -96,7 +96,7 @@ Begin VB.Form frmUsuarios
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmUser.frx":7AD5
+         ButtonDesigner  =   "frmPadraoNovo.frx":7AD5
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   855
@@ -133,7 +133,7 @@ Begin VB.Form frmUsuarios
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmUser.frx":8DA1
+         ButtonDesigner  =   "frmPadraoNovo.frx":8DA1
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   855
@@ -170,7 +170,7 @@ Begin VB.Form frmUsuarios
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmUser.frx":A06F
+         ButtonDesigner  =   "frmPadraoNovo.frx":A06F
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   855
@@ -207,7 +207,7 @@ Begin VB.Form frmUsuarios
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmUser.frx":B33A
+         ButtonDesigner  =   "frmPadraoNovo.frx":B33A
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   855
@@ -244,7 +244,7 @@ Begin VB.Form frmUsuarios
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmUser.frx":C605
+         ButtonDesigner  =   "frmPadraoNovo.frx":C605
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   855
@@ -281,7 +281,7 @@ Begin VB.Form frmUsuarios
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmUser.frx":D8D1
+         ButtonDesigner  =   "frmPadraoNovo.frx":D8D1
       End
    End
    Begin VB.Frame quadPesquisa 
@@ -346,7 +346,7 @@ Begin VB.Form frmUsuarios
          DropShadowType  =   0
          DropShadowColor =   0
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmUser.frx":EB9D
+         ButtonDesigner  =   "frmPadraoNovo.frx":EB9D
       End
       Begin VB.TextBox txtPesquisa 
          BeginProperty Font 
@@ -392,7 +392,7 @@ Begin VB.Form frmUsuarios
          ShadowColor     =   12632256
          ShadowDark      =   8421504
          ShadowText      =   0
-         SpreadDesigner  =   "frmUser.frx":FE74
+         SpreadDesigner  =   "frmPadraoNovo.frx":FE74
          UserResize      =   0
       End
       Begin VB.Label Label 
@@ -427,12 +427,12 @@ Begin VB.Form frmUsuarios
       Begin VB.CheckBox SeePassword 
          Appearance      =   0  'Flat
          BackColor       =   &H00E0E0E0&
-         DownPicture     =   "frmUser.frx":10359
-         DragIcon        =   "frmUser.frx":10DCB
+         DownPicture     =   "frmPadraoNovo.frx":10359
+         DragIcon        =   "frmPadraoNovo.frx":10DCB
          ForeColor       =   &H80000008&
          Height          =   330
          Left            =   8640
-         Picture         =   "frmUser.frx":1183D
+         Picture         =   "frmPadraoNovo.frx":1183D
          Style           =   1  'Graphical
          TabIndex        =   27
          Top             =   860
@@ -649,7 +649,7 @@ Begin VB.Form frmUsuarios
       End
    End
 End
-Attribute VB_Name = "frmUsuarios"
+Attribute VB_Name = "frmPadraoNovo"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True

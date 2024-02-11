@@ -6,7 +6,7 @@ BEGIN
   DataSourceBehavior  = 0  'vbNone
   MTSTransactionMode  = 0  'NotAnMTSObject
 END
-Attribute VB_Name = "clsUsuarios"
+Attribute VB_Name = "ClsClassificacao"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = True
 Attribute VB_PredeclaredId = False
@@ -14,7 +14,10 @@ Attribute VB_Exposed = False
 Option Explicit
 
 Dim fCodigo As Integer
-Dim fNome As String
+Dim fDescricao As String
+Dim fUsuario As String
+Dim fTipo As Boolean
+Dim fImportancia As Byte
 Dim fSenha As String
 Dim fCadastro As Date
 Dim fAtualizacao As Date
@@ -27,12 +30,20 @@ End Property
 Property Let Codigo(ByVal ParCodigo As Integer)
 fCodigo = ParCodigo
 End Property
-Property Get Nome() As String
-Nome = fNome
+Property Get Descricao() As String
+Descricao = fDescricao
 End Property
-Property Let Nome(ByVal parNome As String)
-fNome = parNome
+Property Let Descricao(ByVal parDescricao As String)
+fDescricao = parDescricao
 End Property
+
+Property Get Usuario() As String
+Usuario = fUsuario
+End Property
+Property Let Usuario(ByVal parUsuario As String)
+fUsuario = parUsuario
+End Property
+
 Property Get Senha() As String
 Senha = fSenha
 End Property
@@ -51,40 +62,53 @@ End Property
 Property Let Atualizacao(ByVal ParAtualizacao As Date)
 fAtualizacao = ParAtualizacao
 End Property
+
+Property Get Importancia() As Byte
+Importancia = fImportancia
+End Property
+Property Let Importancia(ByVal parImportancia As Byte)
+fImportancia = parImportancia
+End Property
+
+Property Get Tipo() As Byte
+Tipo = fTipo
+End Property
+Property Let Tipo(ByVal parTipo As Byte)
+fTipo = parTipo
+End Property
+
 Property Get Inativo() As Byte
 Inativo = fInativo
 End Property
 Property Let Inativo(ByVal ParInativo As Byte)
 fInativo = ParInativo
 End Property
-Public Function Consultar(Optional ByVal ParCodigo As Integer, Optional ByVal parNome As String) As Boolean
+Public Function Consultar(ParCodigo) As Boolean
 Dim sSql As String
 
-sSql = "SELECT USU_CODIGO, USU_NOME, USU_SENHA, USU_CADASTRO, USU_ATUALIZACAO, USU_INATIVO FROM USUARIOS WHERE 1=1 "
+sSql = "SELECT CLA_CODIGO, CLA_DESCRICAO, CLA_TIPO, CLA_IMPORTANCIA, CLA_USUARIO, CLA_CADASTRO, CLA_ATUALIZACAO, CLA_INATIVO FROM CLASSIFICACAO WHERE CLA_CODIGO = " _
+    & TratarVariavel(ParCodigo, eStringSql)
 
-If ParCodigo <> 0 Then sSql = sSql & "AND USU_CODIGO = " & TratarVariavel(ParCodigo, eIntNumber)
-
-If parNome <> "" Then sSql = sSql & " AND USU_NOME = " & TratarVariavel(parNome, eStringSql)
-
-Dim sClsCriptografia As New ClsCriptografia, sRecordset As New Recordset
+Dim sRecordset As New Recordset
 
 Set sRecordset = ConsultarSql(sSql, 0)
 
 If Not sRecordset.EOF Then
     With sRecordset
-        fCodigo = !USU_CODIGO
-        fNome = TratarVariavel(!USU_NOME, eStringText)
-        fSenha = sClsCriptografia.Decrypt(TratarVariavel(!USU_SENHA, eStringText))
-        fCadastro = TratarVariavel(!USU_CADASTRO, eStringText)
-        fAtualizacao = TratarVariavel(!USU_ATUALIZACAO, eStringText)
-        fInativo = TratarVariavel(!USU_INATIVO, eLogicSql)
+        fCodigo = !CLA_CODIGO
+        fDescricao = TratarVariavel(!CLA_DESCRICAO, eStringText)
+        fTipo = TratarVariavel(!CLA_TIPO, eLogic)
+        fImportancia = !CLA_IMPORTANCIA
+        fUsuario = !CLA_USUARIO
+        fCadastro = TratarVariavel(!CLA_CADASTRO, eStringText)
+        fAtualizacao = TratarVariavel(!CLA_ATUALIZACAO, eStringText)
+        fInativo = TratarVariavel(!CLA_INATIVO, eLogicSql)
     End With
 Else
     MsgBox "Código não localizado"
     Exit Function
 End If
 
-Set sClsCriptografia = Nothing
 
 Consultar = True
 End Function
@@ -93,13 +117,10 @@ Public Function Inserir() As Boolean
 On Error GoTo Trata
 Dim sSql As String
 
-Dim eClsCipher As New ClsCriptografia
 
-sSql = "INSERT INTO USUARIOS (USU_NOME, USU_SENHA, USU_CADASTRO, USU_ATUALIZACAO, USU_INATIVO) VALUES ('" _
-    & fNome & "', '" & eClsCipher.Encrypt(fSenha) & "', GETDATE(), GETDATE(), '" & fInativo & "')"
+sSql = "INSERT INTO CLASSIFICACAO (CLA_DESCRICAO, CLA_TIPO, CLA_IMPORTANCIA, CLA_USUARIO, CLA_CADASTRO, CLA_ATUALIZACAO, CLA_INATIVO) VALUES (" _
+    & TratarVariavel(fDescricao, eStringSql) & ", " & TratarVariavel(fTipo, eLogicSql) & "," & fImportancia & "," & pClsUsuario.Codigo & ", GETDATE(), GETDATE(), '" & fInativo & "')"
 If Not ExecutarSql(sSql) Then GoTo Trata
-
-Set eClsCipher = Nothing
 
 Inserir = True
 Exit Function
@@ -114,7 +135,7 @@ Dim sSql As String
 
 Dim eClsCipher As New ClsCriptografia
 
-sSql = "UPDATE USUARIOS SET USU_NOME = '" & fNome & "', USU_SENHA = '" & eClsCipher.Encrypt(fSenha) & "', USU_ATUALIZACAO = GETDATE(), USU_INATIVO = '" & fInativo _
+sSql = "UPDATE USUARIOS SET USU_NOME = '" & fDescricao & "', USU_SENHA = '" & eClsCipher.Encrypt(fSenha) & "', USU_ATUALIZACAO = GETDATE(), USU_INATIVO = '" & fInativo _
     & "' WHERE USU_CODIGO = '" & fCodigo & "'"
 If Not ExecutarSql(sSql) Then GoTo Trata
 
@@ -132,7 +153,6 @@ On Error GoTo Trata
 Dim sSql As String
 
 sSql = "UPDATE USUARIOS SET USU_INATIVO = '1' WHERE USU_CODIGO = '" & ParCodigo & "'"
-
 If MsgBox("Deseja excluir esse usuário?", vbYesNo, "Corretoras") = 6 Then
     If Not ExecutarSql(sSql) Then GoTo Trata
 End If
@@ -143,3 +163,5 @@ Resume
 Trata:
 ErrorHandler Err.Number, Err.Description, "clsUsuarios.Excluir", sSql
 End Function
+
+

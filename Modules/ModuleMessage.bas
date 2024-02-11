@@ -1,4 +1,4 @@
-Attribute VB_Name = "ModuleMessage"
+Attribute VB_Name = "ModMessage"
 Option Explicit
 
 Public Function ErrorHandler(ByVal NumberError_ As Long, ByVal ErrorDescription_ As String, ByVal ErrorPlace As String, Optional ByVal Query_ As String)
@@ -18,7 +18,7 @@ End Function
 Public Function FillFooter() As String
 Dim iReturn As String
 
-iReturn = " - Servidor: " & gServer & " | Banco de Dados: " & gConnection & " | Usuário: " & gUser & " | V." & gVersion & " | "
+iReturn = " - Servidor: " & pServidorBanco & " | Banco de Dados: " & pNomeBanco & " | Usuário: " & pUsuarioBanco & " | V." & pVersao & " | "
 
 FillFooter = iReturn
 End Function

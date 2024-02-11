@@ -1,16 +1,17 @@
 VERSION 5.00
 Object = "{FD2FB1F1-D4FC-11CE-A335-A8D5ECAE5B02}#2.0#0"; "btn32a20.ocx"
 Object = "{F856EC8B-F03C-4515-BDC6-64CBD617566A}#7.0#0"; "FPSPR70.ocx"
-Begin VB.Form frmUsuarios 
+Object = "{6B7E6392-850A-101B-AFC0-4210102A8DA7}#1.3#0"; "COMCTL32.OCX"
+Begin VB.Form frmClassificacao 
    Appearance      =   0  'Flat
    BackColor       =   &H80000005&
    BorderStyle     =   0  'None
-   Caption         =   "Usuários"
+   Caption         =   "frmClassificacao"
    ClientHeight    =   10500
-   ClientLeft      =   0
-   ClientTop       =   75
+   ClientLeft      =   -120
+   ClientTop       =   1560
    ClientWidth     =   19125
-   Icon            =   "frmUser.frx":0000
+   Icon            =   "frmClassificacao.frx":0000
    LinkTopic       =   "Form1"
    ScaleHeight     =   10500
    ScaleWidth      =   19125
@@ -21,14 +22,14 @@ Begin VB.Form frmUsuarios
       ForeColor       =   &H8000000E&
       Height          =   10570
       Left            =   17670
-      TabIndex        =   19
+      TabIndex        =   16
       Top             =   -90
       Width           =   1455
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   855
          Index           =   6
          Left            =   240
-         TabIndex        =   20
+         TabIndex        =   17
          Top             =   6360
          Width           =   975
          _Version        =   131072
@@ -59,13 +60,13 @@ Begin VB.Form frmUsuarios
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmUser.frx":680A
+         ButtonDesigner  =   "frmClassificacao.frx":680A
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   855
          Index           =   0
          Left            =   240
-         TabIndex        =   21
+         TabIndex        =   18
          Top             =   2520
          Width           =   975
          _Version        =   131072
@@ -96,13 +97,13 @@ Begin VB.Form frmUsuarios
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmUser.frx":7AD5
+         ButtonDesigner  =   "frmClassificacao.frx":7AD5
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   855
          Index           =   1
          Left            =   240
-         TabIndex        =   22
+         TabIndex        =   19
          Top             =   3480
          Width           =   975
          _Version        =   131072
@@ -133,13 +134,13 @@ Begin VB.Form frmUsuarios
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmUser.frx":8DA1
+         ButtonDesigner  =   "frmClassificacao.frx":8DA1
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   855
          Index           =   4
          Left            =   240
-         TabIndex        =   23
+         TabIndex        =   20
          Top             =   4200
          Width           =   975
          _Version        =   131072
@@ -170,13 +171,13 @@ Begin VB.Form frmUsuarios
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmUser.frx":A06F
+         ButtonDesigner  =   "frmClassificacao.frx":A06F
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   855
          Index           =   5
          Left            =   240
-         TabIndex        =   24
+         TabIndex        =   21
          Top             =   5160
          Width           =   975
          _Version        =   131072
@@ -207,13 +208,13 @@ Begin VB.Form frmUsuarios
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmUser.frx":B33A
+         ButtonDesigner  =   "frmClassificacao.frx":B33A
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   855
          Index           =   2
          Left            =   240
-         TabIndex        =   25
+         TabIndex        =   22
          Top             =   4440
          Width           =   975
          _Version        =   131072
@@ -244,13 +245,13 @@ Begin VB.Form frmUsuarios
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmUser.frx":C605
+         ButtonDesigner  =   "frmClassificacao.frx":C605
       End
       Begin fpBtnAtlLibCtl.fpBtn cmdOpcao 
          Height          =   855
          Index           =   3
          Left            =   240
-         TabIndex        =   26
+         TabIndex        =   23
          Top             =   5400
          Width           =   975
          _Version        =   131072
@@ -281,7 +282,7 @@ Begin VB.Form frmUsuarios
          DropShadowType  =   0
          DropShadowColor =   4210752
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmUser.frx":D8D1
+         ButtonDesigner  =   "frmClassificacao.frx":D8D1
       End
    End
    Begin VB.Frame quadPesquisa 
@@ -289,7 +290,7 @@ Begin VB.Form frmUsuarios
       BorderStyle     =   0  'None
       Height          =   10575
       Left            =   0
-      TabIndex        =   11
+      TabIndex        =   9
       Top             =   0
       Width           =   19095
       Begin VB.CheckBox chkInativoPesquisa 
@@ -346,7 +347,7 @@ Begin VB.Form frmUsuarios
          DropShadowType  =   0
          DropShadowColor =   0
          Redraw          =   -1  'True
-         ButtonDesigner  =   "frmUser.frx":EB9D
+         ButtonDesigner  =   "frmClassificacao.frx":EB9D
       End
       Begin VB.TextBox txtPesquisa 
          BeginProperty Font 
@@ -386,13 +387,13 @@ Begin VB.Form frmUsuarios
          EndProperty
          GrayAreaBackColor=   14737632
          GridColor       =   8421504
-         MaxCols         =   5
+         MaxCols         =   6
          MaxRows         =   1
          OperationMode   =   2
          ShadowColor     =   12632256
          ShadowDark      =   8421504
          ShadowText      =   0
-         SpreadDesigner  =   "frmUser.frx":FE74
+         SpreadDesigner  =   "frmClassificacao.frx":FE74
          UserResize      =   0
       End
       Begin VB.Label Label 
@@ -421,47 +422,28 @@ Begin VB.Form frmUsuarios
       ForeColor       =   &H80000010&
       Height          =   10575
       Left            =   0
-      TabIndex        =   12
+      TabIndex        =   10
       Top             =   -120
       Width           =   19095
-      Begin VB.CheckBox SeePassword 
-         Appearance      =   0  'Flat
-         BackColor       =   &H00E0E0E0&
-         DownPicture     =   "frmUser.frx":10359
-         DragIcon        =   "frmUser.frx":10DCB
-         ForeColor       =   &H80000008&
-         Height          =   330
-         Left            =   8640
-         Picture         =   "frmUser.frx":1183D
-         Style           =   1  'Graphical
+      Begin ComctlLib.Slider Slider 
+         Height          =   540
+         Left            =   7440
          TabIndex        =   27
-         Top             =   860
-         Width           =   400
-      End
-      Begin VB.TextBox txtSenha 
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   375
-         IMEMode         =   3  'DISABLE
-         Left            =   6240
-         PasswordChar    =   "*"
-         TabIndex        =   7
-         Top             =   840
-         Width           =   2295
+         Top             =   740
+         Width           =   1935
+         _ExtentX        =   3413
+         _ExtentY        =   953
+         _Version        =   327682
+         BorderStyle     =   1
+         Max             =   5
+         TickStyle       =   1
       End
       Begin VB.Frame quadDatas 
          BackColor       =   &H00E0E0E0&
          Enabled         =   0   'False
          Height          =   975
          Left            =   13920
-         TabIndex        =   15
+         TabIndex        =   13
          Top             =   9000
          Width           =   3255
          Begin VB.TextBox txtData 
@@ -477,7 +459,7 @@ Begin VB.Form frmUsuarios
             EndProperty
             Height          =   375
             Left            =   120
-            TabIndex        =   9
+            TabIndex        =   7
             Top             =   480
             Width           =   1455
          End
@@ -494,7 +476,7 @@ Begin VB.Form frmUsuarios
             EndProperty
             Height          =   375
             Left            =   1680
-            TabIndex        =   10
+            TabIndex        =   8
             Top             =   480
             Width           =   1455
          End
@@ -513,7 +495,7 @@ Begin VB.Form frmUsuarios
             Height          =   255
             Index           =   2
             Left            =   120
-            TabIndex        =   17
+            TabIndex        =   15
             Top             =   240
             Width           =   1095
          End
@@ -532,30 +514,10 @@ Begin VB.Form frmUsuarios
             Height          =   255
             Index           =   3
             Left            =   1680
-            TabIndex        =   16
+            TabIndex        =   14
             Top             =   240
             Width           =   1095
          End
-      End
-      Begin VB.CheckBox chkInativo 
-         Appearance      =   0  'Flat
-         BackColor       =   &H00E0E0E0&
-         Caption         =   "I&nativo"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H80000008&
-         Height          =   495
-         Left            =   9360
-         TabIndex        =   8
-         Top             =   780
-         Width           =   1335
       End
       Begin VB.TextBox txtNome 
          BeginProperty Font 
@@ -590,9 +552,9 @@ Begin VB.Form frmUsuarios
          Top             =   840
          Width           =   855
       End
-      Begin VB.Label Label 
+      Begin VB.Frame quadTipo 
          BackColor       =   &H00E0E0E0&
-         Caption         =   "Senha"
+         Caption         =   "Tipo"
          BeginProperty Font 
             Name            =   "Arial"
             Size            =   9.75
@@ -602,16 +564,53 @@ Begin VB.Form frmUsuarios
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         Height          =   255
-         Index           =   5
+         Height          =   540
          Left            =   6240
-         TabIndex        =   18
-         Top             =   600
-         Width           =   855
+         TabIndex        =   24
+         Top             =   700
+         Width           =   1095
+         Begin VB.OptionButton optTipo 
+            BackColor       =   &H00E0E0E0&
+            Caption         =   "+"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   12
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   255
+            Index           =   1
+            Left            =   70
+            TabIndex        =   26
+            Top             =   220
+            Width           =   495
+         End
+         Begin VB.OptionButton optTipo 
+            BackColor       =   &H00E0E0E0&
+            Caption         =   "-"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   12
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   255
+            Index           =   0
+            Left            =   600
+            TabIndex        =   25
+            Top             =   220
+            Width           =   375
+         End
       End
       Begin VB.Label Label 
          BackColor       =   &H00E0E0E0&
-         Caption         =   "Nome"
+         Caption         =   "Descrição"
          BeginProperty Font 
             Name            =   "Arial"
             Size            =   9.75
@@ -624,9 +623,9 @@ Begin VB.Form frmUsuarios
          Height          =   255
          Index           =   1
          Left            =   1320
-         TabIndex        =   14
+         TabIndex        =   12
          Top             =   600
-         Width           =   855
+         Width           =   1335
       End
       Begin VB.Label Label 
          BackColor       =   &H00E0E0E0&
@@ -643,13 +642,13 @@ Begin VB.Form frmUsuarios
          Height          =   255
          Index           =   0
          Left            =   360
-         TabIndex        =   13
+         TabIndex        =   11
          Top             =   600
          Width           =   735
       End
    End
 End
-Attribute VB_Name = "frmUsuarios"
+Attribute VB_Name = "frmClassificacao"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
@@ -657,7 +656,7 @@ Attribute VB_Exposed = False
 Option Explicit
 
 Dim fOpcao As Integer
-Dim fClsUsuarios As New clsUsuarios
+Dim fClsClassificacao As New ClsClassificacao
 Dim fCodigo As Integer
 Dim fCondicao As String
 Private Enum EnumGrid
@@ -671,17 +670,17 @@ End Enum
 Private Sub AlimentarGrid()
 Dim sSql As String
 
-sSql = "SELECT USU_CODIGO AS CODIGO, USU_NOME AS NOME, USU_CADASTRO AS CADASTRO, USU_ATUALIZACAO AS ATUALIZACAO, CASE WHEN USU_INATIVO = 0 THEN 'ATIVO'" _
-    & "WHEN USU_INATIVO = 1 THEN 'INATIVO' END AS STATUS FROM USUARIOS WHERE 1 = 1"
+sSql = "SELECT CLA_CODIGO AS CODIGO, CLA_DESCRICAO AS DESCRICAO, CLA_USUARIO AS USUARIO, CLA_CADASTRO AS CADASTRO, CLA_ATUALIZACAO AS ATUALIZACAO, CASE WHEN CLA_INATIVO = 0 THEN 'ATIVO'" _
+    & "WHEN CLA_INATIVO = 1 THEN 'INATIVO' END AS STATUS FROM CLASSIFICACAO WHERE 1 = 1"
 
 If chkInativoPesquisa Then
-    sSql = sSql & " AND USU_INATIVO = 1"
+    sSql = sSql & " AND CLA_INATIVO = 1"
 Else
-    sSql = sSql & " AND USU_INATIVO = 0"
+    sSql = sSql & " AND CLA_INATIVO = 0"
 End If
 
 If txtPesquisa.Text <> "" Then
-    sSql = sSql & " AND USU_NOME LIKE '" & Trim(txtPesquisa.Text) & "%'"
+    sSql = sSql & " AND CLA_DESCRICAO LIKE '" & Trim(txtPesquisa.Text) & "%'"
 End If
 
 SpreadClean gridPrincipal
@@ -697,7 +696,7 @@ On Error GoTo ErrorHandler
 If Index = EnumOpcao.eIncluir Then
     fOpcao = Index
     DefinirTela True
-    chkInativo.Visible = False
+    'chkInativo.Visible = False
     quadDatas.Visible = False
     txtCodigo = "NOVO"
 ElseIf Index = EnumOpcao.eCosultar Or Index = EnumOpcao.eAlterar Or Index = EnumOpcao.eExcluir Then
@@ -712,7 +711,7 @@ ElseIf Index = EnumOpcao.eConfirmar Then
         DefinirTela False
         ExpurgarDados
     ElseIf fOpcao = EnumOpcao.eExcluir Then
-        If Not fClsUsuarios.Excluir(fCodigo) Then GoTo ErrorHandler
+        If Not fClsClassificacao.Excluir(fCodigo) Then GoTo ErrorHandler
         AlimentarGrid
         DefinirTela False
         ExpurgarDados
@@ -775,13 +774,11 @@ End If
 End Sub
 
 Private Function ObterDados() As Boolean
-If fClsUsuarios.Consultar(fCodigo) Then
-    With fClsUsuarios
-        txtNome = .Nome
-        txtSenha = .Senha
+If fClsClassificacao.Consultar(fCodigo) Then
+    With fClsClassificacao
+        txtNome = .Descricao
         txtData = .Cadastro
         txtAtualizacao = .Atualizacao
-        chkInativo = .Inativo
     End With
 End If
 txtCodigo = fCodigo
@@ -794,12 +791,12 @@ Dim sSql As String, sCont As Long
 
 If Not AnalisarDados Then Exit Function
 
-If fCodigo <> 0 Then fClsUsuarios.Consultar (fCodigo)
-With fClsUsuarios
+If fCodigo <> 0 Then fClsClassificacao.Consultar (fCodigo)
+With fClsClassificacao
     .Codigo = fCodigo
-    .Nome = Trim(txtNome)
-    .Senha = txtSenha
-    .Inativo = IIf(chkInativo.value, 1, 0)
+    .Descricao = Trim(txtNome)
+    '.Senha = txtSenha
+    '.Inativo = IIf(chkInativo.value, 1, 0)
     If fOpcao = EnumOpcao.eIncluir Then If Not .Inserir Then GoTo Trata
     If fOpcao = EnumOpcao.eAlterar Then If Not .Atualizar Then GoTo Trata
 End With
@@ -822,11 +819,6 @@ If txtNome.Text = Empty Then
     Exit Function
 End If
 
-If txtSenha.Text = Empty Then
-    MsgBox "Por favor informe uma senha para o usuário.", vbInformation, "GoInvest"
-    txtSenha.SetFocus
-    Exit Function
-End If
 
 AnalisarDados = True
 End Function
@@ -834,14 +826,12 @@ End Function
 Private Sub ExpurgarDados()
 txtCodigo.Text = Empty
 txtNome.Text = Empty
-txtSenha.Text = Empty
-chkInativo.value = 0
-SeePassword.value = 0
+'chkInativo.value = 0
 txtData.Text = Empty
 txtAtualizacao.Text = Empty
-chkInativo.Visible = True
+'chkInativo.Visible = True
 quadDatas.Visible = True
-Set fClsUsuarios = Nothing
+Set fClsClassificacao = Nothing
 End Sub
 
 Private Sub Form_Resize()
@@ -854,14 +844,6 @@ End Sub
 
 Private Sub gridPrincipal_DblClick(ByVal col As Long, ByVal Row As Long)
 cmdOpcao_Click (EnumOpcao.eAlterar)
-End Sub
-
-Private Sub SeePassword_Click()
-If SeePassword Then
-    txtSenha.PasswordChar = ""
-Else
-    txtSenha.PasswordChar = "*"
-End If
 End Sub
 
 Private Sub txtNome_KeyPress(KeyAscii As Integer)

@@ -1,4 +1,4 @@
-Attribute VB_Name = "ModuleMenu"
+Attribute VB_Name = "ModMenu"
 Option Explicit
 
 'API's do Windows para trabalhar com menus

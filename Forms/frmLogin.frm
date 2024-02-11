@@ -1,6 +1,6 @@
 VERSION 5.00
-Object = "{CDF3B183-D408-11CE-AE2C-0080C786E37D}#3.0#0"; "Edt32x30.ocx"
 Object = "{FD2FB1F1-D4FC-11CE-A335-A8D5ECAE5B02}#2.0#0"; "btn32a20.ocx"
+Object = "{CDF3B183-D408-11CE-AE2C-0080C786E37D}#3.0#0"; "Edt32x30.ocx"
 Begin VB.Form frmLogin 
    BackColor       =   &H00E0E0E0&
    BorderStyle     =   3  'Fixed Dialog
@@ -315,15 +315,17 @@ Private Sub cmdLogin_Click()
         txtSenha.SetFocus
         txtSenha.Text = ""
     Else
-        gUser = txtUsuario
-        frmMain.Show
+        Set pClsUsuario = New clsUsuarios
+        pClsUsuario.Consultar parNome:=txtUsuario
+        pUsuarioBanco = Trim(txtUsuario)
+        frmPrincipal.Show
         Unload Me
     End If
 End Sub
 
 Private Sub Form_Load()
-gVersion = "26/03/2022"
-If Not ReadConfig Then
+pVersao = "26/03/2022"
+If Not LerConfig Then
     MsgBox "O banco de dados não esta configurado!", vbExclamation
     Unload Me
 End If
@@ -334,25 +336,19 @@ Private Sub txtSenha_GotFocus()
 End Sub
 
 Private Function VerificarUsuario(Optional ByVal VerificaNome As Boolean, Optional ByVal VerificaSenha As Boolean) As Boolean
-Dim sSql As String, sLinhas As Long, sRetorno As Boolean, iClsCipher As clsCipher
+Dim sSql As String, sLinhas As Long, sRetorno As Boolean, sClsCriptografia As ClsCriptografia
 
 If VerificaNome Then
-    sSql = "SELECT USU_NOME FROM USUARIOS WHERE USU_NOME = '" & txtUsuario.Text & "'"
-    ReadQuery sSql, sLinhas
-    
-    If sLinhas <> 0 Then
-        sRetorno = True
-    End If
+    sSql = "SELECT USU_NOME FROM USUARIOS WHERE USU_NOME = " & TratarVariavel(Trim(txtUsuario.Text), eStringSql)
+    If PegarCampo(sSql, eStringText) <> "" Then sRetorno = True
 ElseIf VerificaSenha Then
-    Set iClsCipher = New clsCipher
-    sSql = "SELECT USU_NOME FROM USUARIOS WHERE USU_NOME = '" & txtUsuario.Text & "' AND USU_SENHA = '" & iClsCipher.Encrypt(txtSenha.Text) & "'"
-    ReadQuery sSql, sLinhas
+    Set sClsCriptografia = New ClsCriptografia
+    sSql = "SELECT USU_NOME FROM USUARIOS WHERE USU_NOME = " & TratarVariavel(Trim(txtUsuario.Text), eStringSql) _
+        & " AND USU_SENHA = '" & sClsCriptografia.Encrypt(txtSenha.Text) & "'"
+        
+    If PegarCampo(sSql, eStringText) <> "" Then sRetorno = True
     
-    If sLinhas <> 0 Then
-        sRetorno = True
-    End If
-    
-    Set iClsCipher = Nothing
+    Set sClsCriptografia = Nothing
 End If
 
 VerificarUsuario = sRetorno

@@ -1,28 +1,18 @@
-Attribute VB_Name = "ModuleVariableHandler"
+Attribute VB_Name = "ModVariavel"
 Option Explicit
-
-'Public Variable = g (Global)
-'Private Variable = i (Internal)
-'Form Variable = e (External)
-'Parameter = Example_
 
 '©Copyright 2022 - Fabiano Gomes da Rocha
 
-Public gUser As String
+Public pClsUsuario As clsUsuarios
 
-Public gServer As String
-Public gVersion As String
-Public gWindowsConnection As Boolean
-Public gConnection As String
-
-Public Enum EnumOption
-    eInclude
-    eRead
-    Update
-    eDelete
-    eConfirm
-    eCancel
-    eLeave
+Public Enum EnumOpcao
+    eIncluir
+    eCosultar
+    eAlterar
+    eExcluir
+    eConfirmar
+    eCancelar
+    eSair
 End Enum
 
 Public Enum EnumType
@@ -36,92 +26,97 @@ Public Enum EnumType
     eLogic
     eLogicSql
     eNumberSql
+    eStringSql
 End Enum
 
-Public Function VariableAdjust(ByVal Variable_ As Variant, ByVal Type_ As EnumType) As Variant
-    Dim iReturn As Variant, iPosition As Long, iFind As Boolean, iText As String
-    
-    If Type_ = EnumType.eStringText Then
-        If Not Variable_ = Empty Then
-            iReturn = CStr(Variable_)
-        Else
-            iReturn = Empty
-        End If
-    ElseIf Type_ = EnumType.eByteNumber Then
-        If Not Variable_ = Empty Then
-            iReturn = CByte(Variable_)
-        Else
-            iReturn = 0
-        End If
-    ElseIf Type_ = EnumType.eIntNumber Then
-        If Not Variable_ = Empty Then
-            iReturn = CInt(Variable_)
-        Else
-            iReturn = 0
-        End If
-    ElseIf Type_ = EnumType.eLongNumber Then
-        If Not Variable_ = Empty Then
-            iReturn = CLng(Variable_)
-        Else
-            iReturn = 0
-        End If
-    ElseIf Type_ = EnumType.eDoubleNumber Then
-        If Not Variable_ = Empty Then
-            iReturn = CDbl(Variable_)
-        Else
-            iReturn = 0
-        End If
-    ElseIf Type_ = EnumType.eCurrencyNumber Then
-        If Not Variable_ = Empty Then
-            iReturn = CCur(Variable_)
-        Else
-            iReturn = 0
-        End If
-    ElseIf Type_ = EnumType.eDate Then
-        If Not Variable_ = Empty Then
-            iReturn = CDate(Variable_)
-        Else
-            iReturn = "00/00/0000"
-        End If
-    ElseIf Type_ = EnumType.eLogic Then
-        If Not Variable_ = Empty Then
-            iReturn = CBool(Variable_)
-        Else
-            iReturn = 0
-        End If
-    ElseIf Type_ = EnumType.eLogicSql Then
-        If Not Variable_ = Empty Then
-            iReturn = CByte(IIf(Variable_, 1, 0))
-        Else
-            iReturn = 0
-        End If
-    ElseIf Type_ = EnumType.eNumberSql Then
-        If Not Variable_ = Empty Then
-            For iPosition = 1 To Len(Variable_)
-                iText = Mid(Variable_, iPosition, 1)
-                If iText = "," Then iText = "."
-                iReturn = iReturn & iText
-            Next
-        Else
-            iReturn = 0
-        End If
+Public Function TratarVariavel(ByVal parVariavel As Variant, ByVal parTipo As EnumType) As Variant
+Dim sRetorno As Variant
+
+If parTipo = EnumType.eStringText Then
+    If Not parVariavel = Empty Then
+        sRetorno = CStr(parVariavel)
+    Else
+        sRetorno = Empty
     End If
-    
-    VariableAdjust = iReturn
+ElseIf parTipo = EnumType.eByteNumber Then
+    If Not parVariavel = Empty Then
+        sRetorno = CByte(parVariavel)
+    Else
+        sRetorno = 0
+    End If
+ElseIf parTipo = EnumType.eIntNumber Then
+    If Not parVariavel = Empty Then
+        sRetorno = CInt(parVariavel)
+    Else
+        sRetorno = 0
+    End If
+ElseIf parTipo = EnumType.eLongNumber Then
+    If Not parVariavel = Empty Then
+        sRetorno = CLng(parVariavel)
+    Else
+        sRetorno = 0
+    End If
+ElseIf parTipo = EnumType.eDoubleNumber Then
+    If Not parVariavel = Empty Then
+        sRetorno = CDbl(parVariavel)
+    Else
+        sRetorno = 0
+    End If
+ElseIf parTipo = EnumType.eCurrencyNumber Then
+    If Not parVariavel = Empty Then
+        sRetorno = CCur(parVariavel)
+    Else
+        sRetorno = 0
+    End If
+ElseIf parTipo = EnumType.eDate Then
+    If Not parVariavel = Empty Then
+        sRetorno = CDate(parVariavel)
+    Else
+        sRetorno = "00/00/0000"
+    End If
+ElseIf parTipo = EnumType.eLogic Then
+    If Not parVariavel = Empty Then
+        sRetorno = CBool(parVariavel)
+    Else
+        sRetorno = 0
+    End If
+ElseIf parTipo = EnumType.eLogicSql Then
+    If Not parVariavel = Empty Then
+        sRetorno = CByte(IIf(parVariavel, 1, 0))
+    Else
+        sRetorno = 0
+    End If
+ElseIf parTipo = EnumType.eNumberSql Then
+    If Not parVariavel = Empty Then
+        sRetorno = Replace(parVariavel, ",", ".")
+    Else
+        sRetorno = 0
+    End If
+ElseIf parTipo = eStringSql Then
+    If Not parVariavel = Empty Then
+        sRetorno = "'" & parVariavel & "'"
+    Else
+        sRetorno = Empty
+    End If
+End If
+
+TratarVariavel = sRetorno
+
 End Function
 
-Public Function ComboBoxFill(ByRef ParCombo As ComboBox, ByVal Query_ As String)
-    Dim iRecordset As New ADODB.Recordset, iRows As Long
-    
-    Set iRecordset = ReadQuery(Query_, iRows)
-    ParCombo.AddItem " ", 0
-    
-    With iRecordset
-        While Not .EOF
-            ParCombo.AddItem VariableAdjust(!DESCRICAO, eStringText), (VariableAdjust(!COR_CODIGO, eLongNumber))
-            .MoveNext
-        Wend
-    End With
+Public Function PreencherCombo(ByRef ParCombo As ComboBox, ByVal parSql As String)
+
+Dim sRecordset As New ADODB.Recordset, sLinhas As Long
+
+Set sRecordset = ConsultarSql(parSql, 0)
+ParCombo.AddItem " ", 0
+
+With sRecordset
+    While Not .EOF
+        ParCombo.AddItem TratarVariavel(!Descricao, eStringText), (TratarVariavel(!COR_CODIGO, eLongNumber))
+        .MoveNext
+    Wend
+End With
 
 End Function
 
